@@ -4,6 +4,62 @@ Registro público de toda alteração em dados, regras de cálculo ou fontes. Fo
 
 ---
 
+## [v1.3.6] — 2026-06-26
+
+### Adicionado
+- **Seção "Escala do dinheiro"** para explicar a diferença entre mil, milhão, bilhão e trilhão.
+- **Analogias de tempo** mostrando quanto levaria para juntar R$ 1 bi e R$ 1 tri com salário de R$ 10 mil/mês.
+- **Equivalências cidadãs** nos módulos de corrupção e renúncia fiscal: transferência de R$ 600/mês, escolas de R$ 15 mi, hospitais de R$ 250 mi e ambulâncias de R$ 350 mil.
+- **CSVs atualizados** para exportar as equivalências de corrupção e renúncia fiscal.
+
+### Nota metodológica
+- As equivalências são didáticas e usam premissas abertas. Não são promessa de execução de obra nem substituem orçamento executivo.
+
+---
+
+## [v1.3.5] — 2026-06-26
+
+### Adicionado
+- **Módulo Judiciário com dados oficiais do CNJ** substituindo o placeholder "Em breve".
+- **Indicadores CNJ 2024**: despesa total, custo por habitante, peso no PIB, despesa com pessoal, custo operacional sem inativos e receitas arrecadadas.
+- **CSV específico** para o módulo Judiciário (`judiciario_cnj_2024`).
+- **Entrada na Tabela Cidadã** e no ranking macro.
+- **Aba Poderes do ranking** agora compara Judiciário total e Judiciário/pessoal com Executivo Federal.
+
+---
+
+## [v1.3.4] — 2026-06-26
+
+### Alterado (UX)
+- **Fontes oficiais** movido para o final do painel, como seção de apoio e auditoria.
+- **Compromisso com os dados** mantido como último bloco de conteúdo, reforçando governança sem interromper a leitura principal.
+- **Navegação lateral** reorganizada para seguir a nova ordem da página.
+
+---
+
+## [v1.3.3] — 2026-06-26
+
+### Adicionado
+- **Seção "Renúncia fiscal"** com valor oficial de gastos tributários federais previstos no DGT/PLOA 2026 da Receita Federal.
+- **Terminologia cidadã** explicando que o mesmo fenômeno pode aparecer como gasto tributário, benefício tributário, desoneração, isenção, alíquota zero ou regime especial.
+- **Escala fiscal**: R$ 612,84 bi, 4,43% do PIB, 20,20% das receitas administradas pela RFB e valor por brasileiro.
+- **Comparações visuais** com Saúde no orçamento e Emendas parlamentares.
+- **CSV específico** para renúncia fiscal (`renuncia_fiscal_2026`).
+- **Entrada no ranking macro** para comparar renúncia fiscal com juros, custo da corrupção, saúde, emendas e fundos político-eleitorais.
+
+---
+
+## [v1.3.2] — 2026-06-26
+
+### Adicionado
+- **Seção "Custo da corrupção"** com faixa didática de impacto econômico entre 1,38% e 2,3% do PIB.
+- **Cards de escala**: cenário baixo, cenário alto e custo anual por brasileiro.
+- **CSV específico** para a estimativa de corrupção (`custo_corrupcao_estimativa`).
+- **Entrada no ranking macro** para comparar a ordem de grandeza com juros, saúde, emendas e fundos político-eleitorais.
+- **Metodologia explícita** deixando claro que é estimativa econômica, não valor oficial de desvios comprovados.
+
+---
+
 ## [v1.3.1] — 2026-06-26
 
 ### Corrigido (UX)

@@ -469,13 +469,14 @@ footer{background:linear-gradient(135deg,#0B1220,var(--blue));color:#d7dee8;padd
 <main class="wrap layout">
   <nav class="side">
     <strong>Navegação</strong>
-    <a href="#compromisso">🛡 Compromisso com o dado</a>
     <a href="#brasil">🇧🇷 Brasil</a>
     <a href="#cinco">Brasil em 5 minutos</a>
-    <a href="#painelsoficiais">📊 Fontes oficiais</a>
     <a href="#linhatempo">Linha do tempo · Dívida/PIB</a>
+    <a href="#escala">Milhão, bilhão, trilhão</a>
     <a href="#relogios">Relógios em tempo real</a>
     <a href="#cemreais">Cada R$ 100</a>
+    <a href="#corrupcao">Custo da corrupção</a>
+    <a href="#renuncia">Renúncia fiscal</a>
     <a href="#brasilia">Quanto custa Brasília</a>
     <a href="#parlamentar">Custo parlamentar</a>
     <a href="#judiciario">Judiciário</a>
@@ -484,6 +485,8 @@ footer{background:linear-gradient(135deg,#0B1220,var(--blue));color:#d7dee8;padd
     <a href="#estados">🏛 Estados</a>
     <a href="#cards">Cards para redes</a>
     <a href="#metodologia">Metodologia</a>
+    <a href="#painelsoficiais">📊 Fontes oficiais</a>
+    <a href="#compromisso">🛡 Compromisso com os dados</a>
   </nav>
   <div>
     <section id="brasil" class="grid kpis">
@@ -534,50 +537,21 @@ footer{background:linear-gradient(135deg,#0B1220,var(--blue));color:#d7dee8;padd
       <div class="miniCard"><strong>6. Poderes</strong><p>Executivo, Legislativo e Judiciário têm estruturas, orçamentos e responsabilidades diferentes.</p></div>
     </div></section>
 
-    <section class="card" id="painelsoficiais">
-      <span class="sourceBadge stack" title="Portais oficiais do Governo Federal"><span class="dot blue"></span><span class="src">Governo Federal</span><span class="date">atualizado 26/06/2026</span></span>
-      <span class="pill blue" style="margin-top:42px">Fontes oficiais</span>
-      <h2 class="section-title">Onde ver os números oficiais</h2>
-      <p class="section-sub">Brasil Transparente <b>complementa</b>, não substitui os portais oficiais. Em caso de dúvida sobre qualquer número desta página, abra o portal correspondente e confira direto na fonte. Todos têm API pública ou download gratuito.</p>
-      <div class="oficialGrid">
-        <a class="oficialCard" href="https://www.bcb.gov.br/estatisticas/estatisticasfiscais" target="_blank" rel="noopener">
-          <div class="ofBadge"><span class="dot"></span>Oficial · Banco Central</div>
-          <h3>🏦 Estatísticas Fiscais <span class="ext">↗ bcb.gov.br</span></h3>
-          <p>Dívida bruta, dívida líquida, resultado primário, juros nominais e necessidade de financiamento do setor público. Séries históricas mensais desde 2002.</p>
-          <div class="ofLinks"><a href="https://www.bcb.gov.br/estatisticas/estatisticasfiscais" target="_blank" rel="noopener">Estatísticas Fiscais</a><a href="https://www.bcb.gov.br/detalhesmsgsite/detalhamentos_relatorio_analiseSFN.html" target="_blank" rel="noopener">Boletim Focus</a></div>
-        </a>
-        <a class="oficialCard" href="https://www.tesourotransparente.gov.br/" target="_blank" rel="noopener">
-          <div class="ofBadge"><span class="dot"></span>Oficial · Tesouro Nacional</div>
-          <h3>💰 Tesouro Transparente <span class="ext">↗ tesourotransparente.gov.br</span></h3>
-          <p>Portal oficial da STN. Séries Temporais com 11 painéis (RTN, RREO, RGF, Dívida Pública, LRF), dados abertos (CKAN) e APIs REST gratuitas.</p>
-          <div class="ofLinks"><a href="https://www.tesourotransparente.gov.br/visualizacao/series-temporais-do-tesouro-nacional" target="_blank" rel="noopener">Séries Temporais</a><a href="https://www.tesourotransparente.gov.br/ckan/dataset" target="_blank" rel="noopener">Dados Abertos (CKAN)</a><a href="https://apidatalake.tesouro.gov.br/docs/siconfi/" target="_blank" rel="noopener">API Siconfi</a></div>
-        </a>
-        <a class="oficialCard" href="https://siconfi.tesouro.gov.br/" target="_blank" rel="noopener">
-          <div class="ofBadge"><span class="dot"></span>Oficial · Siconfi</div>
-          <h3>🏛️ Siconfi — Estados e Municípios <span class="ext">↗ siconfi.tesouro.gov.br</span></h3>
-          <p>Receita, despesa, dívida e indicadores fiscais dos <b>5.570 municípios</b>, 26 estados, DF e União. API REST pública com RREO, RGF e MSC.</p>
-          <div class="ofLinks"><a href="https://apidatalake.tesouro.gov.br/docs/siconfi/" target="_blank" rel="noopener">Documentação da API</a><a href="https://siconfi.tesouro.gov.br/siconfi/pages/public/conteudo/conteudo.jsf?id=Terceiro" target="_blank" rel="noopener">Consultas RREO/RGF</a></div>
-        </a>
-        <a class="oficialCard" href="https://portaldatransparencia.gov.br/orcamento" target="_blank" rel="noopener">
-          <div class="ofBadge"><span class="dot"></span>Oficial · CGU</div>
-          <h3>🔍 Portal da Transparência <span class="ext">↗ portaldatransparencia.gov.br</span></h3>
-          <p>Orçamento federal, receitas, despesas, emendas, contratos e servidores. Mantido pela Controladoria-Geral da União. Inclui API REST pública.</p>
-          <div class="ofLinks"><a href="https://portaldatransparencia.gov.br/orcamento" target="_blank" rel="noopener">Orçamento</a><a href="https://portaldatransparencia.gov.br/receitas" target="_blank" rel="noopener">Receitas</a><a href="https://api.portaldatransparencia.gov.br/" target="_blank" rel="noopener">API de Dados</a></div>
-        </a>
-        <a class="oficialCard" href="https://www.tse.jus.br/eleicoes/eleicoes-2026-content/prestacao-de-contas/distribuicao-dos-recursos-do-fundo-especial-de-financiamento-de-campanha-fefc-eleicoes-2026" target="_blank" rel="noopener">
-          <div class="ofBadge"><span class="dot"></span>Oficial · TSE</div>
-          <h3>🗳️ Fundo Eleitoral e Partidário <span class="ext">↗ tse.jus.br</span></h3>
-          <p>Distribuição do FEFC por partido, prestação de contas e Fundo Partidário anual. Dados das eleições de 2026 já publicados.</p>
-          <div class="ofLinks"><a href="https://www.tse.jus.br/eleicoes/eleicoes-2026-content/prestacao-de-contas/distribuicao-dos-recursos-do-fundo-especial-de-financiamento-de-campanha-fefc-eleicoes-2026" target="_blank" rel="noopener">FEFC 2026</a><a href="https://www.tse.jus.br/partidos/partidos-1/fundo-partidario" target="_blank" rel="noopener">Fundo Partidário</a></div>
-        </a>
-        <a class="oficialCard" href="https://www.ibge.gov.br/" target="_blank" rel="noopener">
-          <div class="ofBadge"><span class="dot"></span>Oficial · IBGE</div>
-          <h3>📊 População e PIB <span class="ext">↗ ibge.gov.br</span></h3>
-          <p>Estimativas populacionais municipais (Censo 2022), PIB estadual e municipal, Contas Regionais. APIs REST documentadas em servicodados.ibge.gov.br.</p>
-          <div class="ofLinks"><a href="https://www.ibge.gov.br/estatisticas/sociais/populacao.html" target="_blank" rel="noopener">População</a><a href="https://www.ibge.gov.br/estatisticas/economicas/contas-regionais.html" target="_blank" rel="noopener">PIB</a><a href="https://servicodados.ibge.gov.br/api/docs/" target="_blank" rel="noopener">API IBGE</a></div>
-        </a>
+    <section class="card" id="escala">
+      <span class="pill warn">Escala do dinheiro</span>
+      <h2 class="section-title">Mil, milhão, bilhão, trilhão: o salto é de 1.000 em 1.000</h2>
+      <p class="section-sub">O brasileiro ouve "bilhões" todo dia e o cérebro acostuma. Mas a escala muda brutalmente: <b>1 bilhão não é um milhão grande</b>; é mil milhões. E 1 trilhão é mil bilhões.</p>
+      <div class="grid four">
+        <div class="miniCard"><span class="mini">R$ 1 mil</span><strong>1.000</strong><p>Dez notas de R$ 100. É dinheiro de pessoa física.</p></div>
+        <div class="miniCard"><span class="mini">R$ 1 milhão</span><strong>1.000.000</strong><p>Mil pagamentos de R$ 1.000.</p></div>
+        <div class="miniCard"><span class="mini">R$ 1 bilhão</span><strong>1.000 milhões</strong><p>Um milhão de pagamentos de R$ 1.000.</p></div>
+        <div class="miniCard"><span class="mini">R$ 1 trilhão</span><strong>1.000 bilhões</strong><p>Um bilhão de pagamentos de R$ 1.000.</p></div>
       </div>
-      <p class="note" style="margin-top:14px"><b>Como ler este painel vs. os portais oficiais:</b> aqui os números são arredondados e agregados para educação fiscal. Para publicação, decisão de investimento ou contestação jurídica, sempre consulte a fonte oficial. Em caso de divergência, prevalece o número do portal oficial.</p>
+      <div class="grid two" style="margin-top:16px">
+        <div class="miniCard"><span class="mini">Salário de R$ 10 mil/mês</span><strong>8.333 anos</strong><p>Tempo aproximado para juntar R$ 1 bilhão sem gastar nada.</p></div>
+        <div class="miniCard"><span class="mini">Mesmo salário</span><strong>8,3 milhões de anos</strong><p>Tempo aproximado para juntar R$ 1 trilhão sem gastar nada.</p></div>
+      </div>
+      <p class="note">Regra mental: milhão → bilhão → trilhão sempre multiplica por 1.000. Quando o debate público trata R$ 5 milhões, R$ 5 bilhões e R$ 5 trilhões como se fossem "muito dinheiro" do mesmo tamanho, a cobrança cidadã fica cega. Em muitos casos, o problema não é só falta absoluta de dinheiro: é prioridade, gestão, controle e qualidade do gasto.</p>
     </section>
 
     <section id="relogios" class="grid two">
@@ -609,6 +583,56 @@ footer{background:linear-gradient(135deg,#0B1220,var(--blue));color:#d7dee8;padd
         <div id="cemBox"></div>
       </section>
 
+    <section class="card" id="corrupcao">
+        <span class="cemReaisBadge didatica" title="Estimativa econômica baseada em estudos sobre perda de PIB — não é medição oficial de desvios comprovados"><span class="dot didatica"></span>Estimativa didática · perda econômica</span>
+        <span class="pill danger" style="margin-top:6px">Custo da corrupção</span>
+        <div class="csvRow">
+          <h2 class="section-title">Quanto a corrupção pode custar ao Brasil?</h2>
+          <button class="csvBtn" onclick="downloadCSV('custo_corrupcao_estimativa','corrupcao')"><span class="arrow">⬇</span> Baixar CSV</button>
+        </div>
+        <p class="section-sub">Não existe um "valor oficial único" da corrupção. O painel mostra uma faixa didática: estudos econômicos já estimaram perdas entre <b>1,38% e 2,3% do PIB</b>. Aplicando essa faixa ao PIB estimado usado nesta página, o impacto anual ficaria nesta ordem de grandeza.</p>
+        <div class="grid three">
+          <div class="miniCard"><span class="mini">Cenário baixo</span><strong>R$ 179 bi</strong><p>1,38% do PIB estimado. Perda econômica anual, não desvio comprovado em processo.</p></div>
+          <div class="miniCard"><span class="mini">Cenário alto</span><strong>R$ 298 bi</strong><p>2,3% do PIB estimado. Serve para comparar escala, não para acusação individual.</p></div>
+          <div class="miniCard"><span class="mini">Por brasileiro</span><strong>R$ 880 a R$ 1.466</strong><p>Faixa anual dividida por 203 milhões de habitantes.</p></div>
+        </div>
+        <h3 style="margin:22px 0 8px">O que esse dinheiro poderia representar?</h3>
+        <div class="grid three">
+          <div class="miniCard"><span class="mini">Transferência direta</span><strong>24,9 mi a 41,4 mi</strong><p>Famílias recebendo R$ 600 por mês durante 1 ano.</p></div>
+          <div class="miniCard"><span class="mini">Escolas de R$ 15 mi</span><strong>11,9 mil a 19,9 mil</strong><p>Equivalência didática para construção/equipamento.</p></div>
+          <div class="miniCard"><span class="mini">Hospitais de R$ 250 mi</span><strong>716 a 1.192</strong><p>Ordem de grandeza para obras grandes de saúde.</p></div>
+        </div>
+        <div class="barrow"><div class="barlabel"><span>Cenário baixo · 1,38% do PIB</span><span>R$ 179 bi</span></div><div class="bar red"><span style="width:60%"></span></div></div>
+        <div class="barrow"><div class="barlabel"><span>Cenário alto · 2,3% do PIB</span><span>R$ 298 bi</span></div><div class="bar red"><span style="width:100%"></span></div></div>
+        <p class="note">Fonte metodológica: <a href="https://www.fiesp.com.br/arquivo-download/?id=2021" target="_blank" rel="noopener" style="color:var(--blue)">Fiesp, relatório "Corrupção: custos econômicos e propostas de combate"</a> (faixa 1,38% a 2,3% do PIB). Equivalências usam premissas didáticas abertas: R$ 600/mês por família, escola de R$ 15 mi e hospital de R$ 250 mi. Não são promessa de obra; servem para dar escala.</p>
+      </section>
+
+    <section class="card" id="renuncia">
+        <span class="sourceBadge stack" title="Receita Federal — Demonstrativo dos Gastos Tributários PLOA 2026"><span class="dot purple"></span><span class="src">Receita Federal</span><span class="date">PLOA 2026</span></span>
+        <span class="pill purple" style="margin-top:42px">Renúncia fiscal</span>
+        <div class="csvRow">
+          <h2 class="section-title">Quanto o governo deixa de arrecadar?</h2>
+          <button class="csvBtn" onclick="downloadCSV('renuncia_fiscal_2026','renuncia_fiscal')"><span class="arrow">⬇</span> Baixar CSV</button>
+        </div>
+        <p class="section-sub">Também aparece como <b>gasto tributário</b>, <b>benefício tributário</b>, <b>desoneração</b>, <b>isenção</b>, <b>alíquota zero</b> ou <b>regime especial</b>. O resultado fiscal é parecido: parte da arrecadação potencial não entra no caixa público.</p>
+        <div class="grid three">
+          <div class="miniCard"><span class="mini">Previsão 2026</span><strong>R$ 612,84 bi</strong><p>Gastos tributários federais estimados pela Receita Federal no DGT/PLOA 2026.</p></div>
+          <div class="miniCard"><span class="mini">Peso na economia</span><strong>4,43% do PIB</strong><p>Proporção estimada pela Receita Federal para o ano de 2026.</p></div>
+          <div class="miniCard"><span class="mini">Por brasileiro</span><strong>R$ 3.019/ano</strong><p>Valor dividido por 203 milhões de habitantes, só para escala cidadã.</p></div>
+        </div>
+        <h3 style="margin:22px 0 8px">Traduzindo R$ 612,84 bi para coisas concretas</h3>
+        <div class="grid four">
+          <div class="miniCard"><span class="mini">Transferência direta</span><strong>85,1 mi</strong><p>Famílias recebendo R$ 600 por mês durante 1 ano.</p></div>
+          <div class="miniCard"><span class="mini">Escolas de R$ 15 mi</span><strong>40,9 mil</strong><p>Equivalência didática para construção/equipamento.</p></div>
+          <div class="miniCard"><span class="mini">Hospitais de R$ 250 mi</span><strong>2.451</strong><p>Ordem de grandeza para obras grandes de saúde.</p></div>
+          <div class="miniCard"><span class="mini">Ambulâncias de R$ 350 mil</span><strong>1,75 mi</strong><p>Quantidade equivalente em veículos de emergência.</p></div>
+        </div>
+        <div class="barrow"><div class="barlabel"><span>Renúncia fiscal federal prevista</span><span>R$ 612,84 bi</span></div><div class="bar red"><span style="width:100%"></span></div></div>
+        <div class="barrow"><div class="barlabel"><span>Comparação: Saúde no orçamento</span><span>R$ 254,9 bi</span></div><div class="bar bluebar"><span style="width:42%"></span></div></div>
+        <div class="barrow"><div class="barlabel"><span>Comparação: Emendas parlamentares</span><span>R$ 61 bi</span></div><div class="bar bluebar"><span style="width:10%"></span></div></div>
+        <p class="note">Fonte: <a href="https://www.gov.br/receitafederal/pt-br/centrais-de-conteudo/publicacoes/relatorios/renuncia/gastos-tributarios-ploa/dgt-previsao-ploa-2026-base-conceitual.pdf" target="_blank" rel="noopener" style="color:var(--blue)">Receita Federal — Demonstrativo dos Gastos Tributários PLOA 2026</a>. Importante: renúncia fiscal não é automaticamente corrupção; pode ser política pública, incentivo econômico ou privilégio tributário. Equivalências usam premissas didáticas abertas e servem para mostrar escala.</p>
+      </section>
+
     <section class="grid two" id="brasilia">
       <div class="card">
         <span class="sourceBadge stack" title="Tesouro Nacional — LOA 2026"><span class="dot purple"></span><span class="src">Tesouro · LOA</span><span class="date">jan/2026</span></span>
@@ -631,11 +655,25 @@ footer{background:linear-gradient(135deg,#0B1220,var(--blue));color:#d7dee8;padd
       </div>
     </section>
 
-    <section class="card emptyCard" id="judiciario">
-        <div class="bigIcon">⚖️</div>
-        <b>Em breve — integrando dados oficiais</b>
-        <p>O módulo Judiciário está em construção. Vamos puxar orçamento, quadro de magistrados, servidores e custo por habitante diretamente do Conselho Nacional de Justiça (CNJ) e do Portal da Transparência, com data de competência e link para a fonte oficial em cada indicador.</p>
-        <p class="note">Acompanhe o progresso no <code>roadmap.md</code> do projeto (Sprint 3).</p>
+    <section class="card" id="judiciario">
+        <span class="sourceBadge stack" title="CNJ — Relatório Justiça em Números 2025, ano-base 2024"><span class="dot blue"></span><span class="src">CNJ</span><span class="date">2024</span></span>
+        <span class="pill blue" style="margin-top:42px">Judiciário</span>
+        <div class="csvRow">
+          <h2 class="section-title">Quanto custa o Poder Judiciário?</h2>
+          <button class="csvBtn" onclick="downloadCSV('judiciario_cnj_2024','judiciario')"><span class="arrow">⬇</span> Baixar CSV</button>
+        </div>
+        <p class="section-sub">Dados do <b>Justiça em Números 2025</b>, do Conselho Nacional de Justiça, com ano-base 2024. O valor inclui todos os ramos do Judiciário monitorados pelo CNJ e, pela primeira vez no relatório, dados do STF.</p>
+        <div class="grid four">
+          <div class="miniCard"><span class="mini">Despesa total</span><strong>R$ 146,5 bi</strong><p>Maior valor da série histórica do CNJ.</p></div>
+          <div class="miniCard"><span class="mini">Por habitante</span><strong>R$ 689,34</strong><p>Custo médio anual por brasileiro.</p></div>
+          <div class="miniCard"><span class="mini">Peso no PIB</span><strong>1,2%</strong><p>Proporção aproximada da despesa no PIB.</p></div>
+          <div class="miniCard"><span class="mini">Receitas geradas</span><strong>R$ 79 bi</strong><p>Custas, emolumentos, execuções fiscais e outras receitas.</p></div>
+        </div>
+        <div class="barrow"><div class="barlabel"><span>Despesa total do Judiciário</span><span>R$ 146,5 bi</span></div><div class="bar red"><span style="width:100%"></span></div></div>
+        <div class="barrow"><div class="barlabel"><span>Despesa com pessoal</span><span>R$ 130,6 bi · 89,2%</span></div><div class="bar red"><span style="width:89%"></span></div></div>
+        <div class="barrow"><div class="barlabel"><span>Custo operacional sem inativos</span><span>R$ 124 bi</span></div><div class="bar bluebar"><span style="width:85%"></span></div></div>
+        <div class="barrow"><div class="barlabel"><span>Receitas arrecadadas pelo Judiciário</span><span>R$ 79 bi · 54% da despesa</span></div><div class="bar bluebar"><span style="width:54%"></span></div></div>
+        <p class="note">Fonte: <a href="https://www.cnj.jus.br/wp-content/uploads/2025/09/justica-em-numeros-2025.pdf" target="_blank" rel="noopener" style="color:var(--blue)">CNJ — Justiça em Números 2025</a>. Despesa total não é sinônimo de desperdício: inclui pessoal, estrutura, tecnologia, inativos e funcionamento dos tribunais. O painel mostra a escala para comparação pública.</p>
       </section>
 
 <section class="card" id="ranking">
@@ -716,6 +754,12 @@ footer{background:linear-gradient(135deg,#0B1220,var(--blue));color:#d7dee8;padd
               <td data-label="Fonte"><span class="sourceBadge" title="Congresso Nacional — LOA 2026"><span class="dot purple"></span><span class="src">LOA 2026</span></span></td>
             </tr>
             <tr>
+              <td data-label="Conta"><strong>Judiciário</strong></td>
+              <td data-label="Significado">Despesa total do Poder Judiciário no ano-base 2024.</td>
+              <td data-label="Valor">R$ 146,5 bi</td>
+              <td data-label="Fonte"><span class="sourceBadge" title="CNJ — Justiça em Números 2025"><span class="dot blue"></span><span class="src">CNJ · 2024</span></span></td>
+            </tr>
+            <tr>
               <td data-label="Conta"><strong>Fundo Eleitoral</strong></td>
               <td data-label="Significado">Financiamento público de campanhas.</td>
               <td data-label="Valor">R$ 4,961 bi</td>
@@ -737,8 +781,56 @@ footer{background:linear-gradient(135deg,#0B1220,var(--blue));color:#d7dee8;padd
 
     <section class="card" id="cards"><span class="pill">Cards para redes</span><h2 class="section-title">Pronto para comunicação pública</h2><div class="share"><div class="poster"><b>R$ 1,096 trilhão</b><p>em juros em 12 meses. O Brasil precisa falar sobre isso.</p><span>Brasil Transparente</span></div><div class="poster"><b>R$ 10,4 trilhões</b><p>de dívida bruta. Quanto disso volta em serviço bom?</p><span>Dinheiro público</span></div><div class="poster"><b>De cada R$ 100</b><p>para onde vai o dinheiro que o cidadão paga?</p><span>Sem economês</span></div><div class="poster"><b>Estados em números</b><p>Receita, despesa, saúde, educação e segurança lado a lado.</p><span>Comparar para cobrar</span></div></div><p class="note">Próxima versão: botão de baixar imagem para cada card.</p></section>
 
+    <section class="card" id="metodologia"><span class="pill blue">Metodologia</span><h2 class="section-title">Como os cálculos são feitos</h2><ul class="method"><li><strong>Impostômetro:</strong> arrecadação anual estimada ÷ segundos do ano × segundos decorridos desde 01/01/2026.</li><li><strong>Juros por segundo:</strong> juros anuais estimados ÷ 365 ÷ 24 ÷ 60 ÷ 60.</li><li><strong>Dívida por pessoa:</strong> dívida bruta ÷ população estimada.</li><li><strong>Escala do dinheiro:</strong> milhão, bilhão e trilhão são saltos de 1.000 em 1.000; as analogias usam divisões simples para tornar a escala intuitiva.</li><li><strong>Linha do tempo (Dívida/PIB):</strong> série anual do Banco Central — Dívida Bruta do Governo Geral ÷ PIB. 2006-2024 oficial; 2026 projeção.</li><li><strong>Cada R$ 100:</strong> percentuais didáticos do orçamento, substituíveis por dados oficiais (Sprint 3).</li><li><strong>Custo da corrupção:</strong> faixa didática de 1,38% a 2,3% do PIB aplicada ao PIB estimado do painel. É perda econômica estimada, não valor oficial de desvios comprovados.</li><li><strong>Equivalências cidadãs:</strong> premissas didáticas abertas: transferência de R$ 600/mês por família, escola de R$ 15 mi, hospital de R$ 250 mi e ambulância de R$ 350 mil.</li><li><strong>Renúncia fiscal:</strong> gastos tributários federais previstos no DGT/PLOA 2026 da Receita Federal. Inclui isenções, desonerações, alíquota zero, deduções, regimes especiais e outros benefícios tributários.</li><li><strong>Judiciário:</strong> despesa total, custo por habitante, pessoal e receitas conforme CNJ Justiça em Números 2025, ano-base 2024.</li><li><strong>Estados:</strong> ano-base 2024, último ano fechado. Receita/Despesa/Saúde/Educação/Segurança/Dívida via Siconfi (RREO/RGF). População/PIB via IBGE.</li><li><strong>Regra de credibilidade:</strong> todo dado deve exibir fonte, período, data de atualização e se é oficial ou estimado.</li></ul></section>
+
+    <section class="card" id="painelsoficiais">
+      <span class="sourceBadge stack" title="Portais oficiais do Governo Federal"><span class="dot blue"></span><span class="src">Governo Federal</span><span class="date">atualizado 26/06/2026</span></span>
+      <span class="pill blue" style="margin-top:42px">Fontes oficiais</span>
+      <h2 class="section-title">Onde ver os números oficiais</h2>
+      <p class="section-sub">Brasil Transparente <b>complementa</b>, não substitui os portais oficiais. Em caso de dúvida sobre qualquer número desta página, abra o portal correspondente e confira direto na fonte. Todos têm API pública ou download gratuito.</p>
+      <div class="oficialGrid">
+        <a class="oficialCard" href="https://www.bcb.gov.br/estatisticas/estatisticasfiscais" target="_blank" rel="noopener">
+          <div class="ofBadge"><span class="dot"></span>Oficial · Banco Central</div>
+          <h3>🏦 Estatísticas Fiscais <span class="ext">↗ bcb.gov.br</span></h3>
+          <p>Dívida bruta, dívida líquida, resultado primário, juros nominais e necessidade de financiamento do setor público. Séries históricas mensais desde 2002.</p>
+          <div class="ofLinks"><a href="https://www.bcb.gov.br/estatisticas/estatisticasfiscais" target="_blank" rel="noopener">Estatísticas Fiscais</a><a href="https://www.bcb.gov.br/detalhesmsgsite/detalhamentos_relatorio_analiseSFN.html" target="_blank" rel="noopener">Boletim Focus</a></div>
+        </a>
+        <a class="oficialCard" href="https://www.tesourotransparente.gov.br/" target="_blank" rel="noopener">
+          <div class="ofBadge"><span class="dot"></span>Oficial · Tesouro Nacional</div>
+          <h3>💰 Tesouro Transparente <span class="ext">↗ tesourotransparente.gov.br</span></h3>
+          <p>Portal oficial da STN. Séries Temporais com 11 painéis (RTN, RREO, RGF, Dívida Pública, LRF), dados abertos (CKAN) e APIs REST gratuitas.</p>
+          <div class="ofLinks"><a href="https://www.tesourotransparente.gov.br/visualizacao/series-temporais-do-tesouro-nacional" target="_blank" rel="noopener">Séries Temporais</a><a href="https://www.tesourotransparente.gov.br/ckan/dataset" target="_blank" rel="noopener">Dados Abertos (CKAN)</a><a href="https://apidatalake.tesouro.gov.br/docs/siconfi/" target="_blank" rel="noopener">API Siconfi</a></div>
+        </a>
+        <a class="oficialCard" href="https://siconfi.tesouro.gov.br/" target="_blank" rel="noopener">
+          <div class="ofBadge"><span class="dot"></span>Oficial · Siconfi</div>
+          <h3>🏛️ Siconfi — Estados e Municípios <span class="ext">↗ siconfi.tesouro.gov.br</span></h3>
+          <p>Receita, despesa, dívida e indicadores fiscais dos <b>5.570 municípios</b>, 26 estados, DF e União. API REST pública com RREO, RGF e MSC.</p>
+          <div class="ofLinks"><a href="https://apidatalake.tesouro.gov.br/docs/siconfi/" target="_blank" rel="noopener">Documentação da API</a><a href="https://siconfi.tesouro.gov.br/siconfi/pages/public/conteudo/conteudo.jsf?id=Terceiro" target="_blank" rel="noopener">Consultas RREO/RGF</a></div>
+        </a>
+        <a class="oficialCard" href="https://portaldatransparencia.gov.br/orcamento" target="_blank" rel="noopener">
+          <div class="ofBadge"><span class="dot"></span>Oficial · CGU</div>
+          <h3>🔍 Portal da Transparência <span class="ext">↗ portaldatransparencia.gov.br</span></h3>
+          <p>Orçamento federal, receitas, despesas, emendas, contratos e servidores. Mantido pela Controladoria-Geral da União. Inclui API REST pública.</p>
+          <div class="ofLinks"><a href="https://portaldatransparencia.gov.br/orcamento" target="_blank" rel="noopener">Orçamento</a><a href="https://portaldatransparencia.gov.br/receitas" target="_blank" rel="noopener">Receitas</a><a href="https://api.portaldatransparencia.gov.br/" target="_blank" rel="noopener">API de Dados</a></div>
+        </a>
+        <a class="oficialCard" href="https://www.tse.jus.br/eleicoes/eleicoes-2026-content/prestacao-de-contas/distribuicao-dos-recursos-do-fundo-especial-de-financiamento-de-campanha-fefc-eleicoes-2026" target="_blank" rel="noopener">
+          <div class="ofBadge"><span class="dot"></span>Oficial · TSE</div>
+          <h3>🗳️ Fundo Eleitoral e Partidário <span class="ext">↗ tse.jus.br</span></h3>
+          <p>Distribuição do FEFC por partido, prestação de contas e Fundo Partidário anual. Dados das eleições de 2026 já publicados.</p>
+          <div class="ofLinks"><a href="https://www.tse.jus.br/eleicoes/eleicoes-2026-content/prestacao-de-contas/distribuicao-dos-recursos-do-fundo-especial-de-financiamento-de-campanha-fefc-eleicoes-2026" target="_blank" rel="noopener">FEFC 2026</a><a href="https://www.tse.jus.br/partidos/partidos-1/fundo-partidario" target="_blank" rel="noopener">Fundo Partidário</a></div>
+        </a>
+        <a class="oficialCard" href="https://www.ibge.gov.br/" target="_blank" rel="noopener">
+          <div class="ofBadge"><span class="dot"></span>Oficial · IBGE</div>
+          <h3>📊 População e PIB <span class="ext">↗ ibge.gov.br</span></h3>
+          <p>Estimativas populacionais municipais (Censo 2022), PIB estadual e municipal, Contas Regionais. APIs REST documentadas em servicodados.ibge.gov.br.</p>
+          <div class="ofLinks"><a href="https://www.ibge.gov.br/estatisticas/sociais/populacao.html" target="_blank" rel="noopener">População</a><a href="https://www.ibge.gov.br/estatisticas/economicas/contas-regionais.html" target="_blank" rel="noopener">PIB</a><a href="https://servicodados.ibge.gov.br/api/docs/" target="_blank" rel="noopener">API IBGE</a></div>
+        </a>
+      </div>
+      <p class="note" style="margin-top:14px"><b>Como ler este painel vs. os portais oficiais:</b> aqui os números são arredondados e agregados para educação fiscal. Para publicação, decisão de investimento ou contestação jurídica, sempre consulte a fonte oficial. Em caso de divergência, prevalece o número do portal oficial.</p>
+    </section>
+
     <section class="compromissoBox" id="compromisso">
-      <span class="pill blue">Compromisso com o dado</span>
+      <span class="pill blue">Compromisso com os dados</span>
       <h2 class="section-title">Como garantimos a qualidade da informação</h2>
       <p class="section-sub">Um painel de transparência só vale o que vale o dado que ele mostra. Estas são as regras que todo indicador deste site segue — hoje ou nas próximas versões.</p>
       <ul>
@@ -756,7 +848,6 @@ footer{background:linear-gradient(135deg,#0B1220,var(--blue));color:#d7dee8;padd
       <p class="section-sub" style="margin-top:14px">Achou algum dado desatualizado ou errado? Abra uma issue ou envie mensagem — este é um projeto em evolução e o cidadão fiscal é parte do processo.</p>
     </section>
 
-    <section class="card" id="metodologia"><span class="pill blue">Metodologia</span><h2 class="section-title">Como os cálculos são feitos</h2><ul class="method"><li><strong>Impostômetro:</strong> arrecadação anual estimada ÷ segundos do ano × segundos decorridos desde 01/01/2026.</li><li><strong>Juros por segundo:</strong> juros anuais estimados ÷ 365 ÷ 24 ÷ 60 ÷ 60.</li><li><strong>Dívida por pessoa:</strong> dívida bruta ÷ população estimada.</li><li><strong>Linha do tempo (Dívida/PIB):</strong> série anual do Banco Central — Dívida Bruta do Governo Geral ÷ PIB. 2006-2024 oficial; 2026 projeção.</li><li><strong>Cada R$ 100:</strong> percentuais didáticos do orçamento, substituíveis por dados oficiais (Sprint 3).</li><li><strong>Estados:</strong> ano-base 2024, último ano fechado. Receita/Despesa/Saúde/Educação/Segurança/Dívida via Siconfi (RREO/RGF). População/PIB via IBGE.</li><li><strong>Regra de credibilidade:</strong> todo dado deve exibir fonte, período, data de atualização e se é oficial ou estimado.</li></ul></section>
   </div>
 </main>
 
@@ -779,7 +870,7 @@ footer{background:linear-gradient(135deg,#0B1220,var(--blue));color:#d7dee8;padd
     <div class="modalBody" id="modalBody"></div>
   </div>
 </div>
-<footer id="fontes"><div class="wrap"><span class="dataVersion">Dados <b>v1.3.1</b> · última atualização <b>26/06/2026</b></span><strong style="display:block;margin-top:18px">Fontes para atualização mensal</strong><p class="sources">Banco Central — Estatísticas Fiscais; Tesouro Transparente — Relatório Mensal da Dívida; Receita Federal — arrecadação; Congresso Nacional — LOA; Portal da Transparência; Tesouro Nacional/Siconfi (RREO/RGF); IBGE; Secretarias Estaduais de Fazenda.</p><div class="srcgrid"><a href="https://www.bcb.gov.br/estatisticas/estatisticasfiscais" target="_blank">Banco Central — Estatísticas Fiscais</a><a href="https://www.tesourotransparente.gov.br/temas/divida-publica-federal/estatisticas-e-relatorios-da-divida-publica-federal" target="_blank">Tesouro Transparente — Dívida Pública</a><a href="https://www.congressonacional.leg.br/web/orcamento/acompanhe/orcamento-anual" target="_blank">Congresso Nacional — Orçamento</a><a href="https://portaldatransparencia.gov.br/orcamento" target="_blank">Portal da Transparência — Orçamento</a><a href="https://siconfi.tesouro.gov.br/" target="_blank">Siconfi — Estados e Municípios</a><a href="https://www.ibge.gov.br/" target="_blank">IBGE — Indicadores</a></div><p class="sources" style="margin-top:18px"><a href="roadmap.md" style="color:#fde047;text-decoration:none">📋 Roadmap do projeto</a> · <a href="CHANGELOG.md" style="color:#fde047;text-decoration:none">📝 Changelog de dados</a></p></div></footer>
+<footer id="fontes"><div class="wrap"><span class="dataVersion">Dados <b>v1.3.6</b> · última atualização <b>26/06/2026</b></span><strong style="display:block;margin-top:18px">Fontes para atualização mensal</strong><p class="sources">Banco Central — Estatísticas Fiscais; Tesouro Transparente — Relatório Mensal da Dívida; Receita Federal — arrecadação; Congresso Nacional — LOA; Portal da Transparência; Tesouro Nacional/Siconfi (RREO/RGF); IBGE; Secretarias Estaduais de Fazenda.</p><div class="srcgrid"><a href="https://www.bcb.gov.br/estatisticas/estatisticasfiscais" target="_blank">Banco Central — Estatísticas Fiscais</a><a href="https://www.tesourotransparente.gov.br/temas/divida-publica-federal/estatisticas-e-relatorios-da-divida-publica-federal" target="_blank">Tesouro Transparente — Dívida Pública</a><a href="https://www.congressonacional.leg.br/web/orcamento/acompanhe/orcamento-anual" target="_blank">Congresso Nacional — Orçamento</a><a href="https://portaldatransparencia.gov.br/orcamento" target="_blank">Portal da Transparência — Orçamento</a><a href="https://siconfi.tesouro.gov.br/" target="_blank">Siconfi — Estados e Municípios</a><a href="https://www.ibge.gov.br/" target="_blank">IBGE — Indicadores</a></div><p class="sources" style="margin-top:18px"><a href="roadmap.md" style="color:#fde047;text-decoration:none">📋 Roadmap do projeto</a> · <a href="CHANGELOG.md" style="color:#fde047;text-decoration:none">📝 Changelog de dados</a></p></div></footer>
 <script>
 const CONFIG={year:2026,population:203_000_000,annualTaxRevenue:3_700_000_000_000,grossDebt:10_400_000_000_000,annualDebtGrowthEstimate:600_000_000_000,annualInterest:1_096_000_000_000,budget2026:6_500_000_000_000,amendments:61_000_000_000,electoralFund:4_961_519_777,partyFund:1_000_000_000};
 const openedAt=Date.now();
@@ -790,9 +881,13 @@ function updateImposto(){const ano=Number(document.getElementById('impostoRange'
 function updateJuros(){const ano=Number(document.getElementById('jurosRange').value)*1e9;CONFIG.annualInterest=ano;document.getElementById('jurosLabel').textContent=short(ano);document.getElementById('jDia').textContent=brl(ano/365);document.getElementById('jHora').textContent=brl(ano/365/24);document.getElementById('jMin').textContent=brl(ano/365/24/60);document.getElementById('jSeg').textContent=brl(ano/365/24/60/60);document.getElementById('dezMin').textContent=brl(ano/365/24/6);const debt=CONFIG.grossDebt+CONFIG.annualDebtGrowthEstimate*secondsSinceYearStart()/(365*24*60*60);document.getElementById('dividaHoje').textContent=short(debt);updatePop()}
 function updatePop(){const p=Number(document.getElementById('pop').value)*1e6;document.getElementById('popLabel').textContent=Number(document.getElementById('pop').value)+' milhões';document.getElementById('percapita').textContent=brl(CONFIG.grossDebt/p);document.getElementById('juroPessoa').textContent=brl(CONFIG.annualInterest/p)}
 function updateConsumo(){const renda=Number(document.getElementById('renda').value||0);const c=Number(document.getElementById('consumo').value||0);const carga=Number(document.getElementById('perfil').value);const mes=c*carga;document.getElementById('impConsumo').textContent=brl(mes);document.getElementById('impConsumoAno').textContent=brl(mes*12);document.getElementById('diasImposto').textContent=renda>0?Math.round((mes/renda)*30)+' dias/mês':'—'}
+const corrupcao={pibEstimado:CONFIG.grossDebt/0.804,baixoPct:1.38,altoPct:2.3,baixo:179e9,alto:298e9,pop:CONFIG.population,fonte:'Fiesp · Corrupção: custos econômicos e propostas de combate'};
+const renunciaFiscal={valor:612.84e9,pibPct:4.43,receitaRfbPct:20.20,pop:CONFIG.population,fonte:'Receita Federal · DGT/PLOA 2026'};
+const judiciario={despesa:146.5e9,custoHabitante:689.34,pibPct:1.2,pessoal:130.6e9,pessoalPct:89.2,custoOperacional:124e9,receitas:79e9,fonte:'CNJ · Justiça em Números 2025 · ano-base 2024'};
+const equivalencias={transferenciaAno:7200,escola:15e6,hospital:250e6,ambulancia:350e3};
 const cem=[['Previdência e assistência',32],['Saúde',12],['Educação',10],['Segurança e defesa',7],['Juros da dívida',18],['Legislativo/Judiciário/MP',5],['Emendas e política',3],['Outras áreas e transferências',13]];
 function drawCem(){document.getElementById('cemBox').innerHTML=cem.map(i=>`<div class="barrow"><div class="barlabel"><span>${i[0]}</span><span>R$ ${i[1]},00</span></div><div class="bar ${i[0].includes('Juros')?'red':'bluebar'}"><span style="width:${i[1]}%"></span></div></div>`).join('')}
-const ranks={macro:[['Juros da dívida','R$ 1,096 tri',100],['Pessoal Executivo Federal','R$ 350,4 bi',32],['Saúde no orçamento','R$ 254,9 bi',23],['Emendas parlamentares','R$ 61 bi',5.6],['Fundos político-eleitorais','≈ R$ 5,96 bi',0.55]],poderes:[['Executivo Federal','R$ 350,4 bi',100],['Legislativo/Judiciário/MPU/DPU — custeio/capital','R$ 21,7 bi',6.2],['Câmara/Senado/STF/Presidência','Detalhar por órgão',4],['Cartões, verbas e auxílios','Detalhar por órgão',2]],social:[['Juros da dívida','R$ 1,096 tri',100],['Saúde','R$ 254,9 bi',23],['Educação','Em breve',18],['Segurança','Em breve',8],['Fundos político-eleitorais','≈ R$ 5,96 bi',0.55]],politica:[['Emendas parlamentares','R$ 61 bi',100],['Fundo Eleitoral','R$ 4,961 bi',8.1],['Fundo Partidário','≈ R$ 1 bi',1.6],['Fundos político-eleitorais','≈ R$ 5,96 bi',9.8]]};
+const ranks={macro:[['Juros da dívida','R$ 1,096 tri',100],['Renúncia fiscal','R$ 612,84 bi',56],['Pessoal Executivo Federal','R$ 350,4 bi',32],['Custo da corrupção','R$ 179-298 bi',27],['Saúde no orçamento','R$ 254,9 bi',23],['Judiciário','R$ 146,5 bi',13.4],['Emendas parlamentares','R$ 61 bi',5.6],['Fundos político-eleitorais','≈ R$ 5,96 bi',0.55]],poderes:[['Executivo Federal','R$ 350,4 bi',100],['Judiciário total','R$ 146,5 bi',42],['Judiciário · pessoal','R$ 130,6 bi',37],['Legislativo/Judiciário/MPU/DPU — custeio/capital','R$ 21,7 bi',6.2],['Câmara/Senado/STF/Presidência','Detalhar por órgão',4],['Cartões, verbas e auxílios','Detalhar por órgão',2]],social:[['Juros da dívida','R$ 1,096 tri',100],['Saúde','R$ 254,9 bi',23],['Educação','Em breve',18],['Segurança','Em breve',8],['Fundos político-eleitorais','≈ R$ 5,96 bi',0.55]],politica:[['Emendas parlamentares','R$ 61 bi',100],['Fundo Eleitoral','R$ 4,961 bi',8.1],['Fundo Partidário','≈ R$ 1 bi',1.6],['Fundos político-eleitorais','≈ R$ 5,96 bi',9.8]]};
 let currentRank='macro';
 function showRank(type,el){currentRank=type;document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));if(el)el.classList.add('active');document.getElementById('rankBox').innerHTML=ranks[type].map(r=>`<div class="barrow"><div class="barlabel"><span>${r[0]}</span><span>${r[1]}</span></div><div class="bar ${r[0].includes('Juros')?'red':'bluebar'}"><span style="width:${Math.max(r[2],1)}%"></span></div></div>`).join('')}
 const dividaPib=[[2006,46.5],[2008,38.5],[2010,51.8],[2012,54.9],[2014,56.3],[2016,69.8],[2018,77.2],[2020,87.1],[2022,73.5],[2024,76.1],[2026,80.4]];
@@ -807,7 +902,33 @@ const estados=[
 ];
 function initEstados(){const sel=document.getElementById('estadoSelect');sel.innerHTML=estados.map((e,i)=>`<option value="${i}">${e.uf} — ${e.nome}</option>`).join('');sel.addEventListener('change',updateEstado);updateEstado()}
 function updateEstado(){const e=estados[Number(document.getElementById('estadoSelect').value||0)];document.getElementById('estadoNome').textContent=e.uf+' — '+e.nome;document.getElementById('estadoResumo').textContent=`Receita, despesa e indicadores principais · ano-base ${e.anoBase}.`;document.getElementById('ufReceita').textContent=short(e.receita);document.getElementById('ufDespesa').textContent=short(e.despesa);document.getElementById('ufSaude').textContent=short(e.saude);document.getElementById('ufEducacao').textContent=short(e.educacao);document.getElementById('ufSeguranca').textContent=short(e.seguranca);document.getElementById('ufDivida').textContent=short(e.divida);document.getElementById('ufPop').textContent=(e.pop/1e6).toLocaleString('pt-BR',{maximumFractionDigits:1})+' mi';document.getElementById('ufPib').textContent=short(e.pib);const max=Math.max(e.saude,e.educacao,e.seguranca,e.divida);document.getElementById('ufBars').innerHTML=[['Saúde',e.saude],['Educação',e.educacao],['Segurança',e.seguranca],['Dívida estadual',e.divida]].map(x=>`<div class="barrow"><div class="barlabel"><span>${x[0]}</span><span>${short(x[1])}</span></div><div class="bar ${x[0].includes('Dívida')?'red':'bluebar'}"><span style="width:${Math.max(x[1]/max*100,3)}%"></span></div></div>`).join('');document.getElementById('ufFonte').innerHTML=`Fonte finanças: <b>${e.fonteFin}</b> · Fonte população/PIB: <b>${e.fontePopPib}</b> · Ano-base: <b>${e.anoBase}</b> · Verificação: <a href="https://siconfi.tesouro.gov.br/" target="_blank">Siconfi</a> · <a href="https://www.ibge.gov.br/" target="_blank">IBGE</a>`}
-function downloadCSV(key,kind){let csv='',filename=key+'_'+new Date().toISOString().slice(0,10)+'.csv';if(kind==='divida_pib_historico'){csv='ano,divida_pib_percent,fonte,observacao\n'+dividaPib.map(p=>`${p[0]},${p[1]},Banco Central,${p[0]===2026?'projecao':'oficial'}`).join('\n'))}else if(kind==='cem_reais'){csv='categoria,valor_reais,percentual,tipo\n'+cem.map(c=>`${c[0]},${c[1]},${c[1]}%,simulacao_didatica`).join('\n'))}else if(kind.startsWith('ranking_')){const t=kind.replace('ranking_','');csv='item,valor,indice_relativo,tipo\n'+ranks[t].map(r=>`${r[0]},${r[1]},${r[2]},${r[1]==='Em breve'||r[1].includes('Detalhar')?'placeholder':'estimativa_didatica'}`).join('\n'))}else if(kind==='estados'){csv='uf,nome,receita,despesa,saude,educacao,seguranca,divida,populacao,pib,ano_base,fonte\n'+estados.map(e=>`${e.uf},${e.nome},${e.receita},${e.despesa},${e.saude},${e.educacao},${e.seguranca},${e.divida},${e.pop},${e.pib},${e.anoBase},"${e.fonteFin} | ${e.fontePopPib}"`).join('\n'))}else if(kind==='tabela_cidada'){csv='conta,significado,valor,fonte\n'+[['Dívida Bruta','Estoque total da dívida pública bruta.','R$ 10,4 tri','Banco Central · abr/2026'],['Juros','Custo anual aproximado para carregar a dívida.','R$ 1,096 tri','Banco Central · mar/2026'],['Orçamento União','Total previsto na LOA 2026.','R$ 6,5 tri','Congresso Nacional · LOA 2026'],['Emendas','Recursos indicados por parlamentares.','R$ 61 bi','Congresso Nacional · LOA 2026'],['Fundo Eleitoral','Financiamento público de campanhas.','R$ 4,961 bi','TSE · 2026'],['Fundo Partidário','Custeio anual dos partidos.','≈ R$ 1 bi','TSE · 2026']].map(r=>`${r[0]},"${r[1]}",${r[2]},${r[3]}`).join('\n'))}const blob=new Blob(['\ufeff'+csv],{type:'text/csv;charset=utf-8;'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=filename;document.body.appendChild(a);a.click();document.body.removeChild(a);URL.revokeObjectURL(url)}
+function downloadCSV(key,kind){
+  let csv='',filename=key+'_'+new Date().toISOString().slice(0,10)+'.csv';
+  if(kind==='divida_pib_historico'){
+    csv='ano,divida_pib_percent,fonte,observacao\n'+dividaPib.map(p=>`${p[0]},${p[1]},Banco Central,${p[0]===2026?'projecao':'oficial'}`).join('\n');
+  }else if(kind==='cem_reais'){
+    csv='categoria,valor_reais,percentual,tipo\n'+cem.map(c=>`${c[0]},${c[1]},${c[1]}%,simulacao_didatica`).join('\n');
+  }else if(kind==='corrupcao'){
+    csv='cenario,percentual_pib,valor_estimado_reais,valor_por_habitante_reais,transferencias_600_mes_1_ano,escolas_15mi,hospitais_250mi,tipo,fonte\n'+[['baixo',corrupcao.baixoPct,corrupcao.baixo,corrupcao.baixo/corrupcao.pop],['alto',corrupcao.altoPct,corrupcao.alto,corrupcao.alto/corrupcao.pop]].map(r=>`${r[0]},${r[1]}%,${r[2].toFixed(0)},${r[3].toFixed(2)},${(r[2]/equivalencias.transferenciaAno).toFixed(0)},${(r[2]/equivalencias.escola).toFixed(0)},${(r[2]/equivalencias.hospital).toFixed(0)},estimativa_didatica,"${corrupcao.fonte}"`).join('\n');
+  }else if(kind==='renuncia_fiscal'){
+    csv='indicador,valor_reais,percentual_pib,percentual_receitas_administradas_rfb,valor_por_habitante_reais,transferencias_600_mes_1_ano,escolas_15mi,hospitais_250mi,ambulancias_350mil,fonte,observacao\n'+`Renuncia fiscal / gastos tributarios,${renunciaFiscal.valor.toFixed(0)},${renunciaFiscal.pibPct}%,${renunciaFiscal.receitaRfbPct}%,${(renunciaFiscal.valor/renunciaFiscal.pop).toFixed(2)},${(renunciaFiscal.valor/equivalencias.transferenciaAno).toFixed(0)},${(renunciaFiscal.valor/equivalencias.escola).toFixed(0)},${(renunciaFiscal.valor/equivalencias.hospital).toFixed(0)},${(renunciaFiscal.valor/equivalencias.ambulancia).toFixed(0)},"${renunciaFiscal.fonte}","Inclui beneficios tributarios, isencoes, desoneracoes, deducoes, aliquota zero e regimes especiais conforme DGT/PLOA 2026"`;
+  }else if(kind==='judiciario'){
+    csv='indicador,valor,unidade,fonte,observacao\n'+[['Despesa total',judiciario.despesa.toFixed(0),'reais','Despesa total do Poder Judiciario'],['Custo por habitante',judiciario.custoHabitante,'reais por habitante','Custo anual medio'],['Peso no PIB',judiciario.pibPct,'percentual','Despesa sobre PIB'],['Despesa com pessoal',judiciario.pessoal.toFixed(0),'reais','Inclui pessoal ativo e inativo conforme CNJ'],['Despesa com pessoal',judiciario.pessoalPct,'percentual da despesa','Participacao sobre despesa total'],['Custo operacional sem inativos',judiciario.custoOperacional.toFixed(0),'reais','Despesa sem inativos'],['Receitas arrecadadas',judiciario.receitas.toFixed(0),'reais','Custas, emolumentos, execucoes fiscais e outras receitas']].map(r=>`${r[0]},${r[1]},${r[2]},"${judiciario.fonte}","${r[3]}"`).join('\n');
+  }else if(kind.startsWith('ranking_')){
+    const t=kind.replace('ranking_','');
+    csv='item,valor,indice_relativo,tipo\n'+ranks[t].map(r=>`${r[0]},${r[1]},${r[2]},${r[1]==='Em breve'||r[1].includes('Detalhar')?'placeholder':'estimativa_didatica'}`).join('\n');
+  }else if(kind==='estados'){
+    csv='uf,nome,receita,despesa,saude,educacao,seguranca,divida,populacao,pib,ano_base,fonte\n'+estados.map(e=>`${e.uf},${e.nome},${e.receita},${e.despesa},${e.saude},${e.educacao},${e.seguranca},${e.divida},${e.pop},${e.pib},${e.anoBase},"${e.fonteFin} | ${e.fontePopPib}"`).join('\n');
+  }else if(kind==='tabela_cidada'){
+    csv='conta,significado,valor,fonte\n'+[['Dívida Bruta','Estoque total da dívida pública bruta.','R$ 10,4 tri','Banco Central · abr/2026'],['Juros','Custo anual aproximado para carregar a dívida.','R$ 1,096 tri','Banco Central · mar/2026'],['Orçamento União','Total previsto na LOA 2026.','R$ 6,5 tri','Congresso Nacional · LOA 2026'],['Emendas','Recursos indicados por parlamentares.','R$ 61 bi','Congresso Nacional · LOA 2026'],['Fundo Eleitoral','Financiamento público de campanhas.','R$ 4,961 bi','TSE · 2026'],['Fundo Partidário','Custeio anual dos partidos.','≈ R$ 1 bi','TSE · 2026']].map(r=>`${r[0]},"${r[1]}",${r[2]},${r[3]}`).join('\n');
+  }
+  const blob=new Blob(['\ufeff'+csv],{type:'text/csv;charset=utf-8;'});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');
+  a.href=url;a.download=filename;
+  document.body.appendChild(a);a.click();document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
 function quiz(btn,ok){document.querySelectorAll('.quiz button').forEach(b=>b.classList.remove('correct','wrong'));btn.classList.add(ok?'correct':'wrong');document.getElementById('quizMsg').textContent=ok?'Correto. Agora você já está na frente de muito debate de internet.':'Ainda não. Juros e amortização são contas diferentes.'}
 const INDICADORES={
   divida:{
@@ -877,7 +998,7 @@ function closeModal(){document.getElementById('modalOverlay').classList.remove('
 function switchTab(name){document.querySelectorAll('.modalTab').forEach(t=>t.classList.toggle('active',t.dataset.tab===name));document.querySelectorAll('.modalTabPanel').forEach(p=>p.classList.toggle('active',p.dataset.tab===name))}
 document.getElementById('modalOverlay').addEventListener('click',e=>{if(e.target.id==='modalOverlay')closeModal()});
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&currentModal)closeModal()});
-function downloadIndicatorCSV(key){const ind=INDICADORES[key.replace('indicador_','')];if(!ind){alert('Indicador não encontrado: '+key);return}const csv='indicador,valor,valor_complementar,fonte,competencia,periodicidade,atualizacao,url_fonte,metodologia_resumo,projeto,commit\n'+[`${ind.titulo}`,`${ind.valor}`,`${ind.valorLong}`,`${ind.meta.fonte}`,`${ind.meta.competencia}`,`${ind.meta.periodicidade}`,`${ind.meta.atualizacao}`,`${ind.links[0]?.url||''}`,`${ind.metodologia.replace(/<[^>]+>/g,' ').replace(/\s+/g,' ').trim().slice(0,200)}`,`Brasil Transparente v1.3`,`https://github.com/${REPO_OWNER}/${REPO_NAME}/commits/main/CHANGELOG.md`].map(v=>`"${String(v).replace(/"/g,'""')}"`).join(',')+'\n';const blob=new Blob(['\ufeff'+csv],{type:'text/csv;charset=utf-8;'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=key+'_'+new Date().toISOString().slice(0,10)+'.csv';document.body.appendChild(a);a.click();document.body.removeChild(a);URL.revokeObjectURL(url)}
+function downloadIndicatorCSV(key){const csvMap={indicador_divida_bruta:'divida',indicador_juros_nominais:'juros',indicador_orcamento_uniao:'orcamento',indicador_emendas_2026:'emendas'};const ind=INDICADORES[csvMap[key]||key.replace('indicador_','')];if(!ind){alert('Indicador não encontrado: '+key);return}const csv='indicador,valor,valor_complementar,fonte,competencia,periodicidade,atualizacao,url_fonte,metodologia_resumo,projeto,commit\n'+[`${ind.titulo}`,`${ind.valor}`,`${ind.valorLong}`,`${ind.meta.fonte}`,`${ind.meta.competencia}`,`${ind.meta.periodicidade}`,`${ind.meta.atualizacao}`,`${ind.links[0]?.url||''}`,`${ind.metodologia.replace(/<[^>]+>/g,' ').replace(/\s+/g,' ').trim().slice(0,200)}`,`Brasil Transparente v1.3.6`,`https://github.com/${REPO_OWNER}/${REPO_NAME}/commits/main/CHANGELOG.md`].map(v=>`"${String(v).replace(/"/g,'""')}"`).join(',')+'\n';const blob=new Blob(['\ufeff'+csv],{type:'text/csv;charset=utf-8;'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=key+'_'+new Date().toISOString().slice(0,10)+'.csv';document.body.appendChild(a);a.click();document.body.removeChild(a);URL.revokeObjectURL(url)}
 const ibgeCodes={SP:35,MG:31,RJ:33,BA:29,PR:41,RS:43};
 const REPO_OWNER='speedvarginha-coder';const REPO_NAME='brasil-transparente';const REPO_BRANCH='main';
 async function fetchEstadoSiconfi(){const sel=document.getElementById('estadoSelect');const uf=estados[Number(sel.value||0)].uf;const code=ibgeCodes[uf];const status=document.getElementById('liveStatus');const text=document.getElementById('liveText');const btn=document.getElementById('liveBtn');if(!code){text.textContent=`UF ${uf} sem código IBGE mapeado.`;return}status.className='liveStatus loading';text.innerHTML='⏳ Buscando snapshot oficial em data/'+uf.toLowerCase()+'.json...';btn.disabled=true;const url=`https://raw.githubusercontent.com/${REPO_OWNER}/${REPO_NAME}/${REPO_BRANCH}/data/${uf.toLowerCase()}.json`;try{const controller=new AbortController();const timeout=setTimeout(()=>controller.abort(),10000);const response=await fetch(url,{signal:controller.signal,headers:{'Accept':'application/json'}});clearTimeout(timeout);if(!response.ok)throw new Error('HTTP '+response.status);const data=await response.json();if(!data.receitaRealizada||!data.despesaEmpenhada)throw new Error('Snapshot incompleto para '+uf);document.getElementById('ufReceita').textContent=short(data.receitaRealizada);document.getElementById('ufDespesa').textContent=short(data.despesaEmpenhada);document.getElementById('ufReceita').title=`Valor bruto: R$ ${data.receitaRealizada.toLocaleString('pt-BR')} (Siconfi RREO ${data.exercicio} P${data.periodo}, coletado ${data.dataColeta})`;document.getElementById('ufDespesa').title=`Valor bruto: R$ ${data.despesaEmpenhada.toLocaleString('pt-BR')} (Siconfi RREO ${data.exercicio} P${data.periodo}, coletado ${data.dataColeta})`;document.getElementById('ufFonte').innerHTML=`🟢 <b>Snapshot oficial · Siconfi RREO ${data.exercicio} P${data.periodo}</b> via <a href="${data.urlOriginal}" target="_blank" rel="noopener">apidatalake.tesouro.gov.br</a> · coletado <b>${data.dataColeta}</b> · commit <a href="https://github.com/${REPO_OWNER}/${REPO_NAME}/commits/main/data/${uf.toLowerCase()}.json" target="_blank" rel="noopener">ver histórico</a>`;const ts=new Date().toLocaleString('pt-BR');status.className='liveStatus live';text.innerHTML=`<span class="pulse"></span>🟢 Snapshot oficial · Siconfi RREO ${data.exercicio} P${data.periodo} · commit <code>data/${uf.toLowerCase()}.json</code> · carregado em ${ts}`}catch(err){const motivo=err.message==='Failed to fetch'||err.name==='AbortError'?'Sem conexão ou GitHub indisponível':'Snapshot ainda não publicado: '+err.message;status.className='liveStatus fallback';text.innerHTML=`<span class="pulse"></span>🟡 ${motivo}. Mantendo dados locais de 2024.`}finally{btn.disabled=false}}

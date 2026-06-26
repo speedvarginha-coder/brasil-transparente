@@ -12,6 +12,11 @@ Itens fora do produto. Cada item inclui contexto, por que saiu da interface, cri
 - CSV específico por indicador.
 - Acessibilidade: role, tabindex, aria-label, Enter/Space, ESC, click-outside.
 
+### ✅ v1.3.5 — Sprint 3 item 3.3 Judiciário com dados do CNJ — entregue 2026-06-26
+- Placeholder "Em breve" substituído por módulo com dados oficiais do CNJ / Justiça em Números 2025.
+- Indicadores: despesa total, custo por habitante, peso no PIB, pessoal, custo operacional sem inativos e receitas arrecadadas.
+- CSV específico e integração com Tabela Cidadã + Ranking de gastos.
+
 ### ✅ v1.2 — Arquitetura JSON cacheado (45 min) — entregue 2026-06-26
 - **Decisão de arquitetura:** JSON commitado no repo > Cloudflare Worker > backend próprio.
 - 6 JSONs em `data/` (SP, MG, RJ, BA, PR, RS) com snapshot RREO 2023 P6 do Siconfi.
@@ -64,9 +69,10 @@ Itens fora do produto. Cada item inclui contexto, por que saiu da interface, cri
 - **Critério de pronto:** badge "Oficial · LOA 2026 · Tesouro" em cima; percentuais calculados por função; sem disclaimer "didático".
 - **Trabalho estimado:** 1-2 dias pra quem nunca mexeu.
 
-### 3.3 — Judiciário com dados do CNJ
-- **Hoje:** card "Em breve".
-- **Critério de pronto:** puxar orçamento, magistrados, servidores e custo/habitante do CNJ; exibir com badge e data.
+### 3.3 — Judiciário com dados do CNJ — entregue v1.3.5
+- **Antes:** card "Em breve".
+- **Entregue:** despesa total, custo/habitante, peso no PIB, pessoal, custo operacional sem inativos e receitas arrecadadas via Justiça em Números 2025.
+- **Próximo refinamento:** abrir quadro de magistrados e servidores por ramo/tribunal em tabela própria.
 
 ### 3.4 — Custo total anual por parlamentar
 - **Hoje:** card tem só a composição (513 + 81).
