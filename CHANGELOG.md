@@ -4,11 +4,28 @@ Registro público de toda alteração em dados, regras de cálculo ou fontes. Fo
 
 ---
 
+## [v1.2.1] — 2026-06-26
+
+### Refactor
+- **`brasil_transparente_v1.html` arquivado** em `_legacy/brasil_transparente_exploratorio_v1.html` com nome descritivo.
+- Pasta `_legacy/` agora é commitada (antes era gitignored). Decisão: preservar histórico da versão experimental que introduziu conceitos de ITD, busca local e locked cards — pode ser útil em iterações futuras.
+- Gitignore atualizado: `_legacy/` descomentado.
+
+### Notas
+- A versão exploratória tem conceitos valiosos (ITD, glossário, locked cards) que podem inspirar a Sprint 3.
+
+---
+
 ## [v1.2] — 2026-06-26
+
+### Deploy
+- **Repositório público criado**: `https://github.com/speedvarginha-coder/brasil-transparente`
+- **Primeira execução da Action em 2026-06-26 14:48 BRT** — concluída em 8s, status `success`, event `push`. End-to-end validado: checkout → Python 3.12 → fetch Siconfi → validação JSON → auto-commit. Sem commits redundantes porque os dados não mudaram desde o fetch inicial.
 
 ### Adicionado
 - **Arquitetura JSON cacheado**: pasta `data/` com 1 JSON por UF (SP, MG, RJ, BA, PR, RS), commitados no repo.
 - **GitHub Action mensal**: `.github/workflows/update-siconfi.yml` com cron `0 3 1 * *` (todo dia 1 às 03:00 UTC = 00:00 BRT).
+- **GitHub Action via push** (paths filter em `scripts/` e `.github/`) — valida o workflow em qualquer mudança.
 - **Script Python**: `scripts/fetch_siconfi.py` que faz fetch do Siconfi RREO 2023 P6 e salva JSON estruturado.
 - **Painel agora busca de `raw.githubusercontent.com`** em vez da Siconfi direto. CORS resolvido pelo GitHub.
 - **Indicador de status** mostra o caminho do commit (`data/sp.json`) e link pro histórico de mudanças.

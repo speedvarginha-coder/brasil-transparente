@@ -41,8 +41,12 @@ data/extract.py · data/process_raw.py # Utilitários (gitignored)
 CHANGELOG.md                          # Histórico de mudanças de dados
 roadmap.md                            # Sprints futuras
 brasil_transparente_painel_bandeira.html  # CANÔNICO (v1.2+)
-brasil_transparente_v1.html           # Experimental, ainda não arquivado
-_legacy/                              # 4 arquivos históricos (gitignored)
+_legacy/                              # Arquivos históricos (commitado, preserva histórico)
+    brasil_em_numeros_dark.html
+    brasil_em_numeros_dark_copia.html
+    brasil_no_bolso.html
+    brasil_no_bolso_copia.html
+    brasil_transparente_exploratorio_v1.html   # v1 experimental (ITD, busca, locked cards)
 ```
 
 ## Endpoints
@@ -139,11 +143,11 @@ CORS liberado. Sem necessidade de token.
 
 ## Pendências conhecidas
 
-- **v1.html experimental:** precisa decisão de arquivar pra `_legacy/` ou deletar.
+- **v1.html experimental:** ✅ arquivado em `_legacy/brasil_transparente_exploratorio_v1.html` em 2026-06-26.
 - **Modal de indicador:** planejado Sprint 3.
 - **Cada R$ 100 com LOA real:** planejado Sprint 3.
 - **Judiciário com CNJ:** planejado Sprint 3.
-- **Glossário cidadão:** identificado em `brasil_transparente_v1.html` (conceito do ITD, busca local, locked cards).
+- **Glossário cidadão:** identificado em `_legacy/brasil_transparente_exploratorio_v1.html` (conceito do ITD, busca local, locked cards).
 
 ## Notas operacionais
 
