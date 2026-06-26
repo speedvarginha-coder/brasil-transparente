@@ -1,0 +1,21 @@
+{
+  "uf": "BA",
+  "nome": "Governo do Estado da Bahia",
+  "codigoIbge": 29,
+  "fonte": "Siconfi - Tesouro Nacional",
+  "demonstrativo": "RREO",
+  "exercicio": 2023,
+  "periodo": 6,
+  "periodicidade": "Bimestral",
+  "dataColeta": "2026-06-26T14:39:03-03:00",
+  "urlOriginal": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2023&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=29",
+  "populacao": 14985284,
+  "receitaPrevisaoInicial": 60974392600,
+  "receitaPrevisaoAtualizada": 73973072064,
+  "receitaRealizada": 71459899021.93,
+  "despesaDotacaoInicial": 60974392600,
+  "despesaDotacaoAtualizada": 81691250917.53,
+  "despesaEmpenhada": 74005901421.3,
+  "despesaLiquidada": 72501791476.07,
+  "despesaPaga": 71631710402.63
+}

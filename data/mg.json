@@ -1,0 +1,21 @@
+{
+  "uf": "MG",
+  "nome": "Governo do Estado de Minas Gerais",
+  "codigoIbge": 31,
+  "fonte": "Siconfi - Tesouro Nacional",
+  "demonstrativo": "RREO",
+  "exercicio": 2023,
+  "periodo": 6,
+  "periodicidade": "Bimestral",
+  "dataColeta": "2026-06-26T14:39:03-03:00",
+  "urlOriginal": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2023&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=31",
+  "populacao": 21411923,
+  "receitaPrevisaoInicial": 95900939163,
+  "receitaPrevisaoAtualizada": 97371232260,
+  "receitaRealizada": 100495835796.01,
+  "despesaDotacaoInicial": 99455736212,
+  "despesaDotacaoAtualizada": 109880659357.37,
+  "despesaEmpenhada": 100585432463.98,
+  "despesaLiquidada": 95000347758.03,
+  "despesaPaga": 89779577743.09
+}

@@ -1,0 +1,21 @@
+{
+  "uf": "RS",
+  "nome": "Governo do Estado do Rio Grande do Sul",
+  "codigoIbge": 43,
+  "fonte": "Siconfi - Tesouro Nacional",
+  "demonstrativo": "RREO",
+  "exercicio": 2023,
+  "periodo": 6,
+  "periodicidade": "Bimestral",
+  "dataColeta": "2026-06-26T14:39:03-03:00",
+  "urlOriginal": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2023&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=43",
+  "populacao": 11466630,
+  "receitaPrevisaoInicial": 53394331865.29,
+  "receitaPrevisaoAtualizada": 53394331865.29,
+  "receitaRealizada": 64899574053.16,
+  "despesaDotacaoInicial": 56649615897,
+  "despesaDotacaoAtualizada": 65466949522.82,
+  "despesaEmpenhada": 61178310565.57,
+  "despesaLiquidada": 57604746817.03,
+  "despesaPaga": 56817797197.72
+}

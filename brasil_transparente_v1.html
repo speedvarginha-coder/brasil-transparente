@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Brasil Transparente — Painel Nacional</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Manrope:wght@600;700;800&family=Space+Grotesk:wght@600;700&display=swap');
+:root{
+  --green:#009C3B;--green-700:#047333;--green-50:#ECFDF3;
+  --yellow:#FFDF00;--yellow-50:#FFF9D6;
+  --blue:#002776;--blue-700:#073B91;--blue-50:#EEF5FF;
+  --red:#DC2626;--red-50:#FEF2F2;
+  --orange:#F97316;--orange-50:#FFF7ED;
+  --purple:#6D28D9;--purple-50:#F5F3FF;
+  --ink:#07111F;--text:#1E293B;--muted:#64748B;--muted2:#94A3B8;
+  --bg:#F7F9FC;--panel:#FFFFFF;--line:#E2E8F0;--line2:#CBD5E1;
+  --shadow:0 18px 45px rgba(15,23,42,.07);--shadow-soft:0 8px 20px rgba(15,23,42,.045);
+  --radius:24px;--radius-sm:16px;
+}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;background:radial-gradient(circle at 0 0,rgba(0,156,59,.08),transparent 24%),radial-gradient(circle at 100% 0,rgba(0,39,118,.09),transparent 30%),var(--bg);color:var(--text);line-height:1.55;-webkit-font-smoothing:antialiased}a{text-decoration:none;color:inherit}.wrap{width:min(1240px,calc(100% - 40px));margin:0 auto}.topbar{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.86);backdrop-filter:blur(18px);border-bottom:1px solid rgba(226,232,240,.88)}.topbar-inner{height:76px;display:flex;align-items:center;justify-content:space-between;gap:22px}.brand{display:flex;align-items:center;gap:12px;min-width:250px}.flagmark{width:44px;height:44px;border-radius:15px;background:linear-gradient(135deg,var(--green),var(--blue));display:grid;place-items:center;position:relative;box-shadow:var(--shadow-soft);overflow:hidden}.flagmark:before{content:"";width:25px;height:25px;background:var(--yellow);transform:rotate(45deg);position:absolute;border-radius:3px}.flagmark:after{content:"";width:13px;height:13px;background:var(--blue);border-radius:50%;position:absolute;border:2px solid #fff}.brand h1{font-family:Manrope,sans-serif;font-size:18px;margin:0;letter-spacing:-.03em;color:var(--ink)}.brand small{display:block;color:var(--muted);font-weight:700;font-size:12px;margin-top:1px}.nav{display:flex;align-items:center;gap:4px;flex:1;justify-content:center}.nav a{font-size:13px;font-weight:800;color:#475569;padding:10px 12px;border-radius:999px}.nav a:hover{background:var(--blue-50);color:var(--blue)}.nav a.primary{background:var(--green-50);color:var(--green-700)}.search{display:flex;align-items:center;gap:8px;border:1px solid var(--line);background:#fff;padding:9px 12px;border-radius:999px;width:260px;box-shadow:var(--shadow-soft)}.search input{border:0;outline:0;width:100%;font:inherit;font-size:13px}.hero{padding:54px 0 32px}.hero-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:24px;align-items:stretch}.hero-card{background:linear-gradient(135deg,#FFFFFF 0%,#F8FBFF 62%,#F3FFF7 100%);border:1px solid rgba(226,232,240,.9);border-radius:34px;padding:34px;box-shadow:var(--shadow);position:relative;overflow:hidden}.hero-card:before{content:"";height:7px;left:0;right:0;top:0;position:absolute;background:linear-gradient(90deg,var(--green) 0 35%,var(--yellow) 35% 48%,var(--blue) 48%)}.eyebrow{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);box-shadow:var(--shadow-soft);color:var(--blue);font-size:13px;font-weight:900;padding:7px 11px;border-radius:999px}.hero h2{font-family:Manrope,sans-serif;font-size:clamp(38px,5.2vw,68px);line-height:.98;letter-spacing:-.06em;margin:22px 0 16px;color:var(--ink)}.lead{font-size:18px;color:#42526A;max-width:780px}.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:999px;border:1px solid var(--line);background:#fff;color:var(--text);font-weight:900;padding:13px 17px;box-shadow:var(--shadow-soft);cursor:pointer}.btn:hover{transform:translateY(-1px)}.btn.green{background:var(--green);border-color:var(--green);color:#fff}.btn.blue{background:var(--blue);border-color:var(--blue);color:#fff}.trust-panel{background:#fff;border:1px solid var(--line);border-radius:30px;box-shadow:var(--shadow);padding:24px}.trust-score{display:flex;align-items:center;gap:16px}.score-ring{width:98px;height:98px;border-radius:50%;background:conic-gradient(var(--green) 0 86%,#E5E7EB 86% 100%);display:grid;place-items:center}.score-ring span{width:76px;height:76px;border-radius:50%;background:#fff;display:grid;place-items:center;font-family:Space Grotesk,sans-serif;font-size:26px;font-weight:800;color:var(--green)}.trust-panel h3{font-family:Manrope,sans-serif;font-size:24px;margin:0 0 6px;color:var(--ink)}.muted{color:var(--muted)}.mini-list{display:grid;gap:10px;margin-top:18px}.mini-line{display:flex;justify-content:space-between;gap:10px;font-size:13px;font-weight:800;border-top:1px solid var(--line);padding-top:10px}.layout{display:grid;grid-template-columns:250px 1fr;gap:24px;align-items:start}.side{position:sticky;top:92px;background:#fff;border:1px solid var(--line);border-radius:24px;padding:12px;box-shadow:var(--shadow-soft)}.side b{display:block;padding:10px 12px;font-size:13px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}.side a{display:flex;align-items:center;justify-content:space-between;gap:10px;color:#475569;font-weight:850;font-size:14px;padding:11px 12px;border-radius:16px}.side a:hover{background:var(--green-50);color:var(--green-700)}main.content{min-width:0}.section{margin:0 0 26px}.section-head{display:flex;align-items:flex-end;justify-content:space-between;gap:18px;margin-bottom:14px}.section-head h2{font-family:Manrope,sans-serif;font-size:clamp(26px,3vw,40px);line-height:1.06;letter-spacing:-.045em;margin:0;color:var(--ink)}.section-head p{margin:5px 0 0;color:var(--muted);max-width:720px}.grid{display:grid;gap:16px}.four{grid-template-columns:repeat(4,minmax(0,1fr))}.three{grid-template-columns:repeat(3,minmax(0,1fr))}.two{grid-template-columns:repeat(2,minmax(0,1fr))}.card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow-soft);padding:20px;position:relative;overflow:hidden}.card.clean{box-shadow:none}.card h3{font-family:Manrope,sans-serif;margin:0 0 8px;color:var(--ink);letter-spacing:-.02em}.kpi{min-height:184px;display:flex;flex-direction:column;gap:10px}.kpi .value{font-family:Space Grotesk,sans-serif;font-weight:800;font-size:clamp(28px,3vw,39px);letter-spacing:-.055em;color:var(--ink);line-height:1}.kpi .label{font-size:13px;color:var(--muted);font-weight:900;text-transform:uppercase;letter-spacing:.04em}.kpi .meta{margin-top:auto}.badge{display:inline-flex;align-items:center;gap:6px;border-radius:999px;padding:6px 9px;font-size:11px;font-weight:950;text-transform:uppercase;letter-spacing:.04em;border:1px solid transparent}.badge.official{background:var(--green-50);color:var(--green-700);border-color:#BBF7D0}.badge.calc{background:var(--blue-50);color:var(--blue);border-color:#BFDBFE}.badge.estimate{background:var(--yellow-50);color:#8A6B00;border-color:#FDE68A}.badge.validate{background:var(--orange-50);color:#9A3412;border-color:#FED7AA}.badge.danger{background:var(--red-50);color:#991B1B;border-color:#FECACA}.source-row{display:grid;gap:4px;margin-top:8px;color:var(--muted);font-size:12px;font-weight:700}.source-row span strong{color:#334155}.itd{display:flex;align-items:center;gap:8px;margin-top:10px;font-size:12px;color:var(--muted);font-weight:800}.itdbar{flex:1;height:7px;background:#E5E7EB;border-radius:999px;overflow:hidden}.itdbar i{display:block;height:100%;background:linear-gradient(90deg,var(--green),var(--blue));border-radius:inherit}.panel-note{display:flex;align-items:flex-start;gap:12px;background:#fff;border:1px solid var(--line);border-radius:18px;padding:14px;color:#475569;font-size:14px}.dot{width:10px;height:10px;border-radius:50%;background:var(--green);margin-top:6px;flex:0 0 auto}.counter-grid{grid-template-columns:repeat(4,1fr)}.counter-box{background:linear-gradient(180deg,#0B1220,#111D34);color:#fff;border:0}.counter-box small{color:#B6C2D4;font-weight:800}.counter-box strong{display:block;font-family:Space Grotesk,sans-serif;color:var(--yellow);font-size:24px;margin-top:7px}.bars{display:grid;gap:13px}.barrow{display:grid;gap:7px}.barlabel{display:flex;justify-content:space-between;gap:16px;color:#334155;font-weight:900;font-size:14px}.bar{height:14px;background:#E5E7EB;border-radius:999px;overflow:hidden}.bar i{display:block;height:100%;border-radius:inherit;background:linear-gradient(90deg,var(--green),var(--blue))}.bar.yellow i{background:linear-gradient(90deg,var(--yellow),#F59E0B)}.bar.red i{background:linear-gradient(90deg,#EF4444,#F97316)}.bar.blue i{background:linear-gradient(90deg,var(--blue),#3B82F6)}.table{width:100%;border-collapse:separate;border-spacing:0;overflow:hidden;border:1px solid var(--line);border-radius:18px;background:#fff}.table th,.table td{text-align:left;padding:13px;border-bottom:1px solid var(--line);font-size:14px}.table th{background:#F8FAFC;color:#475569;font-size:12px;text-transform:uppercase;letter-spacing:.06em}.table tr:last-child td{border-bottom:0}.table td:last-child,.table th:last-child{text-align:right}.chip-row{display:flex;gap:8px;flex-wrap:wrap}.chip{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);background:#fff;border-radius:999px;padding:8px 10px;font-size:12px;font-weight:900;color:#475569}.chip.blue{background:var(--blue-50);color:var(--blue);border-color:#BFDBFE}.chip.green{background:var(--green-50);color:var(--green-700);border-color:#BBF7D0}.chip.yellow{background:var(--yellow-50);color:#7A6100;border-color:#FDE68A}.state-map{display:grid;grid-template-columns:repeat(9,1fr);gap:7px;margin-top:14px}.uf{border:1px solid var(--line);background:#fff;border-radius:12px;padding:10px 6px;text-align:center;font-weight:950;font-size:12px;color:#334155;cursor:pointer}.uf:hover,.uf.active{background:var(--blue);color:#fff;border-color:var(--blue)}.state-detail{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}.data-card{border:1px solid var(--line);border-radius:18px;padding:16px;background:#fff}.data-card b{display:block;color:var(--ink);margin-bottom:3px}.data-card p{margin:0;color:var(--muted);font-size:13px}.locked{background:linear-gradient(135deg,#fff,#F8FAFC);border-style:dashed}.locked h3{color:#334155}.toolbox{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.small-btn{border:1px solid var(--line);background:#fff;border-radius:999px;padding:9px 11px;font-size:12px;font-weight:900;color:#475569;cursor:pointer}.small-btn:hover{background:var(--blue-50);color:var(--blue)}.glossary{display:grid;gap:10px}.term{border:1px solid var(--line);border-radius:18px;padding:14px;background:#fff}.term summary{cursor:pointer;font-weight:950;color:var(--ink)}.term p{margin:9px 0 0;color:var(--muted)}.search-empty{display:none;margin:14px 0;padding:14px;border-radius:18px;background:var(--yellow-50);border:1px solid #FDE68A;color:#6B5600;font-weight:800}.footer{margin-top:28px;background:#07111F;color:#CBD5E1;padding:34px 0}.footer-grid{display:grid;grid-template-columns:1.3fr .7fr;gap:24px}.footer h3{font-family:Manrope,sans-serif;margin:0 0 8px;color:#fff}.footer a{color:#fff;font-weight:850}.flag-line{height:5px;background:linear-gradient(90deg,var(--green) 0 34%,var(--yellow) 34% 47%,var(--blue) 47%);border-radius:999px;margin:16px 0}.hidden-by-search{display:none!important}@media(max-width:1050px){.nav{display:none}.hero-grid,.layout,.two,.three,.four,.counter-grid,.state-detail,.footer-grid{grid-template-columns:1fr}.side{position:relative;top:0}.search{width:220px}.state-map{grid-template-columns:repeat(6,1fr)}}@media(max-width:640px){.wrap{width:min(100% - 24px,1240px)}.topbar-inner{height:auto;padding:12px 0;align-items:flex-start;flex-direction:column}.brand{min-width:0}.search{width:100%}.hero{padding-top:28px}.hero-card{padding:24px}.hero-actions .btn{width:100%}.state-map{grid-template-columns:repeat(4,1fr)}.table,.table tbody,.table tr,.table td,.table th{display:block}.table thead{display:none}.table tr{border-bottom:1px solid var(--line);padding:8px 0}.table td{border:0;padding:7px 12px}.table td:before{content:attr(data-label);display:block;color:var(--muted);font-size:11px;text-transform:uppercase;font-weight:900}.table td:last-child{text-align:left}}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <a class="brand" href="#inicio" aria-label="Brasil Transparente">
+      <div class="flagmark"></div>
+      <div><h1>Brasil Transparente</h1><small>Dados públicos com rastreabilidade</small></div>
+    </a>
+    <nav class="nav" aria-label="Navegação principal">
+      <a class="primary" href="#kpis">Brasil</a><a href="#estados">Estados</a><a href="#indicadores">Indicadores</a><a href="#confianca">Confiança</a><a href="#metodologia">Metodologia</a>
+    </nav>
+    <label class="search" title="Busca local no painel"><span>🔎</span><input id="searchInput" placeholder="Buscar indicador..." /></label>
+  </div>
+</header>
+
+<section class="hero" id="inicio">
+  <div class="wrap hero-grid">
+    <div class="hero-card">
+      <span class="eyebrow">🇧🇷 Plataforma nacional de transparência fiscal</span>
+      <h2>O dinheiro público explicado sem economês.</h2>
+      <p class="lead">Painel para acompanhar dívida, impostos, orçamento, poderes e indicadores estaduais com fonte, competência, metodologia e nível de confiança visíveis.</p>
+      <div class="hero-actions"><a class="btn green" href="#kpis">Ver Painel Nacional</a><a class="btn blue" href="#estados">Explorar Estados</a><a class="btn" href="#confianca">Por que confiar?</a></div>
+    </div>
+    <aside class="trust-panel">
+      <div class="trust-score"><div class="score-ring"><span>86</span></div><div><h3>Índice de Transparência dos Dados</h3><p class="muted">Nota geral da versão atual. Sobe quando há fonte oficial, metodologia, histórico e download.</p></div></div>
+      <div class="mini-list">
+        <div class="mini-line"><span>Fonte identificada</span><strong>Parcial</strong></div>
+        <div class="mini-line"><span>Metodologia pública</span><strong>Sim</strong></div>
+        <div class="mini-line"><span>Dados estaduais</span><strong>Em validação</strong></div>
+        <div class="mini-line"><span>Downloads/API</span><strong>Preparado</strong></div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<div class="wrap layout">
+  <aside class="side">
+    <b>Menu</b>
+    <a href="#kpis">Painel Nacional <span>🇧🇷</span></a>
+    <a href="#relogios">Relógios <span>⏱️</span></a>
+    <a href="#cemreais">Cada R$100 <span>🧾</span></a>
+    <a href="#poderes">Poderes <span>🏛️</span></a>
+    <a href="#estados">Estados <span>🗺️</span></a>
+    <a href="#indicadores">Indicadores <span>📊</span></a>
+    <a href="#glossario">Glossário <span>📚</span></a>
+    <a href="#confianca">Confiança <span>✅</span></a>
+  </aside>
+
+  <main class="content">
+    <div id="searchEmpty" class="search-empty">Nenhum bloco encontrado para essa busca. Tente termos como dívida, juros, estados, saúde, educação ou metodologia.</div>
+
+    <section class="section searchable" id="kpis" data-search="brasil dívida impostos orçamento juros banco central tesouro receita indicadores nacional">
+      <div class="section-head"><div><h2>Painel Nacional</h2><p>Números centrais do Brasil com selo de confiança visível em cada card.</p></div><span class="chip green">Versão 1.0</span></div>
+      <div class="grid four">
+        <article class="card kpi"><div><span class="badge official">Oficial</span></div><div class="label">Dívida Bruta</div><div class="value">R$ 10,4 tri</div><div class="meta"><div class="source-row"><span><strong>Fonte:</strong> Banco Central</span><span><strong>Competência:</strong> abr/2026</span><span><strong>Atualização:</strong> mensal</span></div><div class="itd"><span>ITD 92</span><div class="itdbar"><i style="width:92%"></i></div></div></div></article>
+        <article class="card kpi"><div><span class="badge official">Oficial</span></div><div class="label">Juros em 12 meses</div><div class="value">R$ 1,08 tri</div><div class="meta"><div class="source-row"><span><strong>Fonte:</strong> Banco Central</span><span><strong>Competência:</strong> mar/2026</span><span><strong>Atualização:</strong> mensal</span></div><div class="itd"><span>ITD 90</span><div class="itdbar"><i style="width:90%"></i></div></div></div></article>
+        <article class="card kpi"><div><span class="badge official">Oficial</span></div><div class="label">Orçamento União</div><div class="value">R$ 6,5 tri</div><div class="meta"><div class="source-row"><span><strong>Fonte:</strong> Congresso Nacional</span><span><strong>Competência:</strong> LOA 2026</span><span><strong>Atualização:</strong> anual</span></div><div class="itd"><span>ITD 88</span><div class="itdbar"><i style="width:88%"></i></div></div></div></article>
+        <article class="card kpi"><div><span class="badge official">Oficial</span></div><div class="label">Emendas 2026</div><div class="value">R$ 61 bi</div><div class="meta"><div class="source-row"><span><strong>Fonte:</strong> LOA 2026</span><span><strong>Competência:</strong> 2026</span><span><strong>Atualização:</strong> anual</span></div><div class="itd"><span>ITD 84</span><div class="itdbar"><i style="width:84%"></i></div></div></div></article>
+      </div>
+    </section>
+
+    <section class="section searchable" id="relogios" data-search="relogios tempo real imposto juros divida contador estimativa">
+      <div class="section-head"><div><h2>Relógios em tempo real</h2><p>Contadores pedagógicos: úteis para visualização, mas identificados como estimativa.</p></div><span class="badge estimate">Estimativa didática</span></div>
+      <div class="panel-note"><span class="dot"></span><div><strong>Leitura correta:</strong> os relógios dividem valores anuais por tempo decorrido. Para publicação oficial, cada contador precisa ser conectado à série oficial ou a uma rotina de atualização documentada.</div></div>
+      <div class="grid counter-grid" style="margin-top:14px">
+        <div class="card counter-box"><small>Impostos / segundo</small><strong id="taxSec">—</strong></div>
+        <div class="card counter-box"><small>Juros / segundo</small><strong id="interestSec">—</strong></div>
+        <div class="card counter-box"><small>Dívida por brasileiro</small><strong id="debtPerCapita">—</strong></div>
+        <div class="card counter-box"><small>Desde que abriu</small><strong id="sessionTax">—</strong></div>
+      </div>
+    </section>
+
+    <section class="section searchable" id="cemreais" data-search="cada 100 orçamento loa previdência saúde educação segurança juros simulação">
+      <div class="section-head"><div><h2>Para onde iriam cada R$100?</h2><p>Simulação visual para educação fiscal. Não deve ser apresentada como divisão oficial até ser calculada diretamente pela LOA.</p></div><span class="badge estimate">Simulação didática</span></div>
+      <div class="card">
+        <div class="bars">
+          <div class="barrow"><div class="barlabel"><span>Previdência e assistência</span><span>R$ 32</span></div><div class="bar"><i style="width:32%"></i></div></div>
+          <div class="barrow"><div class="barlabel"><span>Juros e encargos</span><span>R$ 18</span></div><div class="bar red"><i style="width:18%"></i></div></div>
+          <div class="barrow"><div class="barlabel"><span>Saúde</span><span>R$ 9</span></div><div class="bar blue"><i style="width:9%"></i></div></div>
+          <div class="barrow"><div class="barlabel"><span>Educação</span><span>R$ 7</span></div><div class="bar blue"><i style="width:7%"></i></div></div>
+          <div class="barrow"><div class="barlabel"><span>Demais áreas</span><span>R$ 34</span></div><div class="bar yellow"><i style="width:34%"></i></div></div>
+        </div>
+        <div class="toolbox"><button class="small-btn">Metodologia pendente</button><button class="small-btn">Substituir por LOA oficial</button><button class="small-btn">Exportar modelo</button></div>
+      </div>
+    </section>
+
+    <section class="section searchable" id="poderes" data-search="poderes judiciário câmara senado executivo congresso brasília custo parlamentar">
+      <div class="section-head"><div><h2>Poderes e estrutura pública</h2><p>Cards sem fonte consolidada não exibem valores soltos. Melhor parecer conservador do que inventar certeza.</p></div><span class="badge calc">Preparado para integração</span></div>
+      <div class="grid three">
+        <article class="card"><span class="badge official">Oficial</span><h3>Executivo Federal</h3><div class="kpi"><div class="value">R$ 350,4 bi</div><div class="source-row"><span><strong>Fonte:</strong> LOA/PLOA 2026</span><span><strong>Escopo:</strong> pessoal e encargos</span></div></div></article>
+        <article class="card locked"><span class="badge validate">Em validação</span><h3>Judiciário</h3><p class="muted">Dados serão exibidos apenas após fonte, competência e metodologia estarem documentadas.</p><div class="toolbox"><button class="small-btn">Cadastrar fonte</button><button class="small-btn">Ver metodologia</button></div></article>
+        <article class="card locked"><span class="badge validate">Em validação</span><h3>Custo parlamentar</h3><p class="muted">O cálculo precisa separar orçamento institucional, verba parlamentar, folha, cotas e encargos. Nada de TODO visível no produto final.</p><div class="toolbox"><button class="small-btn">Definir fórmula</button></div></article>
+      </div>
+    </section>
+
+    <section class="section searchable" id="estados" data-search="estados mapa brasil uf receita despesa saúde educação segurança pib população estadual">
+      <div class="section-head"><div><h2>Estados</h2><p>O módulo estadual foi preparado para ser auditável. Enquanto a fonte não estiver validada, os números ficam bloqueados.</p></div><span class="badge validate">Dados em validação</span></div>
+      <div class="card">
+        <div class="chip-row"><span class="chip blue">Receita</span><span class="chip blue">Despesa</span><span class="chip blue">Saúde</span><span class="chip blue">Educação</span><span class="chip blue">Segurança</span><span class="chip blue">Dívida</span><span class="chip green">PIB</span><span class="chip green">População</span></div>
+        <div class="state-map" id="stateMap"></div>
+        <div class="state-detail">
+          <div class="data-card"><b id="stateName">Selecione um estado</b><p id="stateStatus">Ao clicar em uma UF, o painel exibirá status, fonte prevista e indicadores disponíveis.</p></div>
+          <div class="data-card"><b>Fonte exigida</b><p>Tesouro Nacional, Siconfi, IBGE, Secretarias estaduais e portais oficiais. Cada número precisa de link e data.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section searchable" id="indicadores" data-search="central indicadores páginas individuais histórico downloads csv api fonte metodologia">
+      <div class="section-head"><div><h2>Central de Indicadores</h2><p>Cada indicador ganha uma página própria com histórico, fonte, metodologia e download.</p></div><span class="chip green">Arquitetura 1.0</span></div>
+      <div class="grid three">
+        <article class="card"><span class="badge official">Oficial</span><h3>Dívida Bruta</h3><p class="muted">Histórico, percentual do PIB, fonte Banco Central, CSV e link oficial.</p><div class="toolbox"><button class="small-btn">Abrir indicador</button><button class="small-btn">CSV</button></div></article>
+        <article class="card"><span class="badge official">Oficial</span><h3>Orçamento da União</h3><p class="muted">LOA, funções orçamentárias, comparadores e metodologia por categoria.</p><div class="toolbox"><button class="small-btn">Abrir indicador</button><button class="small-btn">JSON</button></div></article>
+        <article class="card locked"><span class="badge validate">Em validação</span><h3>Indicadores estaduais</h3><p class="muted">Receita, despesa, saúde, educação, segurança e dívida por UF.</p><div class="toolbox"><button class="small-btn">Checklist de fonte</button></div></article>
+      </div>
+    </section>
+
+    <section class="section searchable" id="ranking" data-search="ranking gastos comparador social saúde educação segurança fundo eleitoral emendas juros">
+      <div class="section-head"><div><h2>Ranking de gastos</h2><p>Comparações com origem identificada. Itens não validados aparecem com status, não com valor inventado.</p></div></div>
+      <div class="card">
+        <table class="table">
+          <thead><tr><th>Indicador</th><th>Status</th><th>Fonte</th><th>Valor</th></tr></thead>
+          <tbody>
+            <tr><td data-label="Indicador"><strong>Juros da dívida</strong></td><td data-label="Status"><span class="badge official">Oficial</span></td><td data-label="Fonte">Banco Central</td><td data-label="Valor">R$ 1,08 tri</td></tr>
+            <tr><td data-label="Indicador"><strong>Saúde</strong></td><td data-label="Status"><span class="badge official">Oficial</span></td><td data-label="Fonte">LOA 2026</td><td data-label="Valor">R$ 254,9 bi</td></tr>
+            <tr><td data-label="Indicador"><strong>Educação</strong></td><td data-label="Status"><span class="badge validate">Em validação</span></td><td data-label="Fonte">LOA/SIOP</td><td data-label="Valor">Não publicado</td></tr>
+            <tr><td data-label="Indicador"><strong>Segurança</strong></td><td data-label="Status"><span class="badge validate">Em validação</span></td><td data-label="Fonte">LOA/SIOP</td><td data-label="Valor">Não publicado</td></tr>
+            <tr><td data-label="Indicador"><strong>Fundo Eleitoral</strong></td><td data-label="Status"><span class="badge official">Oficial</span></td><td data-label="Fonte">TSE</td><td data-label="Valor">R$ 4,961 bi</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section searchable" id="glossario" data-search="glossário dívida bruta líquida loa déficit juros emenda pib receita despesa">
+      <div class="section-head"><div><h2>Glossário cidadão</h2><p>Explicações curtas para reduzir ruído e aumentar compreensão.</p></div></div>
+      <div class="glossary">
+        <details class="term"><summary>Dívida Bruta</summary><p>Estoque total de obrigações do governo geral. É um dos principais indicadores fiscais acompanhados pelo Banco Central.</p></details>
+        <details class="term"><summary>Juros da dívida</summary><p>Custo financeiro pago para carregar a dívida pública. Não é a mesma coisa que amortização.</p></details>
+        <details class="term"><summary>LOA</summary><p>Lei Orçamentária Anual. Define quanto o governo está autorizado a gastar e em quais áreas.</p></details>
+        <details class="term"><summary>ITD</summary><p>Índice de Transparência dos Dados: nota interna de 0 a 100 baseada em fonte, atualização, metodologia, histórico e download.</p></details>
+      </div>
+    </section>
+
+    <section class="section searchable" id="confianca" data-search="confiança transparência itd fonte oficial metodologia download api auditoria">
+      <div class="section-head"><div><h2>Por que confiar?</h2><p>O portal precisa ser transparente até sobre suas limitações. Este bloco mostra o padrão mínimo para cada número publicado.</p></div><span class="badge official">Governança dos dados</span></div>
+      <div class="grid three">
+        <div class="card"><h3>1. Fonte visível</h3><p class="muted">Todo KPI deve exibir órgão, competência, frequência e link oficial.</p></div>
+        <div class="card"><h3>2. Metodologia aberta</h3><p class="muted">O usuário precisa entender como o cálculo foi feito, inclusive quando for estimativa.</p></div>
+        <div class="card"><h3>3. Dados exportáveis</h3><p class="muted">CSV, JSON e API reduzem dependência da interface e aumentam auditabilidade.</p></div>
+      </div>
+      <div class="card" style="margin-top:16px">
+        <h3>Critérios do Índice de Transparência dos Dados</h3>
+        <div class="bars">
+          <div class="barrow"><div class="barlabel"><span>Fonte oficial identificada</span><span>20 pts</span></div><div class="bar"><i style="width:100%"></i></div></div>
+          <div class="barrow"><div class="barlabel"><span>Atualização recente</span><span>20 pts</span></div><div class="bar"><i style="width:100%"></i></div></div>
+          <div class="barrow"><div class="barlabel"><span>Metodologia pública</span><span>20 pts</span></div><div class="bar"><i style="width:100%"></i></div></div>
+          <div class="barrow"><div class="barlabel"><span>Histórico disponível</span><span>20 pts</span></div><div class="bar blue"><i style="width:100%"></i></div></div>
+          <div class="barrow"><div class="barlabel"><span>Download/API</span><span>20 pts</span></div><div class="bar yellow"><i style="width:100%"></i></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section searchable" id="metodologia" data-search="metodologia downloads api banco central tesouro ibge receita federal portal transparência">
+      <div class="section-head"><div><h2>Central de Transparência</h2><p>Base para transformar o painel em plataforma pública de dados.</p></div></div>
+      <div class="grid two">
+        <div class="card"><h3>Fontes prioritárias</h3><div class="chip-row"><span class="chip green">Banco Central</span><span class="chip green">Tesouro Nacional</span><span class="chip green">Receita Federal</span><span class="chip green">Congresso Nacional</span><span class="chip blue">IBGE</span><span class="chip blue">Siconfi</span><span class="chip blue">TSE</span></div></div>
+        <div class="card"><h3>API planejada</h3><table class="table"><tbody><tr><td data-label="Endpoint"><code>/api/divida</code></td><td data-label="Status"><span class="badge calc">Preparado</span></td></tr><tr><td data-label="Endpoint"><code>/api/orcamento</code></td><td data-label="Status"><span class="badge calc">Preparado</span></td></tr><tr><td data-label="Endpoint"><code>/api/estados</code></td><td data-label="Status"><span class="badge validate">Validação</span></td></tr><tr><td data-label="Endpoint"><code>/api/indicadores</code></td><td data-label="Status"><span class="badge calc">Preparado</span></td></tr></tbody></table></div>
+      </div>
+    </section>
+  </main>
+</div>
+
+<footer class="footer">
+  <div class="wrap footer-grid">
+    <div><h3>Brasil Transparente</h3><p class="muted">Painel nacional para traduzir dados públicos em linguagem clara, com fonte, metodologia e confiança visíveis.</p><div class="flag-line"></div></div>
+    <div><h3>Princípio editorial</h3><p class="muted">Quando o dado não estiver validado, ele não aparece como número. Transparência também é admitir o que ainda está em consolidação.</p></div>
+  </div>
+</footer>
+
+<script>
+const brl=(n)=>n.toLocaleString('pt-BR',{style:'currency',currency:'BRL',maximumFractionDigits:0});
+const annualTax=3.7e12, annualInterest=1.08e12, debt=10.4e12, pop=203e6, opened=Date.now();
+function tick(){
+  document.getElementById('taxSec').textContent=brl(annualTax/365/24/60/60);
+  document.getElementById('interestSec').textContent=brl(annualInterest/365/24/60/60);
+  document.getElementById('debtPerCapita').textContent=brl(debt/pop);
+  document.getElementById('sessionTax').textContent=brl((annualTax/365/24/60/60)*((Date.now()-opened)/1000));
+}
+setInterval(tick,1000);tick();
+const ufs=['AC','AL','AP','AM','BA','CE','DF','ES','GO','MA','MT','MS','MG','PA','PB','PR','PE','PI','RJ','RN','RS','RO','RR','SC','SP','SE','TO'];
+const map=document.getElementById('stateMap');
+ufs.forEach(uf=>{const b=document.createElement('button');b.className='uf';b.textContent=uf;b.onclick=()=>{document.querySelectorAll('.uf').forEach(x=>x.classList.remove('active'));b.classList.add('active');document.getElementById('stateName').textContent=uf+' — dados estaduais';document.getElementById('stateStatus').textContent='Status: em validação. Nenhum valor é exibido até existir fonte, competência, metodologia e link oficial.'};map.appendChild(b)});
+const search=document.getElementById('searchInput'), empty=document.getElementById('searchEmpty');
+search.addEventListener('input',()=>{const q=search.value.trim().toLowerCase();let visible=0;document.querySelectorAll('.searchable').forEach(sec=>{const ok=!q||sec.dataset.search.includes(q)||sec.innerText.toLowerCase().includes(q);sec.classList.toggle('hidden-by-search',!ok);if(ok)visible++});empty.style.display=visible?'none':'block'});
+</script>
+</body>
+</html>

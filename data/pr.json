@@ -1,0 +1,21 @@
+{
+  "uf": "PR",
+  "nome": "Governo do Estado do Paraná",
+  "codigoIbge": 41,
+  "fonte": "Siconfi - Tesouro Nacional",
+  "demonstrativo": "RREO",
+  "exercicio": 2023,
+  "periodo": 6,
+  "periodicidade": "Bimestral",
+  "dataColeta": "2026-06-26T14:39:03-03:00",
+  "urlOriginal": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2023&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=41",
+  "populacao": 11597484,
+  "receitaPrevisaoInicial": 53211266484,
+  "receitaPrevisaoAtualizada": 57622965513,
+  "receitaRealizada": 67580036625.63,
+  "despesaDotacaoInicial": 52813325540,
+  "despesaDotacaoAtualizada": 71729244501,
+  "despesaEmpenhada": 61804042805.12,
+  "despesaLiquidada": 56027038107.04,
+  "despesaPaga": 55983484272.74
+}

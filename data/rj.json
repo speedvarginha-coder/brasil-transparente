@@ -1,0 +1,21 @@
+{
+  "uf": "RJ",
+  "nome": "Governo do Estado do Rio de Janeiro",
+  "codigoIbge": 33,
+  "fonte": "Siconfi - Tesouro Nacional",
+  "demonstrativo": "RREO",
+  "exercicio": 2023,
+  "periodo": 6,
+  "periodicidade": "Bimestral",
+  "dataColeta": "2026-06-26T14:39:03-03:00",
+  "urlOriginal": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2023&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=33",
+  "populacao": 17463349,
+  "receitaPrevisaoInicial": 95076963081,
+  "receitaPrevisaoAtualizada": 91031774013.75,
+  "receitaRealizada": 95750987731.02,
+  "despesaDotacaoInicial": 94802099368,
+  "despesaDotacaoAtualizada": 108619782523.79,
+  "despesaEmpenhada": 93433876369.83,
+  "despesaLiquidada": 91834955875.77,
+  "despesaPaga": 90514724821.26
+}

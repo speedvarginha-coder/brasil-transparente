@@ -1,0 +1,21 @@
+{
+  "uf": "SP",
+  "nome": "Governo do Estado de São Paulo",
+  "codigoIbge": 35,
+  "fonte": "Siconfi - Tesouro Nacional",
+  "demonstrativo": "RREO",
+  "exercicio": 2023,
+  "periodo": 6,
+  "periodicidade": "Bimestral",
+  "dataColeta": "2026-06-26T14:39:02-03:00",
+  "urlOriginal": "https://apidatalake.tesouro.gov.br/ords/siconfi/tt/rreo?an_exercicio=2023&nr_periodo=6&co_tipo_demonstrativo=RREO&id_ente=35",
+  "populacao": 46649132,
+  "receitaPrevisaoInicial": 317408397614,
+  "receitaPrevisaoAtualizada": 309832419357.9,
+  "receitaRealizada": 309232504037.6,
+  "despesaDotacaoInicial": 317408397614,
+  "despesaDotacaoAtualizada": 329946523791.32,
+  "despesaEmpenhada": 310805537272.25,
+  "despesaLiquidada": 302650959137.89,
+  "despesaPaga": 281901726438.05
+}

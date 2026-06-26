@@ -1,0 +1,52 @@
+name: Update Siconfi data
+
+# Atualiza os snapshots RREO do Siconfi em data/{uf}.json
+# - Cron: dia 1 de cada mês às 03:00 UTC (= 00:00 BRT)
+# - Manual: pode rodar pela aba Actions > Run workflow
+
+on:
+  schedule:
+    - cron: '0 3 1 * *'
+  workflow_dispatch:
+    inputs:
+      uf:
+        description: 'UF específica (vazio = todos)'
+        required: false
+        default: ''
+
+permissions:
+  contents: write
+
+jobs:
+  update-siconfi:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Fetch Siconfi
+        env:
+          UF: ${{ github.event.inputs.uf }}
+        run: |
+          python scripts/fetch_siconfi.py "${UF}"
+
+      - name: Validate JSONs
+        run: |
+          for f in data/*.json; do
+            python -c "import json; json.load(open('$f', encoding='utf-8'))" || (echo "INVALID JSON: $f" && exit 1)
+          done
+          echo "All JSONs valid."
+
+      - name: Auto-commit
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: 'data: atualização Siconfi RREO 2023 P6 [skip ci]'
+          file_pattern: 'data/*.json'
+          commit_user_name: 'github-actions[bot]'
+          commit_user_email: 'github-actions[bot]@users.noreply.github.com'
