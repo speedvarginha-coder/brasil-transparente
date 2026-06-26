@@ -432,6 +432,26 @@ footer{background:linear-gradient(135deg,#0B1220,var(--blue));color:#d7dee8;padd
 .timelineChart .tcol span{position:absolute;top:-22px;left:50%;transform:translateX(-50%);font-size:11px;font-weight:900;color:#0f172a;white-space:nowrap}
 .timelineChart .tcol small{position:absolute;top:calc(100% + 6px);left:50%;transform:translateX(-50%);font-size:11px;font-weight:800;color:var(--muted);white-space:nowrap}
 .timelineChart .tcol.destaque span{color:var(--red)}
+.timelineChart .tcol.pre{background:linear-gradient(180deg,#16a34a,#86efac)}
+.timelineChart .tcol.pico{background:linear-gradient(180deg,#dc2626,#fbbf24)}
+.timelineChart .tcol.pos{background:linear-gradient(180deg,#2563eb,#60a5fa)}
+.timelineChart .lrfLine{position:absolute;left:8px;right:8px;border-top:2px dashed #f59e0b;pointer-events:none;z-index:2;top:109px}
+.timelineChart .lrfLine::after{content:'LRF 60%';position:absolute;right:0;top:-18px;font-size:10px;font-weight:800;color:#f59e0b;background:#fff;padding:0 6px;border-radius:4px;border:1px solid #f59e0b}
+.marcoGrid{margin:14px 0 18px}
+.marcoPre{background:linear-gradient(135deg,#dcfce7 0%,#ffffff 70%);border-color:#86efac}
+.marcoPico{background:linear-gradient(135deg,#fee2e2 0%,#ffffff 70%);border-color:#fca5a5}
+.marcoAtual{background:linear-gradient(135deg,#dbeafe 0%,#ffffff 70%);border-color:#93c5fd}
+.marcoFuturo{background:linear-gradient(135deg,#ede9fe 0%,#ffffff 70%);border-color:#c4b5fd}
+.marcoPre strong,.marcoAtual strong,.marcoFuturo strong{color:var(--ink)}
+.marcoPico strong{color:var(--red)}
+.variacaoUp{color:var(--red);font-size:22px;display:block;margin:6px 0;font-family:'Space Grotesk',Inter,sans-serif;font-weight:700}
+.variacaoDown{color:var(--green);font-size:22px;display:block;margin:6px 0;font-family:'Space Grotesk',Inter,sans-serif;font-weight:700}
+.legendTimeline{display:flex;flex-wrap:wrap;gap:18px;font-size:11px;color:var(--muted);font-weight:600;margin:12px 0 0;align-items:center}
+.legDot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:5px;vertical-align:middle}
+.legDot.pre{background:#16a34a}
+.legDot.pico{background:#dc2626}
+.legDot.pos{background:#2563eb}
+.legDot.lrf{background:#f59e0b;border:2px dashed #f59e0b;width:14px;height:0;border-radius:0}
 .ufFonte{margin-top:14px;padding:10px 14px;background:var(--green-soft);border:1px solid #bbf7d0;border-radius:12px;font-size:12px;color:var(--green-dark);font-weight:700;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
 .ufFonte b{color:var(--ink)}
 .ufFonte a{color:var(--blue);text-decoration:underline}
@@ -589,9 +609,64 @@ footer{background:linear-gradient(135deg,#0B1220,var(--blue));color:#d7dee8;padd
         <h2 class="section-title">Dívida Bruta / PIB — 2006 a 2026</h2>
         <button class="csvBtn" onclick="downloadCSV('divida_pib_historico','divida_pib_historico')"><span class="arrow">⬇</span> Baixar CSV</button>
       </div>
-      <p class="section-sub">A dívida brasileira saltou de 46,5% do PIB em 2006 para 80,4% projetado em 2026. O pico foi em 2020 (pandemia); depois recuou, voltou a subir. Clique nas barras para ver detalhes ou baixe a série em CSV.</p>
+      <p class="section-sub">A dívida brasileira saltou de <b>46,5% do PIB em 2006</b> para <b>80,4% projetado em 2026</b>. O pico foi em 2020 (pandemia); depois recuou, voltou a subir. Clique nas barras para ver detalhes ou baixe a série em CSV.</p>
+
+      <!-- Marcos numéricos -->
+      <div class="grid four marcoGrid">
+        <div class="miniCard marcoPre">
+          <span class="mini">📉 Menor valor</span>
+          <strong>38,5%</strong>
+          <p>2008 — antes da crise global. Foi o ponto mais baixo da série.</p>
+        </div>
+        <div class="miniCard marcoPico">
+          <span class="mini">📈 Pico histórico</span>
+          <strong>87,1%</strong>
+          <p>2020 — pandemia de Covid-19 e gastos emergenciais explodiram.</p>
+        </div>
+        <div class="miniCard marcoAtual">
+          <span class="mini">📊 Último oficial</span>
+          <strong>76,1%</strong>
+          <p>2024 — último ano fechado pelo Banco Central.</p>
+        </div>
+        <div class="miniCard marcoFuturo">
+          <span class="mini">🔮 Projeção 2026</span>
+          <strong>80,4%</strong>
+          <p>Projeção Boletim Focus / Banco Central — voltando a subir.</p>
+        </div>
+      </div>
+
+      <!-- Gráfico -->
       <div class="timelineChart" id="timelineChart"></div>
-      <p class="note">Fonte: <a href="https://www.bcb.gov.br/estatisticas/estatisticasfiscais" target="_blank" style="color:var(--blue)">Banco Central — Estatísticas Fiscais</a> · Dívida Bruta do Governo Geral (% PIB). Valores anuais. 2024 é o último ano fechado; 2026 é projeção do Boletim Focus / BC.</p>
+      <p class="legendTimeline"><span class="legDot pre"></span> Pré-pandemia (2006-2019) <span class="legDot pico"></span> Pico pandêmico (2020) <span class="legDot pos"></span> Pós-pandemia (2021-2026) <span class="legDot lrf"></span> Limite prudencial LRF (60%)</p>
+
+      <!-- Variações -->
+      <h3 class="escadaTitulo">📐 Variações-chave</h3>
+      <div class="grid three">
+        <div class="miniCard">
+          <span class="mini">Variação 2006 → 2026</span>
+          <strong class="variacaoUp">+33,9 pp</strong>
+          <p>De 46,5% para 80,4% em 20 anos. A dívida cresceu <b>73%</b> em pontos percentuais do PIB.</p>
+        </div>
+        <div class="miniCard">
+          <span class="mini">Pico pandêmico (2008 → 2020)</span>
+          <strong class="variacaoUp">+48,6 pp</strong>
+          <p>Em 12 anos, a dívida/PIB <b>mais que dobrou</b>. O salto foi puxado pela pandemia.</p>
+        </div>
+        <div class="miniCard">
+          <span class="mini">Recuo pós-pandemia (2020 → 2024)</span>
+          <strong class="variacaoDown">−11,0 pp</strong>
+          <p>Recuperação parcial após o pico. Mas 2026 projeta voltar a subir.</p>
+        </div>
+      </div>
+
+      <!-- Box de impacto -->
+      <div class="impactoFinal">
+        <p class="impactoHeadline">80,4% do PIB = dívida pública brasileira projetada para 2026.</p>
+        <p class="impactoTexto">Em números absolutos, isso representa algo em torno de <b>R$ 10,4 trilhões</b> — mais que <b>4 anos de orçamento da União inteiro</b>. E o custo de carregar essa dívida (juros) come <b>R$ 1,096 trilhão por ano</b>, mais que todo o orçamento do Ministério da Saúde somado ao da Educação.</p>
+        <p class="impactoConclusao">A LRF fixa <b>60% do PIB</b> como limite prudencial para a dívida. O Brasil está <b>acima desse limite há mais de 5 anos</b>.</p>
+      </div>
+
+      <p class="note">Fonte: <a href="https://www.bcb.gov.br/estatisticas/estatisticasfiscais" target="_blank" style="color:var(--blue)">Banco Central — Estatísticas Fiscais</a> · Dívida Bruta do Governo Geral (% PIB). Valores anuais. 2024 é o último ano fechado; 2026 é projeção do Boletim Focus / BC. LRF (Lei de Responsabilidade Fiscal · LC 101/2000, art. 29) fixa limite prudencial de 60% da RCL — usamos como referência visual.</p>
     </section>
 
 <section class="card" id="cinco"><span class="pill">Brasil em 5 minutos</span><h2 class="section-title">O básico que todo cidadão precisa saber</h2><p class="section-sub">O objetivo é explicar o Brasil antes de brigar sobre o Brasil. Primeiro entende a conta, depois cobra quem tem que cobrar.</p><div class="grid three">
@@ -1114,7 +1189,7 @@ footer{background:linear-gradient(135deg,#0B1220,var(--blue));color:#d7dee8;padd
     <div class="modalBody" id="modalBody"></div>
   </div>
 </div>
-<footer id="fontes"><div class="wrap"><span class="dataVersion">Dados <b>v1.6.0</b> · última atualização <b>26/06/2026</b></span><strong style="display:block;margin-top:18px">Fontes para atualização mensal</strong><p class="sources">Banco Central — Estatísticas Fiscais; Tesouro Transparente — Relatório Mensal da Dívida; Receita Federal — arrecadação; Congresso Nacional — LOA; Portal da Transparência; Tesouro Nacional/Siconfi (RREO/RGF); IBGE; Secretarias Estaduais de Fazenda.</p><div class="srcgrid"><a href="https://www.bcb.gov.br/estatisticas/estatisticasfiscais" target="_blank">Banco Central — Estatísticas Fiscais</a><a href="https://www.tesourotransparente.gov.br/temas/divida-publica-federal/estatisticas-e-relatorios-da-divida-publica-federal" target="_blank">Tesouro Transparente — Dívida Pública</a><a href="https://www.congressonacional.leg.br/web/orcamento/acompanhe/orcamento-anual" target="_blank">Congresso Nacional — Orçamento</a><a href="https://portaldatransparencia.gov.br/orcamento" target="_blank">Portal da Transparência — Orçamento</a><a href="https://siconfi.tesouro.gov.br/" target="_blank">Siconfi — Estados e Municípios</a><a href="https://www.ibge.gov.br/" target="_blank">IBGE — Indicadores</a></div><p class="sources" style="margin-top:18px"><a href="roadmap.md" style="color:#fde047;text-decoration:none">📋 Roadmap do projeto</a> · <a href="CHANGELOG.md" style="color:#fde047;text-decoration:none">📝 Changelog de dados</a></p></div></footer>
+<footer id="fontes"><div class="wrap"><span class="dataVersion">Dados <b>v1.7.0</b> · última atualização <b>26/06/2026</b></span><strong style="display:block;margin-top:18px">Fontes para atualização mensal</strong><p class="sources">Banco Central — Estatísticas Fiscais; Tesouro Transparente — Relatório Mensal da Dívida; Receita Federal — arrecadação; Congresso Nacional — LOA; Portal da Transparência; Tesouro Nacional/Siconfi (RREO/RGF); IBGE; Secretarias Estaduais de Fazenda.</p><div class="srcgrid"><a href="https://www.bcb.gov.br/estatisticas/estatisticasfiscais" target="_blank">Banco Central — Estatísticas Fiscais</a><a href="https://www.tesourotransparente.gov.br/temas/divida-publica-federal/estatisticas-e-relatorios-da-divida-publica-federal" target="_blank">Tesouro Transparente — Dívida Pública</a><a href="https://www.congressonacional.leg.br/web/orcamento/acompanhe/orcamento-anual" target="_blank">Congresso Nacional — Orçamento</a><a href="https://portaldatransparencia.gov.br/orcamento" target="_blank">Portal da Transparência — Orçamento</a><a href="https://siconfi.tesouro.gov.br/" target="_blank">Siconfi — Estados e Municípios</a><a href="https://www.ibge.gov.br/" target="_blank">IBGE — Indicadores</a></div><p class="sources" style="margin-top:18px"><a href="roadmap.md" style="color:#fde047;text-decoration:none">📋 Roadmap do projeto</a> · <a href="CHANGELOG.md" style="color:#fde047;text-decoration:none">📝 Changelog de dados</a></p></div></footer>
 <script>
 const CONFIG={year:2026,population:203_000_000,annualTaxRevenue:3_700_000_000_000,grossDebt:10_400_000_000_000,annualDebtGrowthEstimate:600_000_000_000,annualInterest:1_096_000_000_000,budget2026:6_500_000_000_000,amendments:61_000_000_000,electoralFund:4_961_519_777,partyFund:1_000_000_000};
 const openedAt=Date.now();
@@ -1135,7 +1210,7 @@ const ranks={macro:[['Juros da dívida','R$ 1,096 tri',100],['Renúncia fiscal',
 let currentRank='macro';
 function showRank(type,el){currentRank=type;document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));if(el)el.classList.add('active');document.getElementById('rankBox').innerHTML=ranks[type].map(r=>`<div class="barrow"><div class="barlabel"><span>${r[0]}</span><span>${r[1]}</span></div><div class="bar ${r[0].includes('Juros')?'red':'bluebar'}"><span style="width:${Math.max(r[2],1)}%"></span></div></div>`).join('')}
 const dividaPib=[[2006,46.5],[2008,38.5],[2010,51.8],[2012,54.9],[2014,56.3],[2016,69.8],[2018,77.2],[2020,87.1],[2022,73.5],[2024,76.1],[2026,80.4]];
-function drawTimeline(){const max=100;document.getElementById('timelineChart').innerHTML=dividaPib.map(p=>{const isProj=p[0]===2026;return `<div class="tcol ${isProj?'destaque':''}" title="${p[0]}: ${p[1]}% do PIB"><span>${p[1]}%</span><small>${p[0]}${isProj?'*':''}</small></div>`}).join('')}
+function drawTimeline(){const max=100;const chart=document.getElementById('timelineChart');chart.innerHTML='<div class="lrfLine" title="Limite prudencial LRF · 60% do PIB"></div>'+dividaPib.map(p=>{const isProj=p[0]===2026;const isPico=p[0]===2020;let cls='';if(isPico)cls='pico';else if(isProj)cls='destaque';else if(p[0]<=2019)cls='pre';else cls='pos';return `<div class="tcol ${cls}" title="${p[0]}: ${p[1]}% do PIB${isProj?' (proj.)':''}"><span>${p[1]}%</span><small>${p[0]}${isProj?'*':''}</small></div>`}).join('');requestAnimationFrame(()=>{const h=chart.clientHeight;const top=Math.round(20+(1-0.60)*(h-20-36-1));const lrf=chart.querySelector('.lrfLine');if(lrf){lrf.style.top=top+'px';lrf.style.bottom='auto'}})
 const estados=[
   {uf:'SP',nome:'São Paulo',receita:318.5e9,despesa:305.2e9,saude:38.4e9,educacao:50.1e9,seguranca:27.8e9,divida:285.6e9,pop:46.6e6,pib:2.719e12,anoBase:2024,fonteFin:'Siconfi RREO/RGF',fontePopPib:'IBGE'},
   {uf:'MG',nome:'Minas Gerais',receita:128.4e9,despesa:124.7e9,saude:14.2e9,educacao:19.3e9,seguranca:11.5e9,divida:163.8e9,pop:21.3e6,pib:857e9,anoBase:2024,fonteFin:'Siconfi RREO/RGF',fontePopPib:'IBGE'},
@@ -1244,7 +1319,7 @@ function closeModal(){document.getElementById('modalOverlay').classList.remove('
 function switchTab(name){document.querySelectorAll('.modalTab').forEach(t=>t.classList.toggle('active',t.dataset.tab===name));document.querySelectorAll('.modalTabPanel').forEach(p=>p.classList.toggle('active',p.dataset.tab===name))}
 document.getElementById('modalOverlay').addEventListener('click',e=>{if(e.target.id==='modalOverlay')closeModal()});
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&currentModal)closeModal()});
-function downloadIndicatorCSV(key){const csvMap={indicador_divida_bruta:'divida',indicador_juros_nominais:'juros',indicador_orcamento_uniao:'orcamento',indicador_emendas_2026:'emendas'};const ind=INDICADORES[csvMap[key]||key.replace('indicador_','')];if(!ind){alert('Indicador não encontrado: '+key);return}const csv='indicador,valor,valor_complementar,fonte,competencia,periodicidade,atualizacao,url_fonte,metodologia_resumo,projeto,commit\n'+[`${ind.titulo}`,`${ind.valor}`,`${ind.valorLong}`,`${ind.meta.fonte}`,`${ind.meta.competencia}`,`${ind.meta.periodicidade}`,`${ind.meta.atualizacao}`,`${ind.links[0]?.url||''}`,`${ind.metodologia.replace(/<[^>]+>/g,' ').replace(/\s+/g,' ').trim().slice(0,200)}`,`Brasil Transparente v1.6.0`,`https://github.com/${REPO_OWNER}/${REPO_NAME}/commits/main/CHANGELOG.md`].map(v=>`"${String(v).replace(/"/g,'""')}"`).join(',')+'\n';const blob=new Blob(['\ufeff'+csv],{type:'text/csv;charset=utf-8;'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=key+'_'+new Date().toISOString().slice(0,10)+'.csv';document.body.appendChild(a);a.click();document.body.removeChild(a);URL.revokeObjectURL(url)}
+function downloadIndicatorCSV(key){const csvMap={indicador_divida_bruta:'divida',indicador_juros_nominais:'juros',indicador_orcamento_uniao:'orcamento',indicador_emendas_2026:'emendas'};const ind=INDICADORES[csvMap[key]||key.replace('indicador_','')];if(!ind){alert('Indicador não encontrado: '+key);return}const csv='indicador,valor,valor_complementar,fonte,competencia,periodicidade,atualizacao,url_fonte,metodologia_resumo,projeto,commit\n'+[`${ind.titulo}`,`${ind.valor}`,`${ind.valorLong}`,`${ind.meta.fonte}`,`${ind.meta.competencia}`,`${ind.meta.periodicidade}`,`${ind.meta.atualizacao}`,`${ind.links[0]?.url||''}`,`${ind.metodologia.replace(/<[^>]+>/g,' ').replace(/\s+/g,' ').trim().slice(0,200)}`,`Brasil Transparente v1.7.0`,`https://github.com/${REPO_OWNER}/${REPO_NAME}/commits/main/CHANGELOG.md`].map(v=>`"${String(v).replace(/"/g,'""')}"`).join(',')+'\n';const blob=new Blob(['\ufeff'+csv],{type:'text/csv;charset=utf-8;'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=key+'_'+new Date().toISOString().slice(0,10)+'.csv';document.body.appendChild(a);a.click();document.body.removeChild(a);URL.revokeObjectURL(url)}
 const ibgeCodes={SP:35,MG:31,RJ:33,BA:29,PR:41,RS:43};
 const REPO_OWNER='speedvarginha-coder';const REPO_NAME='brasil-transparente';const REPO_BRANCH='main';
 async function fetchEstadoSiconfi(){const sel=document.getElementById('estadoSelect');const uf=estados[Number(sel.value||0)].uf;const code=ibgeCodes[uf];const status=document.getElementById('liveStatus');const text=document.getElementById('liveText');const btn=document.getElementById('liveBtn');if(!code){text.textContent=`UF ${uf} sem código IBGE mapeado.`;return}status.className='liveStatus loading';text.innerHTML='⏳ Buscando snapshot oficial em data/'+uf.toLowerCase()+'.json...';btn.disabled=true;const url=`https://raw.githubusercontent.com/${REPO_OWNER}/${REPO_NAME}/${REPO_BRANCH}/data/${uf.toLowerCase()}.json`;try{const controller=new AbortController();const timeout=setTimeout(()=>controller.abort(),10000);const response=await fetch(url,{signal:controller.signal,headers:{'Accept':'application/json'}});clearTimeout(timeout);if(!response.ok)throw new Error('HTTP '+response.status);const data=await response.json();if(!data.receitaRealizada||!data.despesaEmpenhada)throw new Error('Snapshot incompleto para '+uf);document.getElementById('ufReceita').textContent=short(data.receitaRealizada);document.getElementById('ufDespesa').textContent=short(data.despesaEmpenhada);document.getElementById('ufReceita').title=`Valor bruto: R$ ${data.receitaRealizada.toLocaleString('pt-BR')} (Siconfi RREO ${data.exercicio} P${data.periodo}, coletado ${data.dataColeta})`;document.getElementById('ufDespesa').title=`Valor bruto: R$ ${data.despesaEmpenhada.toLocaleString('pt-BR')} (Siconfi RREO ${data.exercicio} P${data.periodo}, coletado ${data.dataColeta})`;document.getElementById('ufFonte').innerHTML=`🟢 <b>Snapshot oficial · Siconfi RREO ${data.exercicio} P${data.periodo}</b> via <a href="${data.urlOriginal}" target="_blank" rel="noopener">apidatalake.tesouro.gov.br</a> · coletado <b>${data.dataColeta}</b> · commit <a href="https://github.com/${REPO_OWNER}/${REPO_NAME}/commits/main/data/${uf.toLowerCase()}.json" target="_blank" rel="noopener">ver histórico</a>`;const ts=new Date().toLocaleString('pt-BR');status.className='liveStatus live';text.innerHTML=`<span class="pulse"></span>🟢 Snapshot oficial · Siconfi RREO ${data.exercicio} P${data.periodo} · commit <code>data/${uf.toLowerCase()}.json</code> · carregado em ${ts}`}catch(err){const motivo=err.message==='Failed to fetch'||err.name==='AbortError'?'Sem conexão ou GitHub indisponível':'Snapshot ainda não publicado: '+err.message;status.className='liveStatus fallback';text.innerHTML=`<span class="pulse"></span>🟡 ${motivo}. Mantendo dados locais de 2024.`}finally{btn.disabled=false}}

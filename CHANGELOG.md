@@ -4,6 +4,43 @@ Registro público de toda alteração em dados, regras de cálculo ou fontes. Fo
 
 ---
 
+## [v1.7.0] — 2026-06-26 — Linha do tempo Dívida/PIB com períodos coloridos + LRF
+
+### Adicionado
+- **Seção `#linhatempo` reformulada** com 4 miniCards de marcos numéricos:
+  - 📉 Menor valor: **38,5%** (2008, antes da crise)
+  - 📈 Pico histórico: **87,1%** (2020, pandemia)
+  - 📊 Último oficial: **76,1%** (2024)
+  - 🔮 Projeção 2026: **80,4%** (Boletim Focus / BC)
+- **Gráfico agora coloriza barras por período**:
+  - Verde (2006-2019) = pré-pandemia
+  - Vermelho/laranja (2020) = pico pandêmico
+  - Azul (2021-2026) = pós-pandemia
+- **Linha tracejada amarela** marcando o limite prudencial da LRF (60% do PIB) — referência visual clássica da Lei de Responsabilidade Fiscal (LC 101/2000, art. 29).
+- **3 miniCards de variações-chave**:
+  - 2006 → 2026: **+33,9 pp** (crescimento de 73% em pp)
+  - 2008 → 2020: **+48,6 pp** (mais que dobrou)
+  - 2020 → 2024: **−11,0 pp** (recuperação parcial)
+- **Box de impacto final** com equivalências concretas: 80,4% do PIB ≈ R$ 10,4 trilhões = mais que 4 anos de orçamento da União; juros anuais (R$ 1,096 tri) > orçamento Saúde + Educação.
+- **Legenda colorida** abaixo do gráfico (períodos + LRF).
+
+### CSS novo
+- `.marcoPre`, `.marcoPico`, `.marcoAtual`, `.marcoFuturo` — 4 cards coloridos com gradiente sutil.
+- `.variacaoUp` (vermelho), `.variacaoDown` (verde) — destaque tipográfico das variações.
+- `.legendTimeline` + `.legDot.{pre,pico,pos,lrf}` — legenda colorida.
+- `.timelineChart .tcol.pre/.pico/.pos` — cores por período.
+- `.timelineChart .lrfLine` — linha tracejada amarela com label "LRF 60%".
+
+### JS atualizado
+- `drawTimeline()` agora classifica cada barra por período e posiciona a linha do LRF proporcionalmente (calculado em `requestAnimationFrame` para respeitar altura real do container).
+
+### Fontes / Referências
+- Banco Central — Estatísticas Fiscais (série anual Dívida Bruta / PIB).
+- Boletim Focus / BC (projeção 2026).
+- LRF — Lei Complementar 101/2000, art. 29 (limite prudencial 60% RCL — usado aqui como referência visual clássica).
+
+---
+
 ## [v1.6.0] — 2026-06-26 — Escala do dinheiro reformulada (4 visões)
 
 ### Adicionado

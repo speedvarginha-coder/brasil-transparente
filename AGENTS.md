@@ -86,6 +86,7 @@ CORS liberado. Sem necessidade de token.
 - Handlers `init`: registrados no fim do script + invocados na ordem certa.
 - **v1.5.0** adiciona `.efProportional` (flex container com `flex-grow` proporcional ao valor) e `.efSlice` (cada bloco da barra). Substituiu o antigo `grid three` uniforme que fazia os 3 valores parecerem iguais.
 - **v1.6.0** reformula seção `#escala` (Escala do dinheiro) com 4 visões complementares: `.escadaZeros` (escada visual com blocos █), `.tempoChart` (gráfico horizontal de tempo para contar), `.personaCena` (4 personagens: João/Carlos/Ana/Brasil), `.regruaEscala` (régua do trilhão). Substituiu os 6 miniCards uniformes que não transmitiam a diferença real entre as escalas.
+- **v1.7.0** reformula seção `#linhatempo` (Dívida/PIB): 4 miniCards de marcos numéricos (menor/pico/oficial/projeção), gráfico com barras coloridas por período (verde pré-pandemia, vermelho pico, azul pós-pandemia), linha tracejada amarela marcando LRF 60%, 3 miniCards de variações-chave (+33,9 pp / +48,6 pp / −11,0 pp), box de impacto final. `drawTimeline()` reescrita com classificação por período e posicionamento proporcional da linha LRF via `requestAnimationFrame`.
 
 ### JSON de snapshot
 ```json
