@@ -4,6 +4,21 @@ Registro público de toda alteração em dados, regras de cálculo ou fontes. Fo
 
 ---
 
+## [v1.3.1] — 2026-06-26
+
+### Corrigido (UX)
+- **Quebra de linha nos valores dos KPIs**: "R$ 10,4 tri" e "R$ 1,096 tri" estavam quebrando em 2 linhas por causa do badge `position: absolute` empurrando o conteúdo.
+  - `.kpi .value`: `font-size` reduzido de `clamp(26px,2.65vw,35px)` para `clamp(22px,2.2vw,30px)`, `word-break: keep-all`, `hyphens: none`.
+  - `.kpi .label`: `font-size` reduzido de 13px para 12px, `text-transform: uppercase`, `letter-spacing`, `min-height: 32px`.
+- **Títulos dos KPIs cortados**: "Juros em 12 m" e "Orçamento Uniã" — ajuste de `padding-top: 42px` no `.kpi` + `min-height` no label garantem que o badge não sobreponha o título.
+- **Badge muito largo**: `.sourceBadge` reduzido de `font-size: 11px` / `max-width: 78%` para `font-size: 9.5px` / `max-width: 55%`. Mais discreto, dá mais espaço pro conteúdo.
+
+### Removido (limpeza)
+- **Callout "Versão profissional"** — era marketing puro, sem dado real, sem link. Substituído pelo silêncio (a seção não acrescenta valor ao usuário comum).
+- **3ª opção do quiz "Não existe diferença no orçamento público"** — opção absurda que poluía a tela. Quiz agora tem 2 opções claras (Sim/Não). CSS `.quizBtns` adicionado pro layout em grid.
+
+---
+
 ## [v1.3] — 2026-06-26 — Sprint 3 / Item 3.1
 
 ### Adicionado

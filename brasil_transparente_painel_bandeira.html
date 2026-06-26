@@ -152,12 +152,13 @@ section{margin:24px auto}
   border:1px solid var(--line);
 }
 .card:hover{box-shadow:var(--shadow)}
-.kpi .label{color:var(--muted);font-weight:800;font-size:13px}
+.kpi .label{color:var(--muted);font-weight:800;font-size:12px;text-transform:uppercase;letter-spacing:.03em;line-height:1.3;min-height:32px}
 .kpi .value,.big,.mega,.result,.counter strong,.miniCard strong,.poster b{
   font-family:'Space Grotesk','Inter',sans-serif;
   font-variant-numeric:tabular-nums;
 }
-.kpi .value{font-size:clamp(26px,2.65vw,35px);font-weight:700;margin:6px 0;letter-spacing:-.045em;color:var(--green-dark)}
+.kpi .value{font-size:clamp(22px,2.2vw,30px);font-weight:700;margin:6px 0 4px;letter-spacing:-.035em;color:var(--green-dark);line-height:1.05;word-break:keep-all;overflow-wrap:normal;hyphens:none}
+.kpi small{font-size:11.5px;line-height:1.4}
 .kpi small{color:var(--muted)}
 .section-title{font-size:clamp(26px,3vw,40px);letter-spacing:-.045em;line-height:1.08;margin:0 0 10px;color:var(--ink);font-weight:800}
 .section-sub{color:var(--muted);margin-top:-2px;max-width:920px}
@@ -218,6 +219,9 @@ summary{font-weight:850;cursor:pointer;color:#0f172a}
 .col small{position:absolute;top:100%;left:50%;transform:translateX(-50%);font-size:11px;margin-top:5px;color:#64748b}
 .quiz button{display:block;width:100%;text-align:left;margin:10px 0;padding:14px;border-radius:14px;border:1px solid #cbd5e1;background:#fff;cursor:pointer;font-weight:800;color:#334155;font-family:inherit}
 .quiz button.correct{border-color:var(--green);background:var(--green-soft)}.quiz button.wrong{border-color:var(--red);background:#fef2f2}
+.quizBtns{display:grid;gap:8px;margin-top:12px}
+.quizBtns button{display:block;width:100%;text-align:left;margin:0;padding:12px 14px;border-radius:12px;border:1px solid #cbd5e1;background:#fff;cursor:pointer;font-weight:800;color:#334155;font-family:inherit;font-size:14px}
+.quizBtns button:hover{border-color:var(--blue);background:var(--blue-soft)}
 .share{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
 .poster{
   background:#fff;
@@ -249,34 +253,35 @@ summary{font-weight:850;cursor:pointer;color:#0f172a}
 .stateBox{border:1px solid var(--line);border-radius:17px;padding:14px;background:#fff;box-shadow:var(--shadow-soft)}
 .stateBox b{font-size:18px;color:#0f172a}.stateBox small{display:block;color:var(--muted)}
 footer{background:linear-gradient(135deg,#0B1220,var(--blue));color:#d7dee8;padding:34px 0;margin-top:44px}.sources{font-size:14px;color:#aab6c6}
-.kpi{position:relative}
+.kpi{position:relative;padding-top:42px}
+.kpi .value,.kpi small{padding-right:4px;max-width:100%}
 .sourceBadge{
   position:absolute;
-  top:14px;
-  right:14px;
+  top:10px;
+  right:10px;
   display:inline-flex;
   align-items:center;
-  gap:6px;
+  gap:4px;
   background:rgba(255,255,255,.92);
   border:1px solid var(--line);
   border-radius:999px;
-  padding:4px 9px 4px 7px;
-  font-size:11px;
+  padding:3px 7px 3px 5px;
+  font-size:9.5px;
   font-weight:800;
   color:var(--ink);
   box-shadow:0 2px 6px rgba(15,23,42,.06);
   line-height:1.1;
-  max-width:78%;
+  max-width:55%;
   justify-content:flex-end;
 }
 .sourceBadge .dot{
-  width:9px;height:9px;border-radius:50%;
+  width:7px;height:7px;border-radius:50%;
   flex-shrink:0;
   box-shadow:0 0 0 2px rgba(255,255,255,.9);
 }
-.sourceBadge .src{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:160px}
-.sourceBadge .date{display:block;font-size:10px;font-weight:700;color:var(--muted);margin-top:2px;letter-spacing:.02em}
-.sourceBadge.stack{right:14px;top:14px;flex-direction:column;align-items:flex-end;padding:5px 9px;gap:3px}
+.sourceBadge .src{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:120px}
+.sourceBadge .date{display:block;font-size:9px;font-weight:700;color:var(--muted);margin-top:1px;letter-spacing:.02em}
+.sourceBadge.stack{right:10px;top:10px;flex-direction:column;align-items:flex-end;padding:4px 7px;gap:2px}
 .sourceBadge .dot.green{background:var(--green-dark)}
 .sourceBadge .dot.yellow{background:var(--yellow);box-shadow:0 0 0 2px rgba(255,255,255,.9), 0 0 0 3px rgba(255,223,0,.4)}
 .sourceBadge .dot.blue{background:var(--blue)}
@@ -728,11 +733,9 @@ footer{background:linear-gradient(135deg,#0B1220,var(--blue));color:#d7dee8;padd
 
     <section class="grid two"><div class="card myth"><h2>Erro comum</h2><p><strong>“É só cortar político que resolve tudo.”</strong></p><p>Cortar privilégio é obrigação. Mas a conta pública é grande demais para ser resolvida só com economia simbólica. Tem que olhar juros, déficit, previdência, folha, orçamento obrigatório e crescimento.</p></div><div class="card truth"><h2>Caminho correto</h2><p><strong>Transparência + comparação + prioridade.</strong></p><p>O cidadão precisa saber quanto custa cada área, o que entrega e quem decide. Orçamento público não pode ser labirinto de especialista.</p></div></section>
 
-    <section class="card quiz"><span class="pill purple">Teste rápido</span><h2 class="section-title">Você entendeu?</h2><p><strong>Juros da dívida são a mesma coisa que amortização?</strong></p><button onclick="quiz(this,false)">Sim, é tudo pagamento da dívida.</button><button onclick="quiz(this,true)">Não. Juros são custo financeiro; amortização devolve principal.</button><button onclick="quiz(this,false)">Não existe diferença no orçamento público.</button><p id="quizMsg" class="result"></p></section>
+    <section class="card quiz"><span class="pill purple">Teste rápido</span><h2 class="section-title">Juros = amortização?</h2><p><strong>Juros da dívida são a mesma coisa que amortização?</strong></p><div class="quizBtns"><button onclick="quiz(this,false)">Sim, é tudo pagamento da dívida.</button><button onclick="quiz(this,true)">Não. Juros são custo financeiro; amortização devolve principal.</button></div><p id="quizMsg" class="result"></p></section>
 
     <section class="card" id="cards"><span class="pill">Cards para redes</span><h2 class="section-title">Pronto para comunicação pública</h2><div class="share"><div class="poster"><b>R$ 1,096 trilhão</b><p>em juros em 12 meses. O Brasil precisa falar sobre isso.</p><span>Brasil Transparente</span></div><div class="poster"><b>R$ 10,4 trilhões</b><p>de dívida bruta. Quanto disso volta em serviço bom?</p><span>Dinheiro público</span></div><div class="poster"><b>De cada R$ 100</b><p>para onde vai o dinheiro que o cidadão paga?</p><span>Sem economês</span></div><div class="poster"><b>Estados em números</b><p>Receita, despesa, saúde, educação e segurança lado a lado.</p><span>Comparar para cobrar</span></div></div><p class="note">Próxima versão: botão de baixar imagem para cada card.</p></section>
-
-    <section class="card callout"><span class="pill">Versão profissional</span><h2 class="section-title">Como transformar em plataforma nacional</h2><p class="section-sub">Conectar APIs oficiais, atualizar dados por rotina mensal, criar painel por Estado, ranking nacional, exportação CSV, cards automáticos e página de metodologia auditável.</p></section>
 
     <section class="compromissoBox" id="compromisso">
       <span class="pill blue">Compromisso com o dado</span>
@@ -776,7 +779,7 @@ footer{background:linear-gradient(135deg,#0B1220,var(--blue));color:#d7dee8;padd
     <div class="modalBody" id="modalBody"></div>
   </div>
 </div>
-<footer id="fontes"><div class="wrap"><span class="dataVersion">Dados <b>v1.3</b> · última atualização <b>26/06/2026</b></span><strong style="display:block;margin-top:18px">Fontes para atualização mensal</strong><p class="sources">Banco Central — Estatísticas Fiscais; Tesouro Transparente — Relatório Mensal da Dívida; Receita Federal — arrecadação; Congresso Nacional — LOA; Portal da Transparência; Tesouro Nacional/Siconfi (RREO/RGF); IBGE; Secretarias Estaduais de Fazenda.</p><div class="srcgrid"><a href="https://www.bcb.gov.br/estatisticas/estatisticasfiscais" target="_blank">Banco Central — Estatísticas Fiscais</a><a href="https://www.tesourotransparente.gov.br/temas/divida-publica-federal/estatisticas-e-relatorios-da-divida-publica-federal" target="_blank">Tesouro Transparente — Dívida Pública</a><a href="https://www.congressonacional.leg.br/web/orcamento/acompanhe/orcamento-anual" target="_blank">Congresso Nacional — Orçamento</a><a href="https://portaldatransparencia.gov.br/orcamento" target="_blank">Portal da Transparência — Orçamento</a><a href="https://siconfi.tesouro.gov.br/" target="_blank">Siconfi — Estados e Municípios</a><a href="https://www.ibge.gov.br/" target="_blank">IBGE — Indicadores</a></div><p class="sources" style="margin-top:18px"><a href="roadmap.md" style="color:#fde047;text-decoration:none">📋 Roadmap do projeto</a> · <a href="CHANGELOG.md" style="color:#fde047;text-decoration:none">📝 Changelog de dados</a></p></div></footer>
+<footer id="fontes"><div class="wrap"><span class="dataVersion">Dados <b>v1.3.1</b> · última atualização <b>26/06/2026</b></span><strong style="display:block;margin-top:18px">Fontes para atualização mensal</strong><p class="sources">Banco Central — Estatísticas Fiscais; Tesouro Transparente — Relatório Mensal da Dívida; Receita Federal — arrecadação; Congresso Nacional — LOA; Portal da Transparência; Tesouro Nacional/Siconfi (RREO/RGF); IBGE; Secretarias Estaduais de Fazenda.</p><div class="srcgrid"><a href="https://www.bcb.gov.br/estatisticas/estatisticasfiscais" target="_blank">Banco Central — Estatísticas Fiscais</a><a href="https://www.tesourotransparente.gov.br/temas/divida-publica-federal/estatisticas-e-relatorios-da-divida-publica-federal" target="_blank">Tesouro Transparente — Dívida Pública</a><a href="https://www.congressonacional.leg.br/web/orcamento/acompanhe/orcamento-anual" target="_blank">Congresso Nacional — Orçamento</a><a href="https://portaldatransparencia.gov.br/orcamento" target="_blank">Portal da Transparência — Orçamento</a><a href="https://siconfi.tesouro.gov.br/" target="_blank">Siconfi — Estados e Municípios</a><a href="https://www.ibge.gov.br/" target="_blank">IBGE — Indicadores</a></div><p class="sources" style="margin-top:18px"><a href="roadmap.md" style="color:#fde047;text-decoration:none">📋 Roadmap do projeto</a> · <a href="CHANGELOG.md" style="color:#fde047;text-decoration:none">📝 Changelog de dados</a></p></div></footer>
 <script>
 const CONFIG={year:2026,population:203_000_000,annualTaxRevenue:3_700_000_000_000,grossDebt:10_400_000_000_000,annualDebtGrowthEstimate:600_000_000_000,annualInterest:1_096_000_000_000,budget2026:6_500_000_000_000,amendments:61_000_000_000,electoralFund:4_961_519_777,partyFund:1_000_000_000};
 const openedAt=Date.now();
