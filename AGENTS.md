@@ -85,6 +85,7 @@ CORS liberado. Sem necessidade de token.
 - Funções utilitárias: `brl()`, `short()`, `secondsSinceYearStart()`, `find()`.
 - Handlers `init`: registrados no fim do script + invocados na ordem certa.
 - **v1.5.0** adiciona `.efProportional` (flex container com `flex-grow` proporcional ao valor) e `.efSlice` (cada bloco da barra). Substituiu o antigo `grid three` uniforme que fazia os 3 valores parecerem iguais.
+- **v1.6.0** reformula seção `#escala` (Escala do dinheiro) com 4 visões complementares: `.escadaZeros` (escada visual com blocos █), `.tempoChart` (gráfico horizontal de tempo para contar), `.personaCena` (4 personagens: João/Carlos/Ana/Brasil), `.regruaEscala` (régua do trilhão). Substituiu os 6 miniCards uniformes que não transmitiam a diferença real entre as escalas.
 
 ### JSON de snapshot
 ```json

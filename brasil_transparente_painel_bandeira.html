@@ -354,6 +354,55 @@ footer{background:linear-gradient(135deg,#0B1220,var(--blue));color:#d7dee8;padd
 .efSlice.emenda{background:linear-gradient(135deg,#1e3a8a 0%,#1e40af 100%);flex:100 1 0}
 .efSlice.eleitoral{background:linear-gradient(135deg,#1d4ed8 0%,#2563eb 100%);flex:8.1 1 0;min-width:150px}
 .efSlice.partidario{background:linear-gradient(135deg,#3b82f6 0%,#60a5fa 100%);flex:1.6 1 0;min-width:120px}
+.escadaTitulo{font-size:18px;font-weight:700;color:var(--ink);margin:32px 0 8px;letter-spacing:-.01em;display:flex;align-items:center;gap:8px}
+.escadaNota{font-size:13px;color:var(--muted);margin:10px 0 4px;line-height:1.5}
+.escadaZeros{display:flex;flex-direction:column;gap:6px;margin-top:8px}
+.degrau{display:grid;grid-template-columns:120px 1fr;gap:16px;align-items:center;padding:14px 16px;border:1px solid var(--line);border-radius:10px;background:#fff}
+.degrau.deg1{background:linear-gradient(90deg,#fef9c3 0%,#ffffff 50%)}
+.degrau.deg2{background:linear-gradient(90deg,#fde68a 0%,#ffffff 50%)}
+.degrau.deg3{background:linear-gradient(90deg,#fbbf24 0%,#ffffff 50%)}
+.degrau.deg4{background:linear-gradient(90deg,#f59e0b 0%,#ffffff 50%)}
+.degLabel{font-weight:700;font-size:14px;color:var(--ink);text-transform:uppercase;letter-spacing:.04em}
+.degValor{font-family:'Space Grotesk',Inter,sans-serif;font-size:13px;color:var(--muted);grid-column:2;grid-row:1;font-variant-numeric:tabular-nums}
+.degBloco{grid-column:2;grid-row:2;font-family:monospace;color:var(--yellow);font-size:14px;letter-spacing:1px;white-space:nowrap;overflow:hidden}
+.degrauArrow{text-align:center;font-size:12px;color:var(--muted);font-weight:700;padding:2px 0;letter-spacing:.05em}
+.tempoChart{display:flex;flex-direction:column;gap:10px;margin-top:8px;padding:18px;border:1px solid var(--line);border-radius:12px;background:#fafafa}
+.tempoRow{display:grid;grid-template-columns:90px 1fr 130px;gap:12px;align-items:center}
+.tempoLabel{font-weight:700;font-size:13px;color:var(--ink)}
+.tempoBarWrap{background:#e5e7eb;border-radius:6px;height:32px;position:relative;overflow:hidden}
+.tempoBar{height:100%;border-radius:6px;display:flex;align-items:center;justify-content:flex-end;padding:0 10px;color:#fff;font-weight:700;font-size:12px;font-variant-numeric:tabular-nums;min-width:60px;transition:width 1s ease}
+.tempoBar.t1{background:linear-gradient(90deg,#fbbf24,#f59e0b)}
+.tempoBar.t2{background:linear-gradient(90deg,#f59e0b,#ea580c)}
+.tempoBar.t3{background:linear-gradient(90deg,#ea580c,#dc2626)}
+.tempoBar.t4{background:linear-gradient(90deg,#dc2626,#991b1b)}
+.tempoValor{font-family:'Space Grotesk',Inter,sans-serif;font-size:12px;color:var(--ink);font-weight:600;font-variant-numeric:tabular-nums;text-align:right}
+.personaCena{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:8px}
+.persona{padding:18px 12px;border:1px solid var(--line);border-radius:12px;display:flex;flex-direction:column;align-items:center;text-align:center;background:#fff;position:relative;transition:transform .2s}
+.persona:hover{transform:translateY(-3px)}
+.persona.p1{background:linear-gradient(180deg,#fef9c3 0%,#ffffff 60%);border-color:#fde047}
+.persona.p2{background:linear-gradient(180deg,#fde68a 0%,#ffffff 60%);border-color:#facc15}
+.persona.p3{background:linear-gradient(180deg,#fbbf24 0%,#ffffff 60%);border-color:#f59e0b}
+.persona.p4{background:linear-gradient(180deg,#f59e0b 0%,#ffffff 60%);border-color:#d97706}
+.personaEmoji{font-size:42px;line-height:1;margin-bottom:6px}
+.personaNome{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:2px}
+.personaPat{font-family:'Space Grotesk',Inter,sans-serif;font-size:18px;font-weight:700;color:var(--ink);font-variant-numeric:tabular-nums;letter-spacing:-.02em;display:block;margin:4px 0}
+.personaTempo{font-size:11px;color:var(--ink);background:rgba(255,255,255,.7);padding:4px 8px;border-radius:6px;font-weight:600}
+.regruaEscala{margin-top:8px;padding:18px;border:1px solid var(--line);border-radius:12px;background:#fff}
+.regruaBase{position:relative;height:32px;background:#f3f4f6;border-radius:6px;overflow:hidden;border:1px solid #d1d5db}
+.regruaFill{position:absolute;left:0;top:0;bottom:0;width:100%;background:linear-gradient(90deg,#fbbf24 0%,#f59e0b 50%,#ea580c 100%);border-radius:6px 0 0 6px}
+.regruaTick{position:absolute;top:0;bottom:0;width:4px;background:#dc2626;z-index:2}
+.regruaTick span{position:absolute;top:38px;left:50%;transform:translateX(-50%);font-size:10px;color:var(--muted);white-space:nowrap;font-weight:600}
+.impactoFinal{margin-top:24px;padding:24px 28px;background:linear-gradient(135deg,#fef3c7 0%,#fde68a 100%);border-radius:14px;border:1px solid #fbbf24}
+.impactoHeadline{font-size:20px;font-weight:700;color:var(--ink);margin:0 0 8px;letter-spacing:-.02em}
+.impactoTexto{font-size:15px;color:var(--ink);margin:0 0 8px;line-height:1.5}
+.impactoConclusao{font-size:13px;color:var(--muted);margin:0;line-height:1.5;font-style:italic}
+@media (max-width:760px){
+  .personaCena{grid-template-columns:repeat(2,1fr)}
+  .tempoRow{grid-template-columns:80px 1fr;gap:8px}
+  .tempoValor{grid-column:2;font-size:11px}
+  .degrau{grid-template-columns:90px 1fr;gap:10px;padding:10px}
+  .degBloco{font-size:11px}
+}
 .csvBtn{
   display:inline-flex;
   align-items:center;
@@ -556,19 +605,140 @@ footer{background:linear-gradient(135deg,#0B1220,var(--blue));color:#d7dee8;padd
 
     <section class="card" id="escala">
       <span class="pill warn">Escala do dinheiro</span>
-      <h2 class="section-title">Mil, milhão, bilhão, trilhão: o salto é de 1.000 em 1.000</h2>
-      <p class="section-sub">O brasileiro ouve "bilhões" todo dia e o cérebro acostuma. Mas a escala muda brutalmente: <b>1 bilhão não é um milhão grande</b>; é mil milhões. E 1 trilhão é mil bilhões.</p>
-      <div class="grid four">
-        <div class="miniCard"><span class="mini">R$ 1 mil</span><strong>1.000</strong><p>Dez notas de R$ 100. É dinheiro de pessoa física.</p></div>
-        <div class="miniCard"><span class="mini">R$ 1 milhão</span><strong>1.000.000</strong><p>Mil pagamentos de R$ 1.000.</p></div>
-        <div class="miniCard"><span class="mini">R$ 1 bilhão</span><strong>1.000 milhões</strong><p>Um milhão de pagamentos de R$ 1.000.</p></div>
-        <div class="miniCard"><span class="mini">R$ 1 trilhão</span><strong>1.000 bilhões</strong><p>Um bilhão de pagamentos de R$ 1.000.</p></div>
+      <h2 class="section-title">Mil, milhão, bilhão, trilhão: cada passo multiplica por 1.000</h2>
+      <p class="section-sub">O brasileiro ouve "bilhões" todo dia e o cérebro acostuma. Mas a escala muda brutalmente. <b>1 bilhão não é um milhão grande</b> — é mil milhões. E <b>1 trilhão é mil bilhões</b>. Veja isso em 4 visões diferentes e escolha a que mais te convence.</p>
+
+      <!-- Visão 1: Escada dos zeros -->
+      <h3 class="escadaTitulo">🪜 Visão 1 — A escada dos zeros</h3>
+      <p class="section-sub" style="margin-bottom:14px">Cada degrau adiciona <b>3 zeros</b> e multiplica o valor por <b>1.000</b>. Não é "um pouquinho a mais". É mil vezes mais.</p>
+      <div class="escadaZeros">
+        <div class="degrau deg1">
+          <span class="degLabel">Mil</span>
+          <span class="degValor">1.000</span>
+          <span class="degBloco">█</span>
+        </div>
+        <div class="degrauArrow">↓ +3 zeros × 1.000</div>
+        <div class="degrau deg2">
+          <span class="degLabel">Milhão</span>
+          <span class="degValor">1.000.000</span>
+          <span class="degBloco">██████████</span>
+        </div>
+        <div class="degrauArrow">↓ +3 zeros × 1.000</div>
+        <div class="degrau deg3">
+          <span class="degLabel">Bilhão</span>
+          <span class="degValor">1.000.000.000</span>
+          <span class="degBloco">██████████████████████████████</span>
+        </div>
+        <div class="degrauArrow">↓ +3 zeros × 1.000</div>
+        <div class="degrau deg4">
+          <span class="degLabel">Trilhão</span>
+          <span class="degValor">1.000.000.000.000</span>
+          <span class="degBloco">████████████████████████████████████████████████████████████████</span>
+        </div>
       </div>
-      <div class="grid two" style="margin-top:16px">
-        <div class="miniCard"><span class="mini">Salário de R$ 10 mil/mês</span><strong>8.333 anos</strong><p>Tempo aproximado para juntar R$ 1 bilhão sem gastar nada.</p></div>
-        <div class="miniCard"><span class="mini">Mesmo salário</span><strong>8,3 milhões de anos</strong><p>Tempo aproximado para juntar R$ 1 trilhão sem gastar nada.</p></div>
+      <p class="escadaNota">1 milhão = 1.000 mil · 1 bilhão = 1.000 milhões · 1 trilhão = 1.000 bilhões. Cada degrau é mil vezes maior que o anterior.</p>
+
+      <!-- Visão 2: Gráfico de tempo para contar -->
+      <h3 class="escadaTitulo">⏱️ Visão 2 — Quanto tempo leva para contar até lá</h3>
+      <p class="section-sub" style="margin-bottom:14px">Imagine que você conte <b>1 número por segundo</b>, sem parar, 24 horas por dia.</p>
+      <div class="tempoChart" role="figure" aria-label="Tempo necessário para contar até mil, milhão, bilhão e trilhão">
+        <div class="tempoRow">
+          <span class="tempoLabel">Mil</span>
+          <div class="tempoBarWrap"><div class="tempoBar t1" style="width:0.05%"><span>16 min 40 s</span></div></div>
+          <span class="tempoValor">16 min 40 s</span>
+        </div>
+        <div class="tempoRow">
+          <span class="tempoLabel">1 Milhão</span>
+          <div class="tempoBarWrap"><div class="tempoBar t2" style="width:0.4%"><span>11 dias 14 h</span></div></div>
+          <span class="tempoValor">11 dias 14 h</span>
+        </div>
+        <div class="tempoRow">
+          <span class="tempoLabel">1 Bilhão</span>
+          <div class="tempoBarWrap"><div class="tempoBar t3" style="width:14%"><span>31 anos 8 meses</span></div></div>
+          <span class="tempoValor">31 anos 8 meses</span>
+        </div>
+        <div class="tempoRow">
+          <span class="tempoLabel">1 Trilhão</span>
+          <div class="tempoBarWrap"><div class="tempoBar t4" style="width:100%"><span>31.709 anos</span></div></div>
+          <span class="tempoValor">31.709 anos</span>
+        </div>
       </div>
-      <p class="note">Regra mental: milhão → bilhão → trilhão sempre multiplica por 1.000. Quando o debate público trata R$ 5 milhões, R$ 5 bilhões e R$ 5 trilhões como se fossem "muito dinheiro" do mesmo tamanho, a cobrança cidadã fica cega. Em muitos casos, o problema não é só falta absoluta de dinheiro: é prioridade, gestão, controle e qualidade do gasto.</p>
+      <p class="escadaNota">Mil termina antes de um filme. Um milhão leva 11 dias. Um bilhão exige <b>mais de 31 anos</b>. Um trilhão: <b>desde antes das pirâmides do Egito</b> e você ainda estaria contando.</p>
+
+      <!-- Visão 3: 4 personagens -->
+      <h3 class="escadaTitulo">👥 Visão 3 — Quatro pessoas, quatro escalas</h3>
+      <p class="section-sub" style="margin-bottom:14px">Imagine quatro pessoas na fila do tempo. <b>R$ 1/s</b> é quanto elas precisariam esperar para juntar o próprio patrimônio — sem gastar nada.</p>
+      <div class="personaCena">
+        <div class="persona p1">
+          <span class="personaEmoji">👦</span>
+          <span class="personaNome">João</span>
+          <strong class="personaPat">R$ 1.000</strong>
+          <span class="personaTempo">16 min para juntar</span>
+        </div>
+        <div class="persona p2">
+          <span class="personaEmoji">👨</span>
+          <span class="personaNome">Carlos</span>
+          <strong class="personaPat">R$ 1.000.000</strong>
+          <span class="personaTempo">11 dias para juntar</span>
+        </div>
+        <div class="persona p3">
+          <span class="personaEmoji">🧔</span>
+          <span class="personaNome">Ana</span>
+          <strong class="personaPat">R$ 1.000.000.000</strong>
+          <span class="personaTempo">31 anos para juntar</span>
+        </div>
+        <div class="persona p4">
+          <span class="personaEmoji">👴</span>
+          <span class="personaNome">Brasil</span>
+          <strong class="personaPat">R$ 1.000.000.000.000</strong>
+          <span class="personaTempo">31.709 anos para juntar</span>
+        </div>
+      </div>
+
+      <!-- Visão 4: Régua -->
+      <h3 class="escadaTitulo">📏 Visão 4 — A régua do trilhão</h3>
+      <p class="section-sub" style="margin-bottom:14px">Imagine uma régua de 1 metro. Ela inteira representa <b>R$ 1 trilhão</b>. Agora veja onde ficam os outros valores.</p>
+      <div class="regruaEscala">
+        <div class="regruaBase"><div class="regruaTick mil" style="left:0.0001%"><span>R$ 1.000</span></div><div class="regruaTick milhao" style="left:0.0001%"><span>R$ 1 milhão</span></div><div class="regruaTick bilhao" style="left:0.1%"><span>R$ 1 bilhão</span></div><div class="regruaFill"></div></div>
+        <p class="escadaNota">Na escala: <b>R$ 1.000</b> é invisível · <b>R$ 1 milhão</b> continua invisível · <b>R$ 1 bilhão</b> ocupa apenas 0,1 milésimo da régua · <b>R$ 1 trilhão</b> completa a régua inteira.</p>
+      </div>
+
+      <!-- Comparações extras -->
+      <h3 class="escadaTitulo">💡 Comparações rápidas</h3>
+      <div class="grid two">
+        <div class="miniCard">
+          <span class="mini">💸 Pilhas de notas de R$ 100</span>
+          <table class="parlTable">
+            <tbody>
+              <tr><td>R$ 1.000</td><td><b>10 notas</b></td></tr>
+              <tr><td>R$ 1 milhão</td><td><b>10.000 notas</b></td></tr>
+              <tr><td>R$ 1 bilhão</td><td><b>10 milhões de notas</b></td></tr>
+              <tr><td>R$ 1 trilhão</td><td><b>10 bilhões de notas</b></td></tr>
+            </tbody>
+          </table>
+          <p>A pilha passa de dezenas de quilômetros de altura.</p>
+        </div>
+        <div class="miniCard">
+          <span class="mini">💼 Salário de R$ 3.000/mês (sem gastar nada)</span>
+          <table class="parlTable">
+            <tbody>
+              <tr><td>R$ 1 milhão</td><td><b>≈ 28 anos</b></td></tr>
+              <tr><td>R$ 1 bilhão</td><td><b>≈ 27.778 anos</b></td></tr>
+              <tr><td>R$ 1 trilhão</td><td><b>≈ 27,8 milhões de anos</b></td></tr>
+            </tbody>
+          </table>
+          <p>Comparação para salário de R$ 10 mil/mês: bilhão = 8.333 anos · trilhão = 8,3 milhões de anos.</p>
+        </div>
+      </div>
+
+      <!-- Frase de impacto -->
+      <div class="impactoFinal">
+        <p class="impactoHeadline">R$ 1 bilhão parece "apenas um número".</p>
+        <p class="impactoTexto">Mas se você recebesse <b>R$ 1 por segundo</b>, precisaria trabalhar <b>31 anos</b> para juntar esse valor. R$ 1 trilhão? <b>31.709 anos</b>.</p>
+        <p class="impactoConclusao">É por isso que diferenças de alguns bilhões nas contas públicas representam valores gigantescos para qualquer país.</p>
+      </div>
+
+      <p class="note">Quando o debate público trata R$ 5 milhões, R$ 5 bilhões e R$ 5 trilhões como se fossem "muito dinheiro" do mesmo tamanho, a cobrança cidadã fica cega. Em muitos casos, o problema não é só falta absoluta de dinheiro: é prioridade, gestão, controle e qualidade do gasto.</p>
     </section>
 
     <section id="relogios" class="grid two">
@@ -944,7 +1114,7 @@ footer{background:linear-gradient(135deg,#0B1220,var(--blue));color:#d7dee8;padd
     <div class="modalBody" id="modalBody"></div>
   </div>
 </div>
-<footer id="fontes"><div class="wrap"><span class="dataVersion">Dados <b>v1.5.0</b> · última atualização <b>26/06/2026</b></span><strong style="display:block;margin-top:18px">Fontes para atualização mensal</strong><p class="sources">Banco Central — Estatísticas Fiscais; Tesouro Transparente — Relatório Mensal da Dívida; Receita Federal — arrecadação; Congresso Nacional — LOA; Portal da Transparência; Tesouro Nacional/Siconfi (RREO/RGF); IBGE; Secretarias Estaduais de Fazenda.</p><div class="srcgrid"><a href="https://www.bcb.gov.br/estatisticas/estatisticasfiscais" target="_blank">Banco Central — Estatísticas Fiscais</a><a href="https://www.tesourotransparente.gov.br/temas/divida-publica-federal/estatisticas-e-relatorios-da-divida-publica-federal" target="_blank">Tesouro Transparente — Dívida Pública</a><a href="https://www.congressonacional.leg.br/web/orcamento/acompanhe/orcamento-anual" target="_blank">Congresso Nacional — Orçamento</a><a href="https://portaldatransparencia.gov.br/orcamento" target="_blank">Portal da Transparência — Orçamento</a><a href="https://siconfi.tesouro.gov.br/" target="_blank">Siconfi — Estados e Municípios</a><a href="https://www.ibge.gov.br/" target="_blank">IBGE — Indicadores</a></div><p class="sources" style="margin-top:18px"><a href="roadmap.md" style="color:#fde047;text-decoration:none">📋 Roadmap do projeto</a> · <a href="CHANGELOG.md" style="color:#fde047;text-decoration:none">📝 Changelog de dados</a></p></div></footer>
+<footer id="fontes"><div class="wrap"><span class="dataVersion">Dados <b>v1.6.0</b> · última atualização <b>26/06/2026</b></span><strong style="display:block;margin-top:18px">Fontes para atualização mensal</strong><p class="sources">Banco Central — Estatísticas Fiscais; Tesouro Transparente — Relatório Mensal da Dívida; Receita Federal — arrecadação; Congresso Nacional — LOA; Portal da Transparência; Tesouro Nacional/Siconfi (RREO/RGF); IBGE; Secretarias Estaduais de Fazenda.</p><div class="srcgrid"><a href="https://www.bcb.gov.br/estatisticas/estatisticasfiscais" target="_blank">Banco Central — Estatísticas Fiscais</a><a href="https://www.tesourotransparente.gov.br/temas/divida-publica-federal/estatisticas-e-relatorios-da-divida-publica-federal" target="_blank">Tesouro Transparente — Dívida Pública</a><a href="https://www.congressonacional.leg.br/web/orcamento/acompanhe/orcamento-anual" target="_blank">Congresso Nacional — Orçamento</a><a href="https://portaldatransparencia.gov.br/orcamento" target="_blank">Portal da Transparência — Orçamento</a><a href="https://siconfi.tesouro.gov.br/" target="_blank">Siconfi — Estados e Municípios</a><a href="https://www.ibge.gov.br/" target="_blank">IBGE — Indicadores</a></div><p class="sources" style="margin-top:18px"><a href="roadmap.md" style="color:#fde047;text-decoration:none">📋 Roadmap do projeto</a> · <a href="CHANGELOG.md" style="color:#fde047;text-decoration:none">📝 Changelog de dados</a></p></div></footer>
 <script>
 const CONFIG={year:2026,population:203_000_000,annualTaxRevenue:3_700_000_000_000,grossDebt:10_400_000_000_000,annualDebtGrowthEstimate:600_000_000_000,annualInterest:1_096_000_000_000,budget2026:6_500_000_000_000,amendments:61_000_000_000,electoralFund:4_961_519_777,partyFund:1_000_000_000};
 const openedAt=Date.now();
@@ -1074,7 +1244,7 @@ function closeModal(){document.getElementById('modalOverlay').classList.remove('
 function switchTab(name){document.querySelectorAll('.modalTab').forEach(t=>t.classList.toggle('active',t.dataset.tab===name));document.querySelectorAll('.modalTabPanel').forEach(p=>p.classList.toggle('active',p.dataset.tab===name))}
 document.getElementById('modalOverlay').addEventListener('click',e=>{if(e.target.id==='modalOverlay')closeModal()});
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&currentModal)closeModal()});
-function downloadIndicatorCSV(key){const csvMap={indicador_divida_bruta:'divida',indicador_juros_nominais:'juros',indicador_orcamento_uniao:'orcamento',indicador_emendas_2026:'emendas'};const ind=INDICADORES[csvMap[key]||key.replace('indicador_','')];if(!ind){alert('Indicador não encontrado: '+key);return}const csv='indicador,valor,valor_complementar,fonte,competencia,periodicidade,atualizacao,url_fonte,metodologia_resumo,projeto,commit\n'+[`${ind.titulo}`,`${ind.valor}`,`${ind.valorLong}`,`${ind.meta.fonte}`,`${ind.meta.competencia}`,`${ind.meta.periodicidade}`,`${ind.meta.atualizacao}`,`${ind.links[0]?.url||''}`,`${ind.metodologia.replace(/<[^>]+>/g,' ').replace(/\s+/g,' ').trim().slice(0,200)}`,`Brasil Transparente v1.5.0`,`https://github.com/${REPO_OWNER}/${REPO_NAME}/commits/main/CHANGELOG.md`].map(v=>`"${String(v).replace(/"/g,'""')}"`).join(',')+'\n';const blob=new Blob(['\ufeff'+csv],{type:'text/csv;charset=utf-8;'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=key+'_'+new Date().toISOString().slice(0,10)+'.csv';document.body.appendChild(a);a.click();document.body.removeChild(a);URL.revokeObjectURL(url)}
+function downloadIndicatorCSV(key){const csvMap={indicador_divida_bruta:'divida',indicador_juros_nominais:'juros',indicador_orcamento_uniao:'orcamento',indicador_emendas_2026:'emendas'};const ind=INDICADORES[csvMap[key]||key.replace('indicador_','')];if(!ind){alert('Indicador não encontrado: '+key);return}const csv='indicador,valor,valor_complementar,fonte,competencia,periodicidade,atualizacao,url_fonte,metodologia_resumo,projeto,commit\n'+[`${ind.titulo}`,`${ind.valor}`,`${ind.valorLong}`,`${ind.meta.fonte}`,`${ind.meta.competencia}`,`${ind.meta.periodicidade}`,`${ind.meta.atualizacao}`,`${ind.links[0]?.url||''}`,`${ind.metodologia.replace(/<[^>]+>/g,' ').replace(/\s+/g,' ').trim().slice(0,200)}`,`Brasil Transparente v1.6.0`,`https://github.com/${REPO_OWNER}/${REPO_NAME}/commits/main/CHANGELOG.md`].map(v=>`"${String(v).replace(/"/g,'""')}"`).join(',')+'\n';const blob=new Blob(['\ufeff'+csv],{type:'text/csv;charset=utf-8;'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=key+'_'+new Date().toISOString().slice(0,10)+'.csv';document.body.appendChild(a);a.click();document.body.removeChild(a);URL.revokeObjectURL(url)}
 const ibgeCodes={SP:35,MG:31,RJ:33,BA:29,PR:41,RS:43};
 const REPO_OWNER='speedvarginha-coder';const REPO_NAME='brasil-transparente';const REPO_BRANCH='main';
 async function fetchEstadoSiconfi(){const sel=document.getElementById('estadoSelect');const uf=estados[Number(sel.value||0)].uf;const code=ibgeCodes[uf];const status=document.getElementById('liveStatus');const text=document.getElementById('liveText');const btn=document.getElementById('liveBtn');if(!code){text.textContent=`UF ${uf} sem código IBGE mapeado.`;return}status.className='liveStatus loading';text.innerHTML='⏳ Buscando snapshot oficial em data/'+uf.toLowerCase()+'.json...';btn.disabled=true;const url=`https://raw.githubusercontent.com/${REPO_OWNER}/${REPO_NAME}/${REPO_BRANCH}/data/${uf.toLowerCase()}.json`;try{const controller=new AbortController();const timeout=setTimeout(()=>controller.abort(),10000);const response=await fetch(url,{signal:controller.signal,headers:{'Accept':'application/json'}});clearTimeout(timeout);if(!response.ok)throw new Error('HTTP '+response.status);const data=await response.json();if(!data.receitaRealizada||!data.despesaEmpenhada)throw new Error('Snapshot incompleto para '+uf);document.getElementById('ufReceita').textContent=short(data.receitaRealizada);document.getElementById('ufDespesa').textContent=short(data.despesaEmpenhada);document.getElementById('ufReceita').title=`Valor bruto: R$ ${data.receitaRealizada.toLocaleString('pt-BR')} (Siconfi RREO ${data.exercicio} P${data.periodo}, coletado ${data.dataColeta})`;document.getElementById('ufDespesa').title=`Valor bruto: R$ ${data.despesaEmpenhada.toLocaleString('pt-BR')} (Siconfi RREO ${data.exercicio} P${data.periodo}, coletado ${data.dataColeta})`;document.getElementById('ufFonte').innerHTML=`🟢 <b>Snapshot oficial · Siconfi RREO ${data.exercicio} P${data.periodo}</b> via <a href="${data.urlOriginal}" target="_blank" rel="noopener">apidatalake.tesouro.gov.br</a> · coletado <b>${data.dataColeta}</b> · commit <a href="https://github.com/${REPO_OWNER}/${REPO_NAME}/commits/main/data/${uf.toLowerCase()}.json" target="_blank" rel="noopener">ver histórico</a>`;const ts=new Date().toLocaleString('pt-BR');status.className='liveStatus live';text.innerHTML=`<span class="pulse"></span>🟢 Snapshot oficial · Siconfi RREO ${data.exercicio} P${data.periodo} · commit <code>data/${uf.toLowerCase()}.json</code> · carregado em ${ts}`}catch(err){const motivo=err.message==='Failed to fetch'||err.name==='AbortError'?'Sem conexão ou GitHub indisponível':'Snapshot ainda não publicado: '+err.message;status.className='liveStatus fallback';text.innerHTML=`<span class="pulse"></span>🟡 ${motivo}. Mantendo dados locais de 2024.`}finally{btn.disabled=false}}

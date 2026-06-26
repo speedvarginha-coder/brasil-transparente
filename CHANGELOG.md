@@ -4,6 +4,34 @@ Registro público de toda alteração em dados, regras de cálculo ou fontes. Fo
 
 ---
 
+## [v1.6.0] — 2026-06-26 — Escala do dinheiro reformulada (4 visões)
+
+### Adicionado
+- **Seção `#escala` totalmente reformulada** com 4 visões complementares para explicar a diferença entre mil / milhão / bilhão / trilhão:
+  - **🪜 Visão 1 — Escada dos zeros**: cada degrau adiciona 3 zeros e multiplica o valor por 1.000 (visual com blocos █ crescendo).
+  - **⏱️ Visão 2 — Gráfico de tempo**: tempo para contar cada valor a 1 número/segundo (Mil = 16 min 40 s, Milhão = 11 dias 14 h, Bilhão = 31 anos 8 meses, Trilhão = 31.709 anos).
+  - **👥 Visão 3 — 4 personagens**: João (R$ 1.000), Carlos (R$ 1 milhão), Ana (R$ 1 bilhão), Brasil (R$ 1 trilhão) — cada um com tempo necessário para juntar o próprio patrimônio recebendo R$ 1/s.
+  - **📏 Visão 4 — Régua do trilhão**: régua horizontal onde 1 trilhão = barra cheia; bilhão = 0,1 milésimo da régua; milhão e mil invisíveis.
+- **Comparações extras**: pilhas de notas de R$ 100 (10, 10.000, 10 milhões, 10 bilhões) e tabela de salários (R$ 3.000/mês = 28 anos para milhão, 27.778 para bilhão, 27,8 milhões de anos para trilhão).
+- **Box de impacto final** com gradiente amarelo: "R$ 1 bilhão parece 'apenas um número'. Mas se você recebesse R$ 1 por segundo, precisaria trabalhar 31 anos para juntar esse valor. R$ 1 trilhão? 31.709 anos."
+- **CSS novo**: `.escadaZeros`, `.degrau`, `.tempoChart`, `.personaCena`, `.regruaEscala`, `.impactoFinal` — todos responsivos.
+- **Media query** (`max-width:760px`) reorganiza `personaCena` em 2 colunas e simplifica `tempoRow` em mobile.
+
+### Substituiu
+- Antiga seção `#escala` com apenas 6 miniCards em grid uniforme (não transmitia a diferença real entre as escalas).
+
+### Premissas das comparações
+- 1 número por segundo, sem parar, 24h/dia (referência padrão didática).
+- R$ 1/s é referência temporal usada em todas as comparações.
+- Salário base: R$ 3.000/mês e R$ 10.000/mês (premissas didáticas abertas).
+- Notas de R$ 100 (referência visual padrão).
+
+### Fontes conceituais
+- Matemática de escala: regra 10³ entre mil/milhão/bilhão/trilhão.
+- Não há fonte oficial específica — é didática de comparação. A referência didática padrão está em materiais de educação financeira (Banco Central, BCB Educação Financeira).
+
+---
+
 ## [v1.5.0] — 2026-06-26 — Custo parlamentar detalhado + Emendas e Fundos proporcionais
 
 ### Adicionado
