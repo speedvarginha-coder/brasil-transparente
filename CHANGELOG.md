@@ -4,6 +4,45 @@ Registro público de toda alteração em dados, regras de cálculo ou fontes. Fo
 
 ---
 
+## [v1.3] — 2026-06-26 — Sprint 3 / Item 3.1
+
+### Adicionado
+- **Modal de Indicador** com 5 abas (Fonte / Metodologia / Histórico / Links / Download) acionado por clique nos 4 KPIs principais (Dívida, Juros, Orçamento, Emendas).
+- **Objeto `INDICADORES`** com metadados completos pra cada um dos 4 KPIs grandes:
+  - Título, badge de fonte, dot color
+  - Valor + complemento ("≈ 80,4% do PIB")
+  - MetaGrid com Fonte / Competência / Periodicidade / Atualização
+  - Metodologia (parágrafo + listas do que inclui / não inclui)
+  - Histórico (marcos e tendências)
+  - Links oficiais (botões que abrem em nova aba)
+  - CSV específico por indicador
+- **Função `downloadIndicatorCSV(key)`** que baixa CSV específico do indicador aberto, com BOM UTF-8 e referência ao commit canônico.
+- **Botão "🔄 Buscar atualização ao vivo"** dentro do modal (chama `fetchEstadoSiconfi()` indireto via reload da seção).
+- **Acessibilidade**: `role="button"`, `tabindex="0"`, `aria-label`, suporte a Enter/Space para abrir modal via teclado.
+- **ESC** fecha o modal.
+- **Click no overlay** fecha o modal.
+- **Animação suave** de entrada (`modalIn` 220ms ease-out).
+
+### Detalhes técnicos
+- CSS novo: `.modalOverlay`, `.modalContent`, `.modalHeader`, `.modalTabs`, `.modalTab`, `.modalBody`, `.modalTabPanel`, `.metaGrid`, `.metaItem`, `.bigValue`, `.modalLinkBtn` (primary + secondary).
+- HTML: bloco `<div class="modalOverlay">` no fim do `<body>`, antes do `<footer>`.
+- JS: objeto `INDICADORES` (~120 linhas), funções `openModal`, `closeModal`, `switchTab`, `downloadIndicatorCSV`.
+- Listeners: querySelectorAll('.kpi[data-indicador]') + addEventListener click + keydown (Enter/Space).
+- `currentModal` global para tracking (usado pelo ESC handler).
+
+### UX
+- KPI hover: lift de 2px + sombra forte + borda verde-escuro.
+- "clique p/ detalhes" no small text dos KPIs avisa sobre a interatividade.
+- Modal com gradiente verde→azul no header (identidade Brasil Transparente).
+- Botão close com rotação 90° no hover.
+
+### Próximos passos (Sprint 3 ainda)
+- 3.2 Cada R$ 100 com base LOA real (substituir simulação por dado oficial).
+- 3.3 Judiciário com dados do CNJ.
+- 3.4 Custo total anual por parlamentar (Câmara + Senado separados).
+
+---
+
 ## [v1.2.1] — 2026-06-26
 
 ### Refactor

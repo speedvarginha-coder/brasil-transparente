@@ -406,6 +406,42 @@ footer{background:linear-gradient(135deg,#0B1220,var(--blue));color:#d7dee8;padd
 }
 .liveBtn:hover{background:#073B91;transform:translateY(-1px)}
 .liveBtn:disabled{opacity:.6;cursor:not-allowed;transform:none}
+.kpi{cursor:pointer;transition:.18s}
+.kpi:hover{transform:translateY(-2px);box-shadow:var(--shadow);border-color:var(--green-dark)}
+.modalOverlay{position:fixed;inset:0;background:rgba(11,17,31,.72);backdrop-filter:blur(8px);display:none;align-items:flex-start;justify-content:center;z-index:1000;padding:5vh 20px;overflow-y:auto}
+.modalOverlay.open{display:flex}
+.modalContent{background:#fff;border-radius:24px;max-width:780px;width:100%;box-shadow:0 30px 80px rgba(11,17,31,.5);overflow:hidden;animation:modalIn .22s ease-out}
+@keyframes modalIn{from{opacity:0;transform:translateY(20px) scale(.97)}to{opacity:1;transform:translateY(0) scale(1)}}
+.modalHeader{padding:22px 26px;background:linear-gradient(135deg,var(--green) 0%,var(--blue) 100%);color:#fff;display:flex;align-items:flex-start;justify-content:space-between;gap:16px;position:relative}
+.modalHeader::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;background:linear-gradient(90deg,var(--green) 0 36%,var(--yellow) 36% 54%,var(--blue) 54% 100%)}
+.modalHeader h2{margin:0;font-family:'Manrope',Inter,sans-serif;font-size:22px;letter-spacing:-.02em;line-height:1.2;color:#fff}
+.modalHeader .srcBadge{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.28);border-radius:999px;padding:5px 10px;font-size:11px;font-weight:900;margin-top:8px;display:inline-flex;gap:6px;align-items:center}
+.modalHeader .srcBadge .dot{width:8px;height:8px;border-radius:50%;background:var(--yellow)}
+.modalClose{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.28);border-radius:50%;width:36px;height:36px;color:#fff;font-size:20px;cursor:pointer;display:grid;place-items:center;font-family:inherit;font-weight:700;transition:.18s}
+.modalClose:hover{background:rgba(255,255,255,.28);transform:rotate(90deg)}
+.modalTabs{display:flex;gap:2px;background:var(--soft);padding:6px 6px 0;border-bottom:1px solid var(--line);overflow-x:auto}
+.modalTab{background:transparent;border:0;border-radius:10px 10px 0 0;padding:11px 14px;font-size:12px;font-weight:800;color:var(--muted);cursor:pointer;font-family:inherit;white-space:nowrap;transition:.18s;border-bottom:2px solid transparent}
+.modalTab:hover{color:var(--ink);background:#fff}
+.modalTab.active{color:var(--blue);background:#fff;border-bottom-color:var(--blue)}
+.modalBody{padding:24px 26px;min-height:200px}
+.modalTabPanel{display:none}
+.modalTabPanel.active{display:block;animation:fadeIn .18s}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.modalBody h3{font-family:'Manrope',Inter,sans-serif;font-size:14px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin:0 0 10px;font-weight:900}
+.modalBody h4{font-family:'Manrope',Inter,sans-serif;font-size:18px;color:var(--ink);margin:0 0 8px;letter-spacing:-.02em}
+.modalBody p{color:var(--text);line-height:1.6;margin:8px 0}
+.modalBody ul{padding-left:22px;margin:8px 0}
+.modalBody li{margin:6px 0;line-height:1.55}
+.modalBody .metaGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:14px 0}
+.modalBody .metaItem{background:var(--soft);border-radius:12px;padding:12px 14px}
+.modalBody .metaItem b{display:block;font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;font-weight:900;margin-bottom:2px}
+.modalBody .metaItem span{font-size:15px;color:var(--ink);font-weight:700;font-variant-numeric:tabular-nums}
+.modalBody .bigValue{font-family:'Space Grotesk',Inter,sans-serif;font-size:48px;font-weight:700;color:var(--green-dark);letter-spacing:-.04em;line-height:1;margin:6px 0 14px;font-variant-numeric:tabular-nums}
+.modalLinkBtn{display:inline-flex;align-items:center;gap:8px;background:var(--blue);color:#fff;padding:11px 18px;border-radius:12px;font-size:13px;font-weight:800;text-decoration:none;transition:.18s;font-family:inherit;border:0;cursor:pointer}
+.modalLinkBtn:hover{background:#073B91;transform:translateY(-1px)}
+.modalLinkBtn.secondary{background:#fff;color:var(--blue);border:1px solid var(--line);box-shadow:none}
+.modalLinkBtn.secondary:hover{background:var(--blue-soft)}
+@media(max-width:680px){.modalBody .metaGrid{grid-template-columns:1fr}.modalHeader h2{font-size:18px}.modalBody{padding:18px}}
 
 @media(max-width:980px){
   .layout{grid-template-columns:1fr}.side{position:relative;top:0}.kpis,.two,.three,.four,.counter,.srcgrid,.split,.share,.mapgrid,.oficialGrid{grid-template-columns:1fr}.top{align-items:flex-start;flex-direction:column}.actions{display:grid}.btn{justify-content:center}.card{padding:18px}header{padding-bottom:76px}main{margin-top:-40px}td:last-child,th:last-child{text-align:left}table,tbody,tr,td,th{display:block}thead{display:none}tr{border-bottom:1px solid var(--line);padding:8px 0}td{border:0;padding:7px 0}td::before{content:attr(data-label);display:block;color:var(--muted);font-size:12px;font-weight:900}
@@ -446,29 +482,29 @@ footer{background:linear-gradient(135deg,#0B1220,var(--blue));color:#d7dee8;padd
   </nav>
   <div>
     <section id="brasil" class="grid kpis">
-      <div class="card kpi">
+      <div class="card kpi" data-indicador="divida" role="button" tabindex="0" aria-label="Ver detalhes da Dívida Bruta">
         <span class="sourceBadge stack" title="Banco Central — Estatísticas Fiscais"><span class="dot green"></span><span class="src">Banco Central</span><span class="date">abr/2026</span></span>
         <div class="label">Dívida Bruta</div>
         <div class="value">R$ 10,4 tri</div>
-        <small>≈ 80,4% do PIB</small>
+        <small>≈ 80,4% do PIB · clique p/ detalhes</small>
       </div>
-      <div class="card kpi">
+      <div class="card kpi" data-indicador="juros" role="button" tabindex="0" aria-label="Ver detalhes dos Juros em 12 meses">
         <span class="sourceBadge stack" title="Banco Central — Estatísticas Fiscais"><span class="dot green"></span><span class="src">Banco Central</span><span class="date">mar/2026</span></span>
         <div class="label">Juros em 12 meses</div>
         <div class="value">R$ 1,096 tri</div>
-        <small>Custo da dívida</small>
+        <small>Custo da dívida · clique p/ detalhes</small>
       </div>
-      <div class="card kpi">
+      <div class="card kpi" data-indicador="orcamento" role="button" tabindex="0" aria-label="Ver detalhes do Orçamento 2026">
         <span class="sourceBadge stack" title="Congresso Nacional — LOA 2026"><span class="dot purple"></span><span class="src">LOA 2026</span><span class="date">jan/2026</span></span>
         <div class="label">Orçamento União 2026</div>
         <div class="value">R$ 6,5 tri</div>
-        <small>Inclui refinanciamento</small>
+        <small>Inclui refinanciamento · clique p/ detalhes</small>
       </div>
-      <div class="card kpi">
+      <div class="card kpi" data-indicador="emendas" role="button" tabindex="0" aria-label="Ver detalhes das Emendas 2026">
         <span class="sourceBadge stack" title="Congresso Nacional — LOA 2026"><span class="dot purple"></span><span class="src">LOA 2026</span><span class="date">jan/2026</span></span>
         <div class="label">Emendas 2026</div>
         <div class="value">R$ 61 bi</div>
-        <small>Indicadas por parlamentares</small>
+        <small>Indicadas por parlamentares · clique p/ detalhes</small>
       </div>
     </section>
 
@@ -720,7 +756,27 @@ footer{background:linear-gradient(135deg,#0B1220,var(--blue));color:#d7dee8;padd
     <section class="card" id="metodologia"><span class="pill blue">Metodologia</span><h2 class="section-title">Como os cálculos são feitos</h2><ul class="method"><li><strong>Impostômetro:</strong> arrecadação anual estimada ÷ segundos do ano × segundos decorridos desde 01/01/2026.</li><li><strong>Juros por segundo:</strong> juros anuais estimados ÷ 365 ÷ 24 ÷ 60 ÷ 60.</li><li><strong>Dívida por pessoa:</strong> dívida bruta ÷ população estimada.</li><li><strong>Linha do tempo (Dívida/PIB):</strong> série anual do Banco Central — Dívida Bruta do Governo Geral ÷ PIB. 2006-2024 oficial; 2026 projeção.</li><li><strong>Cada R$ 100:</strong> percentuais didáticos do orçamento, substituíveis por dados oficiais (Sprint 3).</li><li><strong>Estados:</strong> ano-base 2024, último ano fechado. Receita/Despesa/Saúde/Educação/Segurança/Dívida via Siconfi (RREO/RGF). População/PIB via IBGE.</li><li><strong>Regra de credibilidade:</strong> todo dado deve exibir fonte, período, data de atualização e se é oficial ou estimado.</li></ul></section>
   </div>
 </main>
-<footer id="fontes"><div class="wrap"><span class="dataVersion">Dados <b>v1.2</b> · última atualização <b>26/06/2026</b></span><strong style="display:block;margin-top:18px">Fontes para atualização mensal</strong><p class="sources">Banco Central — Estatísticas Fiscais; Tesouro Transparente — Relatório Mensal da Dívida; Receita Federal — arrecadação; Congresso Nacional — LOA; Portal da Transparência; Tesouro Nacional/Siconfi (RREO/RGF); IBGE; Secretarias Estaduais de Fazenda.</p><div class="srcgrid"><a href="https://www.bcb.gov.br/estatisticas/estatisticasfiscais" target="_blank">Banco Central — Estatísticas Fiscais</a><a href="https://www.tesourotransparente.gov.br/temas/divida-publica-federal/estatisticas-e-relatorios-da-divida-publica-federal" target="_blank">Tesouro Transparente — Dívida Pública</a><a href="https://www.congressonacional.leg.br/web/orcamento/acompanhe/orcamento-anual" target="_blank">Congresso Nacional — Orçamento</a><a href="https://portaldatransparencia.gov.br/orcamento" target="_blank">Portal da Transparência — Orçamento</a><a href="https://siconfi.tesouro.gov.br/" target="_blank">Siconfi — Estados e Municípios</a><a href="https://www.ibge.gov.br/" target="_blank">IBGE — Indicadores</a></div><p class="sources" style="margin-top:18px"><a href="roadmap.md" style="color:#fde047;text-decoration:none">📋 Roadmap do projeto</a> · <a href="CHANGELOG.md" style="color:#fde047;text-decoration:none">📝 Changelog de dados</a></p></div></footer>
+
+<div class="modalOverlay" id="modalOverlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modalContent" id="modalContent">
+    <div class="modalHeader">
+      <div>
+        <h2 id="modalTitle">—</h2>
+        <span class="srcBadge"><span class="dot"></span><span id="modalBadge">—</span></span>
+      </div>
+      <button class="modalClose" onclick="closeModal()" aria-label="Fechar">×</button>
+    </div>
+    <div class="modalTabs" role="tablist">
+      <button class="modalTab active" data-tab="fonte" onclick="switchTab('fonte')">📊 Fonte</button>
+      <button class="modalTab" data-tab="metodo" onclick="switchTab('metodo')">🧮 Metodologia</button>
+      <button class="modalTab" data-tab="historico" onclick="switchTab('historico')">📈 Histórico</button>
+      <button class="modalTab" data-tab="links" onclick="switchTab('links')">🔗 Links oficiais</button>
+      <button class="modalTab" data-tab="download" onclick="switchTab('download')">⬇ Download</button>
+    </div>
+    <div class="modalBody" id="modalBody"></div>
+  </div>
+</div>
+<footer id="fontes"><div class="wrap"><span class="dataVersion">Dados <b>v1.3</b> · última atualização <b>26/06/2026</b></span><strong style="display:block;margin-top:18px">Fontes para atualização mensal</strong><p class="sources">Banco Central — Estatísticas Fiscais; Tesouro Transparente — Relatório Mensal da Dívida; Receita Federal — arrecadação; Congresso Nacional — LOA; Portal da Transparência; Tesouro Nacional/Siconfi (RREO/RGF); IBGE; Secretarias Estaduais de Fazenda.</p><div class="srcgrid"><a href="https://www.bcb.gov.br/estatisticas/estatisticasfiscais" target="_blank">Banco Central — Estatísticas Fiscais</a><a href="https://www.tesourotransparente.gov.br/temas/divida-publica-federal/estatisticas-e-relatorios-da-divida-publica-federal" target="_blank">Tesouro Transparente — Dívida Pública</a><a href="https://www.congressonacional.leg.br/web/orcamento/acompanhe/orcamento-anual" target="_blank">Congresso Nacional — Orçamento</a><a href="https://portaldatransparencia.gov.br/orcamento" target="_blank">Portal da Transparência — Orçamento</a><a href="https://siconfi.tesouro.gov.br/" target="_blank">Siconfi — Estados e Municípios</a><a href="https://www.ibge.gov.br/" target="_blank">IBGE — Indicadores</a></div><p class="sources" style="margin-top:18px"><a href="roadmap.md" style="color:#fde047;text-decoration:none">📋 Roadmap do projeto</a> · <a href="CHANGELOG.md" style="color:#fde047;text-decoration:none">📝 Changelog de dados</a></p></div></footer>
 <script>
 const CONFIG={year:2026,population:203_000_000,annualTaxRevenue:3_700_000_000_000,grossDebt:10_400_000_000_000,annualDebtGrowthEstimate:600_000_000_000,annualInterest:1_096_000_000_000,budget2026:6_500_000_000_000,amendments:61_000_000_000,electoralFund:4_961_519_777,partyFund:1_000_000_000};
 const openedAt=Date.now();
@@ -750,11 +806,81 @@ function initEstados(){const sel=document.getElementById('estadoSelect');sel.inn
 function updateEstado(){const e=estados[Number(document.getElementById('estadoSelect').value||0)];document.getElementById('estadoNome').textContent=e.uf+' — '+e.nome;document.getElementById('estadoResumo').textContent=`Receita, despesa e indicadores principais · ano-base ${e.anoBase}.`;document.getElementById('ufReceita').textContent=short(e.receita);document.getElementById('ufDespesa').textContent=short(e.despesa);document.getElementById('ufSaude').textContent=short(e.saude);document.getElementById('ufEducacao').textContent=short(e.educacao);document.getElementById('ufSeguranca').textContent=short(e.seguranca);document.getElementById('ufDivida').textContent=short(e.divida);document.getElementById('ufPop').textContent=(e.pop/1e6).toLocaleString('pt-BR',{maximumFractionDigits:1})+' mi';document.getElementById('ufPib').textContent=short(e.pib);const max=Math.max(e.saude,e.educacao,e.seguranca,e.divida);document.getElementById('ufBars').innerHTML=[['Saúde',e.saude],['Educação',e.educacao],['Segurança',e.seguranca],['Dívida estadual',e.divida]].map(x=>`<div class="barrow"><div class="barlabel"><span>${x[0]}</span><span>${short(x[1])}</span></div><div class="bar ${x[0].includes('Dívida')?'red':'bluebar'}"><span style="width:${Math.max(x[1]/max*100,3)}%"></span></div></div>`).join('');document.getElementById('ufFonte').innerHTML=`Fonte finanças: <b>${e.fonteFin}</b> · Fonte população/PIB: <b>${e.fontePopPib}</b> · Ano-base: <b>${e.anoBase}</b> · Verificação: <a href="https://siconfi.tesouro.gov.br/" target="_blank">Siconfi</a> · <a href="https://www.ibge.gov.br/" target="_blank">IBGE</a>`}
 function downloadCSV(key,kind){let csv='',filename=key+'_'+new Date().toISOString().slice(0,10)+'.csv';if(kind==='divida_pib_historico'){csv='ano,divida_pib_percent,fonte,observacao\n'+dividaPib.map(p=>`${p[0]},${p[1]},Banco Central,${p[0]===2026?'projecao':'oficial'}`).join('\n'))}else if(kind==='cem_reais'){csv='categoria,valor_reais,percentual,tipo\n'+cem.map(c=>`${c[0]},${c[1]},${c[1]}%,simulacao_didatica`).join('\n'))}else if(kind.startsWith('ranking_')){const t=kind.replace('ranking_','');csv='item,valor,indice_relativo,tipo\n'+ranks[t].map(r=>`${r[0]},${r[1]},${r[2]},${r[1]==='Em breve'||r[1].includes('Detalhar')?'placeholder':'estimativa_didatica'}`).join('\n'))}else if(kind==='estados'){csv='uf,nome,receita,despesa,saude,educacao,seguranca,divida,populacao,pib,ano_base,fonte\n'+estados.map(e=>`${e.uf},${e.nome},${e.receita},${e.despesa},${e.saude},${e.educacao},${e.seguranca},${e.divida},${e.pop},${e.pib},${e.anoBase},"${e.fonteFin} | ${e.fontePopPib}"`).join('\n'))}else if(kind==='tabela_cidada'){csv='conta,significado,valor,fonte\n'+[['Dívida Bruta','Estoque total da dívida pública bruta.','R$ 10,4 tri','Banco Central · abr/2026'],['Juros','Custo anual aproximado para carregar a dívida.','R$ 1,096 tri','Banco Central · mar/2026'],['Orçamento União','Total previsto na LOA 2026.','R$ 6,5 tri','Congresso Nacional · LOA 2026'],['Emendas','Recursos indicados por parlamentares.','R$ 61 bi','Congresso Nacional · LOA 2026'],['Fundo Eleitoral','Financiamento público de campanhas.','R$ 4,961 bi','TSE · 2026'],['Fundo Partidário','Custeio anual dos partidos.','≈ R$ 1 bi','TSE · 2026']].map(r=>`${r[0]},"${r[1]}",${r[2]},${r[3]}`).join('\n'))}const blob=new Blob(['\ufeff'+csv],{type:'text/csv;charset=utf-8;'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=filename;document.body.appendChild(a);a.click();document.body.removeChild(a);URL.revokeObjectURL(url)}
 function quiz(btn,ok){document.querySelectorAll('.quiz button').forEach(b=>b.classList.remove('correct','wrong'));btn.classList.add(ok?'correct':'wrong');document.getElementById('quizMsg').textContent=ok?'Correto. Agora você já está na frente de muito debate de internet.':'Ainda não. Juros e amortização são contas diferentes.'}
+const INDICADORES={
+  divida:{
+    titulo:'Dívida Bruta do Governo Geral',
+    badge:'Banco Central · abr/2026',
+    dot:'green',
+    valor:'R$ 10,4 tri',
+    valorLong:'≈ 80,4% do PIB',
+    meta:{fonte:'Banco Central',competencia:'abr/2026',periodicidade:'Mensal',atualizacao:'~30 dias'},
+    metodologia:'<p>A <b>Dívida Bruta do Governo Geral</b> é o estoque total de obrigações do setor público (União, estados, DF e municípios), expresso em moeda nacional e como percentual do PIB.</p><p>É calculada pelo <b>Banco Central</b> conforme metodologia internacional (Manual de Estatísticas de Finanças Públicas do FMI — GFSM 2014).</p><p>Inclui:</p><ul><li>Dívida mobiliária interna e externa (títulos públicos)</li><li>Dívida bancária (contratos com bancos)</li><li>Dívida com fornecedores e precatórios</li></ul><p>Não inclui:</p><ul><li>Dívida das estatais (Petrobras, Eletrobras etc.)</li><li>Dívida privada</li></ul>',
+    historico:'<p>Série histórica oficial desde <b>2006</b> disponível no Banco Central (Estatísticas Fiscais). Brasil Transparente mostra 11 pontos anuais representativos (2006-2026).</p><p>Marco 2020: pico de <b>87,1%</b> do PIB durante a pandemia.</p><p>Marco 2024: queda para <b>76,1%</b> no pós-pandemia, voltando a subir para <b>80,4%</b> projetado em 2026.</p>',
+    links:[
+      {label:'📊 Estatísticas Fiscais — BC',url:'https://www.bcb.gov.br/estatisticas/estatisticasfiscais'},
+      {label:'📈 Séries Temporais — Tesouro',url:'https://www.tesourotransparente.gov.br/visualizacao/series-temporais-do-tesouro-nacional'}
+    ],
+    csvKey:'indicador_divida_bruta'
+  },
+  juros:{
+    titulo:'Juros Nominais em 12 meses',
+    badge:'Banco Central · mar/2026',
+    dot:'green',
+    valor:'R$ 1,096 tri',
+    valorLong:'≈ 10% da dívida bruta',
+    meta:{fonte:'Banco Central',competencia:'mar/2026',periodicidade:'Mensal (acumulada 12m)',atualizacao:'~30 dias'},
+    metodologia:'<p>Os <b>Juros Nominais</b> são o custo total pago pelo setor público para carregar a dívida ao longo de 12 meses.</p><p>É diferente de <b>amortização</b>: amortização devolve o principal; juros são o custo financeiro de carregar o principal.</p><p>Inclui:</p><ul><li>Juros reais (acima da inflação)</li><li>Correção monetária (parte da inflação)</li><li>Spread bancário</li></ul><p>Por que importa: se os juros crescem mais rápido que o PIB, a dívida se torna insustentável.</p>',
+    historico:'<p>O pico recente foi <b>2022</b> (~R$ 1,5 tri em 12 meses) durante o ciclo de aperto monetário para combate à inflação (Selic a 13,75%).</p><p>Em 2026, projeta-se <b>R$ 1,096 tri</b> com queda gradual da Selic.</p>',
+    links:[
+      {label:'📊 Estatísticas Fiscais — BC',url:'https://www.bcb.gov.br/estatisticas/estatisticasfiscais'},
+      {label:'💰 Relatório Focus — BC',url:'https://www.bcb.gov.br/publicacoes/focus'}
+    ],
+    csvKey:'indicador_juros_nominais'
+  },
+  orcamento:{
+    titulo:'Orçamento Geral da União 2026',
+    badge:'Congresso Nacional · LOA 2026',
+    dot:'purple',
+    valor:'R$ 6,5 tri',
+    valorLong:'Inclui refinanciamento da dívida',
+    meta:{fonte:'Congresso Nacional (PLOA/LOA)',competencia:'Exercício 2026',periodicidade:'Anual',atualizacao:'Anual (com créditos especiais)'},
+    metodologia:'<p>A <b>LOA</b> (Lei Orçamentária Anual) define o quanto o governo está autorizado a gastar em cada área no ano.</p><p>O valor de <b>R$ 6,5 trilhões</b> inclui:</p><ul><li>Despesas primárias (saúde, educação, previdência, pessoal, benefícios)</li><li>Refinanciamento da dívida pública (≈ R$ 1,8 tri)</li><li>Amortização do principal</li><li>Juros nominais</li></ul><p>Para comparar esforço fiscal, descontar o refinanciamento: orçamento "real" ≈ R$ 4,7 tri.</p>',
+    historico:'<p>Evolução do Orçamento Geral da União:</p><ul><li>2014: R$ 2,4 tri</li><li>2018: R$ 3,5 tri</li><li>2022: R$ 4,7 tri</li><li>2026: R$ 6,5 tri</li></ul><p>Crescimento real de ~170% em 12 anos, impulsionado por previdência, pessoal e refinanciamento.</p>',
+    links:[
+      {label:'📜 Congresso — LOA 2026',url:'https://www.congressonacional.leg.br/web/orcamento/acompanhe/orcamento-anual'},
+      {label:'🔍 Portal da Transparência',url:'https://portaldatransparencia.gov.br/orcamento'}
+    ],
+    csvKey:'indicador_orcamento_uniao'
+  },
+  emendas:{
+    titulo:'Emendas Parlamentares 2026',
+    badge:'Congresso Nacional · LOA 2026',
+    dot:'purple',
+    valor:'R$ 61 bi',
+    valorLong:'Indicadas por deputados e senadores',
+    meta:{fonte:'Congresso Nacional (LOA 2026)',competencia:'Exercício 2026',periodicidade:'Anual',atualizacao:'Trimestral (execução)'},
+    metodologia:'<p><b>Emendas parlamentares</b> são indicações de destinação de recursos feitas por deputados e senadores ao Orçamento da União.</p><p>Tipos principais:</p><ul><li><b>Emendas individuais:</b> até R$ 50 milhões por parlamentar/ano (impositivas)</li><li><b>Emendas de bancada:</b> até R$ 250 milhões por estado/ano</li><li><b>Emendas de comissão:</b> para áreas temáticas</li><li><b>Emendas de relator:</b> RP-9 (questionadas por opacidade)</li></ul><p>Total LOA 2026: <b>R$ 61 bilhões</b> em emendas, valor recorde da série.</p>',
+    historico:'<p>Evolução das emendas parlamentares:</p><ul><li>2014: R$ 8 bi</li><li>2018: R$ 11 bi</li><li>2022: R$ 33 bi</li><li>2026: R$ 61 bi</li></ul><p>Crescimento de 660% em 12 anos, em paralelo à redução de programas discricionários — debate intenso sobre perda de controle do Executivo.</p>',
+    links:[
+      {label:'📜 Congresso — LOA 2026',url:'https://www.congressonacional.leg.br/web/orcamento/acompanhe/orcamento-anual'},
+      {label:'🔍 Portal da Transparência — Emendas',url:'https://portaldatransparencia.gov.br/emendas'}
+    ],
+    csvKey:'indicador_emendas_2026'
+  }
+};
+let currentModal=null;
+function openModal(key){const ind=INDICADORES[key];if(!ind)return;currentModal=key;document.getElementById('modalTitle').textContent=ind.titulo;document.getElementById('modalBadge').textContent=ind.badge;document.querySelector('#modalOverlay .srcBadge .dot').className='dot '+ind.dot;document.getElementById('modalBody').innerHTML=`<div class="modalTabPanel active" data-tab="fonte"><h4>Valor atual</h4><div class="bigValue">${ind.valor}</div><p>${ind.valorLong}</p><h3 style="margin-top:18px">Metadados</h3><div class="metaGrid"><div class="metaItem"><b>Fonte</b><span>${ind.meta.fonte}</span></div><div class="metaItem"><b>Competência</b><span>${ind.meta.competencia}</span></div><div class="metaItem"><b>Periodicidade</b><span>${ind.meta.periodicidade}</span></div><div class="metaItem"><b>Atualização</b><span>${ind.meta.atualizacao}</span></div></div><div style="margin-top:18px">${ind.links.map(l=>`<a class="modalLinkBtn" href="${l.url}" target="_blank" rel="noopener" style="margin-right:8px;margin-bottom:8px">${l.label} ↗</a>`).join('')}</div></div><div class="modalTabPanel" data-tab="metodo">${ind.metodologia}</div><div class="modalTabPanel" data-tab="historico">${ind.historico}</div><div class="modalTabPanel" data-tab="links"><h4>Fontes oficiais</h4><p>Links diretos para os portais públicos onde este indicador é publicado.</p><div style="margin-top:14px">${ind.links.map(l=>`<a class="modalLinkBtn" href="${l.url}" target="_blank" rel="noopener" style="display:flex;margin-bottom:10px;max-width:100%">${l.label} ↗</a>`).join('')}</div><h3 style="margin-top:22px">Repositório deste projeto</h3><p style="font-size:13px">Este snapshot é versionado em commit público do <a href="https://github.com/${REPO_OWNER}/${REPO_NAME}" target="_blank" rel="noopener">GitHub</a>. Veja o histórico de mudanças em <a href="https://github.com/${REPO_OWNER}/${REPO_NAME}/commits/main/CHANGELOG.md" target="_blank" rel="noopener">CHANGELOG.md</a>.</p></div><div class="modalTabPanel" data-tab="download"><h4>Download deste indicador</h4><p>Baixa um CSV com este indicador + data de competência + fonte + metodologia.</p><button class="modalLinkBtn" onclick="downloadIndicatorCSV('${ind.csvKey}')" style="margin-top:10px">⬇ Baixar CSV</button><button class="modalLinkBtn secondary" onclick="closeModal();setTimeout(()=>fetchEstadoSiconfi(),100)" style="margin-top:10px;margin-left:8px">🔄 Buscar atualização ao vivo</button></div>`;switchTab('fonte');document.getElementById('modalOverlay').classList.add('open');document.body.style.overflow='hidden'}
+function closeModal(){document.getElementById('modalOverlay').classList.remove('open');document.body.style.overflow='';currentModal=null}
+function switchTab(name){document.querySelectorAll('.modalTab').forEach(t=>t.classList.toggle('active',t.dataset.tab===name));document.querySelectorAll('.modalTabPanel').forEach(p=>p.classList.toggle('active',p.dataset.tab===name))}
+document.getElementById('modalOverlay').addEventListener('click',e=>{if(e.target.id==='modalOverlay')closeModal()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&currentModal)closeModal()});
+function downloadIndicatorCSV(key){const ind=INDICADORES[key.replace('indicador_','')];if(!ind){alert('Indicador não encontrado: '+key);return}const csv='indicador,valor,valor_complementar,fonte,competencia,periodicidade,atualizacao,url_fonte,metodologia_resumo,projeto,commit\n'+[`${ind.titulo}`,`${ind.valor}`,`${ind.valorLong}`,`${ind.meta.fonte}`,`${ind.meta.competencia}`,`${ind.meta.periodicidade}`,`${ind.meta.atualizacao}`,`${ind.links[0]?.url||''}`,`${ind.metodologia.replace(/<[^>]+>/g,' ').replace(/\s+/g,' ').trim().slice(0,200)}`,`Brasil Transparente v1.3`,`https://github.com/${REPO_OWNER}/${REPO_NAME}/commits/main/CHANGELOG.md`].map(v=>`"${String(v).replace(/"/g,'""')}"`).join(',')+'\n';const blob=new Blob(['\ufeff'+csv],{type:'text/csv;charset=utf-8;'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=key+'_'+new Date().toISOString().slice(0,10)+'.csv';document.body.appendChild(a);a.click();document.body.removeChild(a);URL.revokeObjectURL(url)}
 const ibgeCodes={SP:35,MG:31,RJ:33,BA:29,PR:41,RS:43};
 const REPO_OWNER='speedvarginha-coder';const REPO_NAME='brasil-transparente';const REPO_BRANCH='main';
 async function fetchEstadoSiconfi(){const sel=document.getElementById('estadoSelect');const uf=estados[Number(sel.value||0)].uf;const code=ibgeCodes[uf];const status=document.getElementById('liveStatus');const text=document.getElementById('liveText');const btn=document.getElementById('liveBtn');if(!code){text.textContent=`UF ${uf} sem código IBGE mapeado.`;return}status.className='liveStatus loading';text.innerHTML='⏳ Buscando snapshot oficial em data/'+uf.toLowerCase()+'.json...';btn.disabled=true;const url=`https://raw.githubusercontent.com/${REPO_OWNER}/${REPO_NAME}/${REPO_BRANCH}/data/${uf.toLowerCase()}.json`;try{const controller=new AbortController();const timeout=setTimeout(()=>controller.abort(),10000);const response=await fetch(url,{signal:controller.signal,headers:{'Accept':'application/json'}});clearTimeout(timeout);if(!response.ok)throw new Error('HTTP '+response.status);const data=await response.json();if(!data.receitaRealizada||!data.despesaEmpenhada)throw new Error('Snapshot incompleto para '+uf);document.getElementById('ufReceita').textContent=short(data.receitaRealizada);document.getElementById('ufDespesa').textContent=short(data.despesaEmpenhada);document.getElementById('ufReceita').title=`Valor bruto: R$ ${data.receitaRealizada.toLocaleString('pt-BR')} (Siconfi RREO ${data.exercicio} P${data.periodo}, coletado ${data.dataColeta})`;document.getElementById('ufDespesa').title=`Valor bruto: R$ ${data.despesaEmpenhada.toLocaleString('pt-BR')} (Siconfi RREO ${data.exercicio} P${data.periodo}, coletado ${data.dataColeta})`;document.getElementById('ufFonte').innerHTML=`🟢 <b>Snapshot oficial · Siconfi RREO ${data.exercicio} P${data.periodo}</b> via <a href="${data.urlOriginal}" target="_blank" rel="noopener">apidatalake.tesouro.gov.br</a> · coletado <b>${data.dataColeta}</b> · commit <a href="https://github.com/${REPO_OWNER}/${REPO_NAME}/commits/main/data/${uf.toLowerCase()}.json" target="_blank" rel="noopener">ver histórico</a>`;const ts=new Date().toLocaleString('pt-BR');status.className='liveStatus live';text.innerHTML=`<span class="pulse"></span>🟢 Snapshot oficial · Siconfi RREO ${data.exercicio} P${data.periodo} · commit <code>data/${uf.toLowerCase()}.json</code> · carregado em ${ts}`}catch(err){const motivo=err.message==='Failed to fetch'||err.name==='AbortError'?'Sem conexão ou GitHub indisponível':'Snapshot ainda não publicado: '+err.message;status.className='liveStatus fallback';text.innerHTML=`<span class="pulse"></span>🟡 ${motivo}. Mantendo dados locais de 2024.`}finally{btn.disabled=false}}
 window.quiz=quiz;window.showRank=showRank;window.downloadCSV=downloadCSV;window.fetchEstadoSiconfi=fetchEstadoSiconfi;document.getElementById('impostoRange').addEventListener('input',updateImposto);document.getElementById('jurosRange').addEventListener('input',updateJuros);document.getElementById('pop').addEventListener('input',updatePop);document.getElementById('renda').addEventListener('input',updateConsumo);document.getElementById('consumo').addEventListener('input',updateConsumo);document.getElementById('perfil').addEventListener('change',updateConsumo);
 drawCem();drawTimeline();showRank('macro');initEstados();updateJuros();updateImposto();updateConsumo();setInterval(updateImposto,1000);
+document.querySelectorAll('.kpi[data-indicador]').forEach(el=>{const key=el.dataset.indicador;const open=()=>openModal(key);el.addEventListener('click',open);el.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();open()}})});
 </script>
 </body>
 </html>

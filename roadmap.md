@@ -6,6 +6,12 @@ Itens fora do produto. Cada item inclui contexto, por que saiu da interface, cri
 
 ## Sprints entregues
 
+### ✅ v1.3 — Sprint 3 item 3.1 Modal de Indicador (30 min) — entregue 2026-06-26
+- Modal com 5 abas (Fonte / Metodologia / Histórico / Links / Download) acionado por clique nos 4 KPIs principais.
+- Objeto `INDICADORES` com metadados completos.
+- CSV específico por indicador.
+- Acessibilidade: role, tabindex, aria-label, Enter/Space, ESC, click-outside.
+
 ### ✅ v1.2 — Arquitetura JSON cacheado (45 min) — entregue 2026-06-26
 - **Decisão de arquitetura:** JSON commitado no repo > Cloudflare Worker > backend próprio.
 - 6 JSONs em `data/` (SP, MG, RJ, BA, PR, RS) com snapshot RREO 2023 P6 do Siconfi.
