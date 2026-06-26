@@ -4,6 +4,64 @@ Registro público de toda alteração em dados, regras de cálculo ou fontes. Fo
 
 ---
 
+## [v1.12.0] — 2026-06-26 — Revisão tipográfica e harmonização de leitura
+
+### Corrigido (UX/legibilidade)
+- **`.parlTable` (seção parlamentar)** — corrigidas quebras de linha feias nos valores (antes: "R$" / "46.366,1" / "9" em 3 linhas). Agora:
+  - `table-layout: fixed` impede colapso.
+  - `width:46%` na primeira coluna (label) garante espaço pro valor.
+  - `white-space: nowrap` na segunda coluna (valor numérico) impede quebra do número.
+  - `font-size:13.5px` no valor + `padding:10px 8px` melhoram respiração.
+- **`.section-title`** — `line-height` ajustado de 1.08 (apertado) pra 1.15 (confortável).
+- **`.section-sub`** — `line-height: 1.55` + `font-size: 15px` (antes sem line-height explícito, padrão 1.4).
+- **`.note`** — `line-height: 1.55` (antes 1.4 implícito).
+- **`.miniCard strong`** — `line-height: 1.25` + `font-size: 20px` (valores não quebram mais no meio).
+- **`.miniCard p`** — `line-height: 1.55` + `font-size: 13.5px`.
+- **`.impactoFinal`** — padding 24→26px, headline 20→22px (line-height 1.3), texto 15→15.5px (line-height 1.6).
+- **`.grid two`** — substituído `1.08fr .92fr` por `repeat(2, minmax(280px, 1fr))` — cada coluna tem no mínimo 280px antes de empilhar.
+- **`.transferGrid`** — minmax 180→200px (cards UF mais respiráveis).
+- **`.impostoGrid`** — minmax 240→260px + gap 12→14px.
+- **`.glossarioGrid`** — minmax 320→340px + gap 12→14px.
+- **`.lfGrid`** — minmax 280→300px + gap 12→14px.
+- **`.csGrid`** — minmax 260→280px + gap 16→18px.
+- **`.worldRankRow`** — `grid-template-columns: 34px 1fr minmax(140px,2fr) 80px` (antes fixo 200px que comprimia país longo).
+- **`.tempoChart`** — padding 18→20px, label 13→13.5px, bar 32→36px, valor 12→13px.
+- **`.persona`** — padding 18 12 → 20 16, `gap:4px`.
+- **`.personaPat`** — 18→20px.
+- **`.personaTempo`** — 11→11.5px, padding melhorado.
+- **`.impNome`** — `line-height: 1.3` (evita quebra em 3 linhas).
+- **`.impPct`** — 22→26px + `letter-spacing: -.02em` (números maiores e mais legíveis).
+- **`.impEx`** — 11→11.5px + `line-height: 1.4`.
+- **`.impostoItem`** — padding 14 16 → 16 18, gap 6→8px.
+- **`.glossItem`** — padding 16 18 → 18 20, gap 6→8px.
+- **`.lfItem`** — padding 16 18 → 18 20, gap 6→8px.
+- **`.glossNome`** — 15→16px, `line-height: 1.3`.
+- **`.glossItem p`** — 13→13.5px, `line-height: 1.55`.
+- **`.glossFonte`** — 11→11.5px, `line-height: 1.5`.
+- **`.lfPresidente`** — `line-height: 1.25`.
+- **`.lfDivida`** — margin 4→6px.
+- **`.lfEvento`** — 12→13px, `line-height: 1.55`.
+- **`.quizContainer`** — padding 22 24 → 24 26.
+- **`.quizQuestao`** — margin 18→20px, `line-height: 1.45`.
+- **`.quizOpcao`** — 14→14.5px, `line-height: 1.4`.
+- **`.quizFeedback`** — 13→13.5px, `line-height: 1.55`.
+- **`.calcPessoalForm`** — padding 18 → 20 22.
+- **`.cpField label`** — `line-height: 1.4`.
+- **`.cpField input`** — 14→14.5px, `line-height: 1.4`.
+- **`.cpResBig`** — 38→42px, `line-height: 1.05`.
+- **`.cpResSub`** — 14px, `line-height: 1.55`.
+- **`.cpEsfRow`** — 13→13.5px, `line-height: 1.4`.
+- **`.cpEquiv`** — `line-height: 1.65`.
+- **`.cpResConclusao`** — `line-height: 1.55`.
+- **`.side a`** — `line-height: 1.35`.
+
+### Resultado
+- Cards com conteúdo denso (parlamentar, glossário, imposto) agora têm ar entre as linhas.
+- Valores monetários (R$ X.XXX,XX) não quebram no meio do número.
+- Hierarquia visual preservada mas mais confortável de ler.
+
+---
+
 ## [v1.11.0] — 2026-06-26 — Pacote cidadão: glossário + comparativo internacional + calculadora pessoal + linha do tempo + quiz + cards + PWA
 
 ### Adicionado — 7 novas seções
