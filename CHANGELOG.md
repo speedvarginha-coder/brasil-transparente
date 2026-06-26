@@ -4,6 +4,36 @@ Registro público de toda alteração em dados, regras de cálculo ou fontes. Fo
 
 ---
 
+## [v1.5.0] — 2026-06-26 — Custo parlamentar detalhado + Emendas e Fundos proporcionais
+
+### Adicionado
+- **Seção `parlamentar` agora tem 2 miniCards com tabela detalhada** (substituindo o placeholder anterior):
+  - Deputado Federal: subsídio R$ 46.366,19/mês, verba de gabinete R$ 165.806,07/mês, 5–25 secretários parlamentares.
+  - Senador: subsídio R$ 46.366,19/mês, estrutura variável por estado.
+  - Nota metodológica explicando que verba de gabinete e número de assessores foram coletados da Câmara dos Deputados.
+- **Nova seção `#emendas-fundos`** com barra proporcional visual:
+  - Emendas parlamentares 2026: **R$ 61 bi** (Congresso Nacional · LOA 2026)
+  - Fundo Eleitoral 2026: **R$ 4,96 bi** (TSE · FEFC)
+  - Fundo Partidário 2026: **~R$ 1 bi** (TSE)
+  - Largura de cada bloco é proporcional ao valor (Emendas = 100, Fundo Eleitoral = 8,1, Fundo Partidário = 1,6) — a diferença é imediata visualmente.
+  - Card comparativo mostrando proporção: Emendas ~12× Fundo Eleitoral, ~61× Fundo Partidário.
+  - Botão de download CSV da nova seção.
+- **Item na nav lateral**: "Emendas & Fundos".
+- **CSV `emendas_fundos_2026`** com colunas `rubrica,valor_reais,fonte,descricao`.
+
+### Alterado (UX)
+- Substituído `grid three` (3 colunas iguais) por `.efProportional` flexbox com gradientes em 3 tons de azul, refletindo a proporção real entre os valores.
+- Hover com `translateY(-2px)` em cada bloco.
+
+### Dados utilizados (todos oficiais)
+- LOA 2026: Congresso Nacional → <https://www.congressonacional.leg.br/web/orcamento/acompanhe/orcamento-anual>
+- TSE · FEFC 2026: <https://www.tse.jus.br/eleicoes/eleicoes-2026-content/prestacao-de-contas/distribuicao-dos-recursos-do-fundo-especial-de-financiamento-de-campanha-fefc-eleicoes-2026>
+- TSE · Fundo Partidário: <https://www.tse.jus.br/partidos/partidos-1/fundo-partidario>
+- Subsídio parlamentar: fixado em R$ 46.366,19 desde 2018 (sem alteração em 2026).
+- Verba de gabinete: Câmara dos Deputados — resolução vigente.
+
+---
+
 ## [v1.3.6] — 2026-06-26
 
 ### Adicionado

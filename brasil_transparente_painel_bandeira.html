@@ -338,6 +338,22 @@ footer{background:linear-gradient(135deg,#0B1220,var(--blue));color:#d7dee8;padd
 .cemReaisBadge .dot{width:8px;height:8px;border-radius:50%;background:#ca8a04;box-shadow:0 0 0 2px rgba(202,138,4,.18)}
 .cemReaisBadge.didatica{background:#fef9c3;color:#854d0e;border-color:#fde047}
 .cemReaisBadge .dot.didatica{background:#ca8a04}
+.parlTable{width:100%;border-collapse:collapse;margin-top:8px;font-size:13px}
+.parlTable td{padding:8px 4px;border-bottom:1px solid var(--line);color:var(--text)}
+.parlTable td:first-child{color:var(--muted);font-weight:600}
+.parlTable td:last-child{text-align:right;font-family:'Space Grotesk',Inter,sans-serif;font-variant-numeric:tabular-nums;color:var(--ink)}
+.parlTable tr:last-child td{border-bottom:0}
+.efCard{background:linear-gradient(135deg,#ffffff 0%,#fafbff 100%);border:1px solid var(--line);padding:18px}
+.efValue{font-family:'Space Grotesk',Inter,sans-serif;font-size:28px;font-weight:700;color:var(--purple);letter-spacing:-.025em;display:block;margin:6px 0 8px;font-variant-numeric:tabular-nums}
+.efProportional{display:flex;gap:0;border-radius:14px;overflow:hidden;margin-top:18px;border:1px solid var(--line);background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.04)}
+.efSlice{padding:22px 18px;display:flex;flex-direction:column;justify-content:flex-end;color:#fff;position:relative;min-height:180px;transition:transform .2s ease}
+.efSlice:hover{transform:translateY(-2px)}
+.efSliceLabel{font-size:11px;text-transform:uppercase;letter-spacing:.07em;opacity:.9;font-weight:600}
+.efSliceValue{font-family:'Space Grotesk',Inter,sans-serif;font-weight:700;font-variant-numeric:tabular-nums;line-height:1;margin-top:6px;font-size:clamp(20px,2.6vw,34px);display:block}
+.efSliceNote{font-size:11.5px;opacity:.85;margin-top:8px;line-height:1.4}
+.efSlice.emenda{background:linear-gradient(135deg,#1e3a8a 0%,#1e40af 100%);flex:100 1 0}
+.efSlice.eleitoral{background:linear-gradient(135deg,#1d4ed8 0%,#2563eb 100%);flex:8.1 1 0;min-width:150px}
+.efSlice.partidario{background:linear-gradient(135deg,#3b82f6 0%,#60a5fa 100%);flex:1.6 1 0;min-width:120px}
 .csvBtn{
   display:inline-flex;
   align-items:center;
@@ -479,6 +495,7 @@ footer{background:linear-gradient(135deg,#0B1220,var(--blue));color:#d7dee8;padd
     <a href="#renuncia">Renúncia fiscal</a>
     <a href="#brasilia">Quanto custa Brasília</a>
     <a href="#parlamentar">Custo parlamentar</a>
+    <a href="#emendas-fundos">Emendas & Fundos</a>
     <a href="#judiciario">Judiciário</a>
     <a href="#ranking">Ranking de gastos</a>
     <a href="#calculadora">Calculadora cidadã</a>
@@ -644,15 +661,72 @@ footer{background:linear-gradient(135deg,#0B1220,var(--blue));color:#d7dee8;padd
         <p class="note">Pessoal do Executivo Federal e custeio/capital dos outros Poderes. Detalhamento por órgão está no roadmap (Sprint 3 — modal de indicador).</p>
       </div>
       <div class="card" id="parlamentar">
-        <span class="sourceBadge stack" title="Congresso Nacional — composição"><span class="dot purple"></span><span class="src">Congresso</span><span class="date">2026</span></span>
+        <span class="sourceBadge stack" title="Congresso Nacional — composição e remuneração"><span class="dot purple"></span><span class="src">Congresso</span><span class="date">2026</span></span>
         <span class="pill purple" style="margin-top:42px">Custo parlamentar</span>
         <h2 class="section-title">Quanto custa representar o povo?</h2>
         <div class="grid two">
-          <div class="miniCard"><span class="mini">Deputados federais</span><strong>513</strong><p>Composição da Câmara dos Deputados.</p></div>
-          <div class="miniCard"><span class="mini">Senadores</span><strong>81</strong><p>Composição do Senado Federal.</p></div>
+          <div class="miniCard">
+            <span class="mini">Deputado Federal</span>
+            <table class="parlTable">
+              <tbody>
+                <tr><td>Subsídio mensal</td><td><b>R$ 46.366,19</b></td></tr>
+                <tr><td>Verba de gabinete</td><td><b>R$ 165.806,07/mês</b></td></tr>
+                <tr><td>Cota parlamentar</td><td><i>varia por estado</i></td></tr>
+                <tr><td>Assessores</td><td><b>5 a 25 secretários</b></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="miniCard">
+            <span class="mini">Senador</span>
+            <table class="parlTable">
+              <tbody>
+                <tr><td>Subsídio mensal</td><td><b>R$ 46.366,19</b></td></tr>
+                <tr><td>Verba indenizatória/cota</td><td><i>varia por estado</i></td></tr>
+                <tr><td>Gabinete e estrutura</td><td><i>equipe, escritório e funcionamento</i></td></tr>
+                <tr><td>Total real</td><td><i>depende da execução de cada gabinete</i></td></tr>
+              </tbody>
+            </table>
+          </div>
         </div>
-        <p class="note">Custo total anual por parlamentar (subsídio + gabinete + estrutura + assessores) por Casa está no roadmap (Sprint 3).</p>
+        <p class="note">A Câmara informa que a verba de gabinete vigente é R$ 165.806,07 e que cada deputado pode contratar de 5 a 25 secretários parlamentares. Para precisão máxima, integrar dados abertos de Câmara e Senado por parlamentar (roadmap Sprint 3).</p>
       </div>
+    </section>
+
+    <section class="card" id="emendas-fundos">
+      <span class="sourceBadge stack" title="Congresso Nacional — LOA 2026 + TSE"><span class="dot purple"></span><span class="src">LOA + TSE</span><span class="date">2026</span></span>
+      <span class="pill purple" style="margin-top:42px">Política e orçamento</span>
+      <div class="csvRow">
+        <h2 class="section-title">Emendas, Fundo Eleitoral e Fundo Partidário</h2>
+        <button class="csvBtn" onclick="downloadCSV('emendas_fundos_2026','emendas_fundos')"><span class="arrow">⬇</span> Baixar CSV</button>
+      </div>
+      <p class="section-sub">Três rubricas que aparecem no debate público com nomes parecidos mas naturezas diferentes. A largura de cada bloco abaixo é proporcional ao valor — a diferença é grande.</p>
+      <div class="efProportional" role="figure" aria-label="Comparação proporcional entre Emendas, Fundo Eleitoral e Fundo Partidário em 2026">
+        <div class="efSlice emenda">
+          <span class="efSliceLabel">Emendas parlamentares</span>
+          <strong class="efSliceValue">R$ 61 bi</strong>
+          <span class="efSliceNote">Inclui emendas individuais, de bancada e de comissão. Recursos indicados por deputados e senadores ao Orçamento da União.</span>
+        </div>
+        <div class="efSlice eleitoral">
+          <span class="efSliceLabel">Fundo Eleitoral</span>
+          <strong class="efSliceValue">R$ 4,96 bi</strong>
+          <span class="efSliceNote">Financia campanhas conforme critérios legais do TSE.</span>
+        </div>
+        <div class="efSlice partidario">
+          <span class="efSliceLabel">Fundo Partidário</span>
+          <strong class="efSliceValue">~R$ 1 bi</strong>
+          <span class="efSliceNote">Custeio anual dos partidos.</span>
+        </div>
+      </div>
+      <p class="note" style="margin-top:8px">Proporção real: Emendas é <b>~12×</b> o Fundo Eleitoral e <b>~61×</b> o Fundo Partidário. Os 3 valores somam <b>R$ 66,96 bi</b> no Orçamento 2026.</p>
+      <div class="grid three" style="margin-top:14px">
+        <div class="miniCard"><span class="mini">Emendas ÷ Fundo Eleitoral</span><strong>≈ 12×</strong><p>Emendas são ~12 vezes maiores que o Fundo Eleitoral em 2026.</p></div>
+        <div class="miniCard"><span class="mini">Emendas ÷ Fundo Partidário</span><strong>≈ 61×</strong><p>Emendas são ~61 vezes maiores que o Fundo Partidário em 2026.</p></div>
+        <div class="miniCard"><span class="mini">Fundos eleitorais</span><strong>≈ R$ 5,96 bi</strong><p>Total Fundo Eleitoral + Fundo Partidário em 2026.</p></div>
+      </div>
+      <div class="barrow" style="margin-top:14px"><div class="barlabel"><span>Emendas parlamentares</span><span>R$ 61 bi</span></div><div class="bar bluebar"><span style="width:100%"></span></div></div>
+      <div class="barrow"><div class="barlabel"><span>Fundo Eleitoral</span><span>R$ 4,96 bi</span></div><div class="bar"><span style="width:8.1%"></span></div></div>
+      <div class="barrow"><div class="barlabel"><span>Fundo Partidário</span><span>~R$ 1 bi</span></div><div class="bar"><span style="width:1.6%"></span></div></div>
+      <p class="note">Fontes oficiais: <a href="https://www.congressonacional.leg.br/web/orcamento/acompanhe/orcamento-anual" target="_blank" rel="noopener" style="color:var(--blue)">Congresso Nacional · LOA 2026</a> · <a href="https://www.tse.jus.br/eleicoes/eleicoes-2026-content/prestacao-de-contas/distribuicao-dos-recursos-do-fundo-especial-de-financiamento-de-campanha-fefc-eleicoes-2026" target="_blank" rel="noopener" style="color:var(--blue)">TSE · FEFC 2026</a> · <a href="https://www.tse.jus.br/partidos/partidos-1/fundo-partidario" target="_blank" rel="noopener" style="color:var(--blue)">TSE · Fundo Partidário</a>.</p>
     </section>
 
     <section class="card" id="judiciario">
@@ -870,7 +944,7 @@ footer{background:linear-gradient(135deg,#0B1220,var(--blue));color:#d7dee8;padd
     <div class="modalBody" id="modalBody"></div>
   </div>
 </div>
-<footer id="fontes"><div class="wrap"><span class="dataVersion">Dados <b>v1.3.6</b> · última atualização <b>26/06/2026</b></span><strong style="display:block;margin-top:18px">Fontes para atualização mensal</strong><p class="sources">Banco Central — Estatísticas Fiscais; Tesouro Transparente — Relatório Mensal da Dívida; Receita Federal — arrecadação; Congresso Nacional — LOA; Portal da Transparência; Tesouro Nacional/Siconfi (RREO/RGF); IBGE; Secretarias Estaduais de Fazenda.</p><div class="srcgrid"><a href="https://www.bcb.gov.br/estatisticas/estatisticasfiscais" target="_blank">Banco Central — Estatísticas Fiscais</a><a href="https://www.tesourotransparente.gov.br/temas/divida-publica-federal/estatisticas-e-relatorios-da-divida-publica-federal" target="_blank">Tesouro Transparente — Dívida Pública</a><a href="https://www.congressonacional.leg.br/web/orcamento/acompanhe/orcamento-anual" target="_blank">Congresso Nacional — Orçamento</a><a href="https://portaldatransparencia.gov.br/orcamento" target="_blank">Portal da Transparência — Orçamento</a><a href="https://siconfi.tesouro.gov.br/" target="_blank">Siconfi — Estados e Municípios</a><a href="https://www.ibge.gov.br/" target="_blank">IBGE — Indicadores</a></div><p class="sources" style="margin-top:18px"><a href="roadmap.md" style="color:#fde047;text-decoration:none">📋 Roadmap do projeto</a> · <a href="CHANGELOG.md" style="color:#fde047;text-decoration:none">📝 Changelog de dados</a></p></div></footer>
+<footer id="fontes"><div class="wrap"><span class="dataVersion">Dados <b>v1.5.0</b> · última atualização <b>26/06/2026</b></span><strong style="display:block;margin-top:18px">Fontes para atualização mensal</strong><p class="sources">Banco Central — Estatísticas Fiscais; Tesouro Transparente — Relatório Mensal da Dívida; Receita Federal — arrecadação; Congresso Nacional — LOA; Portal da Transparência; Tesouro Nacional/Siconfi (RREO/RGF); IBGE; Secretarias Estaduais de Fazenda.</p><div class="srcgrid"><a href="https://www.bcb.gov.br/estatisticas/estatisticasfiscais" target="_blank">Banco Central — Estatísticas Fiscais</a><a href="https://www.tesourotransparente.gov.br/temas/divida-publica-federal/estatisticas-e-relatorios-da-divida-publica-federal" target="_blank">Tesouro Transparente — Dívida Pública</a><a href="https://www.congressonacional.leg.br/web/orcamento/acompanhe/orcamento-anual" target="_blank">Congresso Nacional — Orçamento</a><a href="https://portaldatransparencia.gov.br/orcamento" target="_blank">Portal da Transparência — Orçamento</a><a href="https://siconfi.tesouro.gov.br/" target="_blank">Siconfi — Estados e Municípios</a><a href="https://www.ibge.gov.br/" target="_blank">IBGE — Indicadores</a></div><p class="sources" style="margin-top:18px"><a href="roadmap.md" style="color:#fde047;text-decoration:none">📋 Roadmap do projeto</a> · <a href="CHANGELOG.md" style="color:#fde047;text-decoration:none">📝 Changelog de dados</a></p></div></footer>
 <script>
 const CONFIG={year:2026,population:203_000_000,annualTaxRevenue:3_700_000_000_000,grossDebt:10_400_000_000_000,annualDebtGrowthEstimate:600_000_000_000,annualInterest:1_096_000_000_000,budget2026:6_500_000_000_000,amendments:61_000_000_000,electoralFund:4_961_519_777,partyFund:1_000_000_000};
 const openedAt=Date.now();
@@ -921,6 +995,8 @@ function downloadCSV(key,kind){
     csv='uf,nome,receita,despesa,saude,educacao,seguranca,divida,populacao,pib,ano_base,fonte\n'+estados.map(e=>`${e.uf},${e.nome},${e.receita},${e.despesa},${e.saude},${e.educacao},${e.seguranca},${e.divida},${e.pop},${e.pib},${e.anoBase},"${e.fonteFin} | ${e.fontePopPib}"`).join('\n');
   }else if(kind==='tabela_cidada'){
     csv='conta,significado,valor,fonte\n'+[['Dívida Bruta','Estoque total da dívida pública bruta.','R$ 10,4 tri','Banco Central · abr/2026'],['Juros','Custo anual aproximado para carregar a dívida.','R$ 1,096 tri','Banco Central · mar/2026'],['Orçamento União','Total previsto na LOA 2026.','R$ 6,5 tri','Congresso Nacional · LOA 2026'],['Emendas','Recursos indicados por parlamentares.','R$ 61 bi','Congresso Nacional · LOA 2026'],['Fundo Eleitoral','Financiamento público de campanhas.','R$ 4,961 bi','TSE · 2026'],['Fundo Partidário','Custeio anual dos partidos.','≈ R$ 1 bi','TSE · 2026']].map(r=>`${r[0]},"${r[1]}",${r[2]},${r[3]}`).join('\n');
+  }else if(kind==='emendas_fundos'){
+    csv='rubrica,valor_reais,fonte,descricao\n'+[['Emendas parlamentares 2026','61000000000','Congresso Nacional LOA 2026','Inclui emendas individuais, de bancada e de comissão'],['Fundo Eleitoral 2026','4961000000','TSE FEFC 2026','Financia campanhas conforme critérios legais'],['Fundo Partidário 2026','1000000000','TSE Fundo Partidário 2026','Custeia manutenção anual dos partidos']].map(r=>`${r[0]},${r[1]},${r[2]},"${r[3]}"`).join('\n');
   }
   const blob=new Blob(['\ufeff'+csv],{type:'text/csv;charset=utf-8;'});
   const url=URL.createObjectURL(blob);
@@ -998,7 +1074,7 @@ function closeModal(){document.getElementById('modalOverlay').classList.remove('
 function switchTab(name){document.querySelectorAll('.modalTab').forEach(t=>t.classList.toggle('active',t.dataset.tab===name));document.querySelectorAll('.modalTabPanel').forEach(p=>p.classList.toggle('active',p.dataset.tab===name))}
 document.getElementById('modalOverlay').addEventListener('click',e=>{if(e.target.id==='modalOverlay')closeModal()});
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&currentModal)closeModal()});
-function downloadIndicatorCSV(key){const csvMap={indicador_divida_bruta:'divida',indicador_juros_nominais:'juros',indicador_orcamento_uniao:'orcamento',indicador_emendas_2026:'emendas'};const ind=INDICADORES[csvMap[key]||key.replace('indicador_','')];if(!ind){alert('Indicador não encontrado: '+key);return}const csv='indicador,valor,valor_complementar,fonte,competencia,periodicidade,atualizacao,url_fonte,metodologia_resumo,projeto,commit\n'+[`${ind.titulo}`,`${ind.valor}`,`${ind.valorLong}`,`${ind.meta.fonte}`,`${ind.meta.competencia}`,`${ind.meta.periodicidade}`,`${ind.meta.atualizacao}`,`${ind.links[0]?.url||''}`,`${ind.metodologia.replace(/<[^>]+>/g,' ').replace(/\s+/g,' ').trim().slice(0,200)}`,`Brasil Transparente v1.3.6`,`https://github.com/${REPO_OWNER}/${REPO_NAME}/commits/main/CHANGELOG.md`].map(v=>`"${String(v).replace(/"/g,'""')}"`).join(',')+'\n';const blob=new Blob(['\ufeff'+csv],{type:'text/csv;charset=utf-8;'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=key+'_'+new Date().toISOString().slice(0,10)+'.csv';document.body.appendChild(a);a.click();document.body.removeChild(a);URL.revokeObjectURL(url)}
+function downloadIndicatorCSV(key){const csvMap={indicador_divida_bruta:'divida',indicador_juros_nominais:'juros',indicador_orcamento_uniao:'orcamento',indicador_emendas_2026:'emendas'};const ind=INDICADORES[csvMap[key]||key.replace('indicador_','')];if(!ind){alert('Indicador não encontrado: '+key);return}const csv='indicador,valor,valor_complementar,fonte,competencia,periodicidade,atualizacao,url_fonte,metodologia_resumo,projeto,commit\n'+[`${ind.titulo}`,`${ind.valor}`,`${ind.valorLong}`,`${ind.meta.fonte}`,`${ind.meta.competencia}`,`${ind.meta.periodicidade}`,`${ind.meta.atualizacao}`,`${ind.links[0]?.url||''}`,`${ind.metodologia.replace(/<[^>]+>/g,' ').replace(/\s+/g,' ').trim().slice(0,200)}`,`Brasil Transparente v1.5.0`,`https://github.com/${REPO_OWNER}/${REPO_NAME}/commits/main/CHANGELOG.md`].map(v=>`"${String(v).replace(/"/g,'""')}"`).join(',')+'\n';const blob=new Blob(['\ufeff'+csv],{type:'text/csv;charset=utf-8;'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=key+'_'+new Date().toISOString().slice(0,10)+'.csv';document.body.appendChild(a);a.click();document.body.removeChild(a);URL.revokeObjectURL(url)}
 const ibgeCodes={SP:35,MG:31,RJ:33,BA:29,PR:41,RS:43};
 const REPO_OWNER='speedvarginha-coder';const REPO_NAME='brasil-transparente';const REPO_BRANCH='main';
 async function fetchEstadoSiconfi(){const sel=document.getElementById('estadoSelect');const uf=estados[Number(sel.value||0)].uf;const code=ibgeCodes[uf];const status=document.getElementById('liveStatus');const text=document.getElementById('liveText');const btn=document.getElementById('liveBtn');if(!code){text.textContent=`UF ${uf} sem código IBGE mapeado.`;return}status.className='liveStatus loading';text.innerHTML='⏳ Buscando snapshot oficial em data/'+uf.toLowerCase()+'.json...';btn.disabled=true;const url=`https://raw.githubusercontent.com/${REPO_OWNER}/${REPO_NAME}/${REPO_BRANCH}/data/${uf.toLowerCase()}.json`;try{const controller=new AbortController();const timeout=setTimeout(()=>controller.abort(),10000);const response=await fetch(url,{signal:controller.signal,headers:{'Accept':'application/json'}});clearTimeout(timeout);if(!response.ok)throw new Error('HTTP '+response.status);const data=await response.json();if(!data.receitaRealizada||!data.despesaEmpenhada)throw new Error('Snapshot incompleto para '+uf);document.getElementById('ufReceita').textContent=short(data.receitaRealizada);document.getElementById('ufDespesa').textContent=short(data.despesaEmpenhada);document.getElementById('ufReceita').title=`Valor bruto: R$ ${data.receitaRealizada.toLocaleString('pt-BR')} (Siconfi RREO ${data.exercicio} P${data.periodo}, coletado ${data.dataColeta})`;document.getElementById('ufDespesa').title=`Valor bruto: R$ ${data.despesaEmpenhada.toLocaleString('pt-BR')} (Siconfi RREO ${data.exercicio} P${data.periodo}, coletado ${data.dataColeta})`;document.getElementById('ufFonte').innerHTML=`🟢 <b>Snapshot oficial · Siconfi RREO ${data.exercicio} P${data.periodo}</b> via <a href="${data.urlOriginal}" target="_blank" rel="noopener">apidatalake.tesouro.gov.br</a> · coletado <b>${data.dataColeta}</b> · commit <a href="https://github.com/${REPO_OWNER}/${REPO_NAME}/commits/main/data/${uf.toLowerCase()}.json" target="_blank" rel="noopener">ver histórico</a>`;const ts=new Date().toLocaleString('pt-BR');status.className='liveStatus live';text.innerHTML=`<span class="pulse"></span>🟢 Snapshot oficial · Siconfi RREO ${data.exercicio} P${data.periodo} · commit <code>data/${uf.toLowerCase()}.json</code> · carregado em ${ts}`}catch(err){const motivo=err.message==='Failed to fetch'||err.name==='AbortError'?'Sem conexão ou GitHub indisponível':'Snapshot ainda não publicado: '+err.message;status.className='liveStatus fallback';text.innerHTML=`<span class="pulse"></span>🟡 ${motivo}. Mantendo dados locais de 2024.`}finally{btn.disabled=false}}

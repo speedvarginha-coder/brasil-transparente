@@ -84,6 +84,7 @@ CORS liberado. Sem necessidade de token.
 - Constantes globais: `CONFIG={...}`, `estados=[...]`, `ibgeCodes={...}`, `REPO_OWNER='speedvarginha-coder'`, `REPO_BRANCH='main'`.
 - Funções utilitárias: `brl()`, `short()`, `secondsSinceYearStart()`, `find()`.
 - Handlers `init`: registrados no fim do script + invocados na ordem certa.
+- **v1.5.0** adiciona `.efProportional` (flex container com `flex-grow` proporcional ao valor) e `.efSlice` (cada bloco da barra). Substituiu o antigo `grid three` uniforme que fazia os 3 valores parecerem iguais.
 
 ### JSON de snapshot
 ```json
