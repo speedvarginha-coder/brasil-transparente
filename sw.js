@@ -1,0 +1,5 @@
+const CACHE_NAME='brasil-transparente-v1.11.0';
+const URLS_TO_CACHE=['./','./brasil_transparente_painel_bandeira.html','./manifest.json','./CHANGELOG.md','./roadmap.md'];
+self.addEventListener('install',e=>{e.waitUntil(caches.open(CACHE_NAME).then(c=>c.addAll(URLS_TO_CACHE)).catch(()=>{}));self.skipWaiting()});
+self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k!==CACHE_NAME).map(k=>caches.delete(k)))));self.clients.claim()});
+self.addEventListener('fetch',e=>{if(e.request.method!=='GET')return;e.respondWith(caches.match(e.request).then(c=>c||fetch(e.request).then(resp=>{if(resp&&resp.status===200&&resp.type==='basic'){const clone=resp.clone();caches.open(CACHE_NAME).then(cache=>cache.put(e.request,clone))}return resp}).catch(()=>caches.match('./brasil_transparente_painel_bandeira.html'))))});

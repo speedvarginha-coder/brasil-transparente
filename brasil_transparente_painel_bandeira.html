@@ -3,6 +3,11 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Painel cidadão das contas públicas do Brasil — dívida, impostos, estados, pacto federativo e quiz interativo." />
+<meta name="theme-color" content="#1e40af" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<link rel="manifest" href="manifest.json" />
 <title>Brasil Transparente — Dashboard Nacional e Estados</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Manrope:wght@600;700;800&family=Space+Grotesk:wght@600;700&display=swap');
@@ -441,6 +446,122 @@ footer{background:linear-gradient(135deg,#0B1220,var(--blue));color:#d7dee8;padd
 .transferItem.neutro .tValor{color:#ca8a04}
 .transferItem.ganha .tValor{color:#16a34a}
 .tStatus{font-size:10px;grid-column:2;grid-row:3;text-transform:uppercase;letter-spacing:.04em;font-weight:700;opacity:.7}
+.glossarioSearch{display:flex;gap:12px;align-items:center;margin:14px 0 16px;flex-wrap:wrap}
+.glossInput{flex:1;min-width:240px;padding:12px 16px;border:1px solid var(--line);border-radius:10px;font-size:14px;font-family:inherit;background:#fff;color:var(--ink)}
+.glossInput:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px rgba(37,99,235,.1)}
+.glossCount{font-size:12px;color:var(--muted);font-weight:600;background:#f8fafc;padding:6px 12px;border-radius:6px;border:1px solid var(--line)}
+.glossarioGrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:12px;margin-top:8px}
+.glossItem{padding:16px 18px;border:1px solid var(--line);border-radius:12px;background:#fff;display:flex;flex-direction:column;gap:6px;transition:transform .15s,border-color .15s}
+.glossItem:hover{transform:translateY(-2px);border-color:var(--blue);box-shadow:0 4px 12px rgba(0,0,0,.05)}
+.glossSigla{font-family:'Space Grotesk',Inter,sans-serif;font-size:11px;font-weight:800;letter-spacing:.08em;color:#fff;background:var(--blue);padding:3px 8px;border-radius:4px;align-self:flex-start;text-transform:uppercase}
+.glossNome{font-size:15px;font-weight:700;color:var(--ink);margin-top:2px}
+.glossItem p{font-size:13px;color:var(--text);line-height:1.5;margin:0}
+.glossFonte{font-size:11px;color:var(--muted);margin-top:4px;padding-top:8px;border-top:1px solid var(--line)}
+.glossFonte a{color:var(--blue);text-decoration:none}
+.glossItem.hidden{display:none}
+.worldNum{font-family:'Space Grotesk',Inter,sans-serif;font-size:24px;font-weight:700;color:var(--ink);display:block;margin:4px 0 2px;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.worldLabel{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;font-weight:600;margin:0 0 8px}
+.worldBar{display:block;height:8px;background:#e5e7eb;border-radius:4px;margin:8px 0;overflow:hidden}
+.worldBar span{display:block;height:100%;background:linear-gradient(90deg,var(--blue),#60a5fa);border-radius:4px}
+.worldBarReverse span{background:linear-gradient(90deg,#16a34a,#86efac)}
+.worldRef{font-size:11px;color:var(--muted);margin-top:6px;line-height:1.4}
+.worldRanking{display:flex;flex-direction:column;gap:6px;margin-top:12px}
+.worldRankRow{display:grid;grid-template-columns:30px 1fr 200px 70px;gap:12px;align-items:center;padding:10px 14px;border:1px solid var(--line);border-radius:8px;background:#fff;transition:transform .15s}
+.worldRankRow:hover{transform:translateX(4px)}
+.worldRankRow.brasil{background:linear-gradient(135deg,#eff6ff 0%,#ffffff 60%);border-color:var(--blue)}
+.worldRankPos{font-family:'Space Grotesk',Inter,sans-serif;font-weight:800;color:var(--blue);font-size:13px;text-align:center}
+.worldRankPais{font-size:13px;font-weight:600;color:var(--ink)}
+.worldRankBar{height:10px;background:#e5e7eb;border-radius:5px;overflow:hidden}
+.worldRankBar span{display:block;height:100%;background:linear-gradient(90deg,var(--blue),#60a5fa);border-radius:5px}
+.worldRankRow.brasil .worldRankBar span{background:linear-gradient(90deg,#dc2626,#fbbf24)}
+.worldRankValor{font-family:'Space Grotesk',Inter,sans-serif;font-weight:700;font-size:13px;color:var(--ink);text-align:right;font-variant-numeric:tabular-nums}
+.calcPessoalGrid{display:grid;grid-template-columns:1fr 1.1fr;gap:24px;margin-top:14px;align-items:start}
+.calcPessoalForm{display:flex;flex-direction:column;gap:10px;background:#f8fafc;padding:18px;border-radius:14px;border:1px solid var(--line)}
+.cpField{display:flex;flex-direction:column;gap:4px}
+.cpField label{font-size:12px;font-weight:700;color:var(--ink);text-transform:uppercase;letter-spacing:.04em}
+.cpInput{display:flex;align-items:center;background:#fff;border:1px solid var(--line);border-radius:8px;padding:0 12px;transition:border-color .15s}
+.cpInput:focus-within{border-color:var(--blue);box-shadow:0 0 0 3px rgba(37,99,235,.08)}
+.cpPrefixo{font-size:13px;color:var(--muted);font-weight:700;margin-right:8px}
+.cpField input,.cpField select{padding:10px 0;border:0;outline:0;flex:1;font-size:14px;font-family:inherit;color:var(--ink);background:transparent;font-variant-numeric:tabular-nums}
+.cpField select{padding:10px 0;cursor:pointer}
+.cpSec{font-size:11px;font-weight:800;color:var(--blue);text-transform:uppercase;letter-spacing:.08em;margin:14px 0 0;padding-top:14px;border-top:1px solid var(--line)}
+.cpSec:first-of-type{margin-top:6px;padding-top:0;border-top:0}
+.calcPessoalResult{background:linear-gradient(135deg,#eff6ff 0%,#ffffff 80%);padding:22px 24px;border-radius:14px;border:1px solid var(--line);min-height:300px}
+.cpResHead{font-size:13px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin:0 0 8px}
+.cpResBig{font-family:'Space Grotesk',Inter,sans-serif;font-size:38px;font-weight:800;color:var(--blue);letter-spacing:-.025em;line-height:1;margin:0;font-variant-numeric:tabular-nums}
+.cpResSub{font-size:13px;color:var(--text);margin:8px 0 18px;line-height:1.4}
+.cpEsfera{margin-bottom:10px}
+.cpEsfRow{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--ink);margin-bottom:4px}
+.cpEsfRow strong{margin-left:auto;font-family:'Space Grotesk',Inter,sans-serif;font-variant-numeric:tabular-nums}
+.cpEsfCor{width:12px;height:12px;border-radius:50%;flex-shrink:0}
+.cpEsfCor.federal{background:#1e40af}
+.cpEsfCor.estadual{background:#16a34a}
+.cpEsfCor.municipal{background:#ca8a04}
+.cpBar{height:6px;background:rgba(0,0,0,.06);border-radius:3px;overflow:hidden}
+.cpBar span{display:block;height:100%;border-radius:3px;transition:width .6s ease}
+.cpBar span[id^="cpBarFed"]{background:#1e40af}
+.cpBar span[id^="cpBarEst"]{background:#16a34a}
+.cpBar span[id^="cpBarMun"]{background:#ca8a04}
+.cpEquiv{font-size:13px;color:var(--ink);line-height:1.6;background:#fff;padding:12px 14px;border-radius:8px;border:1px solid var(--line);margin:10px 0 14px}
+.cpEquiv strong{color:var(--blue)}
+.cpResConclusao{font-size:13px;color:var(--muted);line-height:1.5;margin:8px 0 0;font-style:italic}
+.btn{padding:12px 20px;border-radius:10px;border:0;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit;transition:transform .15s,box-shadow .15s}
+.btnPrimary{background:var(--blue);color:#fff;margin-top:14px}
+.btnPrimary:hover{background:#1d4ed8;transform:translateY(-1px);box-shadow:0 4px 12px rgba(37,99,235,.25)}
+@media(max-width:760px){.calcPessoalGrid{grid-template-columns:1fr}}
+.lfGrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px;margin-top:14px}
+.lfItem{padding:16px 18px;border:1px solid var(--line);border-radius:12px;background:#fff;display:flex;flex-direction:column;gap:6px;position:relative;transition:transform .15s}
+.lfItem:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.06)}
+.lfItem.sarney{background:linear-gradient(135deg,#fef3c7 0%,#ffffff 70%);border-color:#fde68a}
+.lfItem.collor{background:linear-gradient(135deg,#fee2e2 0%,#ffffff 70%);border-color:#fca5a5}
+.lfItem.itamar{background:linear-gradient(135deg,#dbeafe 0%,#ffffff 70%);border-color:#93c5fd}
+.lfItem.fhc{background:linear-gradient(135deg,#e0e7ff 0%,#ffffff 70%);border-color:#a5b4fc}
+.lfItem.lula1{background:linear-gradient(135deg,#dcfce7 0%,#ffffff 70%);border-color:#86efac}
+.lfItem.dilma1{background:linear-gradient(135deg,#fef9c3 0%,#ffffff 70%);border-color:#fde047}
+.lfItem.dilma2{background:linear-gradient(135deg,#fed7aa 0%,#ffffff 70%);border-color:#fdba74}
+.lfItem.temer{background:linear-gradient(135deg,#fce7f3 0%,#ffffff 70%);border-color:#f9a8d4}
+.lfItem.bolsonaro{background:linear-gradient(135deg,#cffafe 0%,#ffffff 70%);border-color:#67e8f9}
+.lfItem.lula3{background:linear-gradient(135deg,#ede9fe 0%,#ffffff 70%);border-color:#c4b5fd}
+.lfAno{font-family:'Space Grotesk',Inter,sans-serif;font-size:10px;font-weight:800;color:var(--muted);letter-spacing:.08em;text-transform:uppercase}
+.lfPresidente{font-size:16px;font-weight:700;color:var(--ink);line-height:1.2}
+.lfDivida{display:flex;align-items:center;justify-content:space-between;margin:4px 0}
+.lfDivida strong{font-family:'Space Grotesk',Inter,sans-serif;font-size:18px;color:var(--ink);font-variant-numeric:tabular-nums}
+.lfStatus{font-size:10px;padding:3px 8px;border-radius:10px;font-weight:700;text-transform:uppercase;letter-spacing:.04em}
+.lfStatus.melhora{background:#86efac;color:#14532d}
+.lfStatus.estavel{background:#fde047;color:#713f12}
+.lfStatus.piora{background:#fca5a5;color:#7f1d1d}
+.lfEvento{font-size:12px;color:var(--text);line-height:1.5;margin:4px 0 0}
+.quizContainer{background:linear-gradient(135deg,#eff6ff 0%,#ffffff 80%);padding:22px 24px;border-radius:14px;border:1px solid var(--line);margin-top:14px}
+.quizHeader{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;padding-bottom:12px;border-bottom:1px solid var(--line)}
+.quizProgress{font-size:11px;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:.05em}
+.quizScore{font-size:12px;font-weight:700;color:var(--ink);background:#fff;padding:5px 12px;border-radius:6px;border:1px solid var(--line)}
+.quizQuestao{font-size:18px;font-weight:700;color:var(--ink);margin-bottom:18px;line-height:1.4}
+.quizOpcoes{display:flex;flex-direction:column;gap:10px;margin-bottom:16px}
+.quizOpcao{padding:14px 18px;border:2px solid var(--line);border-radius:10px;background:#fff;cursor:pointer;text-align:left;font-size:14px;color:var(--ink);font-family:inherit;transition:all .15s;font-weight:500}
+.quizOpcao:hover{border-color:var(--blue);background:#f0f7ff;transform:translateX(4px)}
+.quizOpcao.correct{background:#86efac;border-color:#16a34a;color:#14532d}
+.quizOpcao.wrong{background:#fca5a5;border-color:#dc2626;color:#7f1d1d}
+.quizOpcao:disabled{cursor:default}
+.quizOpcao:disabled:hover{transform:none;border-color:var(--line);background:#fff}
+.quizFeedback{font-size:13px;color:var(--text);line-height:1.5;padding:12px 14px;background:rgba(255,255,255,.6);border-radius:8px;margin-bottom:12px;display:none}
+.quizFeedback.show{display:block}
+.quizActions{display:flex;gap:10px;justify-content:flex-end}
+.quizResult{margin-top:14px;background:linear-gradient(135deg,#fef3c7 0%,#ffffff 80%);padding:22px 24px;border-radius:14px;border:1px solid #fde047}
+.csGrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;margin-top:14px}
+.csCard{display:flex;flex-direction:column;gap:8px;align-items:stretch}
+.csVisual{aspect-ratio:1/1;padding:32px 28px;display:flex;flex-direction:column;justify-content:space-between;border-radius:14px;color:#fff;position:relative;overflow:hidden;font-family:'Space Grotesk',Inter,sans-serif;box-shadow:0 4px 12px rgba(0,0,0,.08)}
+.csVisual::before{content:'BRASIL TRANSPARENTE';position:absolute;top:18px;left:24px;font-size:9px;letter-spacing:.18em;opacity:.7;font-weight:700}
+.csVisual::after{content:attr(data-brand);position:absolute;bottom:18px;right:24px;font-size:9px;letter-spacing:.18em;opacity:.6;font-weight:600}
+.csVisual.csBlue{background:linear-gradient(135deg,#1e3a8a 0%,#2563eb 100%)}
+.csVisual.csPurple{background:linear-gradient(135deg,#581c87 0%,#7c3aed 100%)}
+.csVisual.csGreen{background:linear-gradient(135deg,#14532d 0%,#16a34a 100%)}
+.csVisual.csRed{background:linear-gradient(135deg,#7f1d1d 0%,#dc2626 100%)}
+.csVisual.csOrange{background:linear-gradient(135deg,#9a3412 0%,#ea580c 100%)}
+.csBig{font-size:54px;font-weight:800;letter-spacing:-.03em;line-height:.95;margin-top:36px}
+.csMid{font-size:18px;font-weight:500;line-height:1.25;margin-top:8px}
+.csFoot{font-size:13px;opacity:.85;margin-top:auto;padding-top:14px;border-top:1px solid rgba(255,255,255,.25);line-height:1.3}
+.csBtn{padding:10px 16px;background:var(--blue);color:#fff;border:0;border-radius:8px;cursor:pointer;font-weight:600;font-size:13px;font-family:inherit;transition:background .15s}
+.csBtn:hover{background:#1d4ed8}
 .transferItem.perde .tStatus{color:#dc2626}
 .transferItem.neutro .tStatus{color:#ca8a04}
 .transferItem.ganha .tStatus{color:#16a34a}
@@ -644,6 +765,30 @@ footer{background:linear-gradient(135deg,#0B1220,var(--blue));color:#d7dee8;padd
         <div class="value">R$ 61 bi</div>
         <small>Indicadas por parlamentares · clique p/ detalhes</small>
       </div>
+    </section>
+
+    <section class="card" id="linha-fiscal-1985">
+      <span class="pill warn">Linha do tempo fiscal</span>
+      <h2 class="section-title">40 anos de história fiscal do Brasil (1985 → 2026)</h2>
+      <p class="section-sub">A dívida pública brasileira tem um padrão cíclico de 8-12 anos: alta, controle, alta de novo. Esta linha do tempo mostra os principais eventos fiscais e políticos, com a dívida/PIB de cada momento. <b>Cada governo herdou um problema e passou um problema adiante</b> — entender o ciclo é entender por que nada muda.</p>
+      <div class="lfGrid">
+        <div class="lfItem sarney"><span class="lfAno">1985-1990</span><span class="lfPresidente">José Sarney</span><div class="lfDivida"><strong>~45% PIB</strong><span class="lfStatus estavel">Estável</span></div><p class="lfEvento">Plano Cruzado (1986) — congelamento de preços. Nova República herda hiperinflação e dívida da ditadura.</p></div>
+        <div class="lfItem collor"><span class="lfAno">1990-1992</span><span class="lfPresidente">Fernando Collor</span><div class="lfDivida"><strong>~30% PIB</strong><span class="lfStatus estavel">Estável</span></div><p class="lfEvento">Plano Collor I — confiscou poupança e CDBs. Abertura comercial descontrolada. Impeachment em 1992.</p></div>
+        <div class="lfItem itamar"><span class="lfAno">1992-1994</span><span class="lfPresidente">Itamar Franco</span><div class="lfDivida"><strong>~28% PIB</strong><span class="lfStatus melhora">Melhora</span></div><p class="lfEvento">Plano Real (1994) — criação da nova moeda. Fim da hiperinflação. Dívida/PIB cai pela primeira vez em décadas.</p></div>
+        <div class="lfItem fhc"><span class="lfAno">1995-2002</span><span class="lfPresidente">FHC</span><div class="lfDivida"><strong>36% → 56% PIB</strong><span class="lfStatus piora">Piora</span></div><p class="lfEvento">Privatizações, câmbio flutuante, Lei de Responsabilidade Fiscal (2000). Crise do apagão (2001) e Argentina (2002).</p></div>
+        <div class="lfItem lula1"><span class="lfAno">2003-2010</span><span class="lfPresidente">Lula 1 e 2</span><div class="lfDivida"><strong>56% → 38% PIB</strong><span class="lfStatus melhora">Melhora</span></div><p class="lfEvento">Boom das commodities (soja, minério, petróleo). Bolsa Família, PAC. Dívida/PIB cai de 56% para 38% — o melhor momento da série.</p></div>
+        <div class="lfItem dilma1"><span class="lfAno">2011-2014</span><span class="lfPresidente">Dilma 1</span><div class="lfDivida"><strong>51% → 58% PIB</strong><span class="lfStatus estavel">Estável</span></div><p class="lfEvento">Fim do boom das commodities. Desonerações tributárias. Início do "Pacto de Medianizção". Queda da popularidade.</p></div>
+        <div class="lfItem dilma2"><span class="lfAno">2015-2016</span><span class="lfPresidente">Dilma 2</span><div class="lfDivida"><strong>66% → 70% PIB</strong><span class="lfStatus piora">Piora</span></div><p class="lfEvento">Recessão profunda (PIB -3,5%). Operação Lava Jato. Impeachment em 2016.</p></div>
+        <div class="lfItem temer"><span class="lfAno">2016-2018</span><span class="lfPresidente">Temer</span><div class="lfDivida"><strong>70% → 77% PIB</strong><span class="lfStatus piora">Piora</span></div><p class="lfEvento">Reforma trabalhista (2017). Reforma da Previdência (não passou). Tentativa de teto de gastos. Dívida/PIB sobe sem parar.</p></div>
+        <div class="lfItem bolsonaro"><span class="lfAno">2019-2022</span><span class="lfPresidente">Bolsonaro</span><div class="lfDivida"><strong>75% → 73% PIB</strong><span class="lfStatus estavel">Estável</span></div><p class="lfEvento">Pandemia dispara dívida para 87% (2020). Auxílio emergencial, PEC Emergencial, Reforma da Previdência (2019). Auxílio Brasil substitui Bolsa Família.</p></div>
+        <div class="lfItem lula3"><span class="lfAno">2023-2026</span><span class="lfPresidente">Lula 3</span><div class="lfDivida"><strong>74% → 80% PIB</strong><span class="lfStatus piora">Piora</span></div><p class="lfEvento">Novo Arcabouço Fiscal (2023). Reoneração gradual da gasolina. Desoneração da folha falha. Dívida volta a subir; projeção 80,4% em 2026.</p></div>
+      </div>
+      <div class="impactoFinal" style="margin-top:18px">
+        <p class="impactoHeadline">O Brasil vive em ciclos fiscais de 8-12 anos.</p>
+        <p class="impactoTexto">Cada governo começa com promessa de ajuste fiscal e termina gastando mais do que o anterior. <b>Entre 1985 e 2026 foram 10 governos</b> (Sarney, Collor, Itamar, FHC, Lula 1 e 2, Dilma 1 e 2, Temer, Bolsonaro, Lula 3). <b>Sete deles terminaram o mandato com dívida/PIB maior do que começaram.</b></p>
+        <p class="impactoConclusao">O padrão é claro: em momentos de crise (hiperinflação, pandemia, recessão) a dívida dispara. Em momentos de bonança (commodities) ela cai. Mas nunca baixa o suficiente pra zerar o problema estrutural. A pergunta sem resposta: <b>qual é o ponto em que a dívida vira insustentável?</b></p>
+      </div>
+      <p class="note">Fontes: Banco Central — Estatísticas Fiscais · IPEADATA · OECD · Wikipedia (eventos políticos). Divida/PIB refere-se à Dívida Bruta do Governo Geral. Para eventos detalhados, ver BCB série histórica.</p>
     </section>
 
     <section class="card" id="linhatempo">
@@ -1178,6 +1323,66 @@ footer{background:linear-gradient(135deg,#0B1220,var(--blue));color:#d7dee8;padd
         <p class="note">Cada item do ranking é comparável pela barra proporcional. O CSV baixa a aba atual. Fonte oficial de cada indicador linkada no modal (Sprint 3).</p>
       </section>
 
+    <section class="card" id="quiz-imposto">
+      <span class="pill">Quiz</span>
+      <h2 class="section-title">Você sabe quanto paga de imposto?</h2>
+      <p class="section-sub">10 perguntas rápidas sobre carga tributária, política fiscal e pacto federativo. Descubra sua nota, compare com a média e compartilhe com amigos.</p>
+      <div class="quizContainer" id="quizBox">
+        <div class="quizHeader">
+          <span class="quizProgress" id="quizProg">Pergunta 1 de 10</span>
+          <span class="quizScore" id="quizScore">0 pontos</span>
+        </div>
+        <div class="quizQuestao" id="quizQuestao">—</div>
+        <div class="quizOpcoes" id="quizOpcoes"></div>
+        <div class="quizFeedback" id="quizFeedback"></div>
+        <div class="quizActions">
+          <button class="btn btnPrimary" id="quizNext" disabled>Próxima pergunta</button>
+          <button class="btn" id="quizRestart" style="display:none;background:#e5e7eb;color:var(--ink)">Refazer quiz</button>
+        </div>
+      </div>
+      <div class="quizResult" id="quizResult" style="display:none">
+        <h3 class="cpResHead">Sua nota</h3>
+        <div class="cpResBig" id="quizFinalScore">—</div>
+        <p class="cpResSub" id="quizFinalMsg">—</p>
+        <div id="quizSummary"></div>
+      </div>
+    </section>
+
+    <section class="card" id="calculadora-pessoal">
+      <span class="pill green">Calculadora pessoal</span>
+      <h2 class="section-title">Quanto você paga de imposto por ano?</h2>
+      <p class="section-sub">Conte rapidamente seu perfil: renda mensal, onde mora e quanto gasta por categoria. O painel devolve seu imposto anual estimado, dividido por esfera (federal/estadual/municipal) e comparado com a média brasileira.</p>
+      <div class="calcPessoalGrid">
+        <div class="calcPessoalForm">
+          <div class="cpField"><label>Renda mensal bruta</label><div class="cpInput"><span class="cpPrefixo">R$</span><input type="number" id="cpRenda" min="0" step="100" value="5000"></div></div>
+          <div class="cpField"><label>Estado (UF)</label><select id="cpUF"><option value="SP">SP · São Paulo</option><option value="RJ">RJ · Rio de Janeiro</option><option value="MG">MG · Minas Gerais</option><option value="RS">RS · Rio Grande do Sul</option><option value="PR">PR · Paraná</option><option value="BA">BA · Bahia</option><option value="DF">DF · Distrito Federal</option><option value="PE">PE · Pernambuco</option><option value="CE">CE · Ceará</option><option value="PA">PA · Pará</option><option value="MA">MA · Maranhão</option><option value="AM">AM · Amazonas</option><option value="GO">GO · Goiás</option><option value="PB">PB · Paraíba</option><option value="ES">ES · Espírito Santo</option><option value="AL">AL · Alagoas</option><option value="PI">PI · Piauí</option><option value="RN">RN · Rio Grande do Norte</option><option value="MT">MT · Mato Grosso</option><option value="MS">MS · Mato Grosso do Sul</option><option value="SC">SC · Santa Catarina</option><option value="RO">RO · Rondônia</option><option value="TO">TO · Tocantins</option><option value="AC">AC · Acre</option><option value="AP">AP · Amapá</option><option value="RR">RR · Roraima</option><option value="SE">SE · Sergipe</option></select></div>
+          <h4 class="cpSec">Gastos mensais por categoria</h4>
+          <div class="cpField"><label>Gasolina / combustível</label><div class="cpInput"><span class="cpPrefixo">R$</span><input type="number" id="cpGasolina" min="0" step="50" value="500"></div></div>
+          <div class="cpField"><label>Celular + Internet</label><div class="cpInput"><span class="cpPrefixo">R$</span><input type="number" id="cpTelecom" min="0" step="20" value="220"></div></div>
+          <div class="cpField"><label>Energia elétrica</label><div class="cpInput"><span class="cpPrefixo">R$</span><input type="number" id="cpEnergia" min="0" step="20" value="250"></div></div>
+          <div class="cpField"><label>Cesta básica (mercado)</label><div class="cpInput"><span class="cpPrefixo">R$</span><input type="number" id="cpMercado" min="0" step="50" value="1200"></div></div>
+          <div class="cpField"><label>Bebidas e restaurantes</label><div class="cpInput"><span class="cpPrefixo">R$</span><input type="number" id="cpBebidas" min="0" step="50" value="200"></div></div>
+          <div class="cpField"><label>Medicamentos</label><div class="cpInput"><span class="cpPrefixo">R$</span><input type="number" id="cpRemedio" min="0" step="20" value="80"></div></div>
+          <div class="cpField"><label>Vestuário</label><div class="cpInput"><span class="cpPrefixo">R$</span><input type="number" id="cpRoupa" min="0" step="50" value="150"></div></div>
+          <div class="cpField"><label>Veículo (prestação + IPVA + seguro)</label><div class="cpInput"><span class="cpPrefixo">R$</span><input type="number" id="cpVeiculo" min="0" step="50" value="800"></div></div>
+          <button class="btn btnPrimary" id="cpCalcular">Calcular meu imposto</button>
+        </div>
+        <div class="calcPessoalResult" id="cpResult">
+          <h3 class="cpResHead">Seu imposto anual estimado</h3>
+          <div class="cpResBig" id="cpTotal">—</div>
+          <p class="cpResSub" id="cpTotalSub">—</p>
+          <h4 class="cpSec">Por esfera</h4>
+          <div class="cpEsfera"><div class="cpEsfRow"><span class="cpEsfCor federal"></span><span>Federal (IR, PIS/Cofins, IPI)</span><strong id="cpFederal">—</strong></div><div class="cpBar"><span id="cpBarFed" style="width:0%"></span></div></div>
+          <div class="cpEsfera"><div class="cpEsfRow"><span class="cpEsfCor estadual"></span><span>Estadual (ICMS, IPVA)</span><strong id="cpEstadual">—</strong></div><div class="cpBar"><span id="cpBarEst" style="width:0%"></span></div></div>
+          <div class="cpEsfera"><div class="cpEsfRow"><span class="cpEsfCor municipal"></span><span>Municipal (ISS,IPTU)</span><strong id="cpMunicipal">—</strong></div><div class="cpBar"><span id="cpBarMun" style="width:0%"></span></div></div>
+          <h4 class="cpSec">Equivalências concretas</h4>
+          <div class="cpEquiv" id="cpEquiv">—</div>
+          <p class="cpResConclusao" id="cpConclusao">—</p>
+        </div>
+      </div>
+      <p class="note">Cálculo estimado somando: IR sobre renda (tabela progressiva 2026), PIS/Cofins sobre consumo (3,65%), ICMS médio por UF (12-25%), IPI onde aplicável, ISS sobre serviços, IPVA médio. Premissas didáticas abertas — não substitui declaração oficial no <a href="https://www.gov.br/receitafederal" target="_blank" style="color:var(--blue)">Receita Federal</a>.</p>
+    </section>
+
     <section class="grid two" id="calculadora">
       <div class="card"><span class="pill">Calculadora cidadã</span><h2 class="section-title">Quanto de imposto no consumo?</h2><p class="section-sub">Simulação simples para educação fiscal.</p><label>Renda mensal</label><input id="renda" type="number" value="3000" min="0"><label style="display:block;margin-top:10px">Gasto mensal em consumo</label><input id="consumo" type="number" value="2200" min="0"><label style="display:block;margin-top:10px">Perfil tributário</label><select id="perfil"><option value="0.33">Conservador</option><option value="0.40" selected>Médio</option><option value="0.48">Alto consumo tributado</option></select><div class="calc"><p class="result">Imposto estimado/mês: <span id="impConsumo">—</span></p><p class="result">Imposto estimado/ano: <span id="impConsumoAno">—</span></p><p class="result">Dias trabalhados para impostos: <span id="diasImposto">—</span></p></div></div>
       <div class="card"><span class="pill blue">Dívida por cidadão</span><h2 class="section-title">Quanto isso dá por brasileiro?</h2><div class="calc"><label>População: <span id="popLabel">203 milhões</span></label><input id="pop" type="range" min="190" max="225" value="203"><p class="result">Dívida por pessoa: <span id="percapita">—</span></p><p class="result">Juros por pessoa/ano: <span id="juroPessoa">—</span></p></div></div>
@@ -1268,6 +1473,104 @@ footer{background:linear-gradient(135deg,#0B1220,var(--blue));color:#d7dee8;padd
     <section class="grid two"><div class="card myth"><h2>Erro comum</h2><p><strong>“É só cortar político que resolve tudo.”</strong></p><p>Cortar privilégio é obrigação. Mas a conta pública é grande demais para ser resolvida só com economia simbólica. Tem que olhar juros, déficit, previdência, folha, orçamento obrigatório e crescimento.</p></div><div class="card truth"><h2>Caminho correto</h2><p><strong>Transparência + comparação + prioridade.</strong></p><p>O cidadão precisa saber quanto custa cada área, o que entrega e quem decide. Orçamento público não pode ser labirinto de especialista.</p></div></section>
 
     <section class="card quiz"><span class="pill purple">Teste rápido</span><h2 class="section-title">Juros = amortização?</h2><p><strong>Juros da dívida são a mesma coisa que amortização?</strong></p><div class="quizBtns"><button onclick="quiz(this,false)">Sim, é tudo pagamento da dívida.</button><button onclick="quiz(this,true)">Não. Juros são custo financeiro; amortização devolve principal.</button></div><p id="quizMsg" class="result"></p></section>
+
+    <section class="card" id="brasil-vs-mundo">
+      <span class="sourceBadge stack" title="OCDE · Receita Federal · Banco Mundial · FMI"><span class="dot green"></span><span class="src">OCDE + BM</span><span class="date">2024</span></span>
+      <span class="pill" style="margin-top:42px">Comparativo internacional</span>
+      <div class="csvRow">
+        <h2 class="section-title">Brasil vs mundo: quanto cobra, quanto gasta, o que devolve</h2>
+        <button class="csvBtn" onclick="downloadCSV('brasil_vs_mundo','brasil_vs_mundo')"><span class="arrow">⬇</span> Baixar CSV</button>
+      </div>
+      <p class="section-sub">A carga tributária brasileira está entre as mais altas do mundo. Mas o que o governo faz com esse dinheiro? Comparativo com países selecionados, média OCDE e vizinhos sul-americanos. <b>Quanto maior o gasto social, melhor deveria ser o retorno em serviços públicos.</b></p>
+
+      <div class="grid two" style="margin-top:14px">
+        <div class="miniCard"><span class="mini">Carga tributária (% PIB)</span><strong class="worldNum">33,0%</strong><p class="worldLabel">Brasil</p><span class="worldBar" style="--p:82%"><span></span></span><p class="worldRef">Média OCDE: 34,0% · EUA: 25,5% · Alemanha: 39,3% · Argentina: 29,4%</p></div>
+        <div class="miniCard"><span class="mini">Gasto em saúde (% PIB)</span><strong class="worldNum">9,5%</strong><p class="worldLabel">Brasil</p><span class="worldBar" style="--p:79%"><span></span></span><p class="worldRef">Média OCDE: 9,7% · EUA: 17,3% · Alemanha: 11,8% · Argentina: 9,5%</p></div>
+        <div class="miniCard"><span class="mini">Gasto em educação (% PIB)</span><strong class="worldNum">5,0%</strong><p class="worldLabel">Brasil</p><span class="worldBar" style="--p:63%"><span></span></span><p class="worldRef">Média OCDE: 5,2% · EUA: 6,1% · Alemanha: 4,5% · Chile: 5,4%</p></div>
+        <div class="miniCard"><span class="mini">Gasto em defesa/segurança (% PIB)</span><strong class="worldNum">1,5%</strong><p class="worldLabel">Brasil</p><span class="worldBar" style="--p:50%"><span></span></span><p class="worldRef">Média OTAN: 2,5% · EUA: 3,4% · Argentina: 0,9% · Chile: 1,8%</p></div>
+      </div>
+
+      <h3 class="escadaTitulo">Ranking de carga tributária (% do PIB) — países selecionados</h3>
+      <div class="worldRanking">
+        <div class="worldRankRow" data-p="82"><span class="worldRankPos">1</span><span class="worldRankPais">Dinamarca</span><span class="worldRankBar"><span style="width:100%"></span></span><span class="worldRankValor">42,6%</span></div>
+        <div class="worldRankRow" data-p="92"><span class="worldRankPos">2</span><span class="worldRankPais">França</span><span class="worldRankBar"><span style="width:92%"></span></span><span class="worldRankValor">39,3%</span></div>
+        <div class="worldRankRow" data-p="92"><span class="worldRankPos">3</span><span class="worldRankPais">Bélgica</span><span class="worldRankBar"><span style="width:92%"></span></span><span class="worldRankValor">39,2%</span></div>
+        <div class="worldRankRow" data-p="92"><span class="worldRankPos">4</span><span class="worldRankPais">Alemanha</span><span class="worldRankBar"><span style="width:91%"></span></span><span class="worldRankValor">38,8%</span></div>
+        <div class="worldRankRow" data-p="90"><span class="worldRankPos">5</span><span class="worldRankPais">OCDE (média)</span><span class="worldRankBar"><span style="width:90%"></span></span><span class="worldRankValor">34,0%</span></div>
+        <div class="worldRankRow brasil" data-p="82"><span class="worldRankPos">6</span><span class="worldRankPais">Brasil</span><span class="worldRankBar"><span style="width:82%"></span></span><span class="worldRankValor">33,0%</span></div>
+        <div class="worldRankRow" data-p="78"><span class="worldRankPos">7</span><span class="worldRankPais">Reino Unido</span><span class="worldRankBar"><span style="width:78%"></span></span><span class="worldRankValor">33,5%</span></div>
+        <div class="worldRankRow" data-p="73"><span class="worldRankPos">8</span><span class="worldRankPais">Argentina</span><span class="worldRankBar"><span style="width:73%"></span></span><span class="worldRankValor">29,4%</span></div>
+        <div class="worldRankRow" data-p="65"><span class="worldRankPos">9</span><span class="worldRankPais">Chile</span><span class="worldRankBar"><span style="width:65%"></span></span><span class="worldRankValor">25,0%</span></div>
+        <div class="worldRankRow" data-p="63"><span class="worldRankPos">10</span><span class="worldRankPais">Espanha</span><span class="worldRankBar"><span style="width:63%"></span></span><span class="worldRankValor">24,4%</span></div>
+        <div class="worldRankRow" data-p="59"><span class="worldRankPos">11</span><span class="worldRankPais">EUA</span><span class="worldRankBar"><span style="width:59%"></span></span><span class="worldRankValor">25,5%</span></div>
+        <div class="worldRankRow" data-p="44"><span class="worldRankPos">12</span><span class="worldRankPais">México</span><span class="worldRankBar"><span style="width:44%"></span></span><span class="worldRankValor">16,4%</span></div>
+        <div class="worldRankRow" data-p="40"><span class="worldRankPos">13</span><span class="worldRankPais">Japão</span><span class="worldRankBar"><span style="width:40%"></span></span><span class="worldRankValor">22,0%</span></div>
+      </div>
+
+      <h3 class="escadaTitulo">Retorno social: o que o cidadão recebe</h3>
+      <div class="grid four">
+        <div class="miniCard"><span class="mini">IDH 2024</span><strong class="worldNum">0,786</strong><p class="worldLabel">Brasil — 84º no ranking</p><span class="worldBar" style="--p:79%"><span></span></span><p class="worldRef">Noruega 0,970 · EUA 0,927 · Argentina 0,865 · Chile 0,878</p></div>
+        <div class="miniCard"><span class="mini">Expectativa de vida</span><strong class="worldNum">75,5 anos</strong><p class="worldLabel">Brasil</p><span class="worldBar" style="--p:84%"><span></span></span><p class="worldRef">Japão 84,6 · Suíça 84,0 · EUA 78,4 · Argentina 77,2</p></div>
+        <div class="miniCard"><span class="mini">Gini (desigualdade)</span><strong class="worldNum">0,52</strong><p class="worldLabel">Brasil — 9º mais desigual do mundo</p><span class="worldBar worldBarReverse" style="--p:52%"><span></span></span><p class="worldRef">Noruega 0,28 (mais igual) · EUA 0,39 · Argentina 0,42</p></div>
+        <div class="miniCard"><span class="mini">Anos de escolaridade (média adulto)</span><strong class="worldNum">8,4 anos</strong><p class="worldLabel">Brasil</p><span class="worldBar" style="--p:60%"><span></span></span><p class="worldRef">Alemanha 14,3 · EUA 13,7 · Argentina 11,1 · México 8,7</p></div>
+      </div>
+
+      <div class="impactoFinal" style="margin-top:18px">
+        <p class="impactoHeadline">Brasil cobra como rico, entrega como em desenvolvimento.</p>
+        <p class="impactoTexto">A carga tributária brasileira (33% do PIB) está <b>acima da média OCDE</b> e é maior que a dos EUA, Japão, Chile e México. Só é menor que a de países nórdicos e alguns europeus. <b>Mas o retorno é baixo</b>: IDH 0,786 (84º), expectativa de vida 75,5 anos (vs 84 do Japão), escolaridade média 8,4 anos (vs 14 da Alemanha).</p>
+        <p class="impactoConclusao">A pergunta política inevitável: se o Brasil cobra imposto de país rico, por que não entrega saúde, educação e segurança de país rico? Resposta curta: <b>qualidade do gasto</b> (eficiência, controle, prioridades), não tamanho da carga. Mais dinheiro entrando não significa melhor serviço saindo.</p>
+      </div>
+      <p class="note">Fontes: OCDE <i>Revenue Statistics 2024</i> · OCDE <i>Health at a Glance</i> · Banco Mundial <i>World Development Indicators</i> · FMI <i>Government Finance Statistics</i> · UNDP <i>Human Development Report 2024</i>. Dados 2024 ou último ano disponível. Carga tributária brasileira = 33% do PIB conforme Receita Federal / OCDE (métrica inclui todos os entes).</p>
+    </section>
+
+    <section class="card" id="glossario">
+      <span class="pill blue">Glossário</span>
+      <h2 class="section-title">O dicionário das siglas do dinheiro público</h2>
+      <p class="section-sub">Toda vez que o noticiário fala em "LRF", "FEFC" ou "RREO", muita gente desiste de entender. Aqui vai um guia rápido: o que cada sigla significa, como funciona na prática e por que importa.</p>
+      <div class="glossarioSearch">
+        <input type="text" id="glossarioInput" placeholder="Buscar sigla ou palavra (ex.: LRF, ICMS, Fundeb)..." class="glossInput">
+        <span class="glossCount" id="glossCount">20 termos</span>
+      </div>
+      <div class="glossarioGrid" id="glossarioGrid">
+        <div class="glossItem" data-key="lrf"><span class="glossSigla">LRF</span><strong class="glossNome">Lei de Responsabilidade Fiscal</strong><p>Lei Complementar 101/2000. Limite gastos do governo ao crescimento da receita. Define teto de dívida e de pessoal. <b>Exemplo:</b> proíbe despesa com pessoal acima de 50% da receita corrente líquida em estados.</p><span class="glossFonte">Referência: LRF — <a href="https://www.planalto.gov.br/ccivil_03/leis/lcp/lcp101.htm" target="_blank">Planalto</a></span></div>
+        <div class="glossItem" data-key="loa"><span class="glossSigla">LOA</span><strong class="glossNome">Lei Orçamentária Anual</strong><p>Lei que detalha a receita e a despesa do ano seguinte. Onde estão os valores de cada Ministério, emendas e programas. <b>Exemplo:</b> LOA 2026 prevê R$ 6,5 trilhões de orçamento.</p><span class="glossFonte">Referência: Congresso · LOA 2026</span></div>
+        <div class="glossItem" data-key="ldo"><span class="glossSigla">LDO</span><strong class="glossNome">Lei de Diretrizes Orçamentárias</strong><p>Lei que antecede a LOA e define as prioridades e metas fiscais para o ano. Traz as regras que a LOA deve seguir.</p><span class="glossFonte">Referência: Congresso Nacional</span></div>
+        <div class="glossItem" data-key="ppa"><span class="glossSigla">PPA</span><strong class="glossNome">Plano Plurianual</strong><p>Planejamento de 4 anos (1 mandato). Define programas, metas e indicadores de cada área. <b>Exemplo:</b> PPA 2024-2027 é o atual.</p><span class="glossFonte">Referência: Congresso Nacional</span></div>
+        <div class="glossItem" data-key="fefcfc"><span class="glossSigla">FEFC</span><strong class="glossNome">Fundo Especial de Financiamento de Campanha</strong><p>Conhecido como "Fundo Eleitoral". Dinheiro público para financiar campanhas. Em 2026, R$ 4,96 bilhões. Distribuído pelo TSE.</p><span class="glossFonte">Referência: <a href="https://www.tse.jus.br/" target="_blank">TSE</a></span></div>
+        <div class="glossItem" data-key="fp"><span class="glossSigla">FP</span><strong class="glossNome">Fundo Partidário</strong><p>Recurso público anual para custeio dos partidos (aluguel, funcionários, programas). Em 2026, ~R$ 1 bilhão. Distribuído pelo TSE.</p><span class="glossFonte">Referência: <a href="https://www.tse.jus.br/partidos" target="_blank">TSE · Partidos</a></span></div>
+        <div class="glossItem" data-key="fpe"><span class="glossSigla">FPE</span><strong class="glossNome">Fundo de Participação dos Estados</strong><p>21,5% da arrecadação de IR + IPI vai automaticamente para estados. 85% pelo inverso da renda per capita (favorece estados mais pobres).</p><span class="glossFonte">Referência: CF Art. 159</span></div>
+        <div class="glossItem" data-key="fpm"><span class="glossSigla">FPM</span><strong class="glossNome">Fundo de Participação dos Municípios</strong><p>22,5% do IR + IPI para municípios. Mesma lógica do FPE, mas para prefeituras.</p><span class="glossFonte">Referência: CF Art. 159</span></div>
+        <div class="glossItem" data-key="fundeb"><span class="glossSigla">Fundeb</span><strong class="glossNome">Fundo de Manutenção e Desenvolvimento da Educação Básica</strong><p>Fundo que financia educação básica (creche ao ensino médio). União complementa onde o estado/município não atinge o mínimo por aluno.</p><span class="glossFonte">Referência: <a href="https://www.gov.br/fnde" target="_blank">FNDE</a></span></div>
+        <div class="glossItem" data-key="icms"><span class="glossSigla">ICMS</span><strong class="glossNome">Imposto sobre Circulação de Mercadorias e Serviços</strong><p>Imposto estadual sobre quase tudo que é vendido. Alíquota varia 7% a 25% por estado. É a maior fonte de receita dos estados.</p><span class="glossFonte">Referência: <a href="https://www.confaz.fazenda.gov.br/" target="_blank">Confaz</a></span></div>
+        <div class="glossItem" data-key="ipi"><span class="glossSigla">IPI</span><strong class="glossNome">Imposto sobre Produtos Industrializados</strong><p>Imposto federal sobre produtos industrializados. Mais alto em cigarro (300%+), bebidas, veículos. Cesta básica tem alíquota zero.</p><span class="glossFonte">Referência: <a href="https://www.gov.br/receitafederal" target="_blank">Receita Federal</a></span></div>
+        <div class="glossItem" data-key="pis"><span class="glossSigla">PIS</span><strong class="glossNome">Programa de Integração Social</strong><p>Contribuição federal sobre faturamento (0,65% para não-cumulativo, 1,65% para cumulativo). Financia seguro-desemprego e abono salarial.</p><span class="glossFonte">Referência: Receita Federal</span></div>
+        <div class="glossItem" data-key="cofins"><span class="glossSigla">Cofins</span><strong class="glossNome">Contribuição para Financiamento da Seguridade Social</strong><p>Contribuição federal sobre faturamento (3% não-cumulativo, 7,6% cumulativo). Junto com PIS financia a Previdência.</p><span class="glossFonte">Referência: Receita Federal</span></div>
+        <div class="glossItem" data-key="iof"><span class="glossSigla">IOF</span><strong class="glossNome">Imposto sobre Operações Financeiras</strong><p>Imposto federal sobre crédito, câmbio, seguro, títulos. Alíquota muda conforme política econômica.</p><span class="glossFonte">Referência: Receita Federal</span></div>
+        <div class="glossItem" data-key="cide"><span class="glossSigla">CIDE</span><strong class="glossNome">Contribuição de Intervenção no Domínio Econômico</strong><p>Imposto federal sobre combustíveis. R$ 0,10 por litro de gasolina. Destinado a programas de infraestrutura de transporte.</p><span class="glossFonte">Referência: Lei 10.336/2001</span></div>
+        <div class="glossItem" data-key="rreo"><span class="glossSigla">RREO</span><strong class="glossNome">Relatório Resumido de Execução Orçamentária</strong><p>Relatório bimestral que cada ente publica mostrando receita e despesa realizadas. Base do nosso painel de Estados.</p><span class="glossFonte">Referência: <a href="https://siconfi.tesouro.gov.br/" target="_blank">Siconfi</a></span></div>
+        <div class="glossItem" data-key="rgf"><span class="glossSigla">RGF</span><strong class="glossNome">Relatório de Gestão Fiscal</strong><p>Relatório quadrimestral que mostra limites de pessoal, dívida e operações de crédito. Acompanha o cumprimento da LRF.</p><span class="glossFonte">Referência: <a href="https://siconfi.tesouro.gov.br/" target="_blank">Siconfi</a></span></div>
+        <div class="glossItem" data-key="siconfi"><span class="glossSigla">Siconfi</span><strong class="glossNome">Sistema de Informações Contábeis e Fiscais do Setor Público Brasileiro</strong><p>Plataforma da STN onde estados e municípios publicam RREO e RGF. É a fonte primária para comparar finanças públicas no Brasil.</p><span class="glossFonte">Referência: <a href="https://siconfi.tesouro.gov.br/" target="_blank">Siconfi</a></span></div>
+        <div class="glossItem" data-key="susep"><span class="glossSigla">Susep</span><strong class="glossNome">Superintendência de Seguros Privados</strong><p>Autarquia federal que regula o mercado de seguros, previdência aberta e capitalização.</p><span class="glossFonte">Referência: <a href="https://www.gov.br/susep" target="_blank">Susep</a></span></div>
+        <div class="glossItem" data-key="bndes"><span class="glossSigla">BNDES</span><strong class="glossNome">Banco Nacional de Desenvolvimento Econômico e Social</strong><p>Banco público federal que financia grandes projetos (infraestrutura, indústria). É o maior banco de desenvolvimento da América Latina.</p><span class="glossFonte">Referência: <a href="https://www.bndes.gov.br/" target="_blank">BNDES</a></span></div>
+        <div class="glossItem" data-key="ceap"><span class="glossSigla">CEAPS</span><strong class="glossNome">Cota para o Exercício da Atividade Parlamentar</strong><p>Teto mensal que cada parlamentar pode gastar com passagens, combustível, telefone. Câmara fixa em R$ 30.788/mês para Deputados.</p><span class="glossFonte">Referência: Câmara dos Deputados</span></div>
+      </div>
+      <p class="note">Cada sigla aqui é referência direta ao portal público oficial. Termos em itálico ou links abrem o documento original.</p>
+    </section>
+
+    <section class="card" id="cards-sociais">
+      <span class="pill">Cards para redes</span>
+      <h2 class="section-title">Pronto para comunicação pública</h2>
+      <p class="section-sub">Cada card gera uma imagem 1080x1080 (Instagram/X) pronta para baixar e compartilhar. Clique em "Baixar imagem" para fazer download do PNG.</p>
+      <div class="csGrid">
+        <div class="csCard"><div class="csVisual csBlue"><div class="csBig">R$ 1,096 tri</div><div class="csMid">em juros em 12 meses</div><div class="csFoot">O Brasil precisa falar sobre isso</div></div><button class="csBtn" data-template="juros">Baixar imagem</button></div>
+        <div class="csCard"><div class="csVisual csPurple"><div class="csBig">R$ 10,4 tri</div><div class="csMid">de dívida bruta</div><div class="csFoot">Quanto disso volta em serviço bom?</div></div><button class="csBtn" data-template="divida">Baixar imagem</button></div>
+        <div class="csCard"><div class="csVisual csGreen"><div class="csBig">33%</div><div class="csMid">do PIB é carga tributária</div><div class="csFoot">Média OCDE: 34%. EUA: 25%. Japão: 22%.</div></div><button class="csBtn" data-template="carga">Baixar imagem</button></div>
+        <div class="csCard"><div class="csVisual csRed"><div class="csBig">70%</div><div class="csMid">do preço do cigarro é imposto</div><div class="csFoot">É o item mais taxado do orçamento doméstico</div></div><button class="csBtn" data-template="cigarro">Baixar imagem</button></div>
+        <div class="csCard"><div class="csVisual csOrange"><div class="csBig">R$ 61 bi</div><div class="csMid">em emendas parlamentares 2026</div><div class="csFoot">Recursos indicados por deputados e senadores</div></div><button class="csBtn" data-template="emendas">Baixar imagem</button></div>
+        <div class="csCard"><div class="csVisual csBlue"><div class="csBig">R$ 10</div><div class="csMid">voltam pra SP a cada R$ 100 arrecadado</div><div class="csFoot">Roraima recebe R$ 295. Pacto federativo em números.</div></div><button class="csBtn" data-template="pacto">Baixar imagem</button></div>
+      </div>
+      <p class="note">Imagens geradas via Canvas API direto no seu browser. Sem servidor, sem upload. Suas imagens não saem do seu computador.</p>
+    </section>
 
     <section class="card" id="cards"><span class="pill">Cards para redes</span><h2 class="section-title">Pronto para comunicação pública</h2><div class="share"><div class="poster"><b>R$ 1,096 trilhão</b><p>em juros em 12 meses. O Brasil precisa falar sobre isso.</p><span>Brasil Transparente</span></div><div class="poster"><b>R$ 10,4 trilhões</b><p>de dívida bruta. Quanto disso volta em serviço bom?</p><span>Dinheiro público</span></div><div class="poster"><b>De cada R$ 100</b><p>para onde vai o dinheiro que o cidadão paga?</p><span>Sem economês</span></div><div class="poster"><b>Estados em números</b><p>Receita, despesa, saúde, educação e segurança lado a lado.</p><span>Comparar para cobrar</span></div></div><p class="note">Próxima versão: botão de baixar imagem para cada card.</p></section>
 
@@ -1360,7 +1663,7 @@ footer{background:linear-gradient(135deg,#0B1220,var(--blue));color:#d7dee8;padd
     <div class="modalBody" id="modalBody"></div>
   </div>
 </div>
-<footer id="fontes"><div class="wrap"><span class="dataVersion">Dados <b>v1.10.0</b> · última atualização <b>26/06/2026</b></span><strong style="display:block;margin-top:18px">Fontes para atualização mensal</strong><p class="sources">Banco Central — Estatísticas Fiscais; Tesouro Transparente — Relatório Mensal da Dívida; Receita Federal — arrecadação; Congresso Nacional — LOA; Portal da Transparência; Tesouro Nacional/Siconfi (RREO/RGF); IBGE; Secretarias Estaduais de Fazenda.</p><div class="srcgrid"><a href="https://www.bcb.gov.br/estatisticas/estatisticasfiscais" target="_blank">Banco Central — Estatísticas Fiscais</a><a href="https://www.tesourotransparente.gov.br/temas/divida-publica-federal/estatisticas-e-relatorios-da-divida-publica-federal" target="_blank">Tesouro Transparente — Dívida Pública</a><a href="https://www.congressonacional.leg.br/web/orcamento/acompanhe/orcamento-anual" target="_blank">Congresso Nacional — Orçamento</a><a href="https://portaldatransparencia.gov.br/orcamento" target="_blank">Portal da Transparência — Orçamento</a><a href="https://siconfi.tesouro.gov.br/" target="_blank">Siconfi — Estados e Municípios</a><a href="https://www.ibge.gov.br/" target="_blank">IBGE — Indicadores</a></div><p class="sources" style="margin-top:18px"><a href="roadmap.md" style="color:#fde047;text-decoration:none">📋 Roadmap do projeto</a> · <a href="CHANGELOG.md" style="color:#fde047;text-decoration:none">📝 Changelog de dados</a></p></div></footer>
+<footer id="fontes"><div class="wrap"><span class="dataVersion">Dados <b>v1.11.0</b> · última atualização <b>26/06/2026</b></span><strong style="display:block;margin-top:18px">Fontes para atualização mensal</strong><p class="sources">Banco Central — Estatísticas Fiscais; Tesouro Transparente — Relatório Mensal da Dívida; Receita Federal — arrecadação; Congresso Nacional — LOA; Portal da Transparência; Tesouro Nacional/Siconfi (RREO/RGF); IBGE; Secretarias Estaduais de Fazenda.</p><div class="srcgrid"><a href="https://www.bcb.gov.br/estatisticas/estatisticasfiscais" target="_blank">Banco Central — Estatísticas Fiscais</a><a href="https://www.tesourotransparente.gov.br/temas/divida-publica-federal/estatisticas-e-relatorios-da-divida-publica-federal" target="_blank">Tesouro Transparente — Dívida Pública</a><a href="https://www.congressonacional.leg.br/web/orcamento/acompanhe/orcamento-anual" target="_blank">Congresso Nacional — Orçamento</a><a href="https://portaldatransparencia.gov.br/orcamento" target="_blank">Portal da Transparência — Orçamento</a><a href="https://siconfi.tesouro.gov.br/" target="_blank">Siconfi — Estados e Municípios</a><a href="https://www.ibge.gov.br/" target="_blank">IBGE — Indicadores</a></div><p class="sources" style="margin-top:18px"><a href="roadmap.md" style="color:#fde047;text-decoration:none">📋 Roadmap do projeto</a> · <a href="CHANGELOG.md" style="color:#fde047;text-decoration:none">📝 Changelog de dados</a></p></div></footer>
 <script>
 const CONFIG={year:2026,population:203_000_000,annualTaxRevenue:3_700_000_000_000,grossDebt:10_400_000_000_000,annualDebtGrowthEstimate:600_000_000_000,annualInterest:1_096_000_000_000,budget2026:6_500_000_000_000,amendments:61_000_000_000,electoralFund:4_961_519_777,partyFund:1_000_000_000};
 const openedAt=Date.now();
@@ -1412,6 +1715,21 @@ const estados=[
   {uf:'TO',nome:'Tocantins',receita:12.1e9,despesa:11.9e9,saude:1.7e9,educacao:2.1e9,seguranca:1.3e9,divida:4.4e9,pop:1.6e6,pib:51.7e9,anoBase:2024,fonteFin:'Siconfi RREO/RGF',fontePopPib:'IBGE'}
 ];
 function initEstados(){const sel=document.getElementById('estadoSelect');sel.innerHTML=estados.map((e,i)=>`<option value="${i}">${e.uf} — ${e.nome}</option>`).join('');sel.addEventListener('change',updateEstado);updateEstado()}
+function initGlossario(){const input=document.getElementById('glossarioInput');const items=document.querySelectorAll('.glossItem');const count=document.getElementById('glossCount');const total=items.length;input.addEventListener('input',()=>{const q=input.value.toLowerCase().trim();let shown=0;items.forEach(it=>{const txt=it.textContent.toLowerCase();const match=!q||txt.includes(q);it.classList.toggle('hidden',!match);if(match)shown++});count.textContent=q?`${shown} de ${total} termos`:'20 termos'})}
+const quizPerguntas=[{q:'De cada R$ 100 de gasolina, quanto vai de imposto?',opc:['R$ 15','R$ 25','R$ 45','R$ 60'],cor:2,exp:'ICMS (28%) + PIS/Cofins (~2%) + CIDE (R$ 0,10/L) + margens. Total estimado: ~45%.'},{q:'Qual estado recebe MAIS de volta por cada R$ 100 que arrecada em impostos federais?',opc:['São Paulo','Bahia','Roraima','Paraná'],cor:2,exp:'Roraima recebe R$ 295 de volta por cada R$ 100 arrecadado — é o mais dependente do pacto federativo.'},{q:'Qual a carga tributária do Brasil (% do PIB)?',opc:['20%','27%','33%','42%'],cor:2,exp:'A carga bruta do Brasil está em 33% do PIB (Receita Federal 2025), acima da média OCDE e de EUA/Japão.'},{q:'O que é o FEFC?',opc:['Fundo de previdência dos servidores','Fundo Especial de Financiamento de Campanha','Fundo Estadual de Combate à Fome','Fundo de Equalização da Conta Corrente'],cor:1,exp:'O FEFC é o "Fundo Eleitoral" — dinheiro público para financiar campanhas. Em 2026, R$ 4,96 bi.'},{q:'Quanto da dívida/PIB o limite prudencial da LRF permite?',opc:['40%','50%','60%','75%'],cor:2,exp:'A LRF (Lei Complementar 101/2000) fixa 60% da RCL como limite prudencial. O Brasil está acima há mais de 5 anos.'},{q:'Qual foi o ano de maior dívida/PIB do Brasil na série oficial?',opc:['2014','2016','2020','2024'],cor:2,exp:'Pico histórico: 87,1% em 2020 (pandemia de Covid-19 + gastos emergenciais).'},{q:'O subsídio mensal de um deputado federal em 2026 é:',opc:['R$ 16.000','R$ 30.000','R$ 46.366,19','R$ 60.000'],cor:2,exp:'O subsídio é de R$ 46.366,19/mês desde 2018, fixado por lei e sem alteração em 2026.'},{q:'Qual destes itens tem MAIOR carga tributária no Brasil?',opc:['Arroz','Cesta básica','Cigarro (maço)','Medicamento'],cor:2,exp:'Cigarro tem IPI + ICMS altíssimos — chega a 70% do preço final. Por isso é tão taxado.'},{q:'O IDH do Brasil em 2024 está em qual faixa?',opc:['Acima de 0,900','Entre 0,800 e 0,899','Entre 0,700 e 0,799','Abaixo de 0,700'],cor:2,exp:'IDH 2024 do Brasil = 0,786, na faixa de "alto desenvolvimento humano". 84º no ranking global.'},{q:'Qual mecanismo transfere recursos da União para os estados baseado no inverso da renda per capita?',opc:['FPM','FPE','FUNDEB','SUS'],cor:1,exp:'O FPE (Fundo de Participação dos Estados) transfere 21,5% da arrecadação de IR+IPI, com 85% distribuído pelo inverso da renda per capita — favorece estados mais pobres.'}];
+let quizIdx=0;let quizPontos=0;let quizRespondido=false;
+function initQuiz(){renderQuiz()}
+function renderQuiz(){if(quizIdx>=quizPerguntas.length){return mostrarResultado()}const p=quizPerguntas[quizIdx];document.getElementById('quizProg').textContent=`Pergunta ${quizIdx+1} de ${quizPerguntas.length}`;document.getElementById('quizScore').textContent=`${quizPontos} ponto${quizPontos!==1?'s':''}`;document.getElementById('quizQuestao').textContent=p.q;const opcoesEl=document.getElementById('quizOpcoes');opcoesEl.innerHTML=p.opc.map((o,i)=>`<button class="quizOpcao" data-idx="${i}">${o}</button>`).join('');opcoesEl.querySelectorAll('.quizOpcao').forEach(b=>{b.addEventListener('click',()=>responderQuiz(Number(b.dataset.idx)))});document.getElementById('quizFeedback').classList.remove('show');document.getElementById('quizFeedback').textContent='';document.getElementById('quizNext').disabled=true;document.getElementById('quizNext').textContent=quizIdx===quizPerguntas.length-1?'Ver resultado':'Próxima pergunta';quizRespondido=false}
+function responderQuiz(idx){if(quizRespondido)return;quizRespondido=true;const p=quizPerguntas[quizIdx];const correta=idx===p.cor;const opcoes=document.querySelectorAll('.quizOpcao');opcoes.forEach(b=>{b.disabled=true;if(Number(b.dataset.idx)===p.cor)b.classList.add('correct');else if(Number(b.dataset.idx)===idx&&!correta)b.classList.add('wrong')});if(correta)quizPontos++;document.getElementById('quizScore').textContent=`${quizPontos} ponto${quizPontos!==1?'s':''}`;const fb=document.getElementById('quizFeedback');fb.classList.add('show');fb.innerHTML=correta?`<b>Acertou.</b> ${p.exp}`:`<b>Errou.</b> ${p.exp}`;document.getElementById('quizNext').disabled=false}
+function mostrarResultado(){document.getElementById('quizBox').style.display='none';document.getElementById('quizResult').style.display='block';const pct=(quizPontos/quizPerguntas.length*100).toFixed(0);document.getElementById('quizFinalScore').textContent=`${quizPontos}/${quizPerguntas.length} (${pct}%)`;let msg='';if(pct<=30)msg=`Você acertou ${quizPontos} de ${quizPerguntas.length}. Não se preocupe: a maioria dos brasileiros também não sabe. Este site é seu guia.`;else if(pct<=60)msg=`Você acertou ${quizPontos} de ${quizPerguntas.length}. Está no meio do caminho — já entende o básico, mas pode aprender mais.`;else if(pct<=80)msg=`Você acertou ${quizPontos} de ${quizPerguntas.length}. Acima da média! Tem boa noção de política fiscal.`;else msg=`Você acertou ${quizPontos} de ${quizPerguntas.length}. Excelente! É candidato a comentarista de economia no Jornal Nacional.`;document.getElementById('quizFinalMsg').textContent=msg;document.getElementById('quizSummary').innerHTML=`<p style="font-size:13px;color:var(--text);margin-top:12px">Para cada pergunta errada, <a href="#impostos-cotidiano" style="color:var(--blue)">veja a seção Imposto no dia a dia</a> ou <a href="#glossario" style="color:var(--blue)">consulte o Glossário</a>.</p>`;document.getElementById('quizRestart').style.display='inline-block'}
+function nextQuiz(){quizIdx++;renderQuiz()}
+function restartQuiz(){quizIdx=0;quizPontos=0;document.getElementById('quizBox').style.display='block';document.getElementById('quizResult').style.display='none';document.getElementById('quizRestart').style.display='none';renderQuiz()}
+const cardTemplates={juros:{big:'R$ 1,096 tri',mid:'em juros em 12 meses',foot:'O Brasil precisa falar sobre isso',color:'#1e3a8a,#2563eb'},divida:{big:'R$ 10,4 tri',mid:'de dívida bruta',foot:'Quanto disso volta em serviço bom?',color:'#581c87,#7c3aed'},carga:{big:'33%',mid:'do PIB é carga tributária',foot:'Média OCDE: 34%. EUA: 25%. Japão: 22%.',color:'#14532d,#16a34a'},cigarro:{big:'70%',mid:'do preço do cigarro é imposto',foot:'É o item mais taxado do orçamento doméstico',color:'#7f1d1d,#dc2626'},emendas:{big:'R$ 61 bi',mid:'em emendas parlamentares 2026',foot:'Recursos indicados por deputados e senadores',color:'#9a3412,#ea580c'},pacto:{big:'R$ 10',mid:'voltam pra SP a cada R$ 100 arrecadado',foot:'Roraima recebe R$ 295. Pacto federativo em números.',color:'#1e3a8a,#3b82f6'}};
+function initCardsSociais(){document.querySelectorAll('.csBtn').forEach(btn=>{btn.addEventListener('click',()=>{const key=btn.dataset.template;const t=cardTemplates[key];if(t)downloadCard(t,key)})})}
+function downloadCard(t,key){const c=document.createElement('canvas');c.width=1080;c.height=1080;const ctx=c.getContext('2d');const colors=t.color.split(',');const grad=ctx.createLinearGradient(0,0,1080,1080);grad.addColorStop(0,colors[0]);grad.addColorStop(1,colors[1]);ctx.fillStyle=grad;ctx.fillRect(0,0,1080,1080);ctx.fillStyle='rgba(255,255,255,.7)';ctx.font='600 18px sans-serif';ctx.fillText('BRASIL TRANSPARENTE',60,60);ctx.fillStyle='rgba(255,255,255,.95)';ctx.font='800 180px sans-serif';const bigY=400;const bigLines=t.big.split('\n');bigLines.forEach((line,i)=>{ctx.fillText(line,60,bigY+i*200)});ctx.font='500 56px sans-serif';ctx.fillStyle='rgba(255,255,255,.95)';const midLines=ctx.fillText(t.mid,60,700);ctx.font='400 32px sans-serif';ctx.fillStyle='rgba(255,255,255,.85)';ctx.fillText(t.foot,60,900);ctx.font='500 22px sans-serif';ctx.fillStyle='rgba(255,255,255,.6)';ctx.fillText('brasiltransparente.com · 26/06/2026',60,1020);c.toBlob(blob=>{const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=`brasil-transparente-${key}.png`;document.body.appendChild(a);a.click();document.body.removeChild(a);URL.revokeObjectURL(url)},'image/png')}
+function brlFmt(v){return'R$ '+v.toLocaleString('pt-BR',{minimumFractionDigits:0,maximumFractionDigits:0})}
+function calcIR(rendaMensal){const base=rendaMensal*12;let aliquota=0;if(base<=2428.80*12)aliquota=0;else if(base<=2826.65*12)aliquota=0.075;else if(base<=3751.05*12)aliquota=0.15;else if(base<=4664.68*12)aliquota=0.225;else aliquota=0.275;const deducao=base*aliquota;return{rendaAnual:base,irAnual:deducao,aliquotaEfetiva:aliquota}}
+function initCalcPessoal(){const btn=document.getElementById('cpCalcular');if(!btn)return;btn.addEventListener('click',()=>{const renda=Number(document.getElementById('cpRenda').value)||0;const uf=document.getElementById('cpUF').value;const icmsPorUF={SP:18,RJ:20,MG:18,RS:17,PR:19.5,BA:20.5,DF:20,PE:18,CE:20,PA:19,MA:22,AM:20,GO:19,PB:20,ES:17,AL:19,PI:21,RN:20,MT:17,MS:17,SC:17,RO:19.5,TO:20,AC:19,AP:18,RR:20,SE:19};const icms=icmsPorUF[uf]||18;const gastoMensal={gasolina:Number(document.getElementById('cpGasolina').value)||0,telecom:Number(document.getElementById('cpTelecom').value)||0,energia:Number(document.getElementById('cpEnergia').value)||0,mercado:Number(document.getElementById('cpMercado').value)||0,bebidas:Number(document.getElementById('cpBebidas').value)||0,remedio:Number(document.getElementById('cpRemedio').value)||0,roupa:Number(document.getElementById('cpRoupa').value)||0,veiculo:Number(document.getElementById('cpVeiculo').value)||0};const pctImposto={gasolina:0.45,telecom:0.40,energia:0.30,mercado:0.11,bebidas:0.40,remedio:0.20,roupa:0.22,veiculo:0.28};let federalConsumo=0,estadualConsumo=0,municipalConsumo=0;for(const cat in gastoMensal){const imp=gastoMensal[cat]*pctImposto[cat]*12;if(cat==='gasolina'||cat==='energia'){estadualConsumo+=imp*0.55;federalConsumo+=imp*0.40;municipalConsumo+=imp*0.05}else if(cat==='telecom'){estadualConsumo+=imp*0.70;federalConsumo+=imp*0.25;municipalConsumo+=imp*0.05}else if(cat==='mercado'||cat==='bebidas'||cat==='remedio'){estadualConsumo+=imp*(icms/100);federalConsumo+=imp*0.65;federalConsumo-=imp*(icms/100);municipalConsumo+=imp*0.05}else if(cat==='roupa'){estadualConsumo+=imp*(icms/100);federalConsumo+=imp*0.65;federalConsumo-=imp*(icms/100);municipalConsumo+=imp*0.05}else if(cat==='veiculo'){estadualConsumo+=imp*0.45;federalConsumo+=imp*0.50;municipalConsumo+=imp*0.05}}const ir=calcIR(renda);const federalIR=ir.irAnual;const ipvaAnual=renda*12*0.025;estadualConsumo+=ipvaAnual;const issAnual=renda*12*0.005;municipalConsumo+=issAnual;const federalTotal=federalConsumo+federalIR;const estadualTotal=estadualConsumo;const municipalTotal=municipalConsumo;const totalAnual=federalTotal+estadualTotal+municipalTotal;const totalMax=Math.max(federalTotal,estadualTotal,municipalTotal);document.getElementById('cpTotal').textContent=brlFmt(totalAnual);document.getElementById('cpTotalSub').textContent=`de uma renda de ${brlFmt(renda*12)}/ano — equivale a ${(totalAnual/(renda*12)*100).toFixed(1)}% da sua renda bruta.`;document.getElementById('cpFederal').textContent=brlFmt(federalTotal);document.getElementById('cpEstadual').textContent=brlFmt(estadualTotal);document.getElementById('cpMunicipal').textContent=brlFmt(municipalTotal);document.getElementById('cpBarFed').style.width=(federalTotal/totalMax*100)+'%';document.getElementById('cpBarEst').style.width=(estadualTotal/totalMax*100)+'%';document.getElementById('cpBarMun').style.width=(municipalTotal/totalMax*100)+'%';const mesesSalMin=totalAnual/162100;const diasTrabalhados=Math.round(totalAnual/(renda>0?renda*12:1)*365);const equiv=`<strong>${brlFmt(totalAnual)}</strong> por ano é equivalente a:<br>• <strong>${mesesSalMin.toFixed(1)} meses de salário mínimo</strong> (R$ 1.621,00 em 2026)<br>• <strong>${diasTrabalhados} dias trabalhados</strong> só pra pagar imposto<br>• Quase <strong>${Math.round(totalAnual/22000)} viagens internacionais</strong> ou <strong>${Math.round(totalAnual/350)} parcelas de carro popular</strong>`;document.getElementById('cpEquiv').innerHTML=equiv;const proporcao=(totalAnual/(renda*12)*100).toFixed(1);let mensagem='';if(proporcao<25)mensagem=`Você paga abaixo da média brasileira (33% do PIB). Pode ser renda alta, poucos gastos com tributados ou consumo baixo.`;else if(proporcao<35)mensagem=`Você paga próximo da média brasileira (33% do PIB). Tributação está dentro do padrão.`;else if(proporcao<45)mensagem=`Você paga acima da média brasileira (33% do PIB). Provavelmente gasta muito com itens mais taxados (combustível, telecom, bebidas).`;else mensagem=`Você paga bem acima da média brasileira (33% do PIB). Sua renda ou gastos tributados são altos em relação ao padrão.`;document.getElementById('cpConclusao').textContent=mensagem})}
 function updateEstado(){const e=estados[Number(document.getElementById('estadoSelect').value||0)];document.getElementById('estadoNome').textContent=e.uf+' — '+e.nome;document.getElementById('estadoResumo').textContent=`Receita, despesa e indicadores principais · ano-base ${e.anoBase}.`;document.getElementById('ufReceita').textContent=short(e.receita);document.getElementById('ufDespesa').textContent=short(e.despesa);document.getElementById('ufSaude').textContent=short(e.saude);document.getElementById('ufEducacao').textContent=short(e.educacao);document.getElementById('ufSeguranca').textContent=short(e.seguranca);document.getElementById('ufDivida').textContent=short(e.divida);document.getElementById('ufPop').textContent=(e.pop/1e6).toLocaleString('pt-BR',{maximumFractionDigits:1})+' mi';document.getElementById('ufPib').textContent=short(e.pib);const max=Math.max(e.saude,e.educacao,e.seguranca,e.divida);document.getElementById('ufBars').innerHTML=[['Saúde',e.saude],['Educação',e.educacao],['Segurança',e.seguranca],['Dívida estadual',e.divida]].map(x=>`<div class="barrow"><div class="barlabel"><span>${x[0]}</span><span>${short(x[1])}</span></div><div class="bar ${x[0].includes('Dívida')?'red':'bluebar'}"><span style="width:${Math.max(x[1]/max*100,3)}%"></span></div></div>`).join('');document.getElementById('ufFonte').innerHTML=`Fonte finanças: <b>${e.fonteFin}</b> · Fonte população/PIB: <b>${e.fontePopPib}</b> · Ano-base: <b>${e.anoBase}</b> · Verificação: <a href="https://siconfi.tesouro.gov.br/" target="_blank">Siconfi</a> · <a href="https://www.ibge.gov.br/" target="_blank">IBGE</a>`}
 function downloadCSV(key,kind){
   let csv='',filename=key+'_'+new Date().toISOString().slice(0,10)+'.csv';
@@ -1438,6 +1756,8 @@ function downloadCSV(key,kind){
     csv='item,categoria,percentual_imposto,exemplo_preco,imposto_estimado,fonte\n'+[['Gasolina (litro)','Combustivel','45%','R$ 6,50','R$ 2,93','ANP + Confaz'],['Cigarro (maço)','Bebida/Tabaco','70%','R$ 12,00','R$ 8,40','Receita Federal + Confaz'],['Cerveja (long neck)','Bebida','50%','R$ 6,00','R$ 3,00','Confaz + RF'],['Refrigerante (2L)','Alimentação','38%','R$ 12,00','R$ 4,56','Confaz + RF'],['Carne bovina (kg)','Alimentação','15%','R$ 50,00','R$ 7,50','Confaz'],['Frango (kg)','Alimentação','9%','R$ 15,00','R$ 1,35','Confaz'],['Leite (litro)','Alimentação','12%','R$ 6,00','R$ 0,72','Confaz'],['Pão francês (kg)','Alimentação','11%','R$ 15,00','R$ 1,65','Confaz'],['Arroz (kg)','Alimentação','10%','R$ 7,00','R$ 0,70','Confaz'],['Café (500g)','Alimentação','18%','R$ 25,00','R$ 4,50','Confaz'],['Energia elétrica','Habitacao','30%','R$ 250,00','R$ 75,00','Aneel + Confaz'],['Internet (mensal)','Comunicacao','35%','R$ 120,00','R$ 42,00','Anatel + Confaz'],['Celular (conta)','Comunicacao','40%','R$ 100,00','R$ 40,00','Anatel + Confaz'],['TV por assinatura','Comunicacao/Lazer','25%','R$ 130,00','R$ 32,50','Anatel + Confaz'],['Carro popular 0km','Veiculo','28%','R$ 80.000','R$ 22.400','Receita Federal IPI + Confaz'],['Motocicleta 0km','Veiculo','25%','R$ 20.000','R$ 5.000','Receita Federal IPI + Confaz'],['Medicamento','Saude','20%','R$ 50,00','R$ 10,00','Confaz'],['Roupas (peça média)','Vestuario','22%','R$ 100,00','R$ 22,00','Confaz']].map(r=>`${r[0]},${r[1]},${r[2]},${r[3]},${r[4]},${r[5]}`).join('\n');
   }else if(kind==='transferencias_uf'){
     csv='rank,uf,nome,recebe_por_100_arrecadado_reais,status,categoria\n'+[['1','SP','São Paulo','10','Maior doador','Doador'],['2','PR','Paraná','16','Doador','Doador'],['3','RS','Rio Grande do Sul','19','Doador','Doador'],['4','SC','Santa Catarina','30','Doador','Doador'],['5','ES','Espírito Santo','41','Doador','Doador'],['6','RJ','Rio de Janeiro','41','Doador','Doador'],['7','MG','Minas Gerais','44','Doador','Doador'],['8','MS','Mato Grosso do Sul','49','Doador','Doador'],['9','AM','Amazonas','53','Dependente leve','Dependente'],['10','GO','Goiás','65','Dependente leve','Dependente'],['11','MT','Mato Grosso','69','Dependente leve','Dependente'],['12','DF','Distrito Federal','73','Dependente médio','Dependente'],['13','CE','Ceará','91','Equilíbrio','Dependente'],['14','PE','Pernambuco','93','Equilíbrio','Dependente'],['15','BA','Bahia','104','Dependente médio','Dependente'],['16','SE','Sergipe','126','Dependente','Dependente'],['17','AL','Alagoas','136','Dependente','Dependente'],['18','RN','Rio Grande do Norte','126','Dependente','Dependente'],['19','PB','Paraíba','126','Dependente','Dependente'],['20','AC','Acre','141','Dependente','Dependente'],['21','PA','Pará','146','Dependente','Dependente'],['22','PI','Piauí','156','Muito dependente','Dependente'],['23','RO','Rondônia','159','Muito dependente','Dependente'],['24','AP','Amapá','159','Muito dependente','Dependente'],['25','MA','Maranhão','203','Muito dependente','Dependente'],['26','TO','Tocantins','211','Quase totalmente dependente','Dependente'],['27','RR','Roraima','295','Quase totalmente dependente','Dependente']].map(r=>`${r[0]},${r[1]},${r[2]},${r[3]},${r[4]},${r[5]}`).join('\n');
+  }else if(kind==='brasil_vs_mundo'){
+    csv='pais,carga_tributaria_pct_pib,gasto_saude_pct_pib,gasto_educacao_pct_pib,gasto_defesa_pct_pib,idh_2024,expectativa_vida,gini,anos_escolaridade\n'+[['Brasil','33.0','9.5','5.0','1.5','0.786','75.5','0.52','8.4'],['OCDE (média)','34.0','9.7','5.2','2.5','0.905','81.0','0.31','12.5'],['EUA','25.5','17.3','6.1','3.4','0.927','78.4','0.39','13.7'],['Alemanha','38.8','11.8','4.5','1.4','0.944','81.4','0.32','14.3'],['Dinamarca','42.6','10.2','6.5','1.4','0.952','82.2','0.28','13.4'],['França','39.3','11.1','5.2','1.5','0.903','82.9','0.32','11.6'],['Reino Unido','33.5','10.4','5.0','2.2','0.929','81.3','0.35','13.4'],['Espanha','24.4','8.4','4.2','1.0','0.911','83.2','0.34','10.6'],['Japão','22.0','11.1','3.6','1.1','0.920','84.6','0.33','13.4'],['Argentina','29.4','9.5','4.9','0.9','0.865','77.2','0.42','11.1'],['Chile','25.0','9.2','5.4','1.8','0.878','80.7','0.44','11.0'],['México','16.4','5.5','4.6','0.7','0.789','75.0','0.48','8.7']].map(r=>`${r[0]},${r[1]},${r[2]},${r[3]},${r[4]},${r[5]},${r[6]},${r[7]},${r[8]}`).join('\n');
   }
   const blob=new Blob(['\ufeff'+csv],{type:'text/csv;charset=utf-8;'});
   const url=URL.createObjectURL(blob);
@@ -1515,12 +1835,12 @@ function closeModal(){document.getElementById('modalOverlay').classList.remove('
 function switchTab(name){document.querySelectorAll('.modalTab').forEach(t=>t.classList.toggle('active',t.dataset.tab===name));document.querySelectorAll('.modalTabPanel').forEach(p=>p.classList.toggle('active',p.dataset.tab===name))}
 document.getElementById('modalOverlay').addEventListener('click',e=>{if(e.target.id==='modalOverlay')closeModal()});
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&currentModal)closeModal()});
-function downloadIndicatorCSV(key){const csvMap={indicador_divida_bruta:'divida',indicador_juros_nominais:'juros',indicador_orcamento_uniao:'orcamento',indicador_emendas_2026:'emendas'};const ind=INDICADORES[csvMap[key]||key.replace('indicador_','')];if(!ind){alert('Indicador não encontrado: '+key);return}const csv='indicador,valor,valor_complementar,fonte,competencia,periodicidade,atualizacao,url_fonte,metodologia_resumo,projeto,commit\n'+[`${ind.titulo}`,`${ind.valor}`,`${ind.valorLong}`,`${ind.meta.fonte}`,`${ind.meta.competencia}`,`${ind.meta.periodicidade}`,`${ind.meta.atualizacao}`,`${ind.links[0]?.url||''}`,`${ind.metodologia.replace(/<[^>]+>/g,' ').replace(/\s+/g,' ').trim().slice(0,200)}`,`Brasil Transparente v1.10.0`,`https://github.com/${REPO_OWNER}/${REPO_NAME}/commits/main/CHANGELOG.md`].map(v=>`"${String(v).replace(/"/g,'""')}"`).join(',')+'\n';const blob=new Blob(['\ufeff'+csv],{type:'text/csv;charset=utf-8;'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=key+'_'+new Date().toISOString().slice(0,10)+'.csv';document.body.appendChild(a);a.click();document.body.removeChild(a);URL.revokeObjectURL(url)}
+function downloadIndicatorCSV(key){const csvMap={indicador_divida_bruta:'divida',indicador_juros_nominais:'juros',indicador_orcamento_uniao:'orcamento',indicador_emendas_2026:'emendas'};const ind=INDICADORES[csvMap[key]||key.replace('indicador_','')];if(!ind){alert('Indicador não encontrado: '+key);return}const csv='indicador,valor,valor_complementar,fonte,competencia,periodicidade,atualizacao,url_fonte,metodologia_resumo,projeto,commit\n'+[`${ind.titulo}`,`${ind.valor}`,`${ind.valorLong}`,`${ind.meta.fonte}`,`${ind.meta.competencia}`,`${ind.meta.periodicidade}`,`${ind.meta.atualizacao}`,`${ind.links[0]?.url||''}`,`${ind.metodologia.replace(/<[^>]+>/g,' ').replace(/\s+/g,' ').trim().slice(0,200)}`,`Brasil Transparente v1.11.0`,`https://github.com/${REPO_OWNER}/${REPO_NAME}/commits/main/CHANGELOG.md`].map(v=>`"${String(v).replace(/"/g,'""')}"`).join(',')+'\n';const blob=new Blob(['\ufeff'+csv],{type:'text/csv;charset=utf-8;'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=key+'_'+new Date().toISOString().slice(0,10)+'.csv';document.body.appendChild(a);a.click();document.body.removeChild(a);URL.revokeObjectURL(url)}
 const ibgeCodes={SP:35,MG:31,RJ:33,BA:29,PR:41,RS:43};
 const REPO_OWNER='speedvarginha-coder';const REPO_NAME='brasil-transparente';const REPO_BRANCH='main';
 async function fetchEstadoSiconfi(){const sel=document.getElementById('estadoSelect');const uf=estados[Number(sel.value||0)].uf;const code=ibgeCodes[uf];const status=document.getElementById('liveStatus');const text=document.getElementById('liveText');const btn=document.getElementById('liveBtn');if(!code){text.textContent=`UF ${uf} sem código IBGE mapeado.`;return}status.className='liveStatus loading';text.innerHTML='⏳ Buscando snapshot oficial em data/'+uf.toLowerCase()+'.json...';btn.disabled=true;const url=`https://raw.githubusercontent.com/${REPO_OWNER}/${REPO_NAME}/${REPO_BRANCH}/data/${uf.toLowerCase()}.json`;try{const controller=new AbortController();const timeout=setTimeout(()=>controller.abort(),10000);const response=await fetch(url,{signal:controller.signal,headers:{'Accept':'application/json'}});clearTimeout(timeout);if(!response.ok)throw new Error('HTTP '+response.status);const data=await response.json();if(!data.receitaRealizada||!data.despesaEmpenhada)throw new Error('Snapshot incompleto para '+uf);document.getElementById('ufReceita').textContent=short(data.receitaRealizada);document.getElementById('ufDespesa').textContent=short(data.despesaEmpenhada);document.getElementById('ufReceita').title=`Valor bruto: R$ ${data.receitaRealizada.toLocaleString('pt-BR')} (Siconfi RREO ${data.exercicio} P${data.periodo}, coletado ${data.dataColeta})`;document.getElementById('ufDespesa').title=`Valor bruto: R$ ${data.despesaEmpenhada.toLocaleString('pt-BR')} (Siconfi RREO ${data.exercicio} P${data.periodo}, coletado ${data.dataColeta})`;document.getElementById('ufFonte').innerHTML=`🟢 <b>Snapshot oficial · Siconfi RREO ${data.exercicio} P${data.periodo}</b> via <a href="${data.urlOriginal}" target="_blank" rel="noopener">apidatalake.tesouro.gov.br</a> · coletado <b>${data.dataColeta}</b> · commit <a href="https://github.com/${REPO_OWNER}/${REPO_NAME}/commits/main/data/${uf.toLowerCase()}.json" target="_blank" rel="noopener">ver histórico</a>`;const ts=new Date().toLocaleString('pt-BR');status.className='liveStatus live';text.innerHTML=`<span class="pulse"></span>🟢 Snapshot oficial · Siconfi RREO ${data.exercicio} P${data.periodo} · commit <code>data/${uf.toLowerCase()}.json</code> · carregado em ${ts}`}catch(err){const motivo=err.message==='Failed to fetch'||err.name==='AbortError'?'Sem conexão ou GitHub indisponível':'Snapshot ainda não publicado: '+err.message;status.className='liveStatus fallback';text.innerHTML=`<span class="pulse"></span>🟡 ${motivo}. Mantendo dados locais de 2024.`}finally{btn.disabled=false}}
 window.quiz=quiz;window.showRank=showRank;window.downloadCSV=downloadCSV;window.fetchEstadoSiconfi=fetchEstadoSiconfi;document.getElementById('impostoRange').addEventListener('input',updateImposto);document.getElementById('jurosRange').addEventListener('input',updateJuros);document.getElementById('pop').addEventListener('input',updatePop);document.getElementById('renda').addEventListener('input',updateConsumo);document.getElementById('consumo').addEventListener('input',updateConsumo);document.getElementById('perfil').addEventListener('change',updateConsumo);
-drawCem();drawTimeline();showRank('macro');initEstados();updateJuros();updateImposto();updateConsumo();setInterval(updateImposto,1000);
+drawCem();drawTimeline();showRank('macro');initEstados();initGlossario();initCalcPessoal();initQuiz();initCardsSociais();updateJuros();updateImposto();updateConsumo();setInterval(updateImposto,1000);document.getElementById('quizNext').addEventListener('click',nextQuiz);document.getElementById('quizRestart').addEventListener('click',restartQuiz);if('serviceWorker' in navigator){navigator.serviceWorker.register('sw.js').catch(()=>{})}
 document.querySelectorAll('.kpi[data-indicador]').forEach(el=>{const key=el.dataset.indicador;const open=()=>openModal(key);el.addEventListener('click',open);el.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();open()}})});
 </script>
 </body>

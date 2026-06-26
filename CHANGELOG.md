@@ -4,6 +4,44 @@ Registro público de toda alteração em dados, regras de cálculo ou fontes. Fo
 
 ---
 
+## [v1.11.0] — 2026-06-26 — Pacote cidadão: glossário + comparativo internacional + calculadora pessoal + linha do tempo + quiz + cards + PWA
+
+### Adicionado — 7 novas seções
+
+1. **Glossário de siglas fiscais (`#glossario`)** — 20 siglas explicadas em linguagem simples com exemplo prático: LRF, LOA, LDO, PPA, FEFC, FP, FPE, FPM, Fundeb, ICMS, IPI, PIS, Cofins, IOF, CIDE, RREO, RGF, Siconfi, Susep, BNDES, CEAPS. Inclui campo de busca com filtro em tempo real.
+
+2. **Brasil vs mundo (`#brasil-vs-mundo`)** — comparativo internacional com 12 países (Brasil, OCDE, EUA, Alemanha, Dinamarca, França, Reino Unido, Espanha, Japão, Argentina, Chile, México) em 8 métricas: carga tributária, gasto em saúde/educação/defesa, IDH, expectativa de vida, Gini, escolaridade. Box de impacto: "Brasil cobra como rico, entrega como em desenvolvimento".
+
+3. **Calculadora pessoal de imposto (`#calculadora-pessoal`)** — input de renda mensal + 27 UFs (com ICMS por estado) + 8 categorias de gasto (gasolina, telecom, energia, mercado, bebidas, medicamentos, vestuário, veículo). Output: imposto anual estimado dividido por esfera (Federal / Estadual / Municipal) com barras proporcionais, equivalências concretas (meses de salário mínimo, dias trabalhados, viagens internacionais) e mensagem contextual comparando com a média brasileira (33% do PIB). CSV `brasil_vs_mundo` com 12 países e 8 métricas.
+
+4. **Linha do tempo fiscal 1985-2026 (`#linha-fiscal-1985`)** — 10 mandatos presidenciais (Sarney → Lula 3) com dívida/PIB de cada período, status colorido (melhora / estável / piora) e evento principal. Box de impacto: "O Brasil vive em ciclos fiscais de 8-12 anos — 7 dos 10 governos terminaram o mandato com dívida maior do que começaram".
+
+5. **Quiz interativo (`#quiz-imposto`)** — 10 perguntas de múltipla escolha sobre carga tributária, pacto federativo, dívida/PIB, subsídio parlamentar, IDH. Sistema de pontuação, feedback explicativo em cada resposta, resultado final com classificação e link pra aprofundar nas seções correspondentes. Botão "Refazer quiz".
+
+6. **Cards pra redes sociais (`#cards-sociais`)** — 6 templates visuais (juros, dívida, carga tributária, cigarro, emendas, pacto federativo). Cada card gera uma imagem PNG 1080x1080 via Canvas API direto no browser (sem upload, sem servidor). Botão "Baixar imagem" em cada um.
+
+7. **PWA (Progressive Web App)**:
+   - `manifest.json` com nome, descrição, cores, ícones, idioma pt-BR.
+   - `sw.js` (service worker) com estratégia cache-first + network fallback.
+   - Meta tags: `theme-color`, `apple-mobile-web-app-capable`, `apple-mobile-web-app-status-bar-style`, `link rel="manifest"`.
+   - Registro automático via `navigator.serviceWorker.register('sw.js')`.
+
+### Fontes utilizadas
+- OCDE *Revenue Statistics 2024*
+- OCDE *Health at a Glance*
+- Banco Mundial *World Development Indicators*
+- FMI *Government Finance Statistics*
+- UNDP *Human Development Report 2024*
+- IPEADATA (série histórica dívida/PIB)
+- Banco Central (dívida bruta do governo geral)
+
+### Detalhes técnicos
+- Tabela IR 2026 com faixas progressivas (0% / 7,5% / 15% / 22,5% / 27,5%)
+- ICMS por UF: SP 18%, RJ 20%, MG 18%, RS 17%, PR 19,5%, BA 20,5%, DF 20%, PE 18%, CE 20%, PA 19%, MA 22%, AM 20%, GO 19%, PB 20%, ES 17%, AL 19%, PI 21%, RN 20%, MT 17%, MS 17%, SC 17%, RO 19,5%, TO 20%, AC 19%, AP 18%, RR 20%, SE 19%.
+- Service worker cache v1.11.0 (invalida automaticamente na próxima versão).
+
+---
+
 ## [v1.10.0] — 2026-06-26 — Todos os 27 estados + tom profissional + sem overflow horizontal
 
 ### Adicionado
