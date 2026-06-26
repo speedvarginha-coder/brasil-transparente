@@ -7,8 +7,8 @@ data/_raw_*.json
 data/extract.py
 data/process_raw.py
 
-# Legacy
-_legacy/
+# Legacy (agora commitado, com nome descritivo, para histórico)
+# _legacy/
 
 # OS / editor
 .DS_Store
