@@ -7,6 +7,10 @@ name: Update Siconfi data
 on:
   schedule:
     - cron: '0 3 1 * *'
+  push:
+    paths:
+      - 'scripts/fetch_siconfi.py'
+      - '.github/workflows/update-siconfi.yml'
   workflow_dispatch:
     inputs:
       uf:
