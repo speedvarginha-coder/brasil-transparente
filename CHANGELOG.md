@@ -4,6 +4,42 @@ Registro público de toda alteração em dados, regras de cálculo ou fontes. Fo
 
 ---
 
+## [v1.9.0] — 2026-06-26 — Pacto federativo: quanto cada estado recebe de volta
+
+### Adicionado
+- **Nova seção `#transferencias-uf`**: mostra quanto cada estado recebe de volta (via transferências federais) a cada R$ 100 que arrecada em impostos federais.
+- **Ranking completo dos 27 UFs** (26 estados + DF), ordenado do maior doador para o mais dependente:
+  - **Maior doador**: SP (R$ 10), PR (R$ 16), RS (R$ 19), SC (R$ 30)
+  - **Doadores**: ES (R$ 41), RJ (R$ 41), MG (R$ 44), MS (R$ 49)
+  - **Dependentes leves**: AM (R$ 53), GO (R$ 65), MT (R$ 69), DF (R$ 73)
+  - **Equilíbrio**: CE (R$ 91), PE (R$ 93)
+  - **Dependentes médios**: BA (R$ 104)
+  - **Dependentes**: SE (R$ 126), AL (R$ 136), RN (R$ 126), PB (R$ 126)
+  - **Muito dependentes**: AC (R$ 141), PA (R$ 146), PI (R$ 156), RO (R$ 159), AP (R$ 159), MA (R$ 203), TO (R$ 211)
+  - **Quase totalmente dependente**: RR (R$ 295)
+- **4 miniCards de resumo**: maior doador (SP R$ 10), mais dependente (RR R$ 295), equilíbrio (CE R$ 91), média nacional (R$ 84).
+- **Cards coloridos**: vermelho (doador, <R$ 100), amarelo (equilíbrio, ≈R$ 100), verde (dependente, >R$ 100).
+- **Explicação dos mecanismos**: 6 miniCards sobre FPE, FPM, SUS, Previdência, Educação (Fundeb/FNDE), Convênios/Emendas.
+- **Box de impacto**: SP financia o resto do Brasil. RR recebe 30x o que arrecada. Em 2024, transferências da União a estados e municípios somaram **R$ 1,45 trilhão** — mais que os juros da dívida pública.
+- **CSV `transferencias_uf`** com 27 linhas + colunas `rank,uf,nome,recebe_por_100_arrecadado_reais,status,categoria`.
+
+### Fontes oficiais utilizadas
+- Tesouro Transparente — Transferências a Estados e Municípios: <https://www.tesourotransparente.gov.br/temas/estados-e-municipios/transferencias-a-estados-e-municipios>
+- Confaz — Conselho Nacional de Política Fazendária: <https://www.confaz.fazenda.gov.br/>
+- Ranking.org.br — Estados que mais dependem de repasses: <https://ranking.org.br/artigos/estados-que-mais-dependem-de-repasses-federais>
+- RealTime1 — Análise pacto federativo: <https://realtime1.com.br/saiba-quanto-cada-estado-recebe-de-volta-a-cada-r-100-arrecadados-em-impostos-federais/>
+- Poder360 — Centro-Oeste, Sudeste e Sul pagam mais do que recebem: <https://www.poder360.com.br/governo/centro-oeste-sudeste-e-sul-pagam-mais-do-que-recebem-da-uniao/>
+- Impostômetro: <https://impostometro.com.br/>
+- Base consolidada: Siconfi (Tesouro Nacional) — ano-base 2024.
+
+### CSS novo
+- `.transferGrid` — grid responsivo com 27 UFs.
+- `.transferItem.perde/.neutro/.ganha` — variantes de cor.
+- `.tRank`, `.tUF`, `.tNome`, `.tValor`, `.tStatus` — layout em 3 colunas x 3 linhas.
+- `.transfDestaque` — destaque para os 4 miniCards de resumo.
+
+---
+
 ## [v1.8.0] — 2026-06-26 — Custo parlamentar com médias + Imposto no dia a dia
 
 ### Adicionado

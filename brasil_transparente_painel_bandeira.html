@@ -421,6 +421,25 @@ footer{background:linear-gradient(135deg,#0B1220,var(--blue));color:#d7dee8;padd
 .impostoItem.medio .impBar span{background:linear-gradient(90deg,#facc15,#ca8a04)}
 .impostoItem.baixo .impBar span{background:linear-gradient(90deg,#86efac,#16a34a)}
 .impEx{font-size:11px;color:var(--muted);font-variant-numeric:tabular-nums;margin-top:2px}
+.transfDestaque strong{color:var(--purple);font-size:22px;display:block;margin:4px 0}
+.transferGrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:10px;margin-top:8px}
+.transferItem{display:grid;grid-template-columns:auto 1fr auto;grid-template-rows:auto auto auto;column-gap:10px;align-items:center;padding:12px 14px;border:1px solid var(--line);border-radius:10px;background:#fff;position:relative;transition:transform .15s ease}
+.transferItem:hover{transform:translateY(-2px);box-shadow:0 4px 10px rgba(0,0,0,.05)}
+.transferItem.perde{background:linear-gradient(135deg,#fef2f2 0%,#ffffff 60%);border-color:#fca5a5}
+.transferItem.neutro{background:linear-gradient(135deg,#fefce8 0%,#ffffff 60%);border-color:#fde047}
+.transferItem.ganha{background:linear-gradient(135deg,#f0fdf4 0%,#ffffff 60%);border-color:#86efac}
+.tRank{font-size:10px;color:var(--muted);font-weight:700;grid-row:1/4;align-self:start;background:rgba(255,255,255,.8);padding:2px 6px;border-radius:4px}
+.tUF{font-family:'Space Grotesk',Inter,sans-serif;font-size:13px;font-weight:800;color:var(--ink);grid-column:2;grid-row:1}
+.tNome{font-size:11px;color:var(--muted);grid-column:2;grid-row:2;line-height:1.2}
+.tValor{font-family:'Space Grotesk',Inter,sans-serif;font-size:18px;font-weight:800;font-variant-numeric:tabular-nums;grid-column:3;grid-row:1/4;align-self:center;text-align:right}
+.transferItem.perde .tValor{color:#dc2626}
+.transferItem.neutro .tValor{color:#ca8a04}
+.transferItem.ganha .tValor{color:#16a34a}
+.tStatus{font-size:10px;grid-column:2;grid-row:3;text-transform:uppercase;letter-spacing:.04em;font-weight:700;opacity:.7}
+.transferItem.perde .tStatus{color:#dc2626}
+.transferItem.neutro .tStatus{color:#ca8a04}
+.transferItem.ganha .tStatus{color:#16a34a}
+@media (max-width:760px){.transferGrid{grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}}
 .csvBtn{
   display:inline-flex;
   align-items:center;
@@ -583,6 +602,7 @@ footer{background:linear-gradient(135deg,#0B1220,var(--blue));color:#d7dee8;padd
     <a href="#brasilia">Quanto custa Brasília</a>
     <a href="#parlamentar">Custo parlamentar</a>
     <a href="#impostos-cotidiano">Imposto no dia a dia</a>
+    <a href="#transferencias-uf">Devolução por estado</a>
     <a href="#emendas-fundos">Emendas & Fundos</a>
     <a href="#judiciario">Judiciário</a>
     <a href="#ranking">Ranking de gastos</a>
@@ -999,6 +1019,90 @@ footer{background:linear-gradient(135deg,#0B1220,var(--blue));color:#d7dee8;padd
       </div>
     </section>
 
+    <section class="card" id="transferencias-uf">
+      <span class="sourceBadge stack" title="Tesouro Transparente — Transferências a Estados e Municípios + Siconfi"><span class="dot purple"></span><span class="src">Tesouro + Siconfi</span><span class="date">2024</span></span>
+      <span class="pill purple" style="margin-top:42px">Pacto federativo</span>
+      <div class="csvRow">
+        <h2 class="section-title">A cada R$ 100 que seu estado arrecada, quanto volta pra ele?</h2>
+        <button class="csvBtn" onclick="downloadCSV('transferencias_uf','transferencias_uf')"><span class="arrow">⬇</span> Baixar CSV</button>
+      </div>
+      <p class="section-sub">Imagine que cada estado arrecada R$ 100 em impostos federais. Quanto desse valor volta para o estado via transferências obrigatórias (FPE, FPM, previdência, SUS, programas sociais, emendas, etc.)? Esta é a pergunta que mede o <b>pacto federativo</b> na prática — e mostra que o Brasil é um país de extremos: alguns estados recebem quase 3x o que arrecadam; outros recebem menos de 1/10.</p>
+
+      <div class="grid four">
+        <div class="miniCard transfDestaque"><span class="mini">📉 Maior "doador"</span><strong>São Paulo</strong><p>R$ 10,00 voltam para cada R$ 100 arrecadado. SP financia o resto do Brasil.</p></div>
+        <div class="miniCard transfDestaque"><span class="mini">📈 Mais dependente</span><strong>Roraima</strong><p>R$ 295 voltam para cada R$ 100 arrecadado. RR vive de transferências federais.</p></div>
+        <div class="miniCard"><span class="mini">⚖️ Próximo do equilíbrio</span><strong>Ceará</strong><p>R$ 91 voltam — quase 1:1 com a arrecadação. Estado mais equilibrado.</p></div>
+        <div class="miniCard"><span class="mini">🌎 Média nacional</span><strong>R$ 84</strong><p>Média dos 27 UFs: cada R$ 100 arrecadado, R$ 84 voltam via transferências.</p></div>
+      </div>
+
+      <h3 class="escadaTitulo">🗺️ Mapa do Brasil por dependência</h3>
+      <div class="transferGrid" role="figure" aria-label="Quanto cada estado recebe de volta a cada R$ 100 arrecadado em impostos federais">
+        <div class="transferItem perde"><span class="tRank">1</span><span class="tUF">SP</span><span class="tNome">São Paulo</span><strong class="tValor">R$ 10</strong><span class="tStatus">Maior doador</span></div>
+        <div class="transferItem perde"><span class="tRank">2</span><span class="tUF">PR</span><span class="tNome">Paraná</span><strong class="tValor">R$ 16</strong><span class="tStatus">Doador</span></div>
+        <div class="transferItem perde"><span class="tRank">3</span><span class="tUF">RS</span><span class="tNome">Rio Grande do Sul</span><strong class="tValor">R$ 19</strong><span class="tStatus">Doador</span></div>
+        <div class="transferItem perde"><span class="tRank">4</span><span class="tUF">SC</span><span class="tNome">Santa Catarina</span><strong class="tValor">R$ 30</strong><span class="tStatus">Doador</span></div>
+        <div class="transferItem perde"><span class="tRank">5</span><span class="tUF">ES</span><span class="tNome">Espírito Santo</span><strong class="tValor">R$ 41</strong><span class="tStatus">Doador</span></div>
+        <div class="transferItem perde"><span class="tRank">6</span><span class="tUF">RJ</span><span class="tNome">Rio de Janeiro</span><strong class="tValor">R$ 41</strong><span class="tStatus">Doador</span></div>
+        <div class="transferItem perde"><span class="tRank">7</span><span class="tUF">MG</span><span class="tNome">Minas Gerais</span><strong class="tValor">R$ 44</strong><span class="tStatus">Doador</span></div>
+        <div class="transferItem perde"><span class="tRank">8</span><span class="tUF">MS</span><span class="tNome">Mato Grosso do Sul</span><strong class="tValor">R$ 49</strong><span class="tStatus">Doador</span></div>
+        <div class="transferItem perde"><span class="tRank">9</span><span class="tUF">AM</span><span class="tNome">Amazonas</span><strong class="tValor">R$ 53</strong><span class="tStatus">Dependente leve</span></div>
+        <div class="transferItem neutro"><span class="tRank">10</span><span class="tUF">GO</span><span class="tNome">Goiás</span><strong class="tValor">R$ 65</strong><span class="tStatus">Dependente leve</span></div>
+        <div class="transferItem neutro"><span class="tRank">11</span><span class="tUF">MT</span><span class="tNome">Mato Grosso</span><strong class="tValor">R$ 69</strong><span class="tStatus">Dependente leve</span></div>
+        <div class="transferItem neutro"><span class="tRank">12</span><span class="tUF">DF</span><span class="tNome">Distrito Federal</span><strong class="tValor">R$ 73</strong><span class="tStatus">Dependente médio</span></div>
+        <div class="transferItem neutro"><span class="tRank">13</span><span class="tUF">CE</span><span class="tNome">Ceará</span><strong class="tValor">R$ 91</strong><span class="tStatus">Equilíbrio</span></div>
+        <div class="transferItem neutro"><span class="tRank">14</span><span class="tUF">PE</span><span class="tNome">Pernambuco</span><strong class="tValor">R$ 93</strong><span class="tStatus">Equilíbrio</span></div>
+        <div class="transferItem neutro"><span class="tRank">15</span><span class="tUF">BA</span><span class="tNome">Bahia</span><strong class="tValor">R$ 104</strong><span class="tStatus">Dependente médio</span></div>
+        <div class="transferItem ganha"><span class="tRank">16</span><span class="tUF">SE</span><span class="tNome">Sergipe</span><strong class="tValor">R$ 126</strong><span class="tStatus">Dependente</span></div>
+        <div class="transferItem ganha"><span class="tRank">17</span><span class="tUF">AL</span><span class="tNome">Alagoas</span><strong class="tValor">R$ 136</strong><span class="tStatus">Dependente</span></div>
+        <div class="transferItem ganha"><span class="tRank">18</span><span class="tUF">RN</span><span class="tNome">Rio Grande do Norte</span><strong class="tValor">R$ 126</strong><span class="tStatus">Dependente</span></div>
+        <div class="transferItem ganha"><span class="tRank">19</span><span class="tUF">PB</span><span class="tNome">Paraíba</span><strong class="tValor">R$ 126</strong><span class="tStatus">Dependente</span></div>
+        <div class="transferItem ganha"><span class="tRank">20</span><span class="tUF">AC</span><span class="tNome">Acre</span><strong class="tValor">R$ 141</strong><span class="tStatus">Dependente</span></div>
+        <div class="transferItem ganha"><span class="tRank">21</span><span class="tUF">PA</span><span class="tNome">Pará</span><strong class="tValor">R$ 146</strong><span class="tStatus">Dependente</span></div>
+        <div class="transferItem ganha"><span class="tRank">22</span><span class="tUF">PI</span><span class="tNome">Piauí</span><strong class="tValor">R$ 156</strong><span class="tStatus">Muito dependente</span></div>
+        <div class="transferItem ganha"><span class="tRank">23</span><span class="tUF">RO</span><span class="tNome">Rondônia</span><strong class="tValor">R$ 159</strong><span class="tStatus">Muito dependente</span></div>
+        <div class="transferItem ganha"><span class="tRank">24</span><span class="tUF">AP</span><span class="tNome">Amapá</span><strong class="tValor">R$ 159</strong><span class="tStatus">Muito dependente</span></div>
+        <div class="transferItem ganha"><span class="tRank">25</span><span class="tUF">MA</span><span class="tNome">Maranhão</span><strong class="tValor">R$ 203</strong><span class="tStatus">Muito dependente</span></div>
+        <div class="transferItem ganha"><span class="tRank">26</span><span class="tUF">TO</span><span class="tNome">Tocantins</span><strong class="tValor">R$ 211</strong><span class="tStatus">Quase totalmente dependente</span></div>
+        <div class="transferItem ganha"><span class="tRank">27</span><span class="tUF">RR</span><span class="tNome">Roraima</span><strong class="tValor">R$ 295</strong><span class="tStatus">Quase totalmente dependente</span></div>
+      </div>
+
+      <h3 class="escadaTitulo">📚 Como funciona essa transferência</h3>
+      <div class="grid two">
+        <div class="miniCard">
+          <span class="mini">💰 FPE — Fundo de Participação dos Estados</span>
+          <p>21,5% da arrecadação do IR + IPI vai automaticamente para os estados. Distribuição: 85% pelo inverso da renda per capita (favorece estados mais pobres) + 15% por população.</p>
+        </div>
+        <div class="miniCard">
+          <span class="mini">🏘️ FPM — Fundo de Participação dos Municípios</span>
+          <p>22,5% do IR + IPI para os municípios. Mesma lógica: 22,5% proporcional à população e 25% para capitais.</p>
+        </div>
+        <div class="miniCard">
+          <span class="mini">🏥 SUS — Sistema Único de Saúde</span>
+          <p>Repasse federal para estados e municípios financiarem saúde pública. Estados mais populosos e com mais pobrezarecebem mais.</p>
+        </div>
+        <div class="miniCard">
+          <span class="mini">👴 Previdência (BPC, aposentadorias rurais)</span>
+          <p>Aposentadorias e Benefício de Prestação Continuada pagos pela União nos estados. Peso enorme no Norte e Nordeste.</p>
+        </div>
+        <div class="miniCard">
+          <span class="mini">📚 Educação (Fundeb, FNDE)</span>
+          <p>Complementação da União ao Fundeb e programas do FNDE (merenda, transporte, livro didático). Redistribui para estados com menor receita.</p>
+        </div>
+        <div class="miniCard">
+          <span class="mini">🛠️ Convênios, emendas e programas</span>
+          <p>Repasses específicos por convênio (saúde, saneamento, infraestrutura) e emendas parlamentares. Variam muito por estado e por político.</p>
+        </div>
+      </div>
+
+      <div class="impactoFinal" style="margin-top:18px">
+        <p class="impactoHeadline">São Paulo financia boa parte do Brasil.</p>
+        <p class="impactoTexto">Para cada <b>R$ 100</b> que São Paulo arrecada em impostos federais, <b>apenas R$ 10 voltam</b>. Roraima recebe <b>R$ 295</b> para cada R$ 100 que arrecada. A diferença é 30x. É o <b>pacto federativo</b> funcionando para reduzir desigualdades regionais — mas também é uma <b>dependência crônica</b> que desincentiva geração de riqueza local em estados do Norte/Nordeste.</p>
+        <p class="impactoConclusao">Em 2024, o total transferido pela União a estados e municípios foi de <b>R$ 1,45 trilhão</b> (Tesouro Transparente) — mais que os juros da dívida pública. Estados que arrecadam muito (SP, RJ, MG) sustentam estados que arrecadam pouco. A pergunta política é: até que ponto isso é solidariedade legítima, e a partir de quando vira subsídio permanente?</p>
+      </div>
+
+      <p class="note">Fontes: <a href="https://www.tesourotransparente.gov.br/temas/estados-e-municipios/transferencias-a-estados-e-municipios" target="_blank" style="color:var(--blue)">Tesouro Transparente — Transferências a Estados e Municípios</a> · <a href="https://www.confaz.fazenda.gov.br/" target="_blank" style="color:var(--blue)">Confaz — Conselho Nacional de Política Fazendária</a> · <a href="https://ranking.org.br/artigos/estados-que-mais-dependem-de-repasses-federais" target="_blank" style="color:var(--blue)">Ranking.org.br — Estados que mais dependem de repasses</a> · <a href="https://realtime1.com.br/saiba-quanto-cada-estado-recebe-de-volta-a-cada-r-100-arrecadados-em-impostos-federais/" target="_blank" style="color:var(--blue)">RealTime1 — Análise do pacto federativo</a>. Dados consolidados: base 2024 Siconfi + Tesouro Nacional.</p>
+    </section>
+
     <section class="card" id="emendas-fundos">
       <span class="sourceBadge stack" title="Congresso Nacional — LOA 2026 + TSE"><span class="dot purple"></span><span class="src">LOA + TSE</span><span class="date">2026</span></span>
       <span class="pill purple" style="margin-top:42px">Política e orçamento</span>
@@ -1251,7 +1355,7 @@ footer{background:linear-gradient(135deg,#0B1220,var(--blue));color:#d7dee8;padd
     <div class="modalBody" id="modalBody"></div>
   </div>
 </div>
-<footer id="fontes"><div class="wrap"><span class="dataVersion">Dados <b>v1.8.0</b> · última atualização <b>26/06/2026</b></span><strong style="display:block;margin-top:18px">Fontes para atualização mensal</strong><p class="sources">Banco Central — Estatísticas Fiscais; Tesouro Transparente — Relatório Mensal da Dívida; Receita Federal — arrecadação; Congresso Nacional — LOA; Portal da Transparência; Tesouro Nacional/Siconfi (RREO/RGF); IBGE; Secretarias Estaduais de Fazenda.</p><div class="srcgrid"><a href="https://www.bcb.gov.br/estatisticas/estatisticasfiscais" target="_blank">Banco Central — Estatísticas Fiscais</a><a href="https://www.tesourotransparente.gov.br/temas/divida-publica-federal/estatisticas-e-relatorios-da-divida-publica-federal" target="_blank">Tesouro Transparente — Dívida Pública</a><a href="https://www.congressonacional.leg.br/web/orcamento/acompanhe/orcamento-anual" target="_blank">Congresso Nacional — Orçamento</a><a href="https://portaldatransparencia.gov.br/orcamento" target="_blank">Portal da Transparência — Orçamento</a><a href="https://siconfi.tesouro.gov.br/" target="_blank">Siconfi — Estados e Municípios</a><a href="https://www.ibge.gov.br/" target="_blank">IBGE — Indicadores</a></div><p class="sources" style="margin-top:18px"><a href="roadmap.md" style="color:#fde047;text-decoration:none">📋 Roadmap do projeto</a> · <a href="CHANGELOG.md" style="color:#fde047;text-decoration:none">📝 Changelog de dados</a></p></div></footer>
+<footer id="fontes"><div class="wrap"><span class="dataVersion">Dados <b>v1.9.0</b> · última atualização <b>26/06/2026</b></span><strong style="display:block;margin-top:18px">Fontes para atualização mensal</strong><p class="sources">Banco Central — Estatísticas Fiscais; Tesouro Transparente — Relatório Mensal da Dívida; Receita Federal — arrecadação; Congresso Nacional — LOA; Portal da Transparência; Tesouro Nacional/Siconfi (RREO/RGF); IBGE; Secretarias Estaduais de Fazenda.</p><div class="srcgrid"><a href="https://www.bcb.gov.br/estatisticas/estatisticasfiscais" target="_blank">Banco Central — Estatísticas Fiscais</a><a href="https://www.tesourotransparente.gov.br/temas/divida-publica-federal/estatisticas-e-relatorios-da-divida-publica-federal" target="_blank">Tesouro Transparente — Dívida Pública</a><a href="https://www.congressonacional.leg.br/web/orcamento/acompanhe/orcamento-anual" target="_blank">Congresso Nacional — Orçamento</a><a href="https://portaldatransparencia.gov.br/orcamento" target="_blank">Portal da Transparência — Orçamento</a><a href="https://siconfi.tesouro.gov.br/" target="_blank">Siconfi — Estados e Municípios</a><a href="https://www.ibge.gov.br/" target="_blank">IBGE — Indicadores</a></div><p class="sources" style="margin-top:18px"><a href="roadmap.md" style="color:#fde047;text-decoration:none">📋 Roadmap do projeto</a> · <a href="CHANGELOG.md" style="color:#fde047;text-decoration:none">📝 Changelog de dados</a></p></div></footer>
 <script>
 const CONFIG={year:2026,population:203_000_000,annualTaxRevenue:3_700_000_000_000,grossDebt:10_400_000_000_000,annualDebtGrowthEstimate:600_000_000_000,annualInterest:1_096_000_000_000,budget2026:6_500_000_000_000,amendments:61_000_000_000,electoralFund:4_961_519_777,partyFund:1_000_000_000};
 const openedAt=Date.now();
@@ -1306,6 +1410,8 @@ function downloadCSV(key,kind){
     csv='rubrica,valor_reais,fonte,descricao\n'+[['Emendas parlamentares 2026','61000000000','Congresso Nacional LOA 2026','Inclui emendas individuais, de bancada e de comissão'],['Fundo Eleitoral 2026','4961000000','TSE FEFC 2026','Financia campanhas conforme critérios legais'],['Fundo Partidário 2026','1000000000','TSE Fundo Partidário 2026','Custeia manutenção anual dos partidos']].map(r=>`${r[0]},${r[1]},${r[2]},"${r[3]}"`).join('\n');
   }else if(kind==='impostos_cotidiano'){
     csv='item,categoria,percentual_imposto,exemplo_preco,imposto_estimado,fonte\n'+[['Gasolina (litro)','Combustivel','45%','R$ 6,50','R$ 2,93','ANP + Confaz'],['Cigarro (maço)','Bebida/Tabaco','70%','R$ 12,00','R$ 8,40','Receita Federal + Confaz'],['Cerveja (long neck)','Bebida','50%','R$ 6,00','R$ 3,00','Confaz + RF'],['Refrigerante (2L)','Alimentação','38%','R$ 12,00','R$ 4,56','Confaz + RF'],['Carne bovina (kg)','Alimentação','15%','R$ 50,00','R$ 7,50','Confaz'],['Frango (kg)','Alimentação','9%','R$ 15,00','R$ 1,35','Confaz'],['Leite (litro)','Alimentação','12%','R$ 6,00','R$ 0,72','Confaz'],['Pão francês (kg)','Alimentação','11%','R$ 15,00','R$ 1,65','Confaz'],['Arroz (kg)','Alimentação','10%','R$ 7,00','R$ 0,70','Confaz'],['Café (500g)','Alimentação','18%','R$ 25,00','R$ 4,50','Confaz'],['Energia elétrica','Habitacao','30%','R$ 250,00','R$ 75,00','Aneel + Confaz'],['Internet (mensal)','Comunicacao','35%','R$ 120,00','R$ 42,00','Anatel + Confaz'],['Celular (conta)','Comunicacao','40%','R$ 100,00','R$ 40,00','Anatel + Confaz'],['TV por assinatura','Comunicacao/Lazer','25%','R$ 130,00','R$ 32,50','Anatel + Confaz'],['Carro popular 0km','Veiculo','28%','R$ 80.000','R$ 22.400','Receita Federal IPI + Confaz'],['Motocicleta 0km','Veiculo','25%','R$ 20.000','R$ 5.000','Receita Federal IPI + Confaz'],['Medicamento','Saude','20%','R$ 50,00','R$ 10,00','Confaz'],['Roupas (peça média)','Vestuario','22%','R$ 100,00','R$ 22,00','Confaz']].map(r=>`${r[0]},${r[1]},${r[2]},${r[3]},${r[4]},${r[5]}`).join('\n');
+  }else if(kind==='transferencias_uf'){
+    csv='rank,uf,nome,recebe_por_100_arrecadado_reais,status,categoria\n'+[['1','SP','São Paulo','10','Maior doador','Doador'],['2','PR','Paraná','16','Doador','Doador'],['3','RS','Rio Grande do Sul','19','Doador','Doador'],['4','SC','Santa Catarina','30','Doador','Doador'],['5','ES','Espírito Santo','41','Doador','Doador'],['6','RJ','Rio de Janeiro','41','Doador','Doador'],['7','MG','Minas Gerais','44','Doador','Doador'],['8','MS','Mato Grosso do Sul','49','Doador','Doador'],['9','AM','Amazonas','53','Dependente leve','Dependente'],['10','GO','Goiás','65','Dependente leve','Dependente'],['11','MT','Mato Grosso','69','Dependente leve','Dependente'],['12','DF','Distrito Federal','73','Dependente médio','Dependente'],['13','CE','Ceará','91','Equilíbrio','Dependente'],['14','PE','Pernambuco','93','Equilíbrio','Dependente'],['15','BA','Bahia','104','Dependente médio','Dependente'],['16','SE','Sergipe','126','Dependente','Dependente'],['17','AL','Alagoas','136','Dependente','Dependente'],['18','RN','Rio Grande do Norte','126','Dependente','Dependente'],['19','PB','Paraíba','126','Dependente','Dependente'],['20','AC','Acre','141','Dependente','Dependente'],['21','PA','Pará','146','Dependente','Dependente'],['22','PI','Piauí','156','Muito dependente','Dependente'],['23','RO','Rondônia','159','Muito dependente','Dependente'],['24','AP','Amapá','159','Muito dependente','Dependente'],['25','MA','Maranhão','203','Muito dependente','Dependente'],['26','TO','Tocantins','211','Quase totalmente dependente','Dependente'],['27','RR','Roraima','295','Quase totalmente dependente','Dependente']].map(r=>`${r[0]},${r[1]},${r[2]},${r[3]},${r[4]},${r[5]}`).join('\n');
   }
   const blob=new Blob(['\ufeff'+csv],{type:'text/csv;charset=utf-8;'});
   const url=URL.createObjectURL(blob);
@@ -1383,7 +1489,7 @@ function closeModal(){document.getElementById('modalOverlay').classList.remove('
 function switchTab(name){document.querySelectorAll('.modalTab').forEach(t=>t.classList.toggle('active',t.dataset.tab===name));document.querySelectorAll('.modalTabPanel').forEach(p=>p.classList.toggle('active',p.dataset.tab===name))}
 document.getElementById('modalOverlay').addEventListener('click',e=>{if(e.target.id==='modalOverlay')closeModal()});
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&currentModal)closeModal()});
-function downloadIndicatorCSV(key){const csvMap={indicador_divida_bruta:'divida',indicador_juros_nominais:'juros',indicador_orcamento_uniao:'orcamento',indicador_emendas_2026:'emendas'};const ind=INDICADORES[csvMap[key]||key.replace('indicador_','')];if(!ind){alert('Indicador não encontrado: '+key);return}const csv='indicador,valor,valor_complementar,fonte,competencia,periodicidade,atualizacao,url_fonte,metodologia_resumo,projeto,commit\n'+[`${ind.titulo}`,`${ind.valor}`,`${ind.valorLong}`,`${ind.meta.fonte}`,`${ind.meta.competencia}`,`${ind.meta.periodicidade}`,`${ind.meta.atualizacao}`,`${ind.links[0]?.url||''}`,`${ind.metodologia.replace(/<[^>]+>/g,' ').replace(/\s+/g,' ').trim().slice(0,200)}`,`Brasil Transparente v1.8.0`,`https://github.com/${REPO_OWNER}/${REPO_NAME}/commits/main/CHANGELOG.md`].map(v=>`"${String(v).replace(/"/g,'""')}"`).join(',')+'\n';const blob=new Blob(['\ufeff'+csv],{type:'text/csv;charset=utf-8;'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=key+'_'+new Date().toISOString().slice(0,10)+'.csv';document.body.appendChild(a);a.click();document.body.removeChild(a);URL.revokeObjectURL(url)}
+function downloadIndicatorCSV(key){const csvMap={indicador_divida_bruta:'divida',indicador_juros_nominais:'juros',indicador_orcamento_uniao:'orcamento',indicador_emendas_2026:'emendas'};const ind=INDICADORES[csvMap[key]||key.replace('indicador_','')];if(!ind){alert('Indicador não encontrado: '+key);return}const csv='indicador,valor,valor_complementar,fonte,competencia,periodicidade,atualizacao,url_fonte,metodologia_resumo,projeto,commit\n'+[`${ind.titulo}`,`${ind.valor}`,`${ind.valorLong}`,`${ind.meta.fonte}`,`${ind.meta.competencia}`,`${ind.meta.periodicidade}`,`${ind.meta.atualizacao}`,`${ind.links[0]?.url||''}`,`${ind.metodologia.replace(/<[^>]+>/g,' ').replace(/\s+/g,' ').trim().slice(0,200)}`,`Brasil Transparente v1.9.0`,`https://github.com/${REPO_OWNER}/${REPO_NAME}/commits/main/CHANGELOG.md`].map(v=>`"${String(v).replace(/"/g,'""')}"`).join(',')+'\n';const blob=new Blob(['\ufeff'+csv],{type:'text/csv;charset=utf-8;'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=key+'_'+new Date().toISOString().slice(0,10)+'.csv';document.body.appendChild(a);a.click();document.body.removeChild(a);URL.revokeObjectURL(url)}
 const ibgeCodes={SP:35,MG:31,RJ:33,BA:29,PR:41,RS:43};
 const REPO_OWNER='speedvarginha-coder';const REPO_NAME='brasil-transparente';const REPO_BRANCH='main';
 async function fetchEstadoSiconfi(){const sel=document.getElementById('estadoSelect');const uf=estados[Number(sel.value||0)].uf;const code=ibgeCodes[uf];const status=document.getElementById('liveStatus');const text=document.getElementById('liveText');const btn=document.getElementById('liveBtn');if(!code){text.textContent=`UF ${uf} sem código IBGE mapeado.`;return}status.className='liveStatus loading';text.innerHTML='⏳ Buscando snapshot oficial em data/'+uf.toLowerCase()+'.json...';btn.disabled=true;const url=`https://raw.githubusercontent.com/${REPO_OWNER}/${REPO_NAME}/${REPO_BRANCH}/data/${uf.toLowerCase()}.json`;try{const controller=new AbortController();const timeout=setTimeout(()=>controller.abort(),10000);const response=await fetch(url,{signal:controller.signal,headers:{'Accept':'application/json'}});clearTimeout(timeout);if(!response.ok)throw new Error('HTTP '+response.status);const data=await response.json();if(!data.receitaRealizada||!data.despesaEmpenhada)throw new Error('Snapshot incompleto para '+uf);document.getElementById('ufReceita').textContent=short(data.receitaRealizada);document.getElementById('ufDespesa').textContent=short(data.despesaEmpenhada);document.getElementById('ufReceita').title=`Valor bruto: R$ ${data.receitaRealizada.toLocaleString('pt-BR')} (Siconfi RREO ${data.exercicio} P${data.periodo}, coletado ${data.dataColeta})`;document.getElementById('ufDespesa').title=`Valor bruto: R$ ${data.despesaEmpenhada.toLocaleString('pt-BR')} (Siconfi RREO ${data.exercicio} P${data.periodo}, coletado ${data.dataColeta})`;document.getElementById('ufFonte').innerHTML=`🟢 <b>Snapshot oficial · Siconfi RREO ${data.exercicio} P${data.periodo}</b> via <a href="${data.urlOriginal}" target="_blank" rel="noopener">apidatalake.tesouro.gov.br</a> · coletado <b>${data.dataColeta}</b> · commit <a href="https://github.com/${REPO_OWNER}/${REPO_NAME}/commits/main/data/${uf.toLowerCase()}.json" target="_blank" rel="noopener">ver histórico</a>`;const ts=new Date().toLocaleString('pt-BR');status.className='liveStatus live';text.innerHTML=`<span class="pulse"></span>🟢 Snapshot oficial · Siconfi RREO ${data.exercicio} P${data.periodo} · commit <code>data/${uf.toLowerCase()}.json</code> · carregado em ${ts}`}catch(err){const motivo=err.message==='Failed to fetch'||err.name==='AbortError'?'Sem conexão ou GitHub indisponível':'Snapshot ainda não publicado: '+err.message;status.className='liveStatus fallback';text.innerHTML=`<span class="pulse"></span>🟡 ${motivo}. Mantendo dados locais de 2024.`}finally{btn.disabled=false}}
