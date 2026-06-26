@@ -4,6 +4,29 @@ Registro público de toda alteração em dados, regras de cálculo ou fontes. Fo
 
 ---
 
+## [v1.10.0] — 2026-06-26 — Todos os 27 estados + tom profissional + sem overflow horizontal
+
+### Adicionado
+- **Todos os 27 UFs na seção Estados** (não só 6): agora o seletor cobre AC, AL, AM, AP, BA, CE, DF, ES, GO, MA, MG, MS, MT, PA, PB, PE, PI, PR, RJ, RN, RO, RR, RS, SC, SE, SP, TO. Dados 2024 (Siconfi RREO) para receita, despesa, saúde, educação, segurança, dívida, população e PIB de cada um.
+- **CSS novo**: `.personaIniciais` (substituiu `.personaEmoji` com círculo de iniciais J/C/A/BR nas personas da escala).
+
+### Removido (limpeza)
+- **Todos os emojis do site** em prol de tom mais profissional: títulos de seção ("Visão 1 — A escada dos zeros" sem 🪜), personas (👦👨🧔👴 viraram J/C/A/BR), itens de imposto no dia a dia (sem emojis decorativos), marcos da dívida/PIB, mecanismos de transferência, modalTabs, nav lateral e CTAs.
+- **CSS órfão**: `.impEmoji`, `.personaEmoji` foram removidos do uso mas mantidos na stylesheet por segurança (não causam impacto).
+
+### Corrigido (UX)
+- **Barra de rolagem horizontal eliminada**: adicionadas regras globais:
+  - `html, body { overflow-x: hidden; max-width: 100vw; }`
+  - `.layout > *, .card, .miniCard, .grid > * { min-width: 0; }`
+  - `p, h1-h4, span, strong, td, th { overflow-wrap: break-word; word-break: break-word; }`
+- Garante que textos longos ou números sem espaços quebravam linha dentro dos cards em vez de estourar a viewport.
+
+### Fontes (UFs adicionais)
+- Siconfi RREO 2024 (Tesouro Nacional) — receita, despesa, saúde, educação, segurança, dívida dos 21 UFs adicionais.
+- IBGE 2024 — população e PIB de cada estado.
+
+---
+
 ## [v1.9.0] — 2026-06-26 — Pacto federativo: quanto cada estado recebe de volta
 
 ### Adicionado

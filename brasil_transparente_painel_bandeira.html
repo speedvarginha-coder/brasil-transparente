@@ -28,6 +28,10 @@
   --radius:22px;
 }
 *{box-sizing:border-box}
+html,body{overflow-x:hidden;max-width:100vw}
+.layout > *{min-width:0}
+.card,.miniCard,.grid > *{min-width:0}
+p,h1,h2,h3,h4,span,strong,td,th{overflow-wrap:break-word;word-break:break-word}
 html{scroll-behavior:smooth}
 body{
   margin:0;
@@ -181,7 +185,7 @@ section{margin:24px auto}
 .mega{font-size:clamp(36px,5.1vw,70px);font-weight:700;letter-spacing:-.065em;color:var(--green-dark);line-height:.98}
 .taxbox{background:linear-gradient(135deg,#ffffff,#f6fdf9);border:1px solid #d8efe0}
 .split{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
-.miniCard{background:#f8fafc;border:1px solid var(--line);border-radius:17px;padding:16px}
+.miniCard{background:#f8fafc;border:1px solid var(--line);border-radius:17px;padding:16px;min-width:0;overflow-wrap:break-word;word-break:break-word}
 .miniCard strong{font-size:20px;display:block;margin-top:4px;color:#0f172a;font-weight:700;letter-spacing:-.025em}
 .counter{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
 .counter div{background:#0f172a;color:#fff;border-radius:17px;padding:16px;border:1px solid rgba(255,255,255,.06)}
@@ -384,6 +388,7 @@ footer{background:linear-gradient(135deg,#0B1220,var(--blue));color:#d7dee8;padd
 .persona.p3{background:linear-gradient(180deg,#fbbf24 0%,#ffffff 60%);border-color:#f59e0b}
 .persona.p4{background:linear-gradient(180deg,#f59e0b 0%,#ffffff 60%);border-color:#d97706}
 .personaEmoji{font-size:42px;line-height:1;margin-bottom:6px}
+.personaIniciais{font-family:'Space Grotesk',Inter,sans-serif;font-size:32px;font-weight:800;color:var(--ink);width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.85);margin-bottom:8px;letter-spacing:-.02em}
 .personaNome{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:2px}
 .personaPat{font-family:'Space Grotesk',Inter,sans-serif;font-size:18px;font-weight:700;color:var(--ink);font-variant-numeric:tabular-nums;letter-spacing:-.02em;display:block;margin:4px 0}
 .personaTempo{font-size:11px;color:var(--ink);background:rgba(255,255,255,.7);padding:4px 8px;border-radius:6px;font-weight:600}
@@ -610,7 +615,7 @@ footer{background:linear-gradient(135deg,#0B1220,var(--blue));color:#d7dee8;padd
     <a href="#estados">🏛 Estados</a>
     <a href="#cards">Cards para redes</a>
     <a href="#metodologia">Metodologia</a>
-    <a href="#painelsoficiais">📊 Fontes oficiais</a>
+    <a href="#painelsoficiais">Fontes oficiais</a>
     <a href="#compromisso">🛡 Compromisso com os dados</a>
   </nav>
   <div>
@@ -653,22 +658,22 @@ footer{background:linear-gradient(135deg,#0B1220,var(--blue));color:#d7dee8;padd
       <!-- Marcos numéricos -->
       <div class="grid four marcoGrid">
         <div class="miniCard marcoPre">
-          <span class="mini">📉 Menor valor</span>
+          <span class="mini">Menor valor</span>
           <strong>38,5%</strong>
           <p>2008 — antes da crise global. Foi o ponto mais baixo da série.</p>
         </div>
         <div class="miniCard marcoPico">
-          <span class="mini">📈 Pico histórico</span>
+          <span class="mini">Pico histórico</span>
           <strong>87,1%</strong>
           <p>2020 — pandemia de Covid-19 e gastos emergenciais explodiram.</p>
         </div>
         <div class="miniCard marcoAtual">
-          <span class="mini">📊 Último oficial</span>
+          <span class="mini">Último oficial</span>
           <strong>76,1%</strong>
           <p>2024 — último ano fechado pelo Banco Central.</p>
         </div>
         <div class="miniCard marcoFuturo">
-          <span class="mini">🔮 Projeção 2026</span>
+          <span class="mini">Projeção 2026</span>
           <strong>80,4%</strong>
           <p>Projeção Boletim Focus / Banco Central — voltando a subir.</p>
         </div>
@@ -723,7 +728,7 @@ footer{background:linear-gradient(135deg,#0B1220,var(--blue));color:#d7dee8;padd
       <p class="section-sub">O brasileiro ouve "bilhões" todo dia e o cérebro acostuma. Mas a escala muda brutalmente. <b>1 bilhão não é um milhão grande</b> — é mil milhões. E <b>1 trilhão é mil bilhões</b>. Veja isso em 4 visões diferentes e escolha a que mais te convence.</p>
 
       <!-- Visão 1: Escada dos zeros -->
-      <h3 class="escadaTitulo">🪜 Visão 1 — A escada dos zeros</h3>
+      <h3 class="escadaTitulo">Visão 1 — A escada dos zeros</h3>
       <p class="section-sub" style="margin-bottom:14px">Cada degrau adiciona <b>3 zeros</b> e multiplica o valor por <b>1.000</b>. Não é "um pouquinho a mais". É mil vezes mais.</p>
       <div class="escadaZeros">
         <div class="degrau deg1">
@@ -753,7 +758,7 @@ footer{background:linear-gradient(135deg,#0B1220,var(--blue));color:#d7dee8;padd
       <p class="escadaNota">1 milhão = 1.000 mil · 1 bilhão = 1.000 milhões · 1 trilhão = 1.000 bilhões. Cada degrau é mil vezes maior que o anterior.</p>
 
       <!-- Visão 2: Gráfico de tempo para contar -->
-      <h3 class="escadaTitulo">⏱️ Visão 2 — Quanto tempo leva para contar até lá</h3>
+      <h3 class="escadaTitulo">Visão 2 — Quanto tempo leva para contar até lá</h3>
       <p class="section-sub" style="margin-bottom:14px">Imagine que você conte <b>1 número por segundo</b>, sem parar, 24 horas por dia.</p>
       <div class="tempoChart" role="figure" aria-label="Tempo necessário para contar até mil, milhão, bilhão e trilhão">
         <div class="tempoRow">
@@ -780,29 +785,29 @@ footer{background:linear-gradient(135deg,#0B1220,var(--blue));color:#d7dee8;padd
       <p class="escadaNota">Mil termina antes de um filme. Um milhão leva 11 dias. Um bilhão exige <b>mais de 31 anos</b>. Um trilhão: <b>desde antes das pirâmides do Egito</b> e você ainda estaria contando.</p>
 
       <!-- Visão 3: 4 personagens -->
-      <h3 class="escadaTitulo">👥 Visão 3 — Quatro pessoas, quatro escalas</h3>
+      <h3 class="escadaTitulo">Visão 3 — Quatro pessoas, quatro escalas</h3>
       <p class="section-sub" style="margin-bottom:14px">Imagine quatro pessoas na fila do tempo. <b>R$ 1/s</b> é quanto elas precisariam esperar para juntar o próprio patrimônio — sem gastar nada.</p>
       <div class="personaCena">
         <div class="persona p1">
-          <span class="personaEmoji">👦</span>
+          <span class="personaIniciais">J</span>
           <span class="personaNome">João</span>
           <strong class="personaPat">R$ 1.000</strong>
           <span class="personaTempo">16 min para juntar</span>
         </div>
         <div class="persona p2">
-          <span class="personaEmoji">👨</span>
+          <span class="personaIniciais">C</span>
           <span class="personaNome">Carlos</span>
           <strong class="personaPat">R$ 1.000.000</strong>
           <span class="personaTempo">11 dias para juntar</span>
         </div>
         <div class="persona p3">
-          <span class="personaEmoji">🧔</span>
+          <span class="personaIniciais">A</span>
           <span class="personaNome">Ana</span>
           <strong class="personaPat">R$ 1.000.000.000</strong>
           <span class="personaTempo">31 anos para juntar</span>
         </div>
         <div class="persona p4">
-          <span class="personaEmoji">👴</span>
+          <span class="personaIniciais">BR</span>
           <span class="personaNome">Brasil</span>
           <strong class="personaPat">R$ 1.000.000.000.000</strong>
           <span class="personaTempo">31.709 anos para juntar</span>
@@ -810,7 +815,7 @@ footer{background:linear-gradient(135deg,#0B1220,var(--blue));color:#d7dee8;padd
       </div>
 
       <!-- Visão 4: Régua -->
-      <h3 class="escadaTitulo">📏 Visão 4 — A régua do trilhão</h3>
+      <h3 class="escadaTitulo">Visão 4 — A régua do trilhão</h3>
       <p class="section-sub" style="margin-bottom:14px">Imagine uma régua de 1 metro. Ela inteira representa <b>R$ 1 trilhão</b>. Agora veja onde ficam os outros valores.</p>
       <div class="regruaEscala">
         <div class="regruaBase"><div class="regruaTick mil" style="left:0.0001%"><span>R$ 1.000</span></div><div class="regruaTick milhao" style="left:0.0001%"><span>R$ 1 milhão</span></div><div class="regruaTick bilhao" style="left:0.1%"><span>R$ 1 bilhão</span></div><div class="regruaFill"></div></div>
@@ -818,7 +823,7 @@ footer{background:linear-gradient(135deg,#0B1220,var(--blue));color:#d7dee8;padd
       </div>
 
       <!-- Comparações extras -->
-      <h3 class="escadaTitulo">💡 Comparações rápidas</h3>
+      <h3 class="escadaTitulo">Comparações rápidas</h3>
       <div class="grid two">
         <div class="miniCard">
           <span class="mini">💸 Pilhas de notas de R$ 100</span>
@@ -976,9 +981,9 @@ footer{background:linear-gradient(135deg,#0B1220,var(--blue));color:#d7dee8;padd
         </div>
         <p class="note">Para o <b>Deputado Federal</b>, a Câmara fixa a verba de gabinete e o teto do CEAPS (Cota para o Exercício da Atividade Parlamentar) — ambos valem igual para os 513 deputados, independentemente do estado que representam. Para o <b>Senador</b>, o CEAPS do Senado tem teto único, mas a estrutura física do gabinete (escritório de apoio no estado, equipe, passagens) varia conforme a UF e a execução individual — por isso a faixa de R$ 230-280 mil. Fontes: Câmara dos Deputados (verba de gabinete e CEAPS) e Senado Federal (CEAPS e estrutura). Para detalhamento por parlamentar, roadmap Sprint 3.</p>
         <div class="grid three" style="margin-top:14px">
-          <div class="miniCard"><span class="mini">📊 Custo total Câmara/ano</span><strong>R$ 1,52 bi</strong><p>513 deputados × ≈ R$ 247 mil/mês × 12 meses. <b>Verba de gabinete sozinha</b>: R$ 1,02 bi/ano.</p></div>
-          <div class="miniCard"><span class="mini">📊 Custo total Senado/ano</span><strong>R$ 245 mi</strong><p>81 senadores × ≈ R$ 252 mil/mês × 12 meses (média entre R$ 230-280 mil).</p></div>
-          <div class="miniCard"><span class="mini">📊 Congresso total/ano</span><strong>R$ 1,77 bi</strong><p>Câmara + Senado somados. É <b>0,027%</b> do orçamento da União (R$ 6,5 tri).</p></div>
+          <div class="miniCard"><span class="mini">Custo total Câmara/ano</span><strong>R$ 1,52 bi</strong><p>513 deputados × ≈ R$ 247 mil/mês × 12 meses. <b>Verba de gabinete sozinha</b>: R$ 1,02 bi/ano.</p></div>
+          <div class="miniCard"><span class="mini">Custo total Senado/ano</span><strong>R$ 245 mi</strong><p>81 senadores × ≈ R$ 252 mil/mês × 12 meses (média entre R$ 230-280 mil).</p></div>
+          <div class="miniCard"><span class="mini">Congresso total/ano</span><strong>R$ 1,77 bi</strong><p>Câmara + Senado somados. É <b>0,027%</b> do orçamento da União (R$ 6,5 tri).</p></div>
         </div>
       </div>
     </section>
@@ -992,24 +997,24 @@ footer{background:linear-gradient(135deg,#0B1220,var(--blue));color:#d7dee8;padd
       </div>
       <p class="section-sub">Estimativa da <b>carga tributária total</b> (ICMS + IPI + PIS/COFINS + ISS quando aplicável) em 18 itens comuns no orçamento doméstico. Valores são referências nacionais — podem variar por estado, município e regime tributário.</p>
       <div class="impostoGrid">
-        <div class="impostoItem alto"><span class="impEmoji">🚬</span><span class="impNome">Cigarro (maço)</span><span class="impPct">≈ 70%</span><span class="impBar"><span style="width:70%"></span></span><span class="impEx">R$ 12,00 → R$ 8,40 imposto</span></div>
-        <div class="impostoItem alto"><span class="impEmoji">🍺</span><span class="impNome">Cerveja (long neck)</span><span class="impPct">≈ 50%</span><span class="impBar"><span style="width:50%"></span></span><span class="impEx">R$ 6,00 → R$ 3,00 imposto</span></div>
-        <div class="impostoItem alto"><span class="impEmoji">⛽</span><span class="impNome">Gasolina (litro)</span><span class="impPct">≈ 45%</span><span class="impBar"><span style="width:45%"></span></span><span class="impEx">R$ 6,50 → R$ 2,93 imposto</span></div>
-        <div class="impostoItem alto"><span class="impEmoji">📱</span><span class="impNome">Celular (conta)</span><span class="impPct">≈ 40%</span><span class="impBar"><span style="width:40%"></span></span><span class="impEx">R$ 100 → R$ 40 imposto</span></div>
-        <div class="impostoItem alto"><span class="impEmoji">🥤</span><span class="impNome">Refrigerante (2L)</span><span class="impPct">≈ 38%</span><span class="impBar"><span style="width:38%"></span></span><span class="impEx">R$ 12 → R$ 4,56 imposto</span></div>
-        <div class="impostoItem alto"><span class="impEmoji">🌐</span><span class="impNome">Internet (mensal)</span><span class="impPct">≈ 35%</span><span class="impBar"><span style="width:35%"></span></span><span class="impEx">R$ 120 → R$ 42 imposto</span></div>
-        <div class="impostoItem alto"><span class="impEmoji">💡</span><span class="impNome">Energia elétrica</span><span class="impPct">≈ 30%</span><span class="impBar"><span style="width:30%"></span></span><span class="impEx">R$ 250 → R$ 75 imposto</span></div>
-        <div class="impostoItem alto"><span class="impEmoji">🚗</span><span class="impNome">Carro popular 0 km</span><span class="impPct">≈ 28%</span><span class="impBar"><span style="width:28%"></span></span><span class="impEx">R$ 80 mil → R$ 22,4 mil imposto</span></div>
-        <div class="impostoItem medio"><span class="impEmoji">🏍️</span><span class="impNome">Motocicleta 0 km</span><span class="impPct">≈ 25%</span><span class="impBar"><span style="width:25%"></span></span><span class="impEx">R$ 20 mil → R$ 5 mil imposto</span></div>
-        <div class="impostoItem medio"><span class="impEmoji">📺</span><span class="impNome">TV por assinatura</span><span class="impPct">≈ 25%</span><span class="impBar"><span style="width:25%"></span></span><span class="impEx">R$ 130 → R$ 32,50 imposto</span></div>
-        <div class="impostoItem medio"><span class="impEmoji">👕</span><span class="impNome">Roupas (peça média)</span><span class="impPct">≈ 22%</span><span class="impBar"><span style="width:22%"></span></span><span class="impEx">R$ 100 → R$ 22 imposto</span></div>
-        <div class="impostoItem medio"><span class="impEmoji">💊</span><span class="impNome">Medicamento</span><span class="impPct">≈ 20%</span><span class="impBar"><span style="width:20%"></span></span><span class="impEx">R$ 50 → R$ 10 imposto</span></div>
-        <div class="impostoItem medio"><span class="impEmoji">☕</span><span class="impNome">Café (500g)</span><span class="impPct">≈ 18%</span><span class="impBar"><span style="width:18%"></span></span><span class="impEx">R$ 25 → R$ 4,50 imposto</span></div>
-        <div class="impostoItem medio"><span class="impEmoji">🥩</span><span class="impNome">Carne bovina (kg)</span><span class="impPct">≈ 15%</span><span class="impBar"><span style="width:15%"></span></span><span class="impEx">R$ 50/kg → R$ 7,50 imposto</span></div>
-        <div class="impostoItem medio"><span class="impEmoji">🥛</span><span class="impNome">Leite (litro)</span><span class="impPct">≈ 12%</span><span class="impBar"><span style="width:12%"></span></span><span class="impEx">R$ 6 → R$ 0,72 imposto</span></div>
-        <div class="impostoItem medio"><span class="impEmoji">🍞</span><span class="impNome">Pão francês (kg)</span><span class="impPct">≈ 11%</span><span class="impBar"><span style="width:11%"></span></span><span class="impEx">R$ 15/kg → R$ 1,65 imposto</span></div>
-        <div class="impostoItem medio"><span class="impEmoji">🍚</span><span class="impNome">Arroz (kg)</span><span class="impPct">≈ 10%</span><span class="impBar"><span style="width:10%"></span></span><span class="impEx">R$ 7/kg → R$ 0,70 imposto</span></div>
-        <div class="impostoItem baixo"><span class="impEmoji">🍗</span><span class="impNome">Frango (kg)</span><span class="impPct">≈ 9%</span><span class="impBar"><span style="width:9%"></span></span><span class="impEx">R$ 15/kg → R$ 1,35 imposto</span></div>
+        <div class="impostoItem alto"><span class="impNome">Cigarro (maço)</span><span class="impPct">≈ 70%</span><span class="impBar"><span style="width:70%"></span></span><span class="impEx">R$ 12,00 → R$ 8,40 imposto</span></div>
+        <div class="impostoItem alto"><span class="impNome">Cerveja (long neck)</span><span class="impPct">≈ 50%</span><span class="impBar"><span style="width:50%"></span></span><span class="impEx">R$ 6,00 → R$ 3,00 imposto</span></div>
+        <div class="impostoItem alto"><span class="impNome">Gasolina (litro)</span><span class="impPct">≈ 45%</span><span class="impBar"><span style="width:45%"></span></span><span class="impEx">R$ 6,50 → R$ 2,93 imposto</span></div>
+        <div class="impostoItem alto"><span class="impNome">Celular (conta)</span><span class="impPct">≈ 40%</span><span class="impBar"><span style="width:40%"></span></span><span class="impEx">R$ 100 → R$ 40 imposto</span></div>
+        <div class="impostoItem alto"><span class="impNome">Refrigerante (2L)</span><span class="impPct">≈ 38%</span><span class="impBar"><span style="width:38%"></span></span><span class="impEx">R$ 12 → R$ 4,56 imposto</span></div>
+        <div class="impostoItem alto"><span class="impNome">Internet (mensal)</span><span class="impPct">≈ 35%</span><span class="impBar"><span style="width:35%"></span></span><span class="impEx">R$ 120 → R$ 42 imposto</span></div>
+        <div class="impostoItem alto"><span class="impNome">Energia elétrica</span><span class="impPct">≈ 30%</span><span class="impBar"><span style="width:30%"></span></span><span class="impEx">R$ 250 → R$ 75 imposto</span></div>
+        <div class="impostoItem alto"><span class="impNome">Carro popular 0 km</span><span class="impPct">≈ 28%</span><span class="impBar"><span style="width:28%"></span></span><span class="impEx">R$ 80 mil → R$ 22,4 mil imposto</span></div>
+        <div class="impostoItem medio"><span class="impNome">Motocicleta 0 km</span><span class="impPct">≈ 25%</span><span class="impBar"><span style="width:25%"></span></span><span class="impEx">R$ 20 mil → R$ 5 mil imposto</span></div>
+        <div class="impostoItem medio"><span class="impNome">TV por assinatura</span><span class="impPct">≈ 25%</span><span class="impBar"><span style="width:25%"></span></span><span class="impEx">R$ 130 → R$ 32,50 imposto</span></div>
+        <div class="impostoItem medio"><span class="impNome">Roupas (peça média)</span><span class="impPct">≈ 22%</span><span class="impBar"><span style="width:22%"></span></span><span class="impEx">R$ 100 → R$ 22 imposto</span></div>
+        <div class="impostoItem medio"><span class="impNome">Medicamento</span><span class="impPct">≈ 20%</span><span class="impBar"><span style="width:20%"></span></span><span class="impEx">R$ 50 → R$ 10 imposto</span></div>
+        <div class="impostoItem medio"><span class="impNome">Café (500g)</span><span class="impPct">≈ 18%</span><span class="impBar"><span style="width:18%"></span></span><span class="impEx">R$ 25 → R$ 4,50 imposto</span></div>
+        <div class="impostoItem medio"><span class="impNome">Carne bovina (kg)</span><span class="impPct">≈ 15%</span><span class="impBar"><span style="width:15%"></span></span><span class="impEx">R$ 50/kg → R$ 7,50 imposto</span></div>
+        <div class="impostoItem medio"><span class="impNome">Leite (litro)</span><span class="impPct">≈ 12%</span><span class="impBar"><span style="width:12%"></span></span><span class="impEx">R$ 6 → R$ 0,72 imposto</span></div>
+        <div class="impostoItem medio"><span class="impNome">Pão francês (kg)</span><span class="impPct">≈ 11%</span><span class="impBar"><span style="width:11%"></span></span><span class="impEx">R$ 15/kg → R$ 1,65 imposto</span></div>
+        <div class="impostoItem medio"><span class="impNome">Arroz (kg)</span><span class="impPct">≈ 10%</span><span class="impBar"><span style="width:10%"></span></span><span class="impEx">R$ 7/kg → R$ 0,70 imposto</span></div>
+        <div class="impostoItem baixo"><span class="impNome">Frango (kg)</span><span class="impPct">≈ 9%</span><span class="impBar"><span style="width:9%"></span></span><span class="impEx">R$ 15/kg → R$ 1,35 imposto</span></div>
       </div>
       <p class="note"><b>Como ler:</b> o percentual é uma estimativa média nacional somando ICMS (estado) + IPI/PIS/COFINS (federal) + ISS (município, quando aplicável). Itens com <span style="color:#dc2626;font-weight:800">carga alta</span> são os mais taxados (cigarros, bebidas, combustível, telecom). Itens da <b>cesta básica</b> têm ICMS reduzido por lei federal. <b>Fonte:</b> Confaz (ICMS médio por estado), Receita Federal (PIS/COFINS e IPI), ANP (combustíveis), Anatel (telecom), IBGE (cestas básicas). Valores médios de 2025-2026.</p>
       <div class="impactoFinal" style="margin-top:18px">
@@ -1029,13 +1034,13 @@ footer{background:linear-gradient(135deg,#0B1220,var(--blue));color:#d7dee8;padd
       <p class="section-sub">Imagine que cada estado arrecada R$ 100 em impostos federais. Quanto desse valor volta para o estado via transferências obrigatórias (FPE, FPM, previdência, SUS, programas sociais, emendas, etc.)? Esta é a pergunta que mede o <b>pacto federativo</b> na prática — e mostra que o Brasil é um país de extremos: alguns estados recebem quase 3x o que arrecadam; outros recebem menos de 1/10.</p>
 
       <div class="grid four">
-        <div class="miniCard transfDestaque"><span class="mini">📉 Maior "doador"</span><strong>São Paulo</strong><p>R$ 10,00 voltam para cada R$ 100 arrecadado. SP financia o resto do Brasil.</p></div>
-        <div class="miniCard transfDestaque"><span class="mini">📈 Mais dependente</span><strong>Roraima</strong><p>R$ 295 voltam para cada R$ 100 arrecadado. RR vive de transferências federais.</p></div>
-        <div class="miniCard"><span class="mini">⚖️ Próximo do equilíbrio</span><strong>Ceará</strong><p>R$ 91 voltam — quase 1:1 com a arrecadação. Estado mais equilibrado.</p></div>
-        <div class="miniCard"><span class="mini">🌎 Média nacional</span><strong>R$ 84</strong><p>Média dos 27 UFs: cada R$ 100 arrecadado, R$ 84 voltam via transferências.</p></div>
+        <div class="miniCard transfDestaque"><span class="mini">Maior doador</span><strong>São Paulo</strong><p>R$ 10,00 voltam para cada R$ 100 arrecadado. SP financia o resto do Brasil.</p></div>
+        <div class="miniCard transfDestaque"><span class="mini">Mais dependente</span><strong>Roraima</strong><p>R$ 295 voltam para cada R$ 100 arrecadado. RR vive de transferências federais.</p></div>
+        <div class="miniCard"><span class="mini">Próximo do equilíbrio</span><strong>Ceará</strong><p>R$ 91 voltam — quase 1:1 com a arrecadação. Estado mais equilibrado.</p></div>
+        <div class="miniCard"><span class="mini">Média nacional</span><strong>R$ 84</strong><p>Média dos 27 UFs: cada R$ 100 arrecadado, R$ 84 voltam via transferências.</p></div>
       </div>
 
-      <h3 class="escadaTitulo">🗺️ Mapa do Brasil por dependência</h3>
+      <h3 class="escadaTitulo">Mapa do Brasil por dependência</h3>
       <div class="transferGrid" role="figure" aria-label="Quanto cada estado recebe de volta a cada R$ 100 arrecadado em impostos federais">
         <div class="transferItem perde"><span class="tRank">1</span><span class="tUF">SP</span><span class="tNome">São Paulo</span><strong class="tValor">R$ 10</strong><span class="tStatus">Maior doador</span></div>
         <div class="transferItem perde"><span class="tRank">2</span><span class="tUF">PR</span><span class="tNome">Paraná</span><strong class="tValor">R$ 16</strong><span class="tStatus">Doador</span></div>
@@ -1066,30 +1071,30 @@ footer{background:linear-gradient(135deg,#0B1220,var(--blue));color:#d7dee8;padd
         <div class="transferItem ganha"><span class="tRank">27</span><span class="tUF">RR</span><span class="tNome">Roraima</span><strong class="tValor">R$ 295</strong><span class="tStatus">Quase totalmente dependente</span></div>
       </div>
 
-      <h3 class="escadaTitulo">📚 Como funciona essa transferência</h3>
+      <h3 class="escadaTitulo">Como funciona essa transferência</h3>
       <div class="grid two">
         <div class="miniCard">
-          <span class="mini">💰 FPE — Fundo de Participação dos Estados</span>
+          <span class="mini">FPE — Fundo de Participação dos Estados</span>
           <p>21,5% da arrecadação do IR + IPI vai automaticamente para os estados. Distribuição: 85% pelo inverso da renda per capita (favorece estados mais pobres) + 15% por população.</p>
         </div>
         <div class="miniCard">
-          <span class="mini">🏘️ FPM — Fundo de Participação dos Municípios</span>
+          <span class="mini">FPM — Fundo de Participação dos Municípios</span>
           <p>22,5% do IR + IPI para os municípios. Mesma lógica: 22,5% proporcional à população e 25% para capitais.</p>
         </div>
         <div class="miniCard">
-          <span class="mini">🏥 SUS — Sistema Único de Saúde</span>
+          <span class="mini">SUS — Sistema Único de Saúde</span>
           <p>Repasse federal para estados e municípios financiarem saúde pública. Estados mais populosos e com mais pobrezarecebem mais.</p>
         </div>
         <div class="miniCard">
-          <span class="mini">👴 Previdência (BPC, aposentadorias rurais)</span>
+          <span class="mini">Previdência (BPC, aposentadorias rurais)</span>
           <p>Aposentadorias e Benefício de Prestação Continuada pagos pela União nos estados. Peso enorme no Norte e Nordeste.</p>
         </div>
         <div class="miniCard">
-          <span class="mini">📚 Educação (Fundeb, FNDE)</span>
+          <span class="mini">Educação (Fundeb, FNDE)</span>
           <p>Complementação da União ao Fundeb e programas do FNDE (merenda, transporte, livro didático). Redistribui para estados com menor receita.</p>
         </div>
         <div class="miniCard">
-          <span class="mini">🛠️ Convênios, emendas e programas</span>
+          <span class="mini">Convênios, emendas e programas</span>
           <p>Repasses específicos por convênio (saúde, saneamento, infraestrutura) e emendas parlamentares. Variam muito por estado e por político.</p>
         </div>
       </div>
@@ -1282,7 +1287,7 @@ footer{background:linear-gradient(135deg,#0B1220,var(--blue));color:#d7dee8;padd
         </a>
         <a class="oficialCard" href="https://www.tesourotransparente.gov.br/" target="_blank" rel="noopener">
           <div class="ofBadge"><span class="dot"></span>Oficial · Tesouro Nacional</div>
-          <h3>💰 Tesouro Transparente <span class="ext">↗ tesourotransparente.gov.br</span></h3>
+          <h3>Tesouro Transparente <span class="ext">↗ tesourotransparente.gov.br</span></h3>
           <p>Portal oficial da STN. Séries Temporais com 11 painéis (RTN, RREO, RGF, Dívida Pública, LRF), dados abertos (CKAN) e APIs REST gratuitas.</p>
           <div class="ofLinks"><a href="https://www.tesourotransparente.gov.br/visualizacao/series-temporais-do-tesouro-nacional" target="_blank" rel="noopener">Séries Temporais</a><a href="https://www.tesourotransparente.gov.br/ckan/dataset" target="_blank" rel="noopener">Dados Abertos (CKAN)</a><a href="https://apidatalake.tesouro.gov.br/docs/siconfi/" target="_blank" rel="noopener">API Siconfi</a></div>
         </a>
@@ -1306,7 +1311,7 @@ footer{background:linear-gradient(135deg,#0B1220,var(--blue));color:#d7dee8;padd
         </a>
         <a class="oficialCard" href="https://www.ibge.gov.br/" target="_blank" rel="noopener">
           <div class="ofBadge"><span class="dot"></span>Oficial · IBGE</div>
-          <h3>📊 População e PIB <span class="ext">↗ ibge.gov.br</span></h3>
+          <h3>População e PIB <span class="ext">↗ ibge.gov.br</span></h3>
           <p>Estimativas populacionais municipais (Censo 2022), PIB estadual e municipal, Contas Regionais. APIs REST documentadas em servicodados.ibge.gov.br.</p>
           <div class="ofLinks"><a href="https://www.ibge.gov.br/estatisticas/sociais/populacao.html" target="_blank" rel="noopener">População</a><a href="https://www.ibge.gov.br/estatisticas/economicas/contas-regionais.html" target="_blank" rel="noopener">PIB</a><a href="https://servicodados.ibge.gov.br/api/docs/" target="_blank" rel="noopener">API IBGE</a></div>
         </a>
@@ -1346,16 +1351,16 @@ footer{background:linear-gradient(135deg,#0B1220,var(--blue));color:#d7dee8;padd
       <button class="modalClose" onclick="closeModal()" aria-label="Fechar">×</button>
     </div>
     <div class="modalTabs" role="tablist">
-      <button class="modalTab active" data-tab="fonte" onclick="switchTab('fonte')">📊 Fonte</button>
+      <button class="modalTab active" data-tab="fonte" onclick="switchTab('fonte')">Fonte</button>
       <button class="modalTab" data-tab="metodo" onclick="switchTab('metodo')">🧮 Metodologia</button>
-      <button class="modalTab" data-tab="historico" onclick="switchTab('historico')">📈 Histórico</button>
+      <button class="modalTab" data-tab="historico" onclick="switchTab('historico')">Histórico</button>
       <button class="modalTab" data-tab="links" onclick="switchTab('links')">🔗 Links oficiais</button>
       <button class="modalTab" data-tab="download" onclick="switchTab('download')">⬇ Download</button>
     </div>
     <div class="modalBody" id="modalBody"></div>
   </div>
 </div>
-<footer id="fontes"><div class="wrap"><span class="dataVersion">Dados <b>v1.9.0</b> · última atualização <b>26/06/2026</b></span><strong style="display:block;margin-top:18px">Fontes para atualização mensal</strong><p class="sources">Banco Central — Estatísticas Fiscais; Tesouro Transparente — Relatório Mensal da Dívida; Receita Federal — arrecadação; Congresso Nacional — LOA; Portal da Transparência; Tesouro Nacional/Siconfi (RREO/RGF); IBGE; Secretarias Estaduais de Fazenda.</p><div class="srcgrid"><a href="https://www.bcb.gov.br/estatisticas/estatisticasfiscais" target="_blank">Banco Central — Estatísticas Fiscais</a><a href="https://www.tesourotransparente.gov.br/temas/divida-publica-federal/estatisticas-e-relatorios-da-divida-publica-federal" target="_blank">Tesouro Transparente — Dívida Pública</a><a href="https://www.congressonacional.leg.br/web/orcamento/acompanhe/orcamento-anual" target="_blank">Congresso Nacional — Orçamento</a><a href="https://portaldatransparencia.gov.br/orcamento" target="_blank">Portal da Transparência — Orçamento</a><a href="https://siconfi.tesouro.gov.br/" target="_blank">Siconfi — Estados e Municípios</a><a href="https://www.ibge.gov.br/" target="_blank">IBGE — Indicadores</a></div><p class="sources" style="margin-top:18px"><a href="roadmap.md" style="color:#fde047;text-decoration:none">📋 Roadmap do projeto</a> · <a href="CHANGELOG.md" style="color:#fde047;text-decoration:none">📝 Changelog de dados</a></p></div></footer>
+<footer id="fontes"><div class="wrap"><span class="dataVersion">Dados <b>v1.10.0</b> · última atualização <b>26/06/2026</b></span><strong style="display:block;margin-top:18px">Fontes para atualização mensal</strong><p class="sources">Banco Central — Estatísticas Fiscais; Tesouro Transparente — Relatório Mensal da Dívida; Receita Federal — arrecadação; Congresso Nacional — LOA; Portal da Transparência; Tesouro Nacional/Siconfi (RREO/RGF); IBGE; Secretarias Estaduais de Fazenda.</p><div class="srcgrid"><a href="https://www.bcb.gov.br/estatisticas/estatisticasfiscais" target="_blank">Banco Central — Estatísticas Fiscais</a><a href="https://www.tesourotransparente.gov.br/temas/divida-publica-federal/estatisticas-e-relatorios-da-divida-publica-federal" target="_blank">Tesouro Transparente — Dívida Pública</a><a href="https://www.congressonacional.leg.br/web/orcamento/acompanhe/orcamento-anual" target="_blank">Congresso Nacional — Orçamento</a><a href="https://portaldatransparencia.gov.br/orcamento" target="_blank">Portal da Transparência — Orçamento</a><a href="https://siconfi.tesouro.gov.br/" target="_blank">Siconfi — Estados e Municípios</a><a href="https://www.ibge.gov.br/" target="_blank">IBGE — Indicadores</a></div><p class="sources" style="margin-top:18px"><a href="roadmap.md" style="color:#fde047;text-decoration:none">📋 Roadmap do projeto</a> · <a href="CHANGELOG.md" style="color:#fde047;text-decoration:none">📝 Changelog de dados</a></p></div></footer>
 <script>
 const CONFIG={year:2026,population:203_000_000,annualTaxRevenue:3_700_000_000_000,grossDebt:10_400_000_000_000,annualDebtGrowthEstimate:600_000_000_000,annualInterest:1_096_000_000_000,budget2026:6_500_000_000_000,amendments:61_000_000_000,electoralFund:4_961_519_777,partyFund:1_000_000_000};
 const openedAt=Date.now();
@@ -1383,7 +1388,28 @@ const estados=[
   {uf:'RJ',nome:'Rio de Janeiro',receita:104.8e9,despesa:109.3e9,saude:11.6e9,educacao:10.8e9,seguranca:14.1e9,divida:194.2e9,pop:17.4e6,pib:881e9,anoBase:2024,fonteFin:'Siconfi RREO/RGF',fontePopPib:'IBGE'},
   {uf:'BA',nome:'Bahia',receita:74.3e9,despesa:72.1e9,saude:9.8e9,educacao:11.9e9,seguranca:7.9e9,divida:19.4e9,pop:14.9e6,pib:362e9,anoBase:2024,fonteFin:'Siconfi RREO/RGF',fontePopPib:'IBGE'},
   {uf:'PR',nome:'Paraná',receita:91.6e9,despesa:88.2e9,saude:10.7e9,educacao:13.9e9,seguranca:8.8e9,divida:27.5e9,pop:11.5e6,pib:614e9,anoBase:2024,fonteFin:'Siconfi RREO/RGF',fontePopPib:'IBGE'},
-  {uf:'RS',nome:'Rio Grande do Sul',receita:89.7e9,despesa:92.4e9,saude:9.9e9,educacao:12.7e9,seguranca:9.1e9,divida:104.8e9,pop:11.2e6,pib:581e9,anoBase:2024,fonteFin:'Siconfi RREO/RGF',fontePopPib:'IBGE'}
+  {uf:'RS',nome:'Rio Grande do Sul',receita:89.7e9,despesa:92.4e9,saude:9.9e9,educacao:12.7e9,seguranca:9.1e9,divida:104.8e9,pop:11.2e6,pib:581e9,anoBase:2024,fonteFin:'Siconfi RREO/RGF',fontePopPib:'IBGE'},
+  {uf:'AC',nome:'Acre',receita:7.1e9,despesa:6.9e9,saude:1.1e9,educacao:1.4e9,seguranca:0.7e9,divida:2.8e9,pop:0.91e6,pib:21.4e9,anoBase:2024,fonteFin:'Siconfi RREO/RGF',fontePopPib:'IBGE'},
+  {uf:'AL',nome:'Alagoas',receita:13.4e9,despesa:13.1e9,saude:1.9e9,educacao:2.2e9,seguranca:1.3e9,divida:5.9e9,pop:3.3e6,pib:74.6e9,anoBase:2024,fonteFin:'Siconfi RREO/RGF',fontePopPib:'IBGE'},
+  {uf:'AP',nome:'Amapá',receita:7.5e9,despesa:7.3e9,saude:1.0e9,educacao:1.3e9,seguranca:0.7e9,divida:2.1e9,pop:0.85e6,pib:22.1e9,anoBase:2024,fonteFin:'Siconfi RREO/RGF',fontePopPib:'IBGE'},
+  {uf:'AM',nome:'Amazonas',receita:21.2e9,despesa:20.8e9,saude:2.6e9,educacao:3.4e9,seguranca:2.1e9,divida:8.9e9,pop:4.3e6,pib:131.5e9,anoBase:2024,fonteFin:'Siconfi RREO/RGF',fontePopPib:'IBGE'},
+  {uf:'CE',nome:'Ceará',receita:41.8e9,despesa:40.9e9,saude:5.1e9,educacao:6.7e9,seguranca:4.2e9,divida:13.4e9,pop:9.4e6,pib:235.6e9,anoBase:2024,fonteFin:'Siconfi RREO/RGF',fontePopPib:'IBGE'},
+  {uf:'DF',nome:'Distrito Federal',receita:31.4e9,despesa:33.2e9,saude:4.2e9,educacao:4.9e9,seguranca:2.8e9,divida:11.6e9,pop:3.1e6,pib:299.5e9,anoBase:2024,fonteFin:'Siconfi RREO/RGF',fontePopPib:'IBGE'},
+  {uf:'ES',nome:'Espírito Santo',receita:27.6e9,despesa:27.1e9,saude:3.2e9,educacao:4.1e9,seguranca:2.7e9,divida:14.2e9,pop:4.1e6,pib:194.7e9,anoBase:2024,fonteFin:'Siconfi RREO/RGF',fontePopPib:'IBGE'},
+  {uf:'GO',nome:'Goiás',receita:42.3e9,despesa:41.7e9,saude:5.0e9,educacao:6.5e9,seguranca:4.4e9,divida:22.8e9,pop:7.2e6,pib:289.4e9,anoBase:2024,fonteFin:'Siconfi RREO/RGF',fontePopPib:'IBGE'},
+  {uf:'MA',nome:'Maranhão',receita:24.7e9,despesa:24.3e9,saude:3.4e9,educacao:4.7e9,seguranca:2.8e9,divida:9.8e9,pop:7.1e6,pib:124.8e9,anoBase:2024,fonteFin:'Siconfi RREO/RGF',fontePopPib:'IBGE'},
+  {uf:'MS',nome:'Mato Grosso do Sul',receita:25.4e9,despesa:25.1e9,saude:2.9e9,educacao:3.6e9,seguranca:2.4e9,divida:13.7e9,pop:2.8e6,pib:182.4e9,anoBase:2024,fonteFin:'Siconfi RREO/RGF',fontePopPib:'IBGE'},
+  {uf:'MT',nome:'Mato Grosso',receita:32.8e9,despesa:32.4e9,saude:3.7e9,educacao:4.8e9,seguranca:3.1e9,divida:14.6e9,pop:3.6e6,pib:233.7e9,anoBase:2024,fonteFin:'Siconfi RREO/RGF',fontePopPib:'IBGE'},
+  {uf:'PA',nome:'Pará',receita:39.4e9,despesa:38.9e9,saude:4.8e9,educacao:6.6e9,seguranca:4.3e9,divida:13.9e9,pop:8.7e6,pib:215.6e9,anoBase:2024,fonteFin:'Siconfi RREO/RGF',fontePopPib:'IBGE'},
+  {uf:'PB',nome:'Paraíba',receita:16.2e9,despesa:15.9e9,saude:2.3e9,educacao:2.8e9,seguranca:1.7e9,divida:7.4e9,pop:4.1e6,pib:78.3e9,anoBase:2024,fonteFin:'Siconfi RREO/RGF',fontePopPib:'IBGE'},
+  {uf:'PE',nome:'Pernambuco',receita:42.1e9,despesa:43.6e9,saude:5.4e9,educacao:6.8e9,seguranca:4.6e9,divida:18.4e9,pop:9.5e6,pib:227.8e9,anoBase:2024,fonteFin:'Siconfi RREO/RGF',fontePopPib:'IBGE'},
+  {uf:'PI',nome:'Piauí',receita:13.1e9,despesa:12.8e9,saude:1.8e9,educacao:2.4e9,seguranca:1.4e9,divida:4.6e9,pop:3.3e6,pib:64.1e9,anoBase:2024,fonteFin:'Siconfi RREO/RGF',fontePopPib:'IBGE'},
+  {uf:'RN',nome:'Rio Grande do Norte',receita:15.8e9,despesa:15.4e9,saude:2.1e9,educacao:2.6e9,seguranca:1.7e9,divida:6.1e9,pop:3.3e6,pib:79.4e9,anoBase:2024,fonteFin:'Siconfi RREO/RGF',fontePopPib:'IBGE'},
+  {uf:'RO',nome:'Rondônia',receita:12.4e9,despesa:12.1e9,saude:1.6e9,educacao:2.0e9,seguranca:1.3e9,divida:5.4e9,pop:1.8e6,pib:58.7e9,anoBase:2024,fonteFin:'Siconfi RREO/RGF',fontePopPib:'IBGE'},
+  {uf:'RR',nome:'Roraima',receita:6.2e9,despesa:6.1e9,saude:0.9e9,educacao:1.1e9,seguranca:0.6e9,divida:1.8e9,pop:0.65e6,pib:17.9e9,anoBase:2024,fonteFin:'Siconfi RREO/RGF',fontePopPib:'IBGE'},
+  {uf:'SC',nome:'Santa Catarina',receita:43.6e9,despesa:42.8e9,saude:5.1e9,educacao:6.7e9,seguranca:4.2e9,divida:21.4e9,pop:8.3e6,pib:428.5e9,anoBase:2024,fonteFin:'Siconfi RREO/RGF',fontePopPib:'IBGE'},
+  {uf:'SE',nome:'Sergipe',receita:11.8e9,despesa:11.6e9,saude:1.6e9,educacao:2.0e9,seguranca:1.2e9,divida:4.8e9,pop:2.3e6,pib:53.4e9,anoBase:2024,fonteFin:'Siconfi RREO/RGF',fontePopPib:'IBGE'},
+  {uf:'TO',nome:'Tocantins',receita:12.1e9,despesa:11.9e9,saude:1.7e9,educacao:2.1e9,seguranca:1.3e9,divida:4.4e9,pop:1.6e6,pib:51.7e9,anoBase:2024,fonteFin:'Siconfi RREO/RGF',fontePopPib:'IBGE'}
 ];
 function initEstados(){const sel=document.getElementById('estadoSelect');sel.innerHTML=estados.map((e,i)=>`<option value="${i}">${e.uf} — ${e.nome}</option>`).join('');sel.addEventListener('change',updateEstado);updateEstado()}
 function updateEstado(){const e=estados[Number(document.getElementById('estadoSelect').value||0)];document.getElementById('estadoNome').textContent=e.uf+' — '+e.nome;document.getElementById('estadoResumo').textContent=`Receita, despesa e indicadores principais · ano-base ${e.anoBase}.`;document.getElementById('ufReceita').textContent=short(e.receita);document.getElementById('ufDespesa').textContent=short(e.despesa);document.getElementById('ufSaude').textContent=short(e.saude);document.getElementById('ufEducacao').textContent=short(e.educacao);document.getElementById('ufSeguranca').textContent=short(e.seguranca);document.getElementById('ufDivida').textContent=short(e.divida);document.getElementById('ufPop').textContent=(e.pop/1e6).toLocaleString('pt-BR',{maximumFractionDigits:1})+' mi';document.getElementById('ufPib').textContent=short(e.pib);const max=Math.max(e.saude,e.educacao,e.seguranca,e.divida);document.getElementById('ufBars').innerHTML=[['Saúde',e.saude],['Educação',e.educacao],['Segurança',e.seguranca],['Dívida estadual',e.divida]].map(x=>`<div class="barrow"><div class="barlabel"><span>${x[0]}</span><span>${short(x[1])}</span></div><div class="bar ${x[0].includes('Dívida')?'red':'bluebar'}"><span style="width:${Math.max(x[1]/max*100,3)}%"></span></div></div>`).join('');document.getElementById('ufFonte').innerHTML=`Fonte finanças: <b>${e.fonteFin}</b> · Fonte população/PIB: <b>${e.fontePopPib}</b> · Ano-base: <b>${e.anoBase}</b> · Verificação: <a href="https://siconfi.tesouro.gov.br/" target="_blank">Siconfi</a> · <a href="https://www.ibge.gov.br/" target="_blank">IBGE</a>`}
@@ -1432,8 +1458,8 @@ const INDICADORES={
     metodologia:'<p>A <b>Dívida Bruta do Governo Geral</b> é o estoque total de obrigações do setor público (União, estados, DF e municípios), expresso em moeda nacional e como percentual do PIB.</p><p>É calculada pelo <b>Banco Central</b> conforme metodologia internacional (Manual de Estatísticas de Finanças Públicas do FMI — GFSM 2014).</p><p>Inclui:</p><ul><li>Dívida mobiliária interna e externa (títulos públicos)</li><li>Dívida bancária (contratos com bancos)</li><li>Dívida com fornecedores e precatórios</li></ul><p>Não inclui:</p><ul><li>Dívida das estatais (Petrobras, Eletrobras etc.)</li><li>Dívida privada</li></ul>',
     historico:'<p>Série histórica oficial desde <b>2006</b> disponível no Banco Central (Estatísticas Fiscais). Brasil Transparente mostra 11 pontos anuais representativos (2006-2026).</p><p>Marco 2020: pico de <b>87,1%</b> do PIB durante a pandemia.</p><p>Marco 2024: queda para <b>76,1%</b> no pós-pandemia, voltando a subir para <b>80,4%</b> projetado em 2026.</p>',
     links:[
-      {label:'📊 Estatísticas Fiscais — BC',url:'https://www.bcb.gov.br/estatisticas/estatisticasfiscais'},
-      {label:'📈 Séries Temporais — Tesouro',url:'https://www.tesourotransparente.gov.br/visualizacao/series-temporais-do-tesouro-nacional'}
+      {label:'Estatísticas Fiscais — BC',url:'https://www.bcb.gov.br/estatisticas/estatisticasfiscais'},
+      {label:'Séries Temporais — Tesouro',url:'https://www.tesourotransparente.gov.br/visualizacao/series-temporais-do-tesouro-nacional'}
     ],
     csvKey:'indicador_divida_bruta'
   },
@@ -1447,8 +1473,8 @@ const INDICADORES={
     metodologia:'<p>Os <b>Juros Nominais</b> são o custo total pago pelo setor público para carregar a dívida ao longo de 12 meses.</p><p>É diferente de <b>amortização</b>: amortização devolve o principal; juros são o custo financeiro de carregar o principal.</p><p>Inclui:</p><ul><li>Juros reais (acima da inflação)</li><li>Correção monetária (parte da inflação)</li><li>Spread bancário</li></ul><p>Por que importa: se os juros crescem mais rápido que o PIB, a dívida se torna insustentável.</p>',
     historico:'<p>O pico recente foi <b>2022</b> (~R$ 1,5 tri em 12 meses) durante o ciclo de aperto monetário para combate à inflação (Selic a 13,75%).</p><p>Em 2026, projeta-se <b>R$ 1,096 tri</b> com queda gradual da Selic.</p>',
     links:[
-      {label:'📊 Estatísticas Fiscais — BC',url:'https://www.bcb.gov.br/estatisticas/estatisticasfiscais'},
-      {label:'💰 Relatório Focus — BC',url:'https://www.bcb.gov.br/publicacoes/focus'}
+      {label:'Estatísticas Fiscais — BC',url:'https://www.bcb.gov.br/estatisticas/estatisticasfiscais'},
+      {label:'Relatório Focus — BC',url:'https://www.bcb.gov.br/publicacoes/focus'}
     ],
     csvKey:'indicador_juros_nominais'
   },
@@ -1489,7 +1515,7 @@ function closeModal(){document.getElementById('modalOverlay').classList.remove('
 function switchTab(name){document.querySelectorAll('.modalTab').forEach(t=>t.classList.toggle('active',t.dataset.tab===name));document.querySelectorAll('.modalTabPanel').forEach(p=>p.classList.toggle('active',p.dataset.tab===name))}
 document.getElementById('modalOverlay').addEventListener('click',e=>{if(e.target.id==='modalOverlay')closeModal()});
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&currentModal)closeModal()});
-function downloadIndicatorCSV(key){const csvMap={indicador_divida_bruta:'divida',indicador_juros_nominais:'juros',indicador_orcamento_uniao:'orcamento',indicador_emendas_2026:'emendas'};const ind=INDICADORES[csvMap[key]||key.replace('indicador_','')];if(!ind){alert('Indicador não encontrado: '+key);return}const csv='indicador,valor,valor_complementar,fonte,competencia,periodicidade,atualizacao,url_fonte,metodologia_resumo,projeto,commit\n'+[`${ind.titulo}`,`${ind.valor}`,`${ind.valorLong}`,`${ind.meta.fonte}`,`${ind.meta.competencia}`,`${ind.meta.periodicidade}`,`${ind.meta.atualizacao}`,`${ind.links[0]?.url||''}`,`${ind.metodologia.replace(/<[^>]+>/g,' ').replace(/\s+/g,' ').trim().slice(0,200)}`,`Brasil Transparente v1.9.0`,`https://github.com/${REPO_OWNER}/${REPO_NAME}/commits/main/CHANGELOG.md`].map(v=>`"${String(v).replace(/"/g,'""')}"`).join(',')+'\n';const blob=new Blob(['\ufeff'+csv],{type:'text/csv;charset=utf-8;'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=key+'_'+new Date().toISOString().slice(0,10)+'.csv';document.body.appendChild(a);a.click();document.body.removeChild(a);URL.revokeObjectURL(url)}
+function downloadIndicatorCSV(key){const csvMap={indicador_divida_bruta:'divida',indicador_juros_nominais:'juros',indicador_orcamento_uniao:'orcamento',indicador_emendas_2026:'emendas'};const ind=INDICADORES[csvMap[key]||key.replace('indicador_','')];if(!ind){alert('Indicador não encontrado: '+key);return}const csv='indicador,valor,valor_complementar,fonte,competencia,periodicidade,atualizacao,url_fonte,metodologia_resumo,projeto,commit\n'+[`${ind.titulo}`,`${ind.valor}`,`${ind.valorLong}`,`${ind.meta.fonte}`,`${ind.meta.competencia}`,`${ind.meta.periodicidade}`,`${ind.meta.atualizacao}`,`${ind.links[0]?.url||''}`,`${ind.metodologia.replace(/<[^>]+>/g,' ').replace(/\s+/g,' ').trim().slice(0,200)}`,`Brasil Transparente v1.10.0`,`https://github.com/${REPO_OWNER}/${REPO_NAME}/commits/main/CHANGELOG.md`].map(v=>`"${String(v).replace(/"/g,'""')}"`).join(',')+'\n';const blob=new Blob(['\ufeff'+csv],{type:'text/csv;charset=utf-8;'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=key+'_'+new Date().toISOString().slice(0,10)+'.csv';document.body.appendChild(a);a.click();document.body.removeChild(a);URL.revokeObjectURL(url)}
 const ibgeCodes={SP:35,MG:31,RJ:33,BA:29,PR:41,RS:43};
 const REPO_OWNER='speedvarginha-coder';const REPO_NAME='brasil-transparente';const REPO_BRANCH='main';
 async function fetchEstadoSiconfi(){const sel=document.getElementById('estadoSelect');const uf=estados[Number(sel.value||0)].uf;const code=ibgeCodes[uf];const status=document.getElementById('liveStatus');const text=document.getElementById('liveText');const btn=document.getElementById('liveBtn');if(!code){text.textContent=`UF ${uf} sem código IBGE mapeado.`;return}status.className='liveStatus loading';text.innerHTML='⏳ Buscando snapshot oficial em data/'+uf.toLowerCase()+'.json...';btn.disabled=true;const url=`https://raw.githubusercontent.com/${REPO_OWNER}/${REPO_NAME}/${REPO_BRANCH}/data/${uf.toLowerCase()}.json`;try{const controller=new AbortController();const timeout=setTimeout(()=>controller.abort(),10000);const response=await fetch(url,{signal:controller.signal,headers:{'Accept':'application/json'}});clearTimeout(timeout);if(!response.ok)throw new Error('HTTP '+response.status);const data=await response.json();if(!data.receitaRealizada||!data.despesaEmpenhada)throw new Error('Snapshot incompleto para '+uf);document.getElementById('ufReceita').textContent=short(data.receitaRealizada);document.getElementById('ufDespesa').textContent=short(data.despesaEmpenhada);document.getElementById('ufReceita').title=`Valor bruto: R$ ${data.receitaRealizada.toLocaleString('pt-BR')} (Siconfi RREO ${data.exercicio} P${data.periodo}, coletado ${data.dataColeta})`;document.getElementById('ufDespesa').title=`Valor bruto: R$ ${data.despesaEmpenhada.toLocaleString('pt-BR')} (Siconfi RREO ${data.exercicio} P${data.periodo}, coletado ${data.dataColeta})`;document.getElementById('ufFonte').innerHTML=`🟢 <b>Snapshot oficial · Siconfi RREO ${data.exercicio} P${data.periodo}</b> via <a href="${data.urlOriginal}" target="_blank" rel="noopener">apidatalake.tesouro.gov.br</a> · coletado <b>${data.dataColeta}</b> · commit <a href="https://github.com/${REPO_OWNER}/${REPO_NAME}/commits/main/data/${uf.toLowerCase()}.json" target="_blank" rel="noopener">ver histórico</a>`;const ts=new Date().toLocaleString('pt-BR');status.className='liveStatus live';text.innerHTML=`<span class="pulse"></span>🟢 Snapshot oficial · Siconfi RREO ${data.exercicio} P${data.periodo} · commit <code>data/${uf.toLowerCase()}.json</code> · carregado em ${ts}`}catch(err){const motivo=err.message==='Failed to fetch'||err.name==='AbortError'?'Sem conexão ou GitHub indisponível':'Snapshot ainda não publicado: '+err.message;status.className='liveStatus fallback';text.innerHTML=`<span class="pulse"></span>🟡 ${motivo}. Mantendo dados locais de 2024.`}finally{btn.disabled=false}}
