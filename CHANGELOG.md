@@ -4,6 +4,45 @@ Registro público de toda alteração em dados, regras de cálculo ou fontes. Fo
 
 ---
 
+## [v1.8.0] — 2026-06-26 — Custo parlamentar com médias + Imposto no dia a dia
+
+### Adicionado
+- **Seção `#parlamentar` com médias concretas**:
+  - Deputado Federal: subsídio R$ 46.366,19 + verba de gabinete R$ 165.806,07 + **CEAPS até R$ 30.788,00/mês** (uniforme por lei federal) + 5-25 assessores. **Custo total médio mensal ≈ R$ 247 mil**.
+  - Senador: subsídio R$ 46.366,19 + **CEAPS Senado ≈ R$ 30.000/mês** (teto médio) + estrutura gabinete/escritório de apoio **≈ R$ 150-200 mil/mês** + até 25 assessores. **Custo total médio mensal ≈ R$ 230-280 mil**.
+  - 3 miniCards de totais anuais: Câmara R$ 1,52 bi · Senado R$ 245 mi · Congresso total R$ 1,77 bi (0,027% do orçamento).
+- **Nova seção `#impostos-cotidiano`** com 18 itens domésticos mostrando % de imposto estimado:
+  - **Alta carga (>30%)**: Cigarro 70%, Cerveja 50%, Gasolina 45%, Celular 40%, Refrigerante 38%, Internet 35%, Energia 30%.
+  - **Carga média (15-30%)**: Carro popular 28%, Moto 25%, TV por assinatura 25%, Roupas 22%, Medicamento 20%, Café 18%, Carne bovina 15%.
+  - **Cesta básica (<15%)**: Leite 12%, Pão 11%, Arroz 10%, Frango 9%.
+  - Cada card mostra emoji, nome, % e exemplo em R$.
+  - Barra visual horizontal proporcional ao % (cor: vermelho alto / amarelo médio / verde baixo).
+  - Box de impacto: família de 4 pessoas gasta **R$ 6.800 a R$ 8.200/ano em imposto embutido** — 1 a 2 meses de salário mínimo só nisso.
+- **CSS novo**: `.impostoGrid`, `.impostoItem.alto/.medio/.baixo`, `.impEmoji`, `.impNome`, `.impPct`, `.impBar`, `.impEx`.
+- **Nav lateral**: novo item "Imposto no dia a dia".
+- **CSV `impostos_cotidiano`** com 18 linhas + colunas `item,categoria,percentual_imposto,exemplo_preco,imposto_estimado,fonte`.
+
+### Corrigido (UX)
+- Substituído "varia por estado" na seção parlamentar por **CEAPS de R$ 30.788,00 (Deputado, fixo por lei federal)** e faixas médias com explicação (Senador, com teto CEAPS + faixa de estrutura física conforme UF).
+
+### Fontes utilizadas
+- Câmara dos Deputados — Resolução que fixa verba de gabinete e teto CEAPS.
+- Senado Federal — CEAPS e estrutura de gabinetes.
+- Confaz — ICMS médio por estado.
+- Receita Federal — PIS/COFINS, IPI.
+- ANP — preços médios de combustíveis.
+- Anatel — telecomunicações.
+- Aneel — energia elétrica.
+- IBGE — carga tributária bruta (% PIB).
+
+### Premissas didáticas
+- Para a gasolina, o cálculo soma ICMS (média nacional ~28%) + PIS/COFINS (~R$ 0,13/L fixo, equivalente a ~2% ad valorem médio) + CIDE (R$ 0,10/L fixo).
+- Para telecom, considera ICMS (25%) + PIS/COFINS (3,65%) + FUST (1%) + FUNTEL (0,5%).
+- Itens da cesta básica têm ICMS reduzido por lei federal (7% em SP/MG, 12% na maioria dos estados) — referência é a média nacional.
+- Percentuais arredondados para inteiros para comunicação; precisão está na fonte.
+
+---
+
 ## [v1.7.0] — 2026-06-26 — Linha do tempo Dívida/PIB com períodos coloridos + LRF
 
 ### Adicionado
