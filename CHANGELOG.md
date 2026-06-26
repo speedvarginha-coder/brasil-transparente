@@ -33,6 +33,12 @@ Registro público de toda alteração em dados, regras de cálculo ou fontes. Fo
 
 ### JS atualizado
 - `drawTimeline()` agora classifica cada barra por período e posiciona a linha do LRF proporcionalmente (calculado em `requestAnimationFrame` para respeitar altura real do container).
+- Adicionada altura inline `style="height:${h}%"` em cada `.tcol` baseada no valor (% do PIB × 0.85). Antes as barras não tinham altura explícita e ficavam invisíveis (altura natural ≈ 0 com filhos `position:absolute`).
+- Bugfix: chave `}` de fechamento da função `drawTimeline()` que faltava no commit anterior — quebrava todo o JS subsequente (`drawTimeline is not defined`, gráfico vazio).
+
+### Validação
+- Validei o JS inline extraindo o `<script>` e rodando `new Function()` em Node — agora `OK` sem erros de sintaxe.
+- Confirmei via Playwright que as 11 barras renderizam com altura proporcional real: 2008 (menor) = 74 px, 2020 (pico) = 165 px, 2026 (proj) = 152 px.
 
 ### Fontes / Referências
 - Banco Central — Estatísticas Fiscais (série anual Dívida Bruta / PIB).
